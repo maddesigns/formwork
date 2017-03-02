@@ -1,0 +1,10 @@
+// disabled styles
+form [disabled],
+[disabled] + label {
+	color: GrayText;
+	cursor: not-allowed;
+
+	* {
+		cursor: inherit;
+	}
+}

@@ -1,6 +1,7 @@
 /* Input & Textarea ------------------ */
 
 /* Fields with standard width */
+input:not([type]),
 [type="text"],
 [type="email"],
 [type="password"],
@@ -44,12 +45,14 @@ textarea {
 
 
 /* Fields with standard height */
+input:not([type]),
 [type="text"],
 [type="email"],
 [type="password"],
 [type="search"],
 [type="color"],
 [type="date"],
+[type="datetime"],
 [type="datetime-local"],
 [type="month"],
 [type="number"],
@@ -79,8 +82,4 @@ textarea {
 [type=color]::-moz-focus-inner {
   border: none; /* Remove browser's padding around color in color picker */
   padding: 0; /* Remove browser's padding around color in color picker */
-}
-
-[type="file"] {
-
 }

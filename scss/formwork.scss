@@ -5,20 +5,8 @@
 //
 @import "fieldset";
 @import "inputs";
+//@import "filetype";
 @import "select";
 @import "buttons";
 
-
-form [disabled] {
-	color: GrayText;
-	cursor: not-allowed;
-
-	* {
-		cursor: inherit;
-	}
-}
-
-
-div {
-	margin: 2em;
-}
+@import "disabled";

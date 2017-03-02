@@ -54,4 +54,5 @@ label {
 	font-family: $fw-font-family;
 	//display: $fw-display;
 	//@include center-layout;
+	user-select: none;
 }
