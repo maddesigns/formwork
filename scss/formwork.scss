@@ -1,0 +1,24 @@
+
+// Config -----------------------------
+@import "variables";
+@import "form_reset";
+//
+@import "fieldset";
+@import "inputs";
+@import "select";
+@import "buttons";
+
+
+form [disabled] {
+	color: GrayText;
+	cursor: not-allowed;
+
+	* {
+		cursor: inherit;
+	}
+}
+
+
+div {
+	margin: 2em;
+}

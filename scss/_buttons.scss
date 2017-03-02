@@ -1,0 +1,200 @@
+
+
+// Buttons & Input Submits
+$fw-button-height:      40px               !default;
+$fw-button-width:       100%               !default;
+$fw-button-max-width:   200px              !default;
+$fw-button-radius:      $fw-border-radius  !default;
+
+$fw-button-font-color:  $fw-font-color     !default;
+$fw-button-bg-color:    $fw-focus-bg-color !default;
+
+$fw-button-hover-bg-color: $fw-border-color !default;
+$fw-button-hover-color: $fw-font-color     !default;
+
+
+
+
+$BILDbuttons: "btn";
+$BILDbuttons__spacing: 6px;
+
+// btn-icon
+$BILDbuttonicon__colortext: #fff;
+$BILDbuttonicon__btnsize: 40px;
+
+
+
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"],
+[type="image"] {
+	@extend %btn-base;
+
+	// background-color: $fw-button-bg-color;
+	// color: $fw-button-font-color;
+	// font-weight: 700;
+
+	// height: $fw-button-height;
+	// width: $fw-button-width;
+	// max-width: $fw-button-max-width;
+	// padding: $fw-input-height / 5;
+
+
+	// -webkit-appearance: none;
+	// -moz-appearance: none;
+
+	// border-radius: $fw-border-radius;
+	// border: $fw-border-width $fw-border-style $fw-border-color;
+
+
+
+
+
+	color: $fw-font-color;
+	font-family: $fw-font-family;
+
+	@if ($fw-font-size < 16px) {
+		font-size: 16px;
+		@warn "The font-size ($fw-font-size) should be minimum 16px to avoid iOS zooming. You set font-size to #{$fw-font-size}";
+	}
+	@else {
+		font-size: $fw-font-size;
+	}
+
+	display: $fw-display;
+	width: $fw-input-width;
+	max-width: $fw-input-max-width;
+	padding: $fw-input-height / 5;
+	background-color: $fw-input-bg-color;
+
+	border-radius: $fw-border-radius;
+	border: $fw-border-width $fw-border-style $fw-border-color;
+}
+
+
+
+// button base styles
+%btn-base {
+
+	@if ($fw-styled-buttons) {
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		min-width: 0;
+		padding: $BILDbuttons__spacing;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		transition: background 100ms ease-in;
+		vertical-align: middle;
+		white-space: normal;
+
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 1 0 180px;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		// to do
+	}
+
+
+	// disabled
+	//
+	// &[disabled],
+	// fieldset[disabled] & {
+	// 	&,
+	// 	&:hover,
+	// 	&:focus,
+	// 	&:active {
+	// 		// to do
+	// 		cursor: not-allowed;
+	// 	}
+	// }
+
+	&::before,
+	&::after {
+		color: inherit;
+	}
+}
+
+
+// normal buttons
+
+// .#{$BILDbuttons} {
+// 	@extend %btn-base;
+// 	background-color: $shygrey;
+// 	color: $darkgrey;
+
+// 	&:hover,
+// 	&:focus {
+// 		background-color: shade($shygrey, 10%);
+// 		color: $darkgrey;
+// 	}
+
+// 	// single button should right aligned and has a min-width of 50%;
+// 	&:only-child:not(.btn--full) {
+// 		min-width: 50%;
+// 		flex: none;
+// 	}
+
+// 	// Button "submit"
+// 	&--submit {
+// 		background-color: $grey;
+// 		color: $white;
+
+// 		&:hover,
+// 		&:focus {
+// 			background-color: shade($grey, 10%);
+// 			color: $white;
+// 		}
+// 	}
+
+// 	// Button "CTA"
+// 	&--cta {
+// 		background-color: $color-main;
+// 		color: $white;
+
+// 		&:hover,
+// 		&:focus {
+// 			background-color: shade($color-main, 10%);
+// 			color: $white;
+// 		}
+// 	}
+
+// 	// Button Text
+// 	&--text {
+// 		background-color: transparent;
+// 		font-weight: 400;
+// 		text-decoration: underline;
+
+// 		&:focus,
+// 		&:hover {
+// 			background-color: $shygrey;
+// 			color: $black;
+// 		}
+
+// 		.fonts-loaded & {
+// 			font-family: $font-alternate-nar;
+// 			font-weight: 400;
+// 			font-size: 18px;
+// 		}
+// 	}
+
+// 	&--inverted {
+// 		background-color: $white;
+// 		color: $color-main;
+
+// 		&:hover,
+// 		&:focus {
+// 			background-color: shade($white, 10%);
+// 			color: $color-main;
+// 		}
+// 	}
+// }

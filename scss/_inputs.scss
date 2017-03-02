@@ -1,0 +1,86 @@
+/* Input & Textarea ------------------ */
+
+/* Fields with standard width */
+[type="text"],
+[type="email"],
+[type="password"],
+[type="search"],
+[type="color"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="number"],
+[type="tel"],
+[type="time"],
+[type="url"],
+[type="week"],
+[type="file"],
+[list],
+select,
+textarea {
+
+	background-color: $fw-input-bg-color;
+	border-radius: $fw-border-radius;
+	border: $fw-border-width $fw-border-style $fw-border-color;
+	color: $fw-font-color;
+	display: $fw-display;
+	font-family: $fw-font-family;
+
+	@if ($fw-font-size < 16px) {
+		font-size: 16px;
+		@warn "The font-size ($fw-font-size) should be minimum 16px to avoid iOS zooming. You set font-size to #{$fw-font-size}";
+	}
+	@else {
+		font-size: $fw-font-size;
+	}
+
+	max-width: $fw-input-max-width;
+	padding: $fw-input-height / 5;
+	width: $fw-input-width;
+
+}
+
+
+
+/* Fields with standard height */
+[type="text"],
+[type="email"],
+[type="password"],
+[type="search"],
+[type="color"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="number"],
+[type="tel"],
+[type="time"],
+[type="url"],
+[type="week"],
+[list] {
+	height: $fw-input-height;
+	appearance: none;
+}
+
+
+/* Color */
+/* Chrome styles */
+[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0; /* Remove browser's padding around color picker */
+}
+[type=color]::-webkit-color-swatch {
+  border: none; /* Remove browser's border around color in color picker */
+}
+
+/* Firefox styles */
+[type=color]::-moz-color-swatch {
+  border: none; /* Remove browser's border around color in color picker */
+}
+[type=color]::-moz-focus-inner {
+  border: none; /* Remove browser's padding around color in color picker */
+  padding: 0; /* Remove browser's padding around color in color picker */
+}
+
+[type="file"] {
+
+}

@@ -1,0 +1,28 @@
+// input placeholder styling
+
+$darkergrey: #333;
+
+$form_placeholder_prefixes: (
+	'::-webkit-input-placeholder',
+	':-moz-placeholder',
+	'::-moz-placeholder',
+	':-ms-input-placeholder',
+	'::-ms-input-placeholder',
+	'::placeholder',
+	':placeholder-shown'
+);
+
+
+@each $prefix in $form_placeholder_prefixes {
+
+	input[placeholder]#{$prefix},
+	textarea[placeholder]#{$prefix} {
+		color: $darkergrey;
+		opacity: 1;
+		text-overflow: ellipsis;
+	}
+	input[placeholder]:focus#{$prefix},
+	textarea[placeholder]:focus#{$prefix} {
+		color: transparent !important;
+	}
+}
