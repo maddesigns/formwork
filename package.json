@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass":    "node-sass --output-style expanded < formwork.scss | postcss -u autoprefixer > formwork.css",
-    "sassmin": "node-sass < formwork.scss | postcss --no-map -u autoprefixer -u cssnano > formwork.min.css",
+    "sass":    "node-sass --output-style expanded --include-path scss < scss/formwork.scss | postcss -u autoprefixer > formwork.css",
+    "sassmin": "node-sass --include-path scss < scss/formwork.scss | postcss --no-map -u autoprefixer -u cssnano > formwork.min.css",
     "start": "node bs-simple.js",
     "build": "npm run sass && npm run sassmin",
-    "watch:sass": "node-sass -w --output-style expanded ./*.scss -o ./",
+    "watch:sass": "node-sass -w --output-style expanded ./scss/formwork.scss -o ./",
     "watch:all": "parallelshell 'npm run watch:sass' 'npm start'"
   },
   "repository": {
