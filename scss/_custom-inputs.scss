@@ -1,0 +1,195 @@
+//
+
+// custom checkbox/radios
+$fw-check-height:             14px                   !default;
+$fw-check-width:              $fw-check-height        !default;
+$fw-check-scale:              4px                    !default; // optimized for even numbers
+$fw-check-input-bg-color:     $fw-input-bg-color     !default;
+$fw-check-border-width:       $fw-border-width       !default;
+$fw-check-border-color:       $fw-border-color       !default;
+$fw-check-focus-color:        $fw-focus-color        !default;
+$fw-check-focus-bg-color:     $fw-focus-bg-color     !default;
+$fw-check-focus-border-color: $fw-focus-border-color !default;
+
+// visually hide elements the accessible way
+@mixin vh {
+	border: 0                      !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	clip-path: inset(50%)          !important;
+	height: 1px                    !important;
+	overflow: hidden               !important;
+	padding: 0                     !important;
+	position: absolute             !important;
+	width: 1px                     !important;
+	white-space: nowrap            !important;
+}
+
+// if custom checkboxes
+@if ($fw-styled-inputs) {
+	[type="checkbox"],
+	[type="radio"] {
+		@include vh();
+
+		&:focus {
+			+ label {
+				&:before {
+					box-shadow: 0 0 0 2px rgba($fw-check-focus-color, 0.4);
+				}
+			}
+		}
+
+		&:hover {
+			+ label {
+				&:before {
+					border-color: $fw-check-focus-border-color;
+				}
+			}
+		}
+
+		&:active {
+			+ label {
+				&:before {
+					transition-duration: 0;
+				}
+			}
+		}
+
+		+ label {
+			position: relative;
+			padding: 10px;
+			padding-left: 2em;
+			vertical-align: middle;
+			user-select: none;
+
+			&:before {
+				border: $fw-check-border-width solid $fw-check-border-color;
+				box-sizing: content-box;
+				content: '';
+				color: $fw-check-border-color;
+				margin-top: -($fw-check-height/2 + $fw-check-border-width);
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: $fw-check-width;
+				height: $fw-check-height;
+				text-align: center;
+			}
+			&:after {
+				box-sizing: content-box;
+				content: '';
+				background-color: $fw-border-color;
+				position: absolute;
+				top: 50%;
+				left: $fw-check-border-width + $fw-check-scale/2;
+				width: $fw-check-width - $fw-check-scale;
+				height: $fw-check-height -$fw-check-scale;
+				margin-top: -(($fw-check-height - $fw-check-scale)/2);
+				transform: scale(0);
+				transform-origin: 50%;
+				transition: transform 200ms ease-out;
+			}
+		}
+
+		&[disabled] {
+			+ label {
+				&:before {
+					animation: none;
+					border-color: rgba(128, 128, 128, 0.5);
+				}
+			}
+
+			&:active,
+			&:focus,
+			&:hover {
+				+ label {
+					&:before {
+						border-color: rgba(128, 128, 128, 0.5);
+						filter: none;
+						transition: none;
+					}
+				}
+			}
+		}
+	}
+
+	[type="checkbox"]{
+		+ label {
+			&:after {
+				background-color: transparent;
+				top: 50%;
+				left: $fw-check-border-width + $fw-check-scale/2;
+				width: 8px;
+				height: 3px;
+				margin-top: -4px;
+				border-style: solid;
+				border-color: $fw-border-color;
+				border-width: 0 0 3px 3px;
+				border-image: none;
+				transform: rotate(-45deg) scale(0);
+				transition: none;
+
+			}
+		}
+		&:checked {
+			+ label {
+				&:after {
+					content: ''; //\2713';
+					transform: rotate(-45deg) scale(1);
+					transition: transform 200ms ease-out;
+				}
+			}
+		}
+	}
+
+	[type="radio"] {
+		&:checked {
+
+			&:active,
+			&:focus {
+				+ label {
+					&:before {
+						animation: none;
+						filter: none;
+						transition: none;
+					}
+				}
+			}
+
+			+ label {
+				&:before {
+					animation: borderscale 300ms ease-in;
+					background-color: $fw-check-input-bg-color;
+				}
+				&:after {
+					transform: scale(1);
+				}
+			}
+		}
+
+		+ label {
+			&:before,
+			&:after {
+				border-radius: 50%;
+			}
+		}
+	}
+
+	[type="checkbox"]{
+		&:checked {
+			+ label {
+				&:before {
+					animation: borderscale 200ms ease-in;
+				}
+				&:after {
+					transform: rotate(-45deg) scale(1);
+				}
+			}
+		}
+	}
+
+	@keyframes borderscale {
+		50% {
+			box-shadow: 0 0 0 2px $fw-check-border-color;
+		}
+	}
+}
