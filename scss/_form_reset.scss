@@ -169,9 +169,15 @@ button,
 legend,
 fieldset {
   box-sizing: border-box;
+
+  // remove outline offset
+  &:focus {
+    outline-offset: 0;
+  }
 }
 
 optgroup {
   font-weight: bold;
   font-style: normal;
 }
+
