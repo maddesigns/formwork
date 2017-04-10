@@ -7,41 +7,57 @@ select {
 	&[size] {
 		height: auto;
 	}
-  // appearance: none;
-  // background-color: #fff;
-  // background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%234D4D4D%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E);
-  // background-repeat: no-repeat;
-  // background-position: 95% 50%;
-  // border: 1px solid grey;
-  // border-radius: 0;
-  // padding: 0.25em 0.4em;
-  // padding-right: 1.5em;
 
-  // &:focus,
-  // &:hover {
-  //   border-color: black;
-  //   outline: none;
-  // }
+	@if ($fw-styled-inputs) {
+		// custom-select ▾
+		appearance: none;
+		background-color: $fw-input-bg-color;
+		background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%234D4D4D%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E);
+		background-repeat: no-repeat;
+		background-position: right 10px center;
+		border: $fw-border-width $fw-border-style $fw-border-color;
+		border-radius: $fw-border-radius;
+		padding: $fw-input-padding;
+		padding-right: 1.5em;
 
-  // &:active {
-  //   border-color: #900;
-  // }
+		&[size] {
+			background: none;
+			padding-right: $fw-input-padding;
+		}
+		// &:focus,
+		// &:hover {
+		// 	border-color: black;
+		// 	outline: none;
+		// }
 
- // Fix Firefox dotted focusring
- &:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
-  }
+		// &:active {
+		// 	border-color: #900;
+		// }
+
+		&[disabled] {
+			background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%23cccccc%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E);
+		}
+	}
+
+
+	// Fix Firefox dotted focusring
+	&:-moz-focusring {
+		color: transparent;
+		text-shadow: 0 0 0 #000;
+	}
 }
 
- /* IE 10/11+ - This hides native dropdown button arrow so it will have the custom appearance, IE 9 and earlier get a native select - targeting media query hack via http://browserhacks.com/#hack-28f493d247a12ab654f6c3637f6978d5 - looking for better ways to achieve this targeting */
+
+/* IE 10/11+ - This hides native dropdown button arrow so it will have the custom appearance, IE 9 and earlier get a native select - targeting media query hack via http://browserhacks.com/#hack-28f493d247a12ab654f6c3637f6978d5 - looking for better ways to achieve this targeting */
 /* The second rule removes the odd blue bg color behind the text in the select button in IE 10/11 and sets the text color to match the focus style's - fix via http://stackoverflow.com/questions/17553300/change-ie-background-color-on-unopened-focused-select-box */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-	select::-ms-expand {
-		display: none;
-	}
-	select:focus::-ms-value {
-		background: transparent;
-		color: grey;
+@if ($fw-styled-inputs) {
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		select::-ms-expand {
+			display: none;
+		}
+		select:focus::-ms-value {
+			background: transparent;
+			color: grey;
+		}
 	}
 }
