@@ -1,0 +1,48 @@
+// Theming for Go
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:             false;
+
+// Layout
+$fw-centered:                  false;
+$fw-display:                   block;
+$fw-styled-inputs:             true;  // styled radio/checkbox/select
+
+// Font
+$fw-font-family:               inherit;
+$fw-font-size:                 16px;
+$fw-font-color:                #222;
+
+// Borders
+$fw-border-width:              1px;
+$fw-border-style:              solid;
+$fw-border-color:              #709b3f;
+$fw-border-radius:             0;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:              40px;
+$fw-input-width:               100%;
+$fw-input-max-width:           600px;
+$fw-input-bg-color:            white;
+
+$fw-focus-bg-color:            white;
+$fw-focus-border-color:        black;
+$fw-focus-color:               #333;
+
+// buttons
+$fw-btn-color:                 white;
+$fw-btn-bg-color:              #666;
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        #2caae1;
+// buttons submit
+$fw-btn-submit-bg-color:       #709b3f;
+$fw-btn-submit-color:          white;
+$fw-btn-submit-hover-bg-color: #2caae1;
+$fw-btn-submit-hover-color:    white;
+// buttons CTA
+$fw-btn-cta-bg-color:          #2caae1;
+$fw-btn-cta-color:             white;
+$fw-btn-cta-hover-bg-color:    black;
+$fw-btn-cta-hover-color:       white;
+
+@import "../../formwork";
