@@ -9,8 +9,7 @@ $fw-fieldset-bare:      false              !default;
 // Layout
 $fw-centered:           false              !default;
 $fw-display:            block              !default;
-$fw-styled-inputs:      false              !default;
-$fw-styled-buttons:     false              !default;
+$fw-styled-inputs:      true               !default;
 
 // Font
 $fw-font-family:        inherit            !default;
@@ -27,8 +26,9 @@ $fw-border-radius:      5px                !default;
 $fw-input-height:       40px               !default;
 $fw-input-width:        100%               !default;
 $fw-input-max-width:    600px              !default;
+$fw-input-padding:      $fw-input-height/5 !default;
 $fw-input-bg-color:     #fff               !default;
 
 $fw-focus-bg-color:     #555555            !default;
 $fw-focus-border-color: $fw-border-color   !default;
-$fw-focus-font-color:   $fw-font-color     !default;
+$fw-focus-color:        $fw-font-color     !default;
