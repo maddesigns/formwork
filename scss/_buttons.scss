@@ -1,58 +1,42 @@
-
+// Button Styles (button, [type="button"],[type="reset"],[type="submit"],[type="image"], a.btn)
 
 // Buttons & Input Submits
-$fw-button-height:      40px               !default;
-$fw-button-width:       100%               !default;
-$fw-button-max-width:   200px              !default;
-$fw-button-radius:      $fw-border-radius  !default;
+$fw-btn-class:                 "btn"               !default;
+$fw-btn-height:                $fw-input-height    !default;
+$fw-btn-width:                 $fw-input-width     !default;
+$fw-btn-max-width:             $fw-input-max-width !default;
+$fw-btn-radius:                $fw-border-radius   !default;
+$fw-btn-border:                none                !default;
 
-$fw-button-font-color:  $fw-font-color     !default;
-$fw-button-bg-color:    $fw-focus-bg-color !default;
-
-$fw-button-hover-bg-color: $fw-border-color !default;
-$fw-button-hover-color: $fw-font-color     !default;
-
-
-
-
-$BILDbuttons: "btn";
-$BILDbuttons__spacing: 6px;
-
-// btn-icon
-$BILDbuttonicon__colortext: #fff;
-$BILDbuttonicon__btnsize: 40px;
-
-
+// button colors
+$fw-btn-color:                 white               !default;
+$fw-btn-bg-color:              #888888             !default;
+$fw-btn-hover-color:           white               !default;
+$fw-btn-hover-bg-color:        #666666             !default;
+// buttons submit
+$fw-btn-submit-bg-color:       #222222             !default;
+$fw-btn-submit-color:          white               !default;
+$fw-btn-submit-hover-bg-color: black               !default;
+$fw-btn-submit-hover-color:    white               !default;
+// buttons CTA
+$fw-btn-cta-bg-color:          #da503b             !default;
+$fw-btn-cta-color:             white               !default;
+$fw-btn-cta-hover-bg-color:    black               !default;
+$fw-btn-cta-hover-color:       white               !default;
 
 
 button,
 html [type="button"],
 [type="reset"],
 [type="submit"],
-[type="image"] {
-	@extend %btn-base;
-
-	// background-color: $fw-button-bg-color;
-	// color: $fw-button-font-color;
-	// font-weight: 700;
-
-	// height: $fw-button-height;
-	// width: $fw-button-width;
-	// max-width: $fw-button-max-width;
-	// padding: $fw-input-height / 5;
-
-
-	// -webkit-appearance: none;
-	// -moz-appearance: none;
-
-	// border-radius: $fw-border-radius;
-	// border: $fw-border-width $fw-border-style $fw-border-color;
-
-
-
-
-
-	color: $fw-font-color;
+[type="image"],
+.#{$fw-btn-class} {
+	background-color: $fw-btn-bg-color;
+	border: $fw-btn-border;
+	border-radius: $fw-btn-radius;
+	box-sizing: border-box;
+	color: $fw-btn-color;
+	cursor: pointer;
 	font-family: $fw-font-family;
 
 	@if ($fw-font-size < 16px) {
@@ -63,60 +47,45 @@ html [type="button"],
 		font-size: $fw-font-size;
 	}
 
-	display: $fw-display;
-	width: $fw-input-width;
-	max-width: $fw-input-max-width;
-	padding: $fw-input-height / 5;
-	background-color: $fw-input-bg-color;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 1 0 180px;
 
-	border-radius: $fw-border-radius;
-	border: $fw-border-width $fw-border-style $fw-border-color;
-}
+	height: $fw-btn-height;
+	max-width: $fw-btn-max-width;
+	min-width: 0;
+	padding: $fw-btn-height / 5;
 
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	transition: all 100ms ease-in;
+	vertical-align: middle;
+	white-space: normal;
+	width: $fw-btn-width;
 
-
-// button base styles
-%btn-base {
-
-	@if ($fw-styled-buttons) {
-		border: none;
-		background-color: transparent;
-		cursor: pointer;
-		min-width: 0;
-		padding: $BILDbuttons__spacing;
-		position: relative;
-		text-align: center;
-		text-decoration: none;
-		transition: background 100ms ease-in;
-		vertical-align: middle;
-		white-space: normal;
-
-		display: inline-flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1 0 180px;
+	&:focus,
+	&:hover {
+		background-color: $fw-btn-hover-bg-color;
+		color: $fw-btn-hover-color;
 	}
 
-	&:hover,
-	&:focus,
 	&:active {
 		// to do
 	}
 
-
 	// disabled
-	//
-	// &[disabled],
-	// fieldset[disabled] & {
-	// 	&,
-	// 	&:hover,
-	// 	&:focus,
-	// 	&:active {
-	// 		// to do
-	// 		cursor: not-allowed;
-	// 	}
-	// }
+	&[disabled] {
+		background-color: rgba($fw-btn-bg-color, 0.3);
+
+		&:hover {
+			// to do
+			background-color: rgba($fw-btn-bg-color, 0.3);
+			cursor: not-allowed;
+		}
+	}
 
 	&::before,
 	&::after {
@@ -125,76 +94,53 @@ html [type="button"],
 }
 
 
-// normal buttons
+// Button "submit"
+[type="submit"],
+.#{$fw-btn-class}--submit {
 
-// .#{$BILDbuttons} {
-// 	@extend %btn-base;
-// 	background-color: $shygrey;
-// 	color: $darkgrey;
+	background-color: $fw-btn-submit-bg-color;
+	color: $fw-btn-submit-color;
+
+	&:hover,
+	&:focus {
+		background-color: $fw-btn-submit-hover-bg-color;
+		color: $fw-btn-submit-hover-color;
+	}
+}
+
+// Button "CTA"
+.#{$fw-btn-class}--cta {
+	background-color: $fw-btn-cta-bg-color;
+	color: $fw-btn-cta-color;
+
+	&:hover,
+	&:focus {
+		background-color: $fw-btn-cta-hover-bg-color;
+		color: $fw-btn-cta-hover-color;
+	}
+}
+
+// Button Text
+// &--text {
+// 	background-color: transparent;
+// 	font-weight: 400;
+// 	text-decoration: underline;
+
+// 	&:focus,
+// 	&:hover {
+// 		background-color: $grey;
+// 		color: $black;
+// 	}
+// }
+
+// &--inverted {
+// 	background-color: $fw-input-bg-color;
+// 	color: $color-main;
 
 // 	&:hover,
 // 	&:focus {
-// 		background-color: shade($shygrey, 10%);
-// 		color: $darkgrey;
-// 	}
-
-// 	// single button should right aligned and has a min-width of 50%;
-// 	&:only-child:not(.btn--full) {
-// 		min-width: 50%;
-// 		flex: none;
-// 	}
-
-// 	// Button "submit"
-// 	&--submit {
-// 		background-color: $grey;
-// 		color: $white;
-
-// 		&:hover,
-// 		&:focus {
-// 			background-color: shade($grey, 10%);
-// 			color: $white;
-// 		}
-// 	}
-
-// 	// Button "CTA"
-// 	&--cta {
-// 		background-color: $color-main;
-// 		color: $white;
-
-// 		&:hover,
-// 		&:focus {
-// 			background-color: shade($color-main, 10%);
-// 			color: $white;
-// 		}
-// 	}
-
-// 	// Button Text
-// 	&--text {
-// 		background-color: transparent;
-// 		font-weight: 400;
-// 		text-decoration: underline;
-
-// 		&:focus,
-// 		&:hover {
-// 			background-color: $shygrey;
-// 			color: $black;
-// 		}
-
-// 		.fonts-loaded & {
-// 			font-family: $font-alternate-nar;
-// 			font-weight: 400;
-// 			font-size: 18px;
-// 		}
-// 	}
-
-// 	&--inverted {
-// 		background-color: $white;
+// 		background-color: shade($fw-input-bg-color, 10%);
 // 		color: $color-main;
-
-// 		&:hover,
-// 		&:focus {
-// 			background-color: shade($white, 10%);
-// 			color: $color-main;
-// 		}
 // 	}
 // }
+
