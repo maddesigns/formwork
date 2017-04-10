@@ -3,8 +3,48 @@ form [disabled],
 [disabled] + label {
 	color: GrayText;
 	cursor: not-allowed;
+	outline: none;
+	user-select: none;
 
 	* {
+		border-color: rgba(128, 128, 128, 0.5);
 		cursor: inherit;
+
+		&:hover {
+			border-color: rgba(128, 128, 128, 0.5);
+		}
+	}
+}
+
+[disabled]:not([type="range"]) {
+	border-color: rgba(128, 128, 128, 0.5);
+
+	&:hover {
+		background-color: $fw-input-bg-color;
+		color: GrayText;
+	}
+}
+
+
+// opinionated
+[disabled][type=color]::-webkit-color-swatch-wrapper {
+	opacity: 0.05;
+	filter: grayscale(1);
+}
+
+[disabled][type=color]::-moz-color-swatch {
+	opacity: 0.05;
+	filter: grayscale(1);
+}
+
+// opinionated
+[readonly]:not([type="range"]) {
+	border-color: rgba(128, 128, 128, 0.5);
+	background-color: rgba(128, 128, 128, 0.3);
+
+	&:active,
+	&:focus,
+	&:hover {
+		border-color: rgba(128, 128, 128, 0.5);
 	}
 }
