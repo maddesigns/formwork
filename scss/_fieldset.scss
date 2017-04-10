@@ -4,7 +4,6 @@
  * Change the border, margin, and padding in all browsers (opinionated).
  */
 
-
 fieldset {
 	@if $fw-fieldset-bare == true {
 		border: none;
@@ -13,7 +12,7 @@ fieldset {
 	}
 	@else {
 		border-radius: $fw-border-radius;
-		border: $fw-border-width $fw-border-style $fw-border-color;
+		border: $fw-border-width $fw-border-style $fw-font-color;
 		margin: 0;
 		padding: 0.35em 0.625em 0.75em;
 	}
@@ -27,14 +26,13 @@ fieldset {
  */
 
 legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+	box-sizing: border-box; /* 1 */
+	color: inherit; /* 2 */
+	display: table; /* 1 */
+	max-width: 100%; /* 1 */
+	padding: 0; /* 3 */
+	white-space: normal; /* 1 */
 }
-
 
 
 legend {
@@ -51,8 +49,6 @@ legend {
 
 
 label {
-	font-family: $fw-font-family;
-	//display: $fw-display;
-	//@include center-layout;
+	display: inline-block;
 	user-select: none;
 }
