@@ -1,11 +1,12 @@
-
+@charset "utf-8";
 // Config -----------------------------
 @import "variables";
 @import "form_reset";
 //
 @import "fieldset";
 @import "inputs";
-//@import "filetype";
+@import "custom-inputs";
+@import "filetype";
 @import "select";
 @import "buttons";
 
