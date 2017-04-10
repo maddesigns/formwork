@@ -20,7 +20,6 @@ input:not([type]),
 [list],
 select,
 textarea {
-
 	background-color: $fw-input-bg-color;
 	border-radius: $fw-border-radius;
 	border: $fw-border-width $fw-border-style $fw-border-color;
@@ -37,11 +36,22 @@ textarea {
 	}
 
 	max-width: $fw-input-max-width;
-	padding: $fw-input-height / 5;
+	padding: $fw-input-padding;
 	width: $fw-input-width;
 
-}
+	&:hover {
+		border-color: $fw-focus-border-color;
+		color: $fw-focus-color;
+	}
 
+	&:focus {
+		background-color: $fw-focus-bg-color;
+		border-color: $fw-focus-border-color;
+		box-shadow: 0 0 0 2px rgba($fw-focus-color, 0.4);
+		color: $fw-focus-color;
+		outline: none;
+	}
+}
 
 
 /* Fields with standard height */
@@ -66,20 +76,20 @@ input:not([type]),
 }
 
 
-/* Color */
+/* Color Input */
 /* Chrome styles */
 [type=color]::-webkit-color-swatch-wrapper {
-  padding: 0; /* Remove browser's padding around color picker */
+	padding: 0; /* Remove browser's padding around color picker */
 }
 [type=color]::-webkit-color-swatch {
-  border: none; /* Remove browser's border around color in color picker */
+	border: none; /* Remove browser's border around color in color picker */
 }
 
 /* Firefox styles */
 [type=color]::-moz-color-swatch {
-  border: none; /* Remove browser's border around color in color picker */
+	border: none; /* Remove browser's border around color in color picker */
 }
 [type=color]::-moz-focus-inner {
-  border: none; /* Remove browser's padding around color in color picker */
-  padding: 0; /* Remove browser's padding around color in color picker */
+	border: none; /* Remove browser's padding around color in color picker */
+	padding: 0; /* Remove browser's padding around color in color picker */
 }
