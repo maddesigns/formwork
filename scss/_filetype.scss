@@ -1,16 +1,6 @@
-
-// experienting with label
 [type="file"] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-
-	> [type="button"] {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-
-	}
+	overflow: hidden;
+	white-space: normal;
 }
 
 [type="file"]::-ms-browse {
@@ -18,7 +8,8 @@
 }
 
 [type="file"]::-webkit-file-upload-button {
-
+	overflow: hidden;
+	white-space: normal;
 }
 
 [type="file"]:focus::-webkit-file-upload-button {
@@ -37,49 +28,3 @@
 
 }
 
-
-
-label[for="file"],
-label[for="file2"] {
-	box-sizing: border-box;
-	background-color: $fw-input-bg-color;
-	border-radius: $fw-border-radius;
-	border: $fw-border-width $fw-border-style $fw-border-color;
-	color: $fw-font-color;
-	display: $fw-display;
-	font-family: $fw-font-family;
-
-	@if ($fw-font-size < 16px) {
-		font-size: 16px;
-		@warn "The font-size ($fw-font-size) should be minimum 16px to avoid iOS zooming. You set font-size to #{$fw-font-size}";
-	}
-	@else {
-		font-size: $fw-font-size;
-	}
-
-	max-width: $fw-input-max-width;
-	padding: $fw-input-height / 5;
-	width: $fw-input-width;
-
-}
-/* file selector */
-// input[type="file"] {
-// 	visibility: hidden;
-// 	height: 0;
-// }
-
-
-// input[type=file] { color: transparent; }
-[type="file"] > [type="button"] {
-	display: none;
-}
-
-// from moz default css
-/* button part of file selector */
-input[type="file"] > button[type="button"] {
-  block-size: inherit;
-  font-size: inherit;
-  letter-spacing: inherit;
-  cursor: inherit;
-  background-color: red !important;
-}
