@@ -1,0 +1,335 @@
+// custom range
+//
+// Styling Cross-Browser Compatible Range Inputs with Sass
+// Github: https://github.com/darlanrod/input-range-sass
+// Author: Darlan Rod https://github.com/darlanrod
+// Version 1.4.1
+// MIT License
+
+$fw-thumb-color:              $fw-border-color        !default;
+$fw-thumb-height:             14px                    !default;
+$fw-thumb-width:              $fw-thumb-height        !default;
+$fw-thumb-border-width:       $fw-border-width        !default;
+$fw-thumb-border-style:       $fw-border-style        !default;
+$fw-thumb-border-color:       $fw-border-color        !default;
+$fw-thumb-border-radius:      50%                     !default;
+
+$fw-track-bg-color:           $fw-border-color        !default;
+$fw-track-height:             3px                     !default;
+$fw-track-width:              100%                    !default;
+$fw-track-border-width:       0                       !default;
+$fw-track-border-style:       $fw-border-style        !default;
+$fw-track-border-color:       $fw-border-color        !default;
+$fw-track-border-radius:      $fw-border-radius       !default;
+
+$contrast: 5% !default;
+
+@mixin track() {
+	box-sizing: content-box;
+	background-color: $fw-track-bg-color;
+	border: {
+		width: $fw-track-border-width;
+		style: $fw-track-border-style;
+		color: $fw-track-border-color;
+	}
+	border-radius: $fw-track-border-radius;
+	cursor: pointer;
+	height: $fw-track-height;
+	transition: background-color 0.2s ease-out;
+	width: $fw-track-width;
+	z-index: 1;
+}
+
+@mixin thumb() {
+	box-sizing: content-box;
+	background-color: $fw-thumb-color;
+	border: $fw-thumb-border-width $fw-thumb-border-style $fw-thumb-border-color;
+	border-radius: $fw-thumb-border-radius;
+	cursor: ew-resize; //cursor: pointer;
+	height: $fw-thumb-height;
+	width: $fw-thumb-width;
+
+	box-shadow: inset 0 0 0 2px white, 0 0 0 2px white;
+
+	&:hover {
+		border-color: black;
+	}
+
+}
+
+%range {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	height: $fw-track-height;
+	width: $fw-track-width;
+	max-width: $fw-input-max-width;
+
+	&:focus {
+		outline: 0;
+
+		&::-webkit-slider-runnable-track {
+			background-color: $fw-focus-border-color;
+		}
+
+		&::-webkit-slider-thumb {
+			box-shadow: inset 0 0 0 2px white, 0 0 0 2px rgba(51, 51, 51, 0.4);
+		}
+
+		&::-moz-range-track {
+			background-color: $fw-focus-border-color;
+		}
+
+		&::-moz-range-thumb {
+			box-shadow: inset 0 0 0 2px white, 0 0 0 2px rgba(51, 51, 51, 0.4);
+		}
+
+		&::-moz-focus-outer {
+			border: 0;
+		}
+
+		&::-ms-fill-lower {
+			background-color: $fw-track-bg-color;
+		}
+
+		&::-ms-fill-upper {
+			background-color: red; //lighten($fw-track-bg-color, $contrast);
+		}
+	}
+
+
+	&[disabled] {
+		border-color: rgba(128, 128, 128, 0.5);
+		background-color: rgba(128, 128, 128, 0.5);
+
+		&:hover {
+			background-color: $fw-input-bg-color;
+			color: GrayText;
+		}
+
+		&::-webkit-slider-runnable-track {
+			border-color: rgba(128, 128, 128, 0.5);
+			background-color: rgba(128, 128, 128, 0.5);
+		}
+
+		&::-webkit-slider-thumb {
+			border-color: rgba(128, 128, 128, 0.5);
+			background-color: rgba(128, 128, 128, 0.5);
+		}
+
+		&::-moz-range-track {
+			border-color: rgba(128, 128, 128, 0.5);
+			background-color: rgba(128, 128, 128, 0.5);
+		}
+
+		&::-moz-range-thumb {
+			border-color: rgba(128, 128, 128, 0.5);
+			background-color: #9f9f9f;
+		}
+
+		&::-ms-fill-lower {
+			background-color: $fw-track-bg-color;
+		}
+
+		&::-ms-fill-upper {
+			background-color: red; //lighten($fw-track-bg-color, $contrast);
+		}
+	}
+
+
+	// Webkit
+
+	&::-webkit-slider-runnable-track {
+		@include track();
+	}
+
+	&::-webkit-slider-thumb {
+		@include thumb();
+		-webkit-appearance: none;
+		margin-top: 0; //( (-$fw-track-border-width * 2 + $fw-track-height) / 2) - ($fw-thumb-height / 2);
+		transform: translateY( calc( -50% + #{$fw-track-height} / 2) );
+	}
+
+	// Moz
+
+	&::-moz-range-track {
+		@include track();
+	}
+
+	&::-moz-range-thumb {
+		@include thumb();
+		cursor: -moz-grab;
+	}
+
+	// MS
+
+	&::-ms-track {
+		@include track;
+		background-color: transparent;
+		border-color: transparent;
+		border-width: ($fw-thumb-height / 2) 0;
+		color: transparent;
+	}
+
+	&::-ms-fill-lower {
+		background-color: darken($fw-track-bg-color, $contrast);
+		border: {
+			width: $fw-track-border-width;
+			style: $fw-track-border-style;
+			color: $fw-track-border-color;
+		}
+		border-radius: $fw-track-border-radius * 2;
+	}
+
+	&::-ms-fill-upper {
+		background-color: $fw-track-bg-color;
+		border: {
+			width: $fw-track-border-width;
+			style: $fw-track-border-style;
+			color: $fw-track-border-color;
+		}
+		border-radius: $fw-track-border-radius * 2;
+	}
+
+	&::-ms-thumb {
+		@include thumb;
+		margin-top: 0;
+	}
+
+
+}
+
+// if custom styles
+@if ($fw-styled-inputs) {
+	[type="range"] {
+		@extend %range;
+	}
+
+}
+
+@if (($fw-add-styled-inputs) and not ($fw-styled-inputs)) {
+	.custom-range {
+		[type="range"] {
+			@extend %range;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+// input[type="range"] {
+// background-color:#204e7b;
+// position:relative;
+// -webkit-appearance:none;
+// -moz-appearance:none;
+// appearance:none;
+// border-radius:0;
+// height:3px;
+// }
+
+// @media (min-height: 1050px) and (min-width: 1700px) {
+// input[type="range"] {
+// margin-bottom:48px
+// }
+// }
+
+// html.ie input[type="range"],
+// html.no-modern input[type="range"] {
+// height:24px;
+// background-color:transparent !important
+// }
+
+// html.no-modern input[type="range"] {
+// border:1px solid #113a64;
+// background-color:#113a64 !important
+// }
+// input[type="range"]::-moz-range-track {
+// // -moz-appearance:none;
+// // border:0;
+// // height:3px;
+// // background-color:transparent
+// }
+// input[type="range"]::-ms-track {
+// background-color:transparent
+// }
+// input[type="range"]:focus,
+// input[type="range"]:active {
+// outline:none
+// }
+// input[type="range"]::-webkit-slider-runnable-track {
+// background-color:transparent
+// }
+// input[type="range"]::-webkit-slider-thumb {
+// border:3px solid #021931;
+// background-color:#fff;
+// -webkit-appearance:none;
+// border-radius:100%;
+// position:relative;
+// cursor:-webkit-grab;
+// height:24px;
+// width:24px
+// }
+// input[type="range"]:active::-webkit-slider-thumb {
+// cursor:-webkit-grabbing
+// }
+// input[type="range"]:focus::-webkit-slider-thumb {
+// background-color:#2389ee
+// }
+
+// input[type="range"]::-moz-range-track {
+// background-color:transparent
+// }
+// input[type="range"]::-moz-range-thumb {
+// border:3px solid #021931;
+// background-color:#fff;
+// -webkit-appearance:none;
+// border-radius: 50%;
+// position:relative;
+// cursor:-moz-grab;
+// height:18px;
+// width:18px
+// }
+// input[type="range"]:active::-moz-range-thumb {
+// cursor:-moz-grabbing
+// }
+// input[type="range"]:focus::-moz-range-thumb {
+// background-color:#2389ee
+// }
+// input[type="range"]::-ms-thumb {
+// 	border:3px solid #021931;
+// 	background-color:#fff;
+// 	overflow:visible;
+// 	-webkit-appearance:none;
+// 	border-radius:100%;
+// 	position:relative;
+// 	height:18px;
+// 	width:18px
+// }
+
+// input[type="range"]:focus::-ms-thumb {
+// 	background-color: #2389ee
+// }
+// input[type="range"]::-ms-fill-lower {
+// 	background-color: #ed4b37;
+// 	height:3px
+// }
+// input[type="range"]::-ms-fill-upper {
+// 	background-color: #204e7b;
+// 	height:3px
+// }
+
+// input[type=range]::-moz-focus-outer {
+// 	border: 0;
+// }
+
+// // not dynamic
+
+// // #budget {
+// //  background-image:-webkit-linear-gradient(left, #ed4b37 0%, #ed4b37 27.5%, #204e7b 27.5%)
+// // }
