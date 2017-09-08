@@ -75,7 +75,6 @@ input:not([type]),
 	appearance: none;
 }
 
-
 /* Color Input */
 /* Chrome styles */
 [type=color]::-webkit-color-swatch-wrapper {
@@ -83,11 +82,13 @@ input:not([type]),
 }
 [type=color]::-webkit-color-swatch {
 	border: none; /* Remove browser's border around color in color picker */
+	// border-radius: 50%; /* Shadow DOM pseudos doesn’t inherit */
 }
 
 /* Firefox styles */
 [type=color]::-moz-color-swatch {
 	border: none; /* Remove browser's border around color in color picker */
+	// border-radius: 50%; /* Shadow DOM pseudos doesn’t inherit */
 }
 [type=color]::-moz-focus-inner {
 	border: none; /* Remove browser's padding around color in color picker */

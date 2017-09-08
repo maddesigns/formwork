@@ -27,6 +27,7 @@ $fw-btn-cta-hover-color:       white               !default;
 
 button,
 html [type="button"],
+[role="button"],
 [type="reset"],
 [type="submit"],
 [type="image"],
@@ -56,7 +57,7 @@ html [type="button"],
 	height: $fw-btn-height;
 	max-width: $fw-btn-max-width;
 	min-width: 0;
-	padding: $fw-btn-height / 5;
+	padding: $fw-input-padding;
 
 	position: relative;
 	text-align: center;
@@ -90,6 +91,11 @@ html [type="button"],
 	&::before,
 	&::after {
 		color: inherit;
+	}
+
+	// Fix event target to be always button
+	> * {
+		pointer-events: none;
 	}
 }
 
