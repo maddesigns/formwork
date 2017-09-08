@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="../go.css">
+		<link rel="stylesheet" href="../pepy.css">
 		<style>
 
 			body {
@@ -17,13 +17,52 @@
 				margin: 1em;
 			}
 
+
+			.crange {
+				display: flex;
+				flex-wrap: wrap;
+				max-width: $fw-input-max-width;
+			}
+			.crange__label {
+				flex-grow: 1;
+			}
+
+			.crange__output {
+
+			}
+
+			.crange__input.crange__input {
+				width: 100%;
+				max-width: none;
+			}
+
+			.crange__input-wrapper {
+				display: block;
+				margin-bottom: 1em;
+				position: relative;
+				width: 100%;
+			}
+			.crange__input-wrapper::before {
+				content: attr(data-minval);
+				position: absolute;
+				top: 100%;
+				left: 0;
+			}
+
+			.crange__input-wrapper::after {
+				content: attr(data-maxval);
+				position: absolute;
+				top: 100%;
+				right: 0;
+			}
+
+
 		</style>
 	</head>
 	<body>
 		<h1>Formwork</h1>
 		<p>A Form Framework</p>
 		<hr>
-
 
 
 		<form action="#" method="post">
@@ -66,8 +105,15 @@
 				<input type="text" id="autofocus" name="autofocus" aaaaaautofocus />
 			</div>
 			<div>
-				<label for="required">Required textfield</label>
-				<input type="text" id="required" name="required" x-moz-errormessage="This field is required" required />
+				<label for="required">Required textfield <sup title="required">*</sup></label>
+				<input type="text" id="required" name="required" aria-describedby="required_hint" required />
+				<span id="required_hint" class="input-message input-message--hint">Hint</span>
+			</div>
+
+			<div>
+				<label for="error">Textfield Error</label>
+				<input type="text" id="error" name="error" aria-describedby="input_error" placeholder="Error" class="input-error" />
+				<span id="input_error" class="input-message input-message--error">Error</span>
 			</div>
 			<div>
 				<label for="placeholder">Textfield with placeholder</label>
@@ -83,7 +129,8 @@
 			</div>
 			<div>
 				<label for="email">Email input</label>
-				<input type="email" id="email" name="email" />
+				<input type="email" id="email" name="email" aria-describedby="email_hint" />
+				<span id="email_hint" class="input-message input-message--error">Error</span>
 			</div>
 			<div>
 				<label for="search">Search input</label>
@@ -212,6 +259,18 @@
 				<input name="radio" id="radio2" value="2" type="radio" checked /> <label for="radio2">Checked</label>
 				<input name="radio" id="radio3" value="3" type="radio" disabled /> <label for="radio3">Disabled</label>
 			</div>
+
+			<div class="custom">
+				<h3 class="label">Custom Radio buttons / Checkboxes</h3>
+
+				<input name="radio1" id="radio11" value="1" type="radio" /> <label for="radio11">Default</label>
+				<input name="radio1" id="radio12" value="2" type="radio" checked /> <label for="radio12">Checked</label>
+				<input name="radio1" id="radio13" value="3" type="radio" disabled /> <label for="radio13">Disabled</label>
+				<br>
+				<input name="check1" id="check11" value="1" type="checkbox" /> <label for="check11">Default</label>
+				<input name="check1" id="check12" value="1" type="checkbox" checked /> <label for="check12">Checked</label>
+				<input name="check1" id="check13" value="1" type="checkbox" disabled /> <label for="check13">Disabled</label>
+			</div>
 			<h3 class="label">Other inputs</h3>
 			<div>
 				<label for="color1">Color input</label>
@@ -227,7 +286,7 @@
 			</div>
 			<div>
 				<label for="range1">Range input</label>
-				<input type="range" id="range1" name="range1" min="10" max="100" step="10" value="10" />
+				<input type="range" id="range1" name="range1" min="10" max="100" step="10" value="40" />
 			</div>
 			<div>
 				<label for="range2">Range input readonly</label>
@@ -237,21 +296,48 @@
 				<label for="range3">Range input disabled</label>
 				<input type="range" id="range3" name="range3" min="10" max="100" step="10" value="10" disabled />
 			</div>
-		</form>
 
-		<h3 class="styleguide-content">Output</h3>
-		<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+			<h3>Custom Range</h3>
+
+			<div class="custom-range">
+				<label class="custom-range__label" for="custom_range" id="finances">Custom Range</label>
+				<span class="custom-range__input-wrapper">
+					<input class="custom-range__input" min="0" max="100" value="50" id="custom_range" name="custom_range" type="range">
+				</span>
+			</div>
+
+			<fieldset oninput="budgetoutput.value='$'+parseInt(budget.value)+'K'">
+				<div class="custom-range crange">
+					<label class="crange__label" for="budget" id="finances">Budget</label>
+					<output class="crange__output" id="budgetoutput" title="We charge $120/hour, but prefer bigger projects with fixed pricing.">$65K</output>
+					<span class="crange__input-wrapper" data-minval="5" data-maxval="100">
+						<input class="crange__input" min="5" max="100" step="5" value="30" id="budget" name="budget" type="range">
+					</span>
+				</div>
+			</fieldset>
+
+			<div class="error-container">
+				<p>there are errors</p>
+			</div>
+
 			<div>
-				<span>0</span>
-				<input type="range" name="b" value="50" />
-				<span>100 +</span>
-				<input type="number" name="a" value="10" />
-				<span>=</span>
-				<output name="result"></output>
+				<input type="submit" value="Input type submit" />
 			</div>
 		</form>
 
-		<h2 class="styleguide-content">Buttons</h2>
+<!-- 		<h3>Output</h3>
+		<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+			<div>
+				<label for="b">0</label>
+				<input type="range" name="b" id="b" value="50" />
+				<label for="a">100 +</label>
+				<input type="number" name="a" id="a" value="10" />
+				<span>=</span>
+				<output name="result">60</output>
+			</div>
+		</form> -->
+
+		<h2>Buttons</h2>
 		<form action="#" method="post">
 			<p><input type="button" value="Input type button" /></p>
 			<p><input type="reset" value="Input type reset" /></p>

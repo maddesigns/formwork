@@ -1,0 +1,113 @@
+// Theming for Pepy
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:      false;
+
+// Layout
+$fw-centered:           false;
+$fw-display:            block;
+$fw-styled-inputs:      true;
+$fw-add-styled-inputs:  false;
+
+// Font
+$fw-font-family:        inherit;
+$fw-font-size:          16px;
+$fw-font-color:         #333333;
+
+// Borders
+$fw-border-width:       1px;
+$fw-border-style:       solid;
+$fw-border-color:       #999999;
+$fw-border-radius:      1em;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:       32px;
+$fw-input-width:        100%;
+$fw-input-max-width:    100%;
+$fw-input-padding:      $fw-input-height/4;
+$fw-input-bg-color:     #fff;
+
+$fw-focus-bg-color:     #FFF;
+$fw-focus-border-color: $fw-border-color;
+$fw-focus-color:        $fw-font-color;
+
+$fw-check-height:             30px;
+$fw-check-width:              $fw-check-height;
+$fw-check-scale:              4px; // optimized for even numbers
+$fw-check-input-bg-color:     $fw-input-bg-color;
+$fw-check-border-width:       0px;
+$fw-check-border-color:       $fw-border-color;
+$fw-check-border-radius:      50%;
+$fw-check-focus-color:        $fw-focus-color;
+$fw-check-focus-bg-color:     $fw-focus-bg-color;
+$fw-check-focus-border-color: $fw-focus-border-color;
+
+
+// Buttons & Input Submits
+$fw-btn-class:                 "btn";
+$fw-btn-height:                $fw-input-height;
+$fw-btn-width:                 $fw-input-width;
+$fw-btn-max-width:             $fw-input-max-width;
+$fw-btn-radius:                $fw-border-radius;
+$fw-btn-border:                none;
+
+// button colors
+$fw-btn-color:                 white;
+$fw-btn-bg-color:              #888888;
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        #666666;
+// buttons submit
+$fw-btn-submit-bg-color:       #222222;
+$fw-btn-submit-color:          white;
+$fw-btn-submit-hover-bg-color: black;
+$fw-btn-submit-hover-color:    white;
+// buttons CTA
+$fw-btn-cta-bg-color:          #da503b;
+$fw-btn-cta-color:             white;
+$fw-btn-cta-hover-bg-color:    black;
+$fw-btn-cta-hover-color:       white;
+
+@import "../../formwork";
+
+
+[type="checkbox"] + label::before {
+	box-shadow: 1px 1px 2px rgba(black, 0.1), inset 0 0 0 1px $fw-border-color;
+	animation: none;
+}
+
+[type="checkbox"]:checked + label::before {
+	background-image: linear-gradient(45deg, #90f9c4, #39f3bb);
+	box-shadow: 1px 1px 2px rgba(black, 0.1);
+}
+[type="checkbox"] + label::after{
+
+	transition: none;
+}
+[type="checkbox"]:checked + label::after{
+	border-color: #FFF;
+	transition: none;
+}
+
+button, html [type="button"], [role="button"], [type="reset"], [type="submit"], [type="image"], .btn {
+	background-image: linear-gradient(to right, #e5e5e5, #efefef, #f5f5f5);
+	box-shadow: 3px 3px 7px rgba(black, 0.4);
+	color: #333;
+	line-height: 1;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.btn--cta {
+
+	background-image: linear-gradient(to right, #40b5f4, #2FC7EB, #1ed4e6);
+	color: $fw-btn-color;
+	font-weight: 700;
+}
+
+select {
+	background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2028%2028%22%3E%20%3Cpath%20fill%3D%22%23333333%22%20d%3D%22M26.297%2012.625l-11.594%2011.578c-0.391%200.391-1.016%200.391-1.406%200l-11.594-11.578c-0.391-0.391-0.391-1.031%200-1.422l2.594-2.578c0.391-0.391%201.016-0.391%201.406%200l8.297%208.297%208.297-8.297c0.391-0.391%201.016-0.391%201.406%200l2.594%202.578c0.391%200.391%200.391%201.031%200%201.422z%22%3E%3C/path%3E%20%3C/svg%3E);
+}
+
+select[disabled] {
+	background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2028%2028%22%3E%20%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M26.297%2012.625l-11.594%2011.578c-0.391%200.391-1.016%200.391-1.406%200l-11.594-11.578c-0.391-0.391-0.391-1.031%200-1.422l2.594-2.578c0.391-0.391%201.016-0.391%201.406%200l8.297%208.297%208.297-8.297c0.391-0.391%201.016-0.391%201.406%200l2.594%202.578c0.391%200.391%200.391%201.031%200%201.422z%22%3E%3C/path%3E%20%3C/svg%3E);
+}
