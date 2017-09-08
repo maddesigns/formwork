@@ -1,0 +1,146 @@
+// Error Styles
+
+$fw-msg-class:                "input-message"    !default;
+$fw-msg-border:               none               !default;
+
+// button colors
+$fw-msg-alert-color:          red                !default;
+$fw-msg-hint-color:           blue               !default;
+$fw-msg-success-color:        green              !default;
+$fw-msg-warning-color:        yellow             !default;
+
+form:invalid {
+	//background-color: pink; // POC
+
+	[type="submit"] {
+		//pointer-events: none;
+		cursor: not-allowed;
+		background-color: rgba(128, 128, 128, 0.5);
+	}
+}
+
+// messages
+.#{$fw-msg-class} {
+	display: block;
+	padding-top: $fw-input-padding;
+	padding-bottom: $fw-input-padding;
+}
+
+.#{$fw-msg-class}--hint {
+	color: $fw-msg-hint-color;
+}
+
+.#{$fw-msg-class}--error {
+	color: $fw-msg-alert-color;
+}
+
+
+
+
+
+// form errors
+.error-container {
+	background-color: lighten($fw-msg-alert-color, 30);
+	border: 1px solid darken($fw-msg-alert-color, 50);
+	display: none;
+	margin-bottom: 1em;
+	max-width: 600px;
+	//padding: 1em;
+
+	:invalid & {
+		display: block;
+	}
+
+	// demo
+	p {
+		padding: 1em;
+		margin: 0;
+		color: darken($fw-msg-alert-color, 50);
+	}
+}
+
+label.error {
+	color: $fw-msg-alert-color;
+	em {
+		color: $fw-msg-alert-color;
+	}
+}
+
+input.has-error.has-error {
+	border-color: $fw-msg-alert-color;
+
+	&:invalid:focus {
+		border-color: lighten($fw-msg-alert-color, 40);
+	}
+
+	&:valid {
+		border-color: lightgrey;
+
+		&:focus {
+			border-color: lightgrey;
+		}
+	}
+
+	+ em {
+		color: $fw-msg-alert-color;
+	}
+}
+
+.error-message {
+	transition: all 200ms 100ms;
+	color: $fw-msg-alert-color;
+	max-height: 0;
+	margin-top: 0.5em;
+	opacity: 0;
+	display: block;
+
+	:not(.is-invalid) ~ &,
+	:valid ~ & {
+		max-height: 0;
+		opacity: 0;
+	}
+
+	.is-invalid ~ &,
+	:invalid ~ & {
+		max-height: 99em;
+		opacity: 1;
+	}
+}
+
+
+:valid {
+	transition: border-color 300ms 0s;
+}
+
+:invalid:not(:required) {
+	border-color: $fw-msg-alert-color;
+	transition: border-color 300ms 0s;
+	outline: none;
+	box-shadow: none;
+}
+
+// [required]:invalid {
+// 	border-color: green;
+// }
+
+// :required {
+// 	border-color: grey;
+// }
+
+:focus:invalid {
+	outline: none;
+}
+
+:-moz-ui-invalid:not(output) {
+
+}
+
+
+
+input:invalid:not(:focus) {
+
+}
+
+:not(:focus):not(:placeholder-shown):invalid {
+
+}
