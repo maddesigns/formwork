@@ -1,12 +1,13 @@
 // Theming for Go
 
 // Fieldset & Legend Styling
-$fw-fieldset-bare:             false;
+$fw-fieldset-bare:             true;
 
 // Layout
 $fw-centered:                  false;
 $fw-display:                   block;
-$fw-styled-inputs:             true;  // styled radio/checkbox/select
+$fw-styled-inputs:             true;  // styled radio/checkbox/select/range
+$fw-add-styled-inputs:         true;
 
 // Font
 $fw-font-family:               inherit;
