@@ -1,0 +1,697 @@
+/**
+ * Normalize Form Resets
+ * https://github.com/necolas/normalize.css/blob/master/normalize.css#L244-L411
+ */
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: inherit;
+  /* 1 */
+  line-height: normal;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+/**
+  * Formwork editions:
+  * 3. reset button background-image and border-radius in Firefox for Android
+  * 4. use cursor: pointer (opinionated)
+  *
+  */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: button;
+  /* 2 */
+  background-image: none;
+  /* 3 */
+  border-radius: 0;
+  /* 3 */
+  cursor: pointer;
+  /* 4 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * New: use border-box for all form elements
+ */
+input,
+textarea,
+select,
+option,
+optgroup,
+button,
+legend,
+fieldset {
+  box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+option:focus,
+optgroup:focus,
+button:focus,
+legend:focus,
+fieldset:focus {
+  outline-offset: 0;
+}
+
+optgroup {
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Fieldset ------------------ */
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+fieldset {
+  border-radius: 5px;
+  border: 1px solid #333333;
+  margin: 0;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+legend {
+  padding: 0 5px;
+  font-weight: 700;
+}
+
+label {
+  display: inline-block;
+  user-select: none;
+}
+
+/* Input & Textarea ------------------ */
+/* Fields with standard width */
+input:not([type]),
+[type="text"],
+[type="email"],
+[type="password"],
+[type="search"],
+[type="color"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="number"],
+[type="tel"],
+[type="time"],
+[type="url"],
+[type="week"],
+[type="file"],
+[list],
+select,
+textarea {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #c8c8c8;
+  color: #333333;
+  display: block;
+  font-family: inherit;
+  font-size: 16px;
+  max-width: 600px;
+  padding: 8px;
+  width: 100%;
+}
+
+input:not([type]):hover,
+[type="text"]:hover,
+[type="email"]:hover,
+[type="password"]:hover,
+[type="search"]:hover,
+[type="color"]:hover,
+[type="date"]:hover,
+[type="datetime"]:hover,
+[type="datetime-local"]:hover,
+[type="month"]:hover,
+[type="number"]:hover,
+[type="tel"]:hover,
+[type="time"]:hover,
+[type="url"]:hover,
+[type="week"]:hover,
+[type="file"]:hover,
+[list]:hover,
+select:hover,
+textarea:hover {
+  border-color: #c8c8c8;
+  color: #333333;
+}
+
+input:not([type]):focus,
+[type="text"]:focus,
+[type="email"]:focus,
+[type="password"]:focus,
+[type="search"]:focus,
+[type="color"]:focus,
+[type="date"]:focus,
+[type="datetime"]:focus,
+[type="datetime-local"]:focus,
+[type="month"]:focus,
+[type="number"]:focus,
+[type="tel"]:focus,
+[type="time"]:focus,
+[type="url"]:focus,
+[type="week"]:focus,
+[type="file"]:focus,
+[list]:focus,
+select:focus,
+textarea:focus {
+  background-color: #555555;
+  border-color: #c8c8c8;
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.4);
+  color: #333333;
+  outline: none;
+}
+
+/* Fields with standard height */
+input:not([type]),
+[type="text"],
+[type="email"],
+[type="password"],
+[type="search"],
+[type="color"],
+[type="date"],
+[type="datetime"],
+[type="datetime-local"],
+[type="month"],
+[type="number"],
+[type="tel"],
+[type="time"],
+[type="url"],
+[type="week"],
+[list] {
+  height: 40px;
+  appearance: none;
+}
+
+/* Color Input */
+/* Chrome styles */
+[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  /* Remove browser's padding around color picker */
+}
+
+[type=color]::-webkit-color-swatch {
+  border: none;
+  /* Remove browser's border around color in color picker */
+}
+
+/* Firefox styles */
+[type=color]::-moz-color-swatch {
+  border: none;
+  /* Remove browser's border around color in color picker */
+}
+
+[type=color]::-moz-focus-inner {
+  border: none;
+  /* Remove browser's padding around color in color picker */
+  padding: 0;
+  /* Remove browser's padding around color in color picker */
+}
+
+[type="checkbox"],
+[type="radio"] {
+  border: 0                      !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  height: 1px                    !important;
+  overflow: hidden               !important;
+  padding: 0                     !important;
+  position: absolute             !important;
+  width: 1px                     !important;
+  white-space: nowrap            !important;
+}
+
+[type="checkbox"]:focus + label:before,
+[type="radio"]:focus + label:before {
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.4);
+}
+
+[type="checkbox"]:hover + label:before,
+[type="radio"]:hover + label:before {
+  border-color: #c8c8c8;
+}
+
+[type="checkbox"]:active + label:before,
+[type="radio"]:active + label:before {
+  transition-duration: 0;
+}
+
+[type="checkbox"] + label,
+[type="radio"] + label {
+  position: relative;
+  padding: 10px;
+  padding-left: 2em;
+  vertical-align: middle;
+  user-select: none;
+}
+
+[type="checkbox"] + label:before,
+[type="radio"] + label:before {
+  border: 1px solid #c8c8c8;
+  box-sizing: content-box;
+  content: '';
+  color: #c8c8c8;
+  margin-top: -8px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  text-align: center;
+}
+
+[type="checkbox"] + label:after,
+[type="radio"] + label:after {
+  box-sizing: content-box;
+  content: '';
+  background-color: #c8c8c8;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  transform: scale(0);
+  transform-origin: 50%;
+  transition: transform 200ms ease-out;
+}
+
+[type="checkbox"][disabled] + label:before,
+[type="radio"][disabled] + label:before {
+  animation: none;
+  border-color: rgba(128, 128, 128, 0.5);
+}
+
+[type="checkbox"][disabled]:active + label:before, [type="checkbox"][disabled]:focus + label:before, [type="checkbox"][disabled]:hover + label:before,
+[type="radio"][disabled]:active + label:before,
+[type="radio"][disabled]:focus + label:before,
+[type="radio"][disabled]:hover + label:before {
+  border-color: rgba(128, 128, 128, 0.5);
+  filter: none;
+  transition: none;
+}
+
+[type="checkbox"] + label:after {
+  background-color: transparent;
+  top: 50%;
+  left: 3px;
+  width: 8px;
+  height: 3px;
+  margin-top: -4px;
+  border-style: solid;
+  border-color: #c8c8c8;
+  border-width: 0 0 3px 3px;
+  border-image: none;
+  transform: rotate(-45deg) scale(0);
+  transition: none;
+}
+
+[type="checkbox"]:checked + label:after {
+  content: '';
+  transform: rotate(-45deg) scale(1);
+  transition: transform 200ms ease-out;
+}
+
+[type="radio"]:checked:active + label:before, [type="radio"]:checked:focus + label:before {
+  animation: none;
+  filter: none;
+  transition: none;
+}
+
+[type="radio"]:checked + label:before {
+  animation: borderscale 300ms ease-in;
+  background-color: #fff;
+}
+
+[type="radio"]:checked + label:after {
+  transform: scale(1);
+}
+
+[type="radio"] + label:before, [type="radio"] + label:after {
+  border-radius: 50%;
+}
+
+[type="checkbox"]:checked + label:before {
+  animation: borderscale 200ms ease-in;
+}
+
+[type="checkbox"]:checked + label:after {
+  transform: rotate(-45deg) scale(1);
+}
+
+@keyframes borderscale {
+  50% {
+    box-shadow: 0 0 0 2px #c8c8c8;
+  }
+}
+
+[type="file"] {
+  overflow: hidden;
+  white-space: normal;
+}
+
+[type="file"]::-webkit-file-upload-button {
+  overflow: hidden;
+  white-space: normal;
+}
+
+/* Select ------------------ */
+select {
+  height: 40px;
+  appearance: none;
+  background-color: #fff;
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%234D4D4D%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  padding: 8px;
+  padding-right: 1.5em;
+}
+
+select[size] {
+  height: auto;
+}
+
+select[size] {
+  background: none;
+  padding-right: 8px;
+}
+
+select[disabled] {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%23cccccc%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E);
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+/* IE 10/11+ - This hides native dropdown button arrow so it will have the custom appearance, IE 9 and earlier get a native select - targeting media query hack via http://browserhacks.com/#hack-28f493d247a12ab654f6c3637f6978d5 - looking for better ways to achieve this targeting */
+/* The second rule removes the odd blue bg color behind the text in the select button in IE 10/11 and sets the text color to match the focus style's - fix via http://stackoverflow.com/questions/17553300/change-ie-background-color-on-unopened-focused-select-box */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  select::-ms-expand {
+    display: none;
+  }
+  select:focus::-ms-value {
+    background: transparent;
+    color: grey;
+  }
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"],
+[type="image"],
+.btn {
+  background-color: #888888;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 180px;
+  height: 40px;
+  max-width: 600px;
+  min-width: 0;
+  padding: 8px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 100ms ease-in;
+  vertical-align: middle;
+  white-space: normal;
+  width: 100%;
+}
+
+button:focus, button:hover,
+html [type="button"]:focus,
+html [type="button"]:hover,
+[type="reset"]:focus,
+[type="reset"]:hover,
+[type="submit"]:focus,
+[type="submit"]:hover,
+[type="image"]:focus,
+[type="image"]:hover,
+.btn:focus,
+.btn:hover {
+  background-color: #666666;
+  color: white;
+}
+
+button[disabled],
+html [type="button"][disabled],
+[type="reset"][disabled],
+[type="submit"][disabled],
+[type="image"][disabled],
+.btn[disabled] {
+  background-color: rgba(136, 136, 136, 0.3);
+}
+
+button[disabled]:hover,
+html [type="button"][disabled]:hover,
+[type="reset"][disabled]:hover,
+[type="submit"][disabled]:hover,
+[type="image"][disabled]:hover,
+.btn[disabled]:hover {
+  background-color: rgba(136, 136, 136, 0.3);
+  cursor: not-allowed;
+}
+
+button::before, button::after,
+html [type="button"]::before,
+html [type="button"]::after,
+[type="reset"]::before,
+[type="reset"]::after,
+[type="submit"]::before,
+[type="submit"]::after,
+[type="image"]::before,
+[type="image"]::after,
+.btn::before,
+.btn::after {
+  color: inherit;
+}
+
+[type="submit"],
+.btn--submit {
+  background-color: #222222;
+  color: white;
+}
+
+[type="submit"]:hover, [type="submit"]:focus,
+.btn--submit:hover,
+.btn--submit:focus {
+  background-color: black;
+  color: white;
+}
+
+.btn--cta {
+  background-color: #da503b;
+  color: white;
+}
+
+.btn--cta:hover, .btn--cta:focus {
+  background-color: black;
+  color: white;
+}
+
+form [disabled],
+[disabled] + label {
+  color: GrayText;
+  cursor: not-allowed;
+  outline: none;
+  user-select: none;
+}
+
+form [disabled] *,
+[disabled] + label * {
+  border-color: rgba(128, 128, 128, 0.5);
+  cursor: inherit;
+}
+
+form [disabled] *:hover,
+[disabled] + label *:hover {
+  border-color: rgba(128, 128, 128, 0.5);
+}
+
+[disabled]:not([type="range"]) {
+  border-color: rgba(128, 128, 128, 0.5);
+}
+
+[disabled]:not([type="range"]):hover {
+  background-color: #fff;
+  color: GrayText;
+}
+
+[disabled][type=color]::-webkit-color-swatch-wrapper {
+  opacity: 0.05;
+  filter: grayscale(1);
+}
+
+[disabled][type=color]::-moz-color-swatch {
+  opacity: 0.05;
+  filter: grayscale(1);
+}
+
+[readonly]:not([type="range"]) {
+  border-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+[readonly]:not([type="range"]):active, [readonly]:not([type="range"]):focus, [readonly]:not([type="range"]):hover {
+  border-color: rgba(128, 128, 128, 0.5);
+}
