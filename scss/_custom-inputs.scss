@@ -88,10 +88,10 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 			&::after {
 				box-sizing: content-box;
 				content: '';
-				background-color: $fw-border-color;
+				background-color: $fw-check-input-bg-color;
 				position: absolute;
 				top: 50%;
-				left:  $fw-input-padding + $fw-check-border-width + $fw-check-scale/2;
+				left: $fw-input-padding + $fw-check-border-width + $fw-check-scale/2;
 				width: $fw-check-width - $fw-check-scale;
 				height: $fw-check-height -$fw-check-scale;
 				margin-top: -(($fw-check-height - $fw-check-scale)/2);

@@ -1,7 +1,7 @@
 // Theming for Pepy
 
 // Fieldset & Legend Styling
-$fw-fieldset-bare:      false;
+$fw-fieldset-bare:      true;
 
 // Layout
 $fw-centered:           false;
@@ -14,18 +14,19 @@ $fw-font-family:        inherit;
 $fw-font-size:          16px;
 $fw-font-color:         #333333;
 
-// Borders
-$fw-border-width:       1px;
-$fw-border-style:       solid;
-$fw-border-color:       #999999;
-$fw-border-radius:      1em;
 
 // Inputs, Textareas, Select, Option
-$fw-input-height:       32px;
+$fw-input-height:       40px;
 $fw-input-width:        100%;
 $fw-input-max-width:    100%;
 $fw-input-padding:      $fw-input-height/4;
 $fw-input-bg-color:     #fff;
+
+// Borders
+$fw-border-width:       1px;
+$fw-border-style:       solid;
+$fw-border-color:       #999999;
+$fw-border-radius:      $fw-input-height*0.5;
 
 $fw-focus-bg-color:     #FFF;
 $fw-focus-border-color: $fw-border-color;
@@ -41,6 +42,8 @@ $fw-check-border-radius:      50%;
 $fw-check-focus-color:        $fw-focus-color;
 $fw-check-focus-bg-color:     $fw-focus-bg-color;
 $fw-check-focus-border-color: $fw-focus-border-color;
+
+
 
 
 // Buttons & Input Submits
@@ -69,6 +72,10 @@ $fw-btn-cta-hover-color:       white;
 
 @import "../../formwork";
 
+input:not([type]), input[type], [list], textarea {
+	padding-top: 0;
+	padding-bottom: 0;
+}
 
 [type="checkbox"] + label::before {
 	box-shadow: 1px 1px 2px rgba(black, 0.1), inset 0 0 0 1px $fw-border-color;
@@ -110,4 +117,19 @@ select {
 
 select[disabled] {
 	background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2028%2028%22%3E%20%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M26.297%2012.625l-11.594%2011.578c-0.391%200.391-1.016%200.391-1.406%200l-11.594-11.578c-0.391-0.391-0.391-1.031%200-1.422l2.594-2.578c0.391-0.391%201.016-0.391%201.406%200l8.297%208.297%208.297-8.297c0.391-0.391%201.016-0.391%201.406%200l2.594%202.578c0.391%200.391%200.391%201.031%200%201.422z%22%3E%3C/path%3E%20%3C/svg%3E);
+}
+
+[type="file"] {
+	color: rgba(0,0,0,0.5);
+}
+::-webkit-file-upload-button {
+	background-color: #40b5f4;
+	background-image: linear-gradient(to right, #40b5f4, #2FC7EB, #1ed4e6);
+	color: white;
+	text-transform: uppercase;
+
+	padding-left: $fw-input-padding*2;
+	padding-right: $fw-input-padding*2;
+
+	letter-spacing: 0.04em;
 }

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Normalize Form Resets
  * https://github.com/necolas/normalize.css/blob/master/normalize.css#L244-L411
@@ -209,10 +210,9 @@ button:-moz-focusring,
  * Change the border, margin, and padding in all browsers (opinionated).
  */
 fieldset {
-  border-radius: 1em;
-  border: 1px solid #333333;
+  border: none;
   margin: 0;
-  padding: 0.35em 0.625em 0.75em;
+  padding: 0;
 }
 
 /**
@@ -237,8 +237,9 @@ legend {
 }
 
 legend {
-  padding: 0 5px;
-  font-weight: 700;
+  border: none;
+  padding: 0;
+  font-weight: inherit;
 }
 
 label {
@@ -352,14 +353,14 @@ input:not([type]),
 select,
 textarea {
   background-color: #fff;
-  border-radius: 1em;
+  border-radius: 20px;
   border: 1px solid #999999;
   color: #333333;
   display: block;
   font-family: inherit;
   font-size: 16px;
   max-width: 100%;
-  padding: 8px;
+  padding: 10px;
   width: 100%;
 }
 
@@ -429,11 +430,15 @@ input:not([type]),
 [type="url"],
 [type="week"],
 [list] {
-  height: 32px;
+  height: 40px;
   appearance: none;
 }
 
 /* Color Input */
+[type=color] {
+  padding: 0;
+}
+
 /* Chrome styles */
 [type=color]::-webkit-color-swatch-wrapper {
   padding: 0;
@@ -443,12 +448,16 @@ input:not([type]),
 [type=color]::-webkit-color-swatch {
   border: none;
   /* Remove browser's border around color in color picker */
+  border-radius: 20px;
+  /* Shadow DOM pseudos doesn’t inherit */
 }
 
 /* Firefox styles */
 [type=color]::-moz-color-swatch {
   border: none;
   /* Remove browser's border around color in color picker */
+  border-radius: 20px;
+  /* Shadow DOM pseudos doesn’t inherit */
 }
 
 [type=color]::-moz-focus-inner {
@@ -489,7 +498,7 @@ input:not([type]),
 [type="checkbox"] + label,
 [type="radio"] + label {
   position: relative;
-  padding: 8px;
+  padding: 10px;
   user-select: none;
 }
 
@@ -513,10 +522,10 @@ input:not([type]),
 [type="radio"] + label::after {
   box-sizing: content-box;
   content: '';
-  background-color: #999999;
+  background-color: #fff;
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 12px;
   width: 26px;
   height: 26px;
   margin-top: -13px;
@@ -548,7 +557,7 @@ input:not([type]),
 [type="checkbox"] + label::after {
   background-color: transparent;
   top: 50%;
-  left: calc(8px + 0px + 30px/5);
+  left: calc(10px + 0px + 30px/5);
   width: 15px;
   height: 6px;
   margin-top: calc(30px / -2 / 2 * 0.8);
@@ -671,7 +680,7 @@ input:not([type]),
   border-width: 0;
   border-style: solid;
   border-color: #999999;
-  border-radius: 1em;
+  border-radius: 20px;
   cursor: pointer;
   height: 3px;
   transition: background-color 0.2s ease-out;
@@ -703,7 +712,7 @@ input:not([type]),
   border-width: 0;
   border-style: solid;
   border-color: #999999;
-  border-radius: 1em;
+  border-radius: 20px;
   cursor: pointer;
   height: 3px;
   transition: background-color 0.2s ease-out;
@@ -733,7 +742,7 @@ input:not([type]),
   border-width: 0;
   border-style: solid;
   border-color: #999999;
-  border-radius: 1em;
+  border-radius: 20px;
   cursor: pointer;
   height: 3px;
   transition: background-color 0.2s ease-out;
@@ -750,7 +759,7 @@ input:not([type]),
   border-width: 0;
   border-style: solid;
   border-color: #999999;
-  border-radius: 2em;
+  border-radius: 40px;
 }
 
 [type="range"]::-ms-fill-upper {
@@ -758,7 +767,7 @@ input:not([type]),
   border-width: 0;
   border-style: solid;
   border-color: #999999;
-  border-radius: 2em;
+  border-radius: 40px;
 }
 
 [type="range"]::-ms-thumb {
@@ -778,27 +787,55 @@ input:not([type]),
 }
 
 [type="file"] {
+  appearance: none;
+  height: 40px;
   overflow: hidden;
+  position: relative;
   white-space: normal;
+  padding-left: 0;
 }
 
-[type="file"]::-webkit-file-upload-button {
+[type="file"]::placeholder {
+  opacity: 1;
+}
+
+[type="file"]::-moz-meter-bar {
+  background-color: red;
+}
+
+::-webkit-file-upload-button {
+  border: none;
   overflow: hidden;
   white-space: normal;
+  height: inherit;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+[type="file"] > [type="button"],
+[type="file"] /deep/ [type="button"] {
+  background-color: red !important;
+  border: none;
+}
+
+input[type="file"] > input[type="button"] {
+  background-color: red !important;
+  border: none !important;
 }
 
 /* Select ------------------ */
 select {
   background-color: #fff;
-  height: 32px;
+  height: 40px;
+  -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%234D4D4D%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E);
   background-repeat: no-repeat;
   background-position: right 10px center;
   border: 1px solid #999999;
-  border-radius: 1em;
-  padding: 8px;
+  border-radius: 20px;
+  padding: 10px;
   padding-right: 1.5em;
 }
 
@@ -808,7 +845,7 @@ select[size] {
 
 select[size] {
   background-color: #fff;
-  padding-right: 8px;
+  padding-right: 10px;
 }
 
 select[disabled] {
@@ -841,7 +878,7 @@ html [type="button"],
 .btn {
   background-color: #888888;
   border: none;
-  border-radius: 1em;
+  border-radius: 20px;
   box-sizing: border-box;
   color: white;
   cursor: pointer;
@@ -852,10 +889,10 @@ html [type="button"],
   justify-content: center;
   align-items: center;
   flex: 1 0 180px;
-  height: 32px;
+  height: 40px;
   max-width: 100%;
   min-width: 0;
-  padding: 8px;
+  padding: 10px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -1006,8 +1043,8 @@ form:invalid [type="submit"] {
 
 .input-message {
   display: block;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .input-message--hint {
@@ -1100,6 +1137,11 @@ input.has-error.has-error + em {
   outline: none;
 }
 
+input:not([type]), input[type], [list], textarea {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 [type="checkbox"] + label::before {
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), inset 0 0 0 1px #999999;
   animation: none;
@@ -1140,4 +1182,18 @@ select {
 
 select[disabled] {
   background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2028%2028%22%3E%20%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M26.297%2012.625l-11.594%2011.578c-0.391%200.391-1.016%200.391-1.406%200l-11.594-11.578c-0.391-0.391-0.391-1.031%200-1.422l2.594-2.578c0.391-0.391%201.016-0.391%201.406%200l8.297%208.297%208.297-8.297c0.391-0.391%201.016-0.391%201.406%200l2.594%202.578c0.391%200.391%200.391%201.031%200%201.422z%22%3E%3C/path%3E%20%3C/svg%3E);
+}
+
+[type="file"] {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-file-upload-button {
+  background-color: #40b5f4;
+  background-image: linear-gradient(to right, #40b5f4, #2FC7EB, #1ed4e6);
+  color: white;
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+  letter-spacing: 0.04em;
 }

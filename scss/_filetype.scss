@@ -1,15 +1,34 @@
 [type="file"] {
+	appearance: none;
+	height: $fw-input-height;
 	overflow: hidden;
+	position: relative;
 	white-space: normal;
+	padding-left: 0;
+
+	&::placeholder {
+		opacity: 1;
+	}
+
+	&::-moz-meter-bar {
+		background-color: red;
+	}
 }
 
 [type="file"]::-ms-browse {
 
 }
 
-[type="file"]::-webkit-file-upload-button {
+::-webkit-file-upload-button {
+	border: none;
 	overflow: hidden;
 	white-space: normal;
+	height: inherit;
+
+	padding-left: $fw-input-padding;
+	padding-right: $fw-input-padding;
+
+
 }
 
 [type="file"]:focus::-webkit-file-upload-button {
@@ -24,6 +43,16 @@
 
 }
 
+[type="file"] > [type="button"],
+[type="file"] /deep/ [type="button"] {
+
+	background-color: red!important;
+	border: none;
+}
+input[type="file"] > input[type="button"] {
+	background-color: red !important;
+	border: none !important;
+}
 [type="file"] > [type="button"]::-moz-focus-inner {
 
 }
