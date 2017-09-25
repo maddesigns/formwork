@@ -2,7 +2,7 @@
 /* Select ------------------ */
 
 select {
-	background-color: $fw-check-input-bg-color;
+	background-color: $fw-input-bg-color;
 	height: $fw-input-height;
 
 	&[size] {
@@ -24,7 +24,7 @@ select {
 		padding-right: 1.5em;
 
 		&[size] {
-			background-color: $fw-check-input-bg-color;
+			background-color: $fw-input-bg-color;
 			padding-right: $fw-input-padding;
 		}
 		// &:focus,

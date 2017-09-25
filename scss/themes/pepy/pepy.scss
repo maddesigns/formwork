@@ -34,8 +34,9 @@ $fw-focus-color:        $fw-font-color;
 
 $fw-check-height:             30px;
 $fw-check-width:              $fw-check-height;
-$fw-check-scale:              4px; // optimized for even numbers
+$fw-check-scale:              12px; // optimized for even numbers
 $fw-check-input-bg-color:     $fw-input-bg-color;
+$fw-check-input-color:        #39F3BB;
 $fw-check-border-width:       0px;
 $fw-check-border-color:       $fw-border-color;
 $fw-check-border-radius:      50%;
@@ -83,16 +84,21 @@ input:not([type]), input[type], [list], textarea {
 }
 
 [type="checkbox"]:checked + label::before {
-	background-image: linear-gradient(45deg, #90f9c4, #39f3bb);
+	background-image: linear-gradient(315deg, #39F3BB, #90F9C4);
 	box-shadow: 1px 1px 2px rgba(black, 0.1);
 }
 [type="checkbox"] + label::after{
-
 	transition: none;
 }
 [type="checkbox"]:checked + label::after{
 	border-color: #FFF;
 	transition: none;
+}
+[type="radio"] + label::before {
+	box-shadow: 1px 1px 2px rgba(black, 0.1), inset 0 0 0 1px $fw-border-color;
+}
+[type="radio"]:checked + label::after {
+	background-image: linear-gradient(315deg, #39F3BB, #90F9C4);
 }
 
 button, html [type="button"], [role="button"], [type="reset"], [type="submit"], [type="image"], .btn {

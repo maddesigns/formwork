@@ -522,13 +522,13 @@ input:not([type]),
 [type="radio"] + label::after {
   box-sizing: content-box;
   content: '';
-  background-color: #fff;
+  background-color: #39F3BB;
   position: absolute;
   top: 50%;
-  left: 12px;
-  width: 26px;
-  height: 26px;
-  margin-top: -13px;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
   transform: scale(0);
   transform-origin: 50%;
   transition: transform 200ms ease-out;
@@ -919,6 +919,17 @@ html [type="button"]:hover,
   color: white;
 }
 
+button :focus,
+html [type="button"] :focus,
+[role="button"] :focus,
+[type="reset"] :focus,
+[type="submit"] :focus,
+[type="image"] :focus,
+.btn :focus {
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.4);
+  outline: none;
+}
+
 button[disabled],
 html [type="button"][disabled],
 [role="button"][disabled],
@@ -1148,7 +1159,7 @@ input:not([type]), input[type], [list], textarea {
 }
 
 [type="checkbox"]:checked + label::before {
-  background-image: linear-gradient(45deg, #90f9c4, #39f3bb);
+  background-image: linear-gradient(315deg, #39F3BB, #90F9C4);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -1159,6 +1170,14 @@ input:not([type]), input[type], [list], textarea {
 [type="checkbox"]:checked + label::after {
   border-color: #FFF;
   transition: none;
+}
+
+[type="radio"] + label::before {
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), inset 0 0 0 1px #999999;
+}
+
+[type="radio"]:checked + label::after {
+  background-image: linear-gradient(315deg, #39F3BB, #90F9C4);
 }
 
 button, html [type="button"], [role="button"], [type="reset"], [type="submit"], [type="image"], .btn {

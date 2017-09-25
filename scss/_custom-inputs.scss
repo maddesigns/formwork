@@ -4,6 +4,7 @@ $fw-check-height:             14px                   !default;
 $fw-check-width:              $fw-check-height       !default;
 $fw-check-scale:              4px                    !default; // optimized for even numbers
 $fw-check-input-bg-color:     $fw-input-bg-color     !default;
+$fw-check-input-color:        $fw-font-color         !default;
 $fw-check-border-width:       $fw-border-width       !default;
 $fw-check-border-radius:      null                   !default;
 $fw-check-border-color:       $fw-border-color       !default;
@@ -88,7 +89,7 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 			&::after {
 				box-sizing: content-box;
 				content: '';
-				background-color: $fw-check-input-bg-color;
+				background-color: $fw-check-input-color;
 				position: absolute;
 				top: 50%;
 				left: $fw-input-padding + $fw-check-border-width + $fw-check-scale/2;

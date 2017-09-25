@@ -71,6 +71,13 @@ html [type="button"],
 	&:hover {
 		background-color: $fw-btn-hover-bg-color;
 		color: $fw-btn-hover-color;
+
+	}
+
+	:focus {
+		// WIP
+		box-shadow: 0 0 0 2px rgba($fw-focus-color, 0.4);
+		outline: none;
 	}
 
 	&:active {

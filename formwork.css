@@ -522,7 +522,7 @@ input:not([type]),
 [type="radio"] + label::after {
   box-sizing: content-box;
   content: '';
-  background-color: #fff;
+  background-color: #333333;
   position: absolute;
   top: 50%;
   left: 11px;
@@ -917,6 +917,17 @@ html [type="button"]:hover,
 .btn:hover {
   background-color: #666666;
   color: white;
+}
+
+button :focus,
+html [type="button"] :focus,
+[role="button"] :focus,
+[type="reset"] :focus,
+[type="submit"] :focus,
+[type="image"] :focus,
+.btn :focus {
+  box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.4);
+  outline: none;
 }
 
 button[disabled],
