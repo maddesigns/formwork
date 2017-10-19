@@ -3,12 +3,12 @@
 var bs = require('browser-sync').create();
 bs.init({
 
-	files: ["formwork.css"],
+	files: ["**/*.css"],
 	plugins: [
 		{
 			module: "bs-html-injector",
 			options: {
-				files: ["index.html"]
+				files: ["docs/index.html"]
 			}
 		}
 	],
@@ -17,7 +17,7 @@ bs.init({
 	notify: false,
 	logLevel: "silent",
 	server: {
-		baseDir: "demo",
+		baseDir: "docs",
 		index: 'index.html'
 	},
 	serveStatic: ['.'],

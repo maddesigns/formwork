@@ -1,16 +1,16 @@
 {
   "name": "formwork",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A Form Framework",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "node-sass --output-style expanded --include-path scss < scss/themes/pepy/pepy.scss | postcss -u autoprefixer > scss/themes/pepy/pepy.css",
     "sassmin": "node-sass --include-path scss < scss/formwork.scss | postcss --no-map -u autoprefixer -u cssnano > formwork.min.css",
-    "start": "node bs-simple.js",
+    "server": "node bs-simple.js",
     "build": "npm run sass && npm run sassmin",
     "watch:sass": "node-sass -w --output-style expanded ./scss/themes/pepy/*.scss -o ./",
-    "watch:all": "parallelshell 'npm run watch:sass' 'npm start'"
+    "start": "npm run watch:sass | npm run server"
   },
   "repository": {
     "type": "git",
@@ -36,14 +36,12 @@
   "homepage": "https://github.com/maddesigns/formwork/issues#readme",
   "dependencies": {
     "autoprefixer": "latest",
-    "browser-sync": "^2.18.13",
+    "browser-sync": "latest",
     "bs-html-injector": "latest",
-    "compression": "^1.7.0",
     "cssnano": "latest",
-    "daemon": "github:zipang/daemon.node#48d0977c26fb3a6a44ae99aae3471b9d5a761085",
-    "node-sass": "^4.5.3",
-    "parallelshell": "^3.0.1",
-    "postcss-cli": "^4.1.0",
+    "node-sass": "latest",
+    "parallelshell": "latest",
+    "postcss-cli": "latest",
     "watch": "latest"
   }
 }

@@ -249,86 +249,93 @@ label {
 
 input[placeholder]::-webkit-input-placeholder,
 textarea[placeholder]::-webkit-input-placeholder {
-  color: rgba(51, 51, 51, 0.3);
+  color: rgba(51, 51, 51, 0.4);
   opacity: 1;
   text-overflow: ellipsis;
 }
 
 input[placeholder]:focus::-webkit-input-placeholder,
 textarea[placeholder]:focus::-webkit-input-placeholder {
-  color: transparent !important;
+  color: rgba(51, 51, 51, 0.2);
+  caret-color: #333333;
 }
 
 input[placeholder]:-moz-placeholder,
 textarea[placeholder]:-moz-placeholder {
-  color: rgba(51, 51, 51, 0.3);
+  color: rgba(51, 51, 51, 0.4);
   opacity: 1;
   text-overflow: ellipsis;
 }
 
 input[placeholder]:focus:-moz-placeholder,
 textarea[placeholder]:focus:-moz-placeholder {
-  color: transparent !important;
+  color: rgba(51, 51, 51, 0.2);
+  caret-color: #333333;
 }
 
 input[placeholder]::-moz-placeholder,
 textarea[placeholder]::-moz-placeholder {
-  color: rgba(51, 51, 51, 0.3);
+  color: rgba(51, 51, 51, 0.4);
   opacity: 1;
   text-overflow: ellipsis;
 }
 
 input[placeholder]:focus::-moz-placeholder,
 textarea[placeholder]:focus::-moz-placeholder {
-  color: transparent !important;
+  color: rgba(51, 51, 51, 0.2);
+  caret-color: #333333;
 }
 
 input[placeholder]:-ms-input-placeholder,
 textarea[placeholder]:-ms-input-placeholder {
-  color: rgba(51, 51, 51, 0.3);
+  color: rgba(51, 51, 51, 0.4);
   opacity: 1;
   text-overflow: ellipsis;
 }
 
 input[placeholder]:focus:-ms-input-placeholder,
 textarea[placeholder]:focus:-ms-input-placeholder {
-  color: transparent !important;
+  color: rgba(51, 51, 51, 0.2);
+  caret-color: #333333;
 }
 
 input[placeholder]::-ms-input-placeholder,
 textarea[placeholder]::-ms-input-placeholder {
-  color: rgba(51, 51, 51, 0.3);
+  color: rgba(51, 51, 51, 0.4);
   opacity: 1;
   text-overflow: ellipsis;
 }
 
 input[placeholder]:focus::-ms-input-placeholder,
 textarea[placeholder]:focus::-ms-input-placeholder {
-  color: transparent !important;
+  color: rgba(51, 51, 51, 0.2);
+  caret-color: #333333;
 }
 
 input[placeholder]::placeholder,
 textarea[placeholder]::placeholder {
-  color: rgba(51, 51, 51, 0.3);
+  color: rgba(51, 51, 51, 0.4);
   opacity: 1;
   text-overflow: ellipsis;
 }
 
 input[placeholder]:focus::placeholder,
 textarea[placeholder]:focus::placeholder {
-  color: transparent !important;
+  color: rgba(51, 51, 51, 0.2);
+  caret-color: #333333;
 }
 
 input[placeholder]:placeholder-shown,
 textarea[placeholder]:placeholder-shown {
-  color: rgba(51, 51, 51, 0.3);
+  color: rgba(51, 51, 51, 0.4);
   opacity: 1;
   text-overflow: ellipsis;
 }
 
 input[placeholder]:focus:placeholder-shown,
 textarea[placeholder]:focus:placeholder-shown {
-  color: transparent !important;
+  color: rgba(51, 51, 51, 0.2);
+  caret-color: #333333;
 }
 
 /* Input & Textarea ------------------ */
