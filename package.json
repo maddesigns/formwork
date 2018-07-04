@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass --output-style expanded --include-path scss < scss/themes/pepy/pepy.scss | postcss -u autoprefixer > scss/themes/pepy/pepy.css",
-    "sassmin": "node-sass --include-path scss < scss/formwork.scss | postcss --no-map -u autoprefixer -u cssnano > formwork.min.css",
+    "sass": "node-sass --source-map-embed --include-path scss --output-style expanded ./scss/ -o ./css",
+    "postcss": "postcss css/**/*.css -rm -c postcss.config.js",
     "server": "node bs-simple.js",
-    "build": "npm run sass && npm run sassmin",
-    "watch:sass": "node-sass -w --output-style expanded ./scss/themes/pepy/*.scss -o ./",
-    "start": "npm run watch:sass | npm run server"
+    "bs": "browser-sync start --s './' --f './' 'css' --no-notify --no-ui --no-ghost-mode --logLevel info",
+    "start": "npm run watch | npm run server",
+    "build": "npm run sass",
+    "postbuild": "npm run postcss",
+    "watch": "npm run sass -- -w"
   },
   "repository": {
     "type": "git",
