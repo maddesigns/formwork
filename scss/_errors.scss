@@ -4,7 +4,8 @@ $fw-msg-class:                "input-message"    !default;
 $fw-msg-border:               none               !default;
 
 // button colors
-$fw-msg-alert-color:          red                !default;
+$fw-msg-color:                $fw-font-color     !default;
+$fw-msg-error-color:          red                !default;
 $fw-msg-hint-color:           blue               !default;
 $fw-msg-success-color:        green              !default;
 $fw-msg-warning-color:        yellow             !default;
@@ -21,9 +22,17 @@ form:invalid {
 
 // messages
 .#{$fw-msg-class} {
+	color: $fw-msg-color;
 	display: block;
-	padding-top: $fw-input-padding;
-	padding-bottom: $fw-input-padding;
+	padding-top: $fw-input-padding/2;
+	padding-bottom: $fw-input-padding/2;
+	font-style: normal;
+
+	> svg {
+		height: 1em;
+		display: inline-block;
+		vertical-align: text-top;
+	}
 }
 
 .#{$fw-msg-class}--hint {
@@ -31,81 +40,66 @@ form:invalid {
 }
 
 .#{$fw-msg-class}--error {
-	color: $fw-msg-alert-color;
+	color: $fw-msg-error-color;
+}
+
+.#{$fw-msg-class}--warning {
+	color: $fw-msg-warning-color;
+}
+
+.#{$fw-msg-class}--success {
+	color: $fw-msg-success-color;
 }
 
 
+label.has-error {
+	color: $fw-msg-error-color;
 
-
-
-// form errors
-.error-container {
-	background-color: lighten($fw-msg-alert-color, 30);
-	border: 1px solid darken($fw-msg-alert-color, 50);
-	display: none;
-	margin-bottom: 1em;
-	max-width: 600px;
-	//padding: 1em;
-
-	:invalid & {
-		display: block;
-	}
-
-	// demo
-	p {
-		padding: 1em;
-		margin: 0;
-		color: darken($fw-msg-alert-color, 50);
-	}
-}
-
-label.error {
-	color: $fw-msg-alert-color;
 	em {
-		color: $fw-msg-alert-color;
+		color: $fw-msg-error-color;
 	}
 }
 
-input.has-error.has-error {
-	border-color: $fw-msg-alert-color;
+.has-error{
+	border-color: $fw-msg-error-color;
 
-	&:invalid:focus {
-		border-color: lighten($fw-msg-alert-color, 40);
-	}
+	// &:invalid:focus {
+	// 	border-color: $fw-msg-error-color;
+	// }
 
-	&:valid {
-		border-color: lightgrey;
+	// &:valid {
+	// 	border-color: $fw-msg-success-color;
 
-		&:focus {
-			border-color: lightgrey;
-		}
-	}
+	// 	&:focus {
+	// 		border-color: $fw-focus-border-color;
+	// 	}
+	// }
 
-	+ em {
-		color: $fw-msg-alert-color;
-	}
-}
-
-.error-message {
-	transition: all 200ms 100ms;
-	color: $fw-msg-alert-color;
-	max-height: 0;
-	margin-top: 0.5em;
-	opacity: 0;
-	display: block;
-
-	:not(.is-invalid) ~ &,
-	:valid ~ & {
-		max-height: 0;
-		opacity: 0;
-	}
-
-	.is-invalid ~ &,
-	:invalid ~ & {
-		max-height: 99em;
-		opacity: 1;
+	~ em {
+		color: $fw-msg-error-color;
 	}
 }
+
+// .error-message {
+// 	transition: all 200ms 100ms;
+// 	color: $fw-msg-error-color;
+// 	max-height: 0;
+// 	margin-top: 0.5em;
+// 	opacity: 0;
+// 	display: block;
+
+// 	:not(.is-invalid) ~ &,
+// 	:valid ~ & {
+// 		max-height: 0;
+// 		opacity: 0;
+// 	}
+
+// 	.is-invalid ~ &,
+// 	:invalid ~ & {
+// 		max-height: 99em;
+// 		opacity: 1;
+// 	}
+// }
 
 
 :valid {
@@ -113,7 +107,7 @@ input.has-error.has-error {
 }
 
 :invalid:not(:required) {
-	border-color: $fw-msg-alert-color;
+	border-color: $fw-msg-error-color;
 	transition: border-color 300ms 0s;
 	outline: none;
 	box-shadow: none;
@@ -143,4 +137,25 @@ input:invalid:not(:focus) {
 
 :not(:focus):not(:placeholder-shown):invalid {
 
+}
+
+// form errors
+.error-container {
+	background-color: lighten($fw-msg-error-color, 30);
+	border: 1px solid darken($fw-msg-error-color, 50);
+	display: none;
+	margin-bottom: 1em;
+	max-width: 600px;
+	//padding: 1em;
+
+	:invalid & {
+		display: block;
+	}
+
+	// demo
+	p {
+		padding: 1em;
+		margin: 0;
+		color: darken($fw-msg-error-color, 50);
+	}
 }

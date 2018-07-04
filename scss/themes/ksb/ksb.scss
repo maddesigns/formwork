@@ -1,0 +1,157 @@
+// Theming for Go
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:             true;
+
+// Layout
+$fw-centered:                  false;
+$fw-display:                   block;
+$fw-styled-inputs:             true;  // styled radio/checkbox/select/range
+$fw-add-styled-inputs:         false; // seperate styled `input.custom
+
+// Font
+$fw-font-family:               inherit;
+$fw-font-size:                 16px;
+$fw-font-color:                #575757; // $color-grey1
+
+// Borders
+$fw-border-width:              1px;
+$fw-border-style:              solid;
+$fw-border-color:              #B5B5B5; // $color-grey3
+$fw-border-radius:             3px;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:              50px;
+$fw-input-width:               100%;
+$fw-input-max-width:           600px;
+$fw-input-bg-color:            white;
+
+$fw-hover-border-color:        #2a2a2a;
+$fw-hover-color:               #2a2a2a;
+
+$fw-focus-bg-color:            white;
+$fw-focus-border-color:        #369;
+$fw-focus-color:               #369;
+$fw-custom-focus-ring:         false;
+
+// buttons
+$fw-btn-width:                 auto;
+$fw-btn-max-width:             none;
+$fw-btn-padding:               20px 40px 20px;
+$fw-btn-color:                 white;
+$fw-btn-bg-color:              #868686;
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        #575757;
+// buttons submit
+$fw-btn-submit-bg-color:       #369;
+$fw-btn-submit-color:          white;
+$fw-btn-submit-hover-bg-color: #1e3d5b;
+$fw-btn-submit-hover-color:    white;
+// buttons CTA
+$fw-btn-cta-bg-color:          #ff571f;
+$fw-btn-cta-color:             white;
+$fw-btn-cta-hover-bg-color:    #993412;
+$fw-btn-cta-hover-color:       white;
+// buttons inverted
+$fw-btn-inv-bg-color:          rgba(white,0.75);
+$fw-btn-inv-color:             #2a2a2a;
+$fw-btn-inv-hover-bg-color:    rgba(white,0.75);
+$fw-btn-inv-hover-color:       #2a2a2a;
+
+
+// custom input
+$fw-check-height:             20px;
+$fw-check-scale:              14px;
+$fw-check-border-radius:      $fw-border-radius;
+$fw-check-tick-width:         2px;
+
+$fw-select-arrow: '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%0A%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23575757%22%20stroke-width%3D%222px%22%20points%3D%222%2C4.3%207.5%2C10%2013%2C4.3%22/%3E%0A%3C/svg%3E%0A';
+$fw-select-arrow-disabled: '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%0A%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23cccccc%22%20stroke-width%3D%222px%22%20points%3D%222%2C4.3%207.5%2C10%2013%2C4.3%22/%3E%0A%3C/svg%3E%0A';
+
+$fw-msg-error-color: #DE0C21;
+
+@import "../../formwork";
+
+
+label {
+	color: #000;
+	letter-spacing: 2px;
+	line-height: 1;
+	padding-bottom: 0.25em;
+	padding-top: 0.25em;
+	text-transform: uppercase;
+}
+
+input[type]:not(:disabled),
+select:not(:disabled),
+textarea:not(:disabled),
+button:not(:disabled),
+a:not([disabled]) {
+	&:hover {
+		box-shadow: 0 0 4px 0 #B5B5B5;
+	}
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 4px 0 #B5B5B5;
+	}
+}
+
+[type="checkbox"] + label,
+[type="radio"] + label {
+	text-transform: none;
+	letter-spacing: normal;
+	line-height: inherit;
+}
+
+[type="checkbox"]:focus + label,
+[type="radio"]:focus + label,
+[type="checkbox"]:hover + label,
+[type="radio"]:hover + label {
+
+	&::before {
+		box-shadow: 0 0 4px 0 #B5B5B5;
+	}
+}
+
+button,
+[type="button"],
+[role="button"],
+[type="reset"],
+[type="submit"],
+[type="image"],
+.btn {
+	text-transform: uppercase;
+	line-height: 1;
+	letter-spacing: 2px;
+}
+
+
+.tag {
+	flex-direction: row;
+	padding-top: 17px;
+	padding-bottom: 17px;
+	align-items: baseline;
+
+	svg {
+		display: inline-block;
+		vertical-align: middle;
+		transform: scale(1);
+		transition: transform 150ms ease-out;
+		fill: currentColor;
+		pointer-events: auto;
+
+		&:first-child {
+			margin-right: 0.5em;
+		}
+		&:last-child {
+			margin-left: 0.5em;
+		}
+	}
+
+	&:focus,
+	&:hover {
+		svg {
+			transform: scale(1.25);
+		}
+	}
+}

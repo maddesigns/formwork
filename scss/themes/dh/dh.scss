@@ -12,12 +12,12 @@ $fw-add-styled-inputs:         true;
 // Font
 $fw-font-family:               inherit;
 $fw-font-size:                 16px;
-$fw-font-color:                #000;
+$fw-font-color:                hsl(215,  20%,  17%);
 
 // Borders
 $fw-border-width:              1px;
 $fw-border-style:              solid;
-$fw-border-color:              #7fb71e;
+$fw-border-color:              hsl(181,  99%,  27%);
 $fw-border-radius:             0;
 
 // Inputs, Textareas, Select, Option
@@ -27,26 +27,23 @@ $fw-input-max-width:           600px;
 $fw-input-bg-color:            white;
 
 $fw-focus-bg-color:            white;
-$fw-focus-border-color:        #000;
-$fw-focus-color:               #666;
+$fw-focus-border-color:        black;
+$fw-focus-color:               hsl(255,   7%,  22%);
 
 // buttons
 $fw-btn-color:                 white;
 $fw-btn-bg-color:              #666;
 $fw-btn-hover-color:           white;
-$fw-btn-hover-bg-color:        #2ea5c5;
+$fw-btn-hover-bg-color:        #2caae1;
 // buttons submit
-$fw-btn-submit-bg-color:       #7fb71e;
+$fw-btn-submit-bg-color:       hsl(181,  99%,  27%);
 $fw-btn-submit-color:          white;
-$fw-btn-submit-hover-bg-color: #2ea5c5;
+$fw-btn-submit-hover-bg-color: hsl(181,  99%,  27%);
 $fw-btn-submit-hover-color:    white;
 // buttons CTA
-$fw-btn-cta-bg-color:          #2ea5c5;
+$fw-btn-cta-bg-color:          hsl(360,  82%,  64%);
 $fw-btn-cta-color:             white;
 $fw-btn-cta-hover-bg-color:    black;
 $fw-btn-cta-hover-color:       white;
-
-// custom input
-$fw-check-input-color:        $fw-border-color;
 
 @import "../../formwork";

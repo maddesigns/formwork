@@ -1,5 +1,10 @@
-
 /* Select ------------------ */
+
+$fw-select-arrow:          '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%234D4D4D%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E' !default;
+$fw-select-arrow-disabled: '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%23cccccc%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E' !default;
+
+//fontawesome chevron down
+//'%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2028%2028%22%3E%20%3Cpath%20d%3D%22M26.297%2012.625l-11.594%2011.578c-0.391%200.391-1.016%200.391-1.406%200l-11.594-11.578c-0.391-0.391-0.391-1.031%200-1.422l2.594-2.578c0.391-0.391%201.016-0.391%201.406%200l8.297%208.297%208.297-8.297c0.391-0.391%201.016-0.391%201.406%200l2.594%202.578c0.391%200.391%200.391%201.031%200%201.422z%22%3E%3C/path%3E%20%3C/svg%3E);
 
 select {
 	background-color: $fw-input-bg-color;
@@ -14,8 +19,7 @@ select {
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
-		background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%234D4D4D%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E);
-		//background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2028%2028%22%3E%20%3Cpath%20d%3D%22M26.297%2012.625l-11.594%2011.578c-0.391%200.391-1.016%200.391-1.406%200l-11.594-11.578c-0.391-0.391-0.391-1.031%200-1.422l2.594-2.578c0.391-0.391%201.016-0.391%201.406%200l8.297%208.297%208.297-8.297c0.391-0.391%201.016-0.391%201.406%200l2.594%202.578c0.391%200.391%200.391%201.031%200%201.422z%22%3E%3C/path%3E%20%3C/svg%3E); // fontawesome chevron down
+		background-image: url(data:image/svg+xml,#{$fw-select-arrow});
 		background-repeat: no-repeat;
 		background-position: right 10px center;
 		border: $fw-border-width $fw-border-style $fw-border-color;
@@ -23,10 +27,6 @@ select {
 		padding: $fw-input-padding;
 		padding-right: 1.5em;
 
-		&[size] {
-			background-color: $fw-input-bg-color;
-			padding-right: $fw-input-padding;
-		}
 		// &:focus,
 		// &:hover {
 		// 	border-color: black;
@@ -37,8 +37,18 @@ select {
 		// 	border-color: #900;
 		// }
 
+		&[size] {
+			background-color: $fw-input-bg-color;
+			padding-right: $fw-input-padding;
+		}
+
+		&[multiple] {
+			background: none;
+		}
+
+
 		&[disabled] {
-			background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%23cccccc%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E);
+			background-image: url(data:image/svg+xml,#{$fw-select-arrow-disabled});
 		}
 	}
 

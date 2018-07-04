@@ -1,6 +1,7 @@
 // disabled styles
 form [disabled],
-[disabled] + label {
+[disabled] + label,
+[disabled] label {
 	color: GrayText;
 	cursor: not-allowed;
 	outline: none;
@@ -16,15 +17,20 @@ form [disabled],
 	}
 }
 
-[disabled]:not([type="range"]) {
-	border-color: rgba(128, 128, 128, 0.5);
+[disabled]:not([type="range"]),
+[disabled]:not(.btn),
+[disabled]:not([type="button"]),
+[disabled]:not([type="submit"]) {
+	border-color: $fw-border-color;
+	color: GrayText;
+	opacity: 0.5;
+	user-selct: none;
 
 	&:hover {
 		background-color: $fw-input-bg-color;
-		color: GrayText;
+		box-shadow: none;
 	}
 }
-
 
 // opinionated
 [disabled][type=color]::-webkit-color-swatch-wrapper {

@@ -5,6 +5,8 @@
 	position: relative;
 	white-space: normal;
 	padding-left: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 
 	&::placeholder {
 		opacity: 1;
@@ -21,14 +23,13 @@
 
 ::-webkit-file-upload-button {
 	border: none;
+	background-color: #ccc;
+	color: #333;
 	overflow: hidden;
 	white-space: normal;
 	height: inherit;
-
 	padding-left: $fw-input-padding;
 	padding-right: $fw-input-padding;
-
-
 }
 
 [type="file"]:focus::-webkit-file-upload-button {
@@ -39,21 +40,20 @@
 
 }
 
-[type="file"]:active:disabled::-webkit-file-upload-button {
-
+[type="file"]:disabled::-webkit-file-upload-button {
+	color: #888;
 }
 
-[type="file"] > [type="button"],
-[type="file"] /deep/ [type="button"] {
+// [type="file"] > [type="button"],
+// [type="file"] /deep/ [type="button"] {
+// 	background-color: red!important;
+// 	border: none;
+// }
+// input[type="file"] > input[type="button"],
+// input[type="file"] > button[type="button"] {
+// 	background-color: red !important;
+// 	border: none !important;
+// }
+// [type="file"] > [type="button"]::-moz-focus-inner {
 
-	background-color: red!important;
-	border: none;
-}
-input[type="file"] > input[type="button"] {
-	background-color: red !important;
-	border: none !important;
-}
-[type="file"] > [type="button"]::-moz-focus-inner {
-
-}
-
+// }

@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="go.css">
+		<link rel="stylesheet" href="../css/themes/ksb/ksb.css">
 		<style>
 
 			body {
@@ -21,7 +21,6 @@
 			.crange {
 				display: flex;
 				flex-wrap: wrap;
-				max-width: $fw-input-max-width;
 			}
 			.crange__label {
 				flex-grow: 1;
@@ -66,6 +65,14 @@
 
 
 		<form action="#" method="post">
+
+			<div>
+				<h2>Tags</h2>
+
+				<button type="button" class="tag "><span>tag</span> <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="2 2 11 11">
+  <path d="M8.5606602 7.5l3.9696699 3.9696699-1.0606602 1.0606602L7.5 8.5606602l-3.9696699 3.9696699-1.0606602-1.0606602L6.4393398 7.5 2.4696699 3.5303301l1.0606602-1.0606602L7.5 6.4393398l3.9696699-3.9696699 1.0606602 1.0606602z"/>
+</svg></button>
+			</div>
 			<h3 class="styleguide-content">Fieldsets</h3>
 			<fieldset>
 				<legend>Fieldset with legend</legend>
@@ -109,11 +116,11 @@
 				<input type="text" id="required" name="required" aria-describedby="required_hint" required />
 				<span id="required_hint" class="input-message input-message--hint">Hint</span>
 			</div>
-
 			<div>
 				<label for="error">Textfield Error</label>
-				<input type="text" id="error" name="error" aria-describedby="input_error" placeholder="Error" class="input-error" />
-				<span id="input_error" class="input-message input-message--error">Error</span>
+				<span class="input-message">Some additional info text </span>
+				<input type="text" id="error" name="error" aria-describedby="input_error" placeholder="Error" class="has-error" />
+				<em id="input_error" class="input-message input-message--error">Error</em>
 			</div>
 			<div>
 				<label for="placeholder">Textfield with placeholder</label>
@@ -129,8 +136,13 @@
 			</div>
 			<div>
 				<label for="email">Email input</label>
-				<input type="email" id="email" name="email" aria-describedby="email_hint" />
-				<span id="email_hint" class="input-message input-message--error">Error</span>
+				<input type="email" id="email" name="email" aria-describedby="email_hint" class="has-error" />
+				<em id="email_hint" class="input-message input-message--error">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+						<path fill="currentColor" d="M8.5 6.5H10v4H8.5v-4zm0 5H10v2H8.5v-2zm-5.9 3.3H16L9.3 3 2.6 14.8zm16 1.5H0L9.3 0l9.3 16.3z"/>
+					</svg>
+					Error
+				</em>
 			</div>
 			<div>
 				<label for="search">Search input</label>
@@ -339,24 +351,33 @@
 
 		<h2>Buttons</h2>
 		<form action="#" method="post">
-			<p><input type="button" value="Input type button" /></p>
 			<p><input type="reset" value="Input type reset" /></p>
+			<p><input type="button" value="Input type button" /></p>
 			<p><input type="submit" value="Input type submit" /></p>
 			<p><input type="button" value="Input type button disabled" disabled /></p>
-
 			<p><input type="submit" value="Input type submit CTA" class="btn btn--cta" /></p>
+			<p><input type="submit" value="Input type submit Inverted" class="btn btn--inv" /></p>
+
 			<hr>
-			<p><button type="button">Button type button</button></p>
+
 			<p><button type="reset">Button type reset</button></p>
+			<p><button type="button">Button type button</button></p>
 			<p><button type="submit">Button type submit</button></p>
 			<p><button type="submit" disabled>Button type submit disabled</button></p>
-
 			<p><button type="submit" class="btn btn--cta">Button type submit CTA</button></p>
+			<p><button type="button" class="btn btn--txt">Button type button Text</button></p>
+			<p><button type="button" class="btn btn--inv">Button type button Inverted</button></p>
+
 			<hr>
+
 			<p><a href="#" class="btn">Link type button</a></p>
+			<p><a href="#" class="btn" disabled>Link type submit disabled</a></p>
 			<p><a href="#" class="btn btn--submit">Link type submit</a></p>
 			<p><a href="#" class="btn btn--cta">Link type CTA</a></p>
-			<p><a href="#" class="btn" disabled>Link type submit disabled</a></p>
+			<p><a href="#" class="btn btn--txt">Link Text</a></p>
+			<p><a href="#" class="btn btn--inv">Link Inverted</a></p>
+
+			<hr>
 
 			<h3 class="styleguide-content">Meter</h3>
 			<p>He got a <meter low="50" high="80" max="100" value="84">B</meter> on the exam.</p>

@@ -8,9 +8,14 @@ $fw-check-input-color:        $fw-font-color         !default;
 $fw-check-border-width:       $fw-border-width       !default;
 $fw-check-border-radius:      null                   !default;
 $fw-check-border-color:       $fw-border-color       !default;
+$fw-check-hover-color:        $fw-hover-color        !default;
+$fw-check-hover-bg-color:     $fw-hover-bg-color     !default;
+$fw-check-hover-border-color: $fw-hover-border-color !default;
 $fw-check-focus-color:        $fw-focus-color        !default;
 $fw-check-focus-bg-color:     $fw-focus-bg-color     !default;
 $fw-check-focus-border-color: $fw-focus-border-color !default;
+$fw-check-tick-width:         3px                    !default;
+$fw-check-tick-color:         $fw-font-color         !default;
 
 // visually hide elements the accessible way
 @mixin vh {
@@ -25,27 +30,34 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 	white-space: nowrap            !important;
 }
 
-@mixin radio() {
+@mixin custom-inputs() {
 	[type="checkbox"],
 	[type="radio"] {
 		@include vh();
 
-		&:focus {
+		&:focus:not(:disabled) {
 
 			+ label {
+				color: $fw-check-focus-color;
 
 				&::before {
-					box-shadow: 0 0 0 2px rgba($fw-check-focus-color, 0.4) !important;
+					border-color: $fw-check-focus-border-color;
+
+					@if $fw-custom-focus-ring {
+						box-shadow: 0 0 0 2px rgba($fw-focus-color, 0.4);
+						outline: none;
+					}
 				}
 			}
 		}
 
-		&:hover {
+		&:hover:not(:disabled) {
 
 			+ label {
+				color: $fw-check-hover-color;
 
 				&::before {
-					border-color: $fw-check-focus-border-color;
+					border-color: $fw-check-hover-border-color;
 				}
 			}
 		}
@@ -61,6 +73,8 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 		}
 
 		+ label {
+
+			color: $fw-check-input-color;
 			position: relative;
 			padding: $fw-input-padding;
 			//padding-left: $fw-check-width * 1.5;
@@ -77,13 +91,13 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 				margin-right: $fw-check-width * 0.25;
 				//margin-top: -($fw-check-height/2 + $fw-check-border-width);
 				//position: absolute;
-				top: 50%;
-				left: 0;
+				// top: 50%;
+				// left: 0;
 				width: $fw-check-width;
 				height: $fw-check-height;
 				//text-align: center;
 				display: inline-block;
-				vertical-align: middle;
+				vertical-align: bottom;
 			}
 
 			&::after {
@@ -105,11 +119,12 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 		&[disabled] {
 
 			+ label {
+				opacity: 0.5;
 
 				&::before {
 					animation: none;
 					box-shadow: none;
-					border: 1px solid rgba(128, 128, 128, 0.5);
+					border-color: rgba(128, 128, 128, 0.5);
 				}
 			}
 
@@ -120,6 +135,7 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 				+ label {
 
 					&::before {
+						box-shadow: none;
 						border-color: rgba(128, 128, 128, 0.5);
 						filter: none;
 						transition: none;
@@ -155,8 +171,8 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 
 				margin-top: calc(#{$fw-check-height} / -2 / 2 * 0.8);
 				border-style: solid;
-				border-color: $fw-border-color;
-				border-width: 0 0 3px 3px;
+				border-color: $fw-check-tick-color;
+				border-width: 0 0 $fw-check-tick-width $fw-check-tick-width;
 				border-radius: 0;
 				border-image: none;
 				transform: rotate(-45deg) scale(0);
@@ -183,12 +199,7 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 
 			&::before,
 			&::after {
-				@if ($fw-check-border-radius) {
-					border-radius: $fw-check-border-radius;
-				}
-				@else {
-					border-radius: 50%;
-				}
+				border-radius: 50%;
 			}
 		}
 
@@ -222,14 +233,13 @@ $fw-check-focus-border-color: $fw-focus-border-color !default;
 	}
 }
 
-
 // if custom checkboxes
-@if ($fw-styled-inputs == true) {
-	@include radio();
+@if ($fw-styled-inputs) {
+	@include custom-inputs();
 }
 
-@if ($fw-add-styled-inputs != false) {
+@if (($fw-add-styled-inputs) and not ($fw-styled-inputs)) {
 	.custom {
-		@include radio();
+		@include custom-inputs();
 	}
 }

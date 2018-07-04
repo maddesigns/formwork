@@ -54,7 +54,7 @@ select { /* 1 */
   */
 
 button,
-html [type="button"], /* 1 */
+[type="button"], /* 1 */
 [type="reset"],
 [type="submit"] {
   appearance: button; /* 2 */
@@ -198,6 +198,9 @@ button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba($fw-focus-color, 0.4);
+	outline: none;
+
+	@if $fw-custom-focus-ring {
+		box-shadow: 0 0 0 2px rgba($fw-focus-color, 0.4);
+	}
 }
