@@ -1,7 +1,7 @@
 // Button Styles (button, [type="button"],[type="reset"],[type="submit"],[type="image"], a.btn)
 
 // Buttons & Input Submits
-$fw-btn-class:                 "btn"                 !default;
+$fw-btn-class:                 false                 !default;
 $fw-btn-height:                $fw-input-height      !default;
 $fw-btn-width:                 $fw-input-width       !default;
 $fw-btn-max-width:             $fw-input-max-width   !default;
@@ -32,13 +32,7 @@ $fw-btn-inv-color:             black                 !default;
 $fw-btn-inv-hover-bg-color:    white                 !default;
 $fw-btn-inv-hover-color:       black                 !default;
 
-button,
-[type="button"], //html [type="button"] => https://github.com/necolas/normalize.css/commit/79b3d21b697e94675d748cd9d42409b83318d2b5
-[role="button"],
-[type="reset"],
-[type="submit"],
-[type="image"],
-.#{$fw-btn-class} {
+@mixin button-base() {
 	background-color: $fw-btn-bg-color;
 	border: $fw-btn-border;
 	border-radius: $fw-btn-radius;
@@ -98,13 +92,13 @@ button,
 	}
 
 	// disabled
-	&:disabled:disabled {
-		background-color: rgba($fw-btn-bg-color, 0.3);
+	// &:disabled:disabled {
+	// 	background-color: rgba($fw-btn-bg-color, 0.3);
 
-		&:hover {
-			background-color: rgba($fw-btn-bg-color, 0.3);
-		}
-	}
+	// 	&:hover {
+	// 		background-color: rgba($fw-btn-bg-color, 0.3);
+	// 	}
+	// }
 
 	&::before,
 	&::after {
@@ -117,23 +111,108 @@ button,
 	}
 }
 
+@if not ($fw-btn-class) {
+	/**
+	 * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+	 *    controls in Android 4.
+	 * 2. Correct the inability to style clickable types in iOS and Safari.
+	 */
+
+	 /**
+	  * Formwork editions:
+	  * 3. reset button background-image and border-radius in Firefox for Android
+	  * 4. use cursor: pointer (opinionated)
+	  *
+	  */
+
+	button,
+	[type="button"], /* 1 */
+	[type="reset"],
+	[type="submit"] {
+	  appearance: button; /* 2 */
+
+	  background-image: none; /* 3 */
+	  border-radius: 0; /* 3 */
+	  cursor: pointer; /* 4 */
+	}
+
+
+	/**
+	 * Remove the inner border and padding in Firefox.
+	 */
+
+	button::-moz-focus-inner,
+	[type="button"]::-moz-focus-inner,
+	[type="reset"]::-moz-focus-inner,
+	[type="submit"]::-moz-focus-inner {
+	  border-style: none;
+	  padding: 0;
+	}
+
+	/**
+	 * Restore the focus styles unset by the previous rule.
+	 */
+
+	button:-moz-focusring,
+	[type="button"]:-moz-focusring,
+	[type="reset"]:-moz-focusring,
+	[type="submit"]:-moz-focusring {
+	  outline: 1px dotted ButtonText;
+	}
+
+}
+
+// if custom checkboxes
+@if ($fw-btn-class) {
+	#{$fw-btn-class} {
+		@include button-base();
+	}
+
+	a#{$fw-btn-class}[disabled] {
+		pointer-events: none;
+	}
+}
+@else {
+	button,
+	[type="button"], //html [type="button"] => https://github.com/necolas/normalize.css/commit/79b3d21b697e94675d748cd9d42409b83318d2b5
+	[role="button"],
+	[type="reset"],
+	[type="submit"],
+	[type="image"] {
+		@include button-base();
+	}
+}
+
+
 
 // Button "submit"
-[type="submit"],
-.#{$fw-btn-class}--submit {
+@if ($fw-btn-class) {
+	#{$fw-btn-class}--submit {
+		background-color: $fw-btn-submit-bg-color;
+		color: $fw-btn-submit-color;
 
-	background-color: $fw-btn-submit-bg-color;
-	color: $fw-btn-submit-color;
+		&:hover,
+		&:focus {
+			background-color: $fw-btn-submit-hover-bg-color;
+			color: $fw-btn-submit-hover-color;
+		}
+	}
+} @else {
+	[type="submit"],
+	#{$fw-btn-class}--submit {
+		background-color: $fw-btn-submit-bg-color;
+		color: $fw-btn-submit-color;
 
-	&:hover,
-	&:focus {
-		background-color: $fw-btn-submit-hover-bg-color;
-		color: $fw-btn-submit-hover-color;
+		&:hover,
+		&:focus {
+			background-color: $fw-btn-submit-hover-bg-color;
+			color: $fw-btn-submit-hover-color;
+		}
 	}
 }
 
 // Button "CTA"
-.#{$fw-btn-class}--cta {
+#{$fw-btn-class}--cta {
 	background-color: $fw-btn-cta-bg-color;
 	color: $fw-btn-cta-color;
 
@@ -145,7 +224,7 @@ button,
 }
 
 // Button Text
-.#{$fw-btn-class}--txt {
+#{$fw-btn-class}--txt {
 	background-color: $fw-btn-color;
 	color: $fw-btn-bg-color;
 	font-weight: inherit;
@@ -160,8 +239,8 @@ button,
 	}
 }
 
-// Button "submit"
-.#{$fw-btn-class}--inv {
+// Button "iverted colors"
+#{$fw-btn-class}--inv {
 	background-color: $fw-btn-inv-bg-color;
 	color: $fw-btn-inv-color;
 
