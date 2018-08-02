@@ -31,6 +31,7 @@ $fw-focus-border-color:        #000;
 $fw-focus-color:               #666;
 
 // buttons
+$fw-btn-class:                 '.btn';
 $fw-btn-color:                 white;
 $fw-btn-bg-color:              #666;
 $fw-btn-hover-color:           white;
@@ -48,5 +49,10 @@ $fw-btn-cta-hover-color:       white;
 
 // custom input
 $fw-check-input-color:        $fw-border-color;
+$fw-check-hover-color:        $fw-border-color;
+
+$fw-check-border-width:       2px;
+$fw-check-tick-width:         2px;
+$fw-check-tick-color:         #7fb71e;
 
 @import "../../formwork";

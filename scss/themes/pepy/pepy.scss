@@ -36,7 +36,6 @@ $fw-check-height:             30px;
 $fw-check-width:              $fw-check-height;
 $fw-check-scale:              12px; // optimized for even numbers
 $fw-check-input-bg-color:     $fw-input-bg-color;
-$fw-check-input-color:        #39F3BB;
 $fw-check-border-width:       0px;
 $fw-check-border-color:       $fw-border-color;
 $fw-check-border-radius:      50%;
@@ -45,10 +44,8 @@ $fw-check-focus-bg-color:     $fw-focus-bg-color;
 $fw-check-focus-border-color: $fw-focus-border-color;
 
 
-
-
 // Buttons & Input Submits
-$fw-btn-class:                 "btn";
+$fw-btn-class:                 ".btn";
 $fw-btn-height:                $fw-input-height;
 $fw-btn-width:                 $fw-input-width;
 $fw-btn-max-width:             $fw-input-max-width;
@@ -56,15 +53,17 @@ $fw-btn-radius:                $fw-border-radius;
 $fw-btn-border:                none;
 
 // button colors
-$fw-btn-color:                 white;
+$fw-btn-color:                 $fw-font-color;
 $fw-btn-bg-color:              #888888;
-$fw-btn-hover-color:           white;
+$fw-btn-hover-color:           $fw-font-color;
 $fw-btn-hover-bg-color:        #666666;
+$fw-btn-focus-color:           $fw-font-color;
+$fw-btn-padding:               0.5em 2em;
 // buttons submit
 $fw-btn-submit-bg-color:       #222222;
-$fw-btn-submit-color:          white;
+$fw-btn-submit-color:          $fw-font-color;
 $fw-btn-submit-hover-bg-color: black;
-$fw-btn-submit-hover-color:    white;
+$fw-btn-submit-hover-color:    $fw-font-color;
 // buttons CTA
 $fw-btn-cta-bg-color:          #da503b;
 $fw-btn-cta-color:             white;
@@ -103,18 +102,32 @@ input:not([type]), input[type], [list], textarea {
 
 button, html [type="button"], [role="button"], [type="reset"], [type="submit"], [type="image"], .btn {
 	background-image: linear-gradient(to right, #e5e5e5, #efefef, #f5f5f5);
-	box-shadow: 3px 3px 7px rgba(black, 0.4);
-	color: #333;
+	box-shadow: 0.2em 0.2em 0.5em rgba(black, 0.4);
 	line-height: 1;
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
+	width: auto;
+	height: auto;
+
+	&:hover,
+	&:focus {
+		background-image: linear-gradient(to right, #f5f5f5, #efefef, #e5e5e5);
+	}
+
+	&:active {
+		box-shadow: none;
+	}
 }
 
 .btn--cta {
-
 	background-image: linear-gradient(to right, #40b5f4, #2FC7EB, #1ed4e6);
-	color: $fw-btn-color;
 	font-weight: 700;
+
+	&:hover,
+	&:focus {
+		background-image: linear-gradient(to right, #1ed4e6, #2FC7EB, #40b5f4);
+	}
+
 }
 
 select {
@@ -133,9 +146,26 @@ select[disabled] {
 	background-image: linear-gradient(to right, #40b5f4, #2FC7EB, #1ed4e6);
 	color: white;
 	text-transform: uppercase;
-
 	padding-left: $fw-input-padding*2;
 	padding-right: $fw-input-padding*2;
-
 	letter-spacing: 0.04em;
+}
+
+[type="checkbox"][disabled] + label,
+[type="radio"][disabled] + label {
+
+	&::before {
+		box-shadow: 1px 1px 2px rgba(black, 0.1), inset 0 0 0 1px $fw-border-color;
+	}
+
+	&:focus,
+	&:hover {
+		&::before {
+			box-shadow: 1px 1px 2px rgba(black, 0.1), inset 0 0 0 1px $fw-border-color;
+		}
+	}
+}
+
+.btn--smaller {
+	font-size: 0.75em;
 }

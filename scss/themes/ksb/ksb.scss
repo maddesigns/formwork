@@ -1,4 +1,4 @@
-// Theming for Go
+// Theming for KSB
 
 // Fieldset & Legend Styling
 $fw-fieldset-bare:             true;
@@ -35,9 +35,10 @@ $fw-focus-color:               #369;
 $fw-custom-focus-ring:         false;
 
 // buttons
+$fw-btn-class:                 '.btn';
 $fw-btn-width:                 auto;
 $fw-btn-max-width:             none;
-$fw-btn-padding:               20px 40px 20px;
+$fw-btn-padding:               17px 40px 17px;
 $fw-btn-color:                 white;
 $fw-btn-bg-color:              #868686;
 $fw-btn-hover-color:           white;
@@ -113,45 +114,10 @@ a:not([disabled]) {
 	}
 }
 
-button,
-[type="button"],
-[role="button"],
-[type="reset"],
-[type="submit"],
-[type="image"],
+
 .btn {
 	text-transform: uppercase;
 	line-height: 1;
 	letter-spacing: 2px;
 }
 
-
-.tag {
-	flex-direction: row;
-	padding-top: 17px;
-	padding-bottom: 17px;
-	align-items: baseline;
-
-	svg {
-		display: inline-block;
-		vertical-align: middle;
-		transform: scale(1);
-		transition: transform 150ms ease-out;
-		fill: currentColor;
-		pointer-events: auto;
-
-		&:first-child {
-			margin-right: 0.5em;
-		}
-		&:last-child {
-			margin-left: 0.5em;
-		}
-	}
-
-	&:focus,
-	&:hover {
-		svg {
-			transform: scale(1.25);
-		}
-	}
-}

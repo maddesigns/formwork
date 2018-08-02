@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="../css/themes/ksb/ksb.css">
+		<link rel="stylesheet" href="../css/themes/go/go.css">
 		<style>
 
 			body {
@@ -66,13 +66,6 @@
 
 		<form action="#" method="post">
 
-			<div>
-				<h2>Tags</h2>
-
-				<button type="button" class="tag "><span>tag</span> <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="2 2 11 11">
-  <path d="M8.5606602 7.5l3.9696699 3.9696699-1.0606602 1.0606602L7.5 8.5606602l-3.9696699 3.9696699-1.0606602-1.0606602L6.4393398 7.5 2.4696699 3.5303301l1.0606602-1.0606602L7.5 6.4393398l3.9696699-3.9696699 1.0606602 1.0606602z"/>
-</svg></button>
-			</div>
 			<h3 class="styleguide-content">Fieldsets</h3>
 			<fieldset>
 				<legend>Fieldset with legend</legend>
@@ -349,14 +342,12 @@
 			</div>
 		</form> -->
 
-		<h2>Buttons</h2>
+		<h2>Submits</h2>
 		<form action="#" method="post">
 			<p><input type="reset" value="Input type reset" /></p>
 			<p><input type="button" value="Input type button" /></p>
 			<p><input type="submit" value="Input type submit" /></p>
 			<p><input type="button" value="Input type button disabled" disabled /></p>
-			<p><input type="submit" value="Input type submit CTA" class="btn btn--cta" /></p>
-			<p><input type="submit" value="Input type submit Inverted" class="btn btn--inv" /></p>
 
 			<hr>
 
@@ -364,18 +355,22 @@
 			<p><button type="button">Button type button</button></p>
 			<p><button type="submit">Button type submit</button></p>
 			<p><button type="submit" disabled>Button type submit disabled</button></p>
-			<p><button type="submit" class="btn btn--cta">Button type submit CTA</button></p>
-			<p><button type="button" class="btn btn--txt">Button type button Text</button></p>
-			<p><button type="button" class="btn btn--inv">Button type button Inverted</button></p>
 
-			<hr>
+			<h2>Buttons with class '.btn'</h2>
+			<p><button type="submit" class="btn">button[type="submit"].btn</button></p>
+			<p><button type="button" class="btn btn--submit">button[type="button"].btn.btn--submit</button></p>
+			<p><button type="submit" class="btn btn--cta">button[type="submit"].btn.btn--cta</button></p>
+			<p><button type="button" class="btn btn--txt">button[type="button"].btn.btn--txt</button></p>
+			<p><button type="button" class="btn btn--inv">button[type="button"].btn.btn--inv</button></p>
+			<p><button type="submit" class="btn btn--cta" disabled>button[type="submit"][disabled].btn.btn--cta</button></p>
 
-			<p><a href="#" class="btn">Link type button</a></p>
-			<p><a href="#" class="btn" disabled>Link type submit disabled</a></p>
-			<p><a href="#" class="btn btn--submit">Link type submit</a></p>
-			<p><a href="#" class="btn btn--cta">Link type CTA</a></p>
-			<p><a href="#" class="btn btn--txt">Link Text</a></p>
-			<p><a href="#" class="btn btn--inv">Link Inverted</a></p>
+			<h2>Links with class '.btn'</h2>
+			<p><a href="#" class="btn">a.btn</a></p>
+			<p><a href="#" class="btn" disabled>a.btn disabled</a></p>
+			<p><a href="#" class="btn btn--submit">a.btn.btn--submit</a></p>
+			<p><a href="#" class="btn btn--cta">a.btn.btn--cta</a></p>
+			<p><a href="#" class="btn btn--txt">a.btn.btn--txt</a></p>
+			<p><a href="#" class="btn btn--inv">a.btn.btn--inv</a></p>
 
 			<hr>
 
