@@ -17,17 +17,18 @@ form [disabled],
 	}
 }
 
-[disabled]:not([type="range"]),
-[disabled]:not(.btn),
-[disabled]:not([type="button"]),
-[disabled]:not([type="submit"]) {
-	border-color: $fw-border-color;
+[disabled]:not([type="range"]) {
+	background-color: ButtonFace;
+	background-image: initial;
+	border: 1px solid GrayText;
 	color: GrayText;
 	opacity: 0.5;
-	user-selct: none;
+	user-select: none;
+	box-shadow: none;
 
 	&:hover {
-		background-color: $fw-input-bg-color;
+		background-color: ButtonFace;
+		background-image: initial;
 		box-shadow: none;
 	}
 }
