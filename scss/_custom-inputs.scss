@@ -161,20 +161,18 @@ $fw-check-tick-color:         $fw-font-color         !default;
 
 			&::after {
 				background-color: transparent;
-				top: 50%;
-				left: calc(#{$fw-input-padding} + #{$fw-check-border-width} + #{$fw-check-width}/5);
-				//width: 8px;
-				//height: 3px;
-
-				width: $fw-check-width/2;
-				height: $fw-check-width/5;
-
-				margin-top: calc(#{$fw-check-height} / -2 / 2 * 0.8);
 				border-style: solid;
 				border-color: $fw-check-tick-color;
 				border-width: 0 0 $fw-check-tick-width $fw-check-tick-width;
 				border-radius: 0;
 				border-image: none;
+
+				width: $fw-check-width/2;
+				height: $fw-check-width/5;
+				left: calc(#{$fw-input-padding} + #{$fw-check-border-width} + #{$fw-check-width}/5);
+				margin-top: calc(#{$fw-check-height} / -2 / 2 * 0.70);
+				top: 50%;
+
 				transform: rotate(-45deg) scale(0);
 				transition: none;
 			}
@@ -187,7 +185,7 @@ $fw-check-tick-color:         $fw-font-color         !default;
 				&::after {
 					content: ''; //\2713';
 					transform: rotate(-45deg) scale(1);
-					transition: transform 200ms ease-out;
+					transition: transform 200ms ease-in;
 				}
 			}
 		}
