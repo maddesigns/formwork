@@ -42,6 +42,10 @@ textarea {
 	&:hover {
 		border-color: $fw-hover-border-color;
 		color: $fw-hover-color;
+
+		@if $fw-custom-focus-ring {
+			box-shadow: 0 0 0 $fw-hover-border-width rgba($fw-hover-color, $fw-hover-opacity);
+		}
 	}
 
 	&:focus {
@@ -51,7 +55,7 @@ textarea {
 		caret-color: $fw-focus-color;
 
 		@if $fw-custom-focus-ring {
-			box-shadow: 0 0 0 2px rgba($fw-focus-color, 0.4);
+			box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-focus-border-color, $fw-focus-opacity);
 			outline: none;
 		}
 	}

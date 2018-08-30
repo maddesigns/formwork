@@ -48,11 +48,14 @@ $fw-btn-cta-hover-bg-color:    black;
 $fw-btn-cta-hover-color:       white;
 
 // custom input
-$fw-check-input-color:        $fw-border-color;
+$fw-check-height:             18px;
+$fw-check-scale:              4px;
+$fw-check-input-color:        $fw-font-color;
 $fw-check-hover-color:        $fw-border-color;
-
-$fw-check-border-width:       2px;
+$fw-check-focus-color:        $fw-font-color;
+$fw-check-border-width:       1px;
 $fw-check-tick-width:         2px;
 $fw-check-tick-color:         #7fb71e;
+$fw-check-bullet-color:       #7fb71e;
 
 @import "../../formwork";

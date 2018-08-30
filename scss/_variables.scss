@@ -33,8 +33,12 @@ $fw-input-bg-color:     #fff               !default;
 $fw-hover-bg-color:     #555555            !default;
 $fw-hover-border-color: $fw-border-color   !default;
 $fw-hover-color:        $fw-font-color     !default;
+$fw-hover-border-width: 1px                !default;
+$fw-hover-opacity:      0                  !default;
 
+$fw-custom-focus-ring:  true               !default;
 $fw-focus-bg-color:     #555555            !default;
 $fw-focus-border-color: $fw-border-color   !default;
 $fw-focus-color:        $fw-font-color     !default;
-$fw-custom-focus-ring:  true               !default;
+$fw-focus-border-width: 2px                !default;
+$fw-focus-opacity:      0.4                !default;

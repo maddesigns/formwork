@@ -1,0 +1,110 @@
+// Theming for Go
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:             true;
+
+// Layout
+$fw-centered:                  false;
+$fw-display:                   block;
+$fw-styled-inputs:             true;  // styled radio/checkbox/select/range
+$fw-add-styled-inputs:         true;
+
+// Font
+$fw-font-family:               inherit;
+$fw-font-size:                 16px;
+$fw-font-color:                #000;
+
+// Borders
+$fw-border-width:              1px;
+$fw-border-style:              solid;
+$fw-border-color:              #a8a8a8;
+$fw-border-radius:             4px;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:              40px;
+$fw-input-width:               100%;
+$fw-input-max-width:           600px;
+$fw-input-bg-color:            white;
+
+$fw-hover-border-color:        #3C4043;
+$fw-hover-border-width:        1px;
+$fw-hover-opacity:             1;
+
+$fw-focus-bg-color:            white;
+$fw-focus-border-color:        #5876AA;
+$fw-focus-color:               #000;
+$fw-focus-border-width:        1px;
+$fw-focus-opacity:             1;
+
+$fw-select-arrow:              '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2028%2028%22%3E%20%3Cpath%20d%3D%22M26.297%2012.625l-11.594%2011.578c-0.391%200.391-1.016%200.391-1.406%200l-11.594-11.578c-0.391-0.391-0.391-1.031%200-1.422l2.594-2.578c0.391-0.391%201.016-0.391%201.406%200l8.297%208.297%208.297-8.297c0.391-0.391%201.016-0.391%201.406%200l2.594%202.578c0.391%200.391%200.391%201.031%200%201.422z%22%3E%3C/path%3E%20%3C/svg%3E';
+
+// buttons
+$fw-btn-class:                 '.btn';
+$fw-btn-color:                 #fff;
+$fw-btn-bg-color:              #5876AA;
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        #5876AA;
+// buttons submit
+$fw-btn-submit-bg-color:       #000;
+$fw-btn-submit-color:          #fff;
+$fw-btn-submit-hover-bg-color: #000;
+$fw-btn-submit-hover-color:    #fff;
+// buttons CTA
+$fw-btn-cta-bg-color:          #5876AA;
+$fw-btn-cta-color:             #fff;
+$fw-btn-cta-hover-bg-color:    #5876AA;
+$fw-btn-cta-hover-color:       #fff;
+
+$fw-btn-txt-decoration:        none;
+
+// custom input
+$fw-check-height:             24px;
+$fw-check-scale:              6px;
+$fw-check-input-color:        #757575;
+$fw-check-hover-color:        #434343;
+$fw-check-focus-color:        #434343;
+
+$fw-check-border-width:       2px;
+$fw-check-border-radius:      2px;
+$fw-check-border-color:       #757575;
+$fw-check-tick-width:         2px;
+$fw-check-tick-color:         #fff;
+
+$fw-check-bullet-color:       #434343;
+$fw-check-hover-bg-color:     #434343;
+$fw-check-hover-border-color: #434343;
+$fw-check-checked-border-color: #434343;
+$fw-check-checked-bg-color:     #434343;
+
+$fw-msg-color:                #B00020;
+$fw-msg-error-color:          $fw-msg-color;
+
+@import "../../formwork";
+
+
+[type="checkbox"] + label::after {
+	transform-origin: -20% 50%;
+}
+
+.btn {
+	text-transform: uppercase;
+	line-height: 1.2;
+	letter-spacing: 1.25px;
+}
+
+.has-error {
+	background-repeat: no-repeat;
+	background-position: right 0.5em center;
+	background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22%23' + str-slice("#{$fw-msg-color}", 2) + '%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M1%2021h22L12%202%201%2021zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z%22/%3E%0A%3C/svg%3E');
+
+	&:hover {
+		@if $fw-custom-focus-ring {
+			box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-msg-error-color, $fw-focus-opacity);
+		}
+	}
+}
+
+:valid,
+:invalid {
+	transition-property: border-color, box-shadow;
+}

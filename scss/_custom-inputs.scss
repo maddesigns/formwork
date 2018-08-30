@@ -1,21 +1,24 @@
 // custom inputs
 // custom checkbox/radios
-$fw-check-height:             14px                   !default;
-$fw-check-width:              $fw-check-height       !default;
-$fw-check-scale:              4px                    !default; // optimized for even numbers
-$fw-check-input-bg-color:     $fw-input-bg-color     !default;
-$fw-check-input-color:        $fw-font-color         !default;
-$fw-check-border-width:       $fw-border-width       !default;
-$fw-check-border-radius:      null                   !default;
-$fw-check-border-color:       $fw-border-color       !default;
-$fw-check-hover-color:        $fw-hover-color        !default;
-$fw-check-hover-bg-color:     $fw-hover-bg-color     !default;
-$fw-check-hover-border-color: $fw-hover-border-color !default;
-$fw-check-focus-color:        $fw-focus-color        !default;
-$fw-check-focus-bg-color:     $fw-focus-bg-color     !default;
-$fw-check-focus-border-color: $fw-focus-border-color !default;
-$fw-check-tick-width:         3px                    !default;
-$fw-check-tick-color:         $fw-font-color         !default;
+$fw-check-height:               14px                   !default;
+$fw-check-width:                $fw-check-height       !default;
+$fw-check-scale:                4px                    !default; // optimized for even numbers
+$fw-check-input-bg-color:       $fw-input-bg-color     !default;
+$fw-check-input-color:          $fw-font-color         !default;
+$fw-check-border-width:         $fw-border-width       !default;
+$fw-check-border-radius:        0                      !default;
+$fw-check-border-color:         $fw-border-color       !default;
+$fw-check-hover-color:          $fw-hover-color        !default;
+$fw-check-hover-bg-color:       $fw-hover-bg-color     !default;
+$fw-check-hover-border-color:   $fw-hover-border-color !default;
+$fw-check-focus-color:          $fw-focus-color        !default;
+$fw-check-focus-bg-color:       $fw-focus-bg-color     !default;
+$fw-check-focus-border-color:   $fw-focus-border-color !default;
+$fw-check-tick-width:           3px                    !default;
+$fw-check-tick-color:           $fw-font-color         !default;
+$fw-check-bullet-color:         $fw-font-color         !default;
+$fw-check-checked-border-color: $fw-border-color       !default;
+$fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 
 // visually hide elements the accessible way
 @mixin vh {
@@ -44,7 +47,7 @@ $fw-check-tick-color:         $fw-font-color         !default;
 					border-color: $fw-check-focus-border-color;
 
 					@if $fw-custom-focus-ring {
-						box-shadow: 0 0 0 2px rgba($fw-focus-color, 0.4);
+						box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-check-focus-border-color, $fw-focus-opacity);
 						outline: none;
 					}
 				}
@@ -73,14 +76,19 @@ $fw-check-tick-color:         $fw-font-color         !default;
 		}
 
 		+ label {
-
 			color: $fw-check-input-color;
 			position: relative;
 			padding: $fw-input-padding;
+			//line-height: $fw-check-width + $fw-check-border-width + $fw-check-scale/2;
 			//padding-left: $fw-check-width * 1.5;
 			//min-height: $fw-check-height;
 			//vertical-align: middle;
 			user-select: none;
+			transition: color 100ms ease-out;
+
+			// outline: 1px solid red;
+			// background-color: pink;
+			// background-clip: content-box;
 
 			&::before {
 				background-color: $fw-check-input-bg-color;
@@ -88,31 +96,46 @@ $fw-check-tick-color:         $fw-font-color         !default;
 				box-sizing: content-box;
 				content: '';
 				color: $fw-check-border-color;
-				margin-right: $fw-check-width * 0.25;
+				margin-right: $fw-check-width * 0.5;
 				//margin-top: -($fw-check-height/2 + $fw-check-border-width);
-				//position: absolute;
-				// top: 50%;
+				position: relative;
+				top: -$fw-check-border-width;
 				// left: 0;
-				width: $fw-check-width;
-				height: $fw-check-height;
+				width: $fw-check-width - ($fw-check-border-width * 2);
+				height: $fw-check-height - ($fw-check-border-width * 2);
 				//text-align: center;
 				display: inline-block;
-				vertical-align: bottom;
+				vertical-align: middle;
 			}
 
 			&::after {
 				box-sizing: content-box;
 				content: '';
-				background-color: $fw-check-input-color;
+				background-color: $fw-check-bullet-color;
 				position: absolute;
-				top: 50%;
+				top: $fw-input-padding + $fw-check-scale/2;
 				left: $fw-input-padding + $fw-check-border-width + $fw-check-scale/2;
-				width: $fw-check-width - $fw-check-scale;
-				height: $fw-check-height -$fw-check-scale;
-				margin-top: -(($fw-check-height - $fw-check-scale)/2);
+				width: $fw-check-width - $fw-check-scale - ($fw-check-border-width * 2);
+				height: $fw-check-height - $fw-check-scale - ($fw-check-border-width * 2);
+				//margin-top: -(($fw-check-height - $fw-check-scale)/2);
 				transform: scale(0);
 				transform-origin: 50%;
 				transition: transform 200ms ease-out;
+			}
+
+			//.check-wrapper & {
+				display: inline-flex;
+				align-items: center;
+
+				&::after,
+				&::before {
+					flex-shrink: 0;
+				}
+			//}
+
+			&.u-align-top {
+				vertical-align: top;
+				align-items: flex-start;
 			}
 		}
 
@@ -151,12 +174,7 @@ $fw-check-tick-color:         $fw-font-color         !default;
 
 			&::before,
 			&::after {
-				@if ($fw-check-border-radius) {
-					border-radius: $fw-check-border-radius;
-				}
-				@else {
-					border-radius: 0;
-				}
+				border-radius: $fw-check-border-radius;
 			}
 
 			&::after {
@@ -169,22 +187,32 @@ $fw-check-tick-color:         $fw-font-color         !default;
 
 				width: $fw-check-width/2;
 				height: $fw-check-width/5;
-				left: calc(#{$fw-input-padding} + #{$fw-check-border-width} + #{$fw-check-width}/5);
-				margin-top: calc(#{$fw-check-height} / -2 / 2 * 0.70);
-				top: 50%;
-
-				transform: rotate(-45deg) scale(0);
+				// left: $fw-input-padding + $fw-check-border-width + $fw-check-width/5;
+				top: 0;
+				left: 0;
+				transform-origin: 0% 50%;
+				transform:
+					translateY(#{$fw-input-padding + $fw-check-border-width + ($fw-check-width/2) - (($fw-check-width/5)/2)})
+					translateX(#{$fw-input-padding + $fw-check-border-width + ($fw-check-width/2) - (($fw-check-width/2)/2)})
+					rotate(-45deg)
+					scale(0);
 				transition: none;
 			}
 		}
 
 		&:checked {
-
 			+ label {
-
+				&::before {
+					border-color: $fw-check-checked-border-color;
+					background-color: $fw-check-checked-bg-color;
+				}
 				&::after {
 					content: ''; //\2713';
-					transform: rotate(-45deg) scale(1);
+					transform:
+						translateY(#{$fw-input-padding + $fw-check-border-width + ($fw-check-width/2) - (($fw-check-width/5)/2)})
+						translateX(#{$fw-input-padding + $fw-check-border-width + ($fw-check-width/2) - (($fw-check-width/2)/2)})
+						rotate(-45deg)
+						scale(1);
 					transition: transform 200ms ease-in;
 				}
 			}
@@ -221,6 +249,7 @@ $fw-check-tick-color:         $fw-font-color         !default;
 				&::before {
 					animation: none;
 					background-color: $fw-check-input-bg-color;
+					border-color: $fw-check-checked-border-color;
 				}
 
 				&::after {
@@ -241,3 +270,4 @@ $fw-check-tick-color:         $fw-font-color         !default;
 		@include custom-inputs();
 	}
 }
+

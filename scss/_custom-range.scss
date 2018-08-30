@@ -6,34 +6,35 @@
 // Version 1.4.1
 // MIT License
 
-$fw-thumb-color:              $fw-border-color        !default;
-$fw-thumb-height:             14px                    !default;
-$fw-thumb-width:              $fw-thumb-height        !default;
-$fw-thumb-border-width:       $fw-border-width        !default;
-$fw-thumb-border-style:       $fw-border-style        !default;
-$fw-thumb-border-color:       $fw-border-color        !default;
-$fw-thumb-border-radius:      50%                     !default;
+$fw-thumb-color:              $fw-border-color                      !default;
+$fw-thumb-height:             14px                                  !default;
+$fw-thumb-width:              $fw-thumb-height                      !default;
+$fw-thumb-border-width:       $fw-border-width                      !default;
+$fw-thumb-border-style:       $fw-border-style                      !default;
+$fw-thumb-border-color:       $fw-border-color                      !default;
+$fw-thumb-border-radius:      50%                                   !default;
 
-$fw-track-bg-color:           $fw-border-color        !default;
-$fw-track-height:             3px                     !default;
-$fw-track-width:              100%                    !default;
-$fw-track-border-width:       0                       !default;
-$fw-track-border-style:       $fw-border-style        !default;
-$fw-track-border-color:       $fw-border-color        !default;
-$fw-track-border-radius:      $fw-border-radius       !default;
+$fw-track-bg-color:           $fw-border-color                      !default;
+$fw-track-height:             3px                                   !default;
+$fw-track-width:              100%                                  !default;
+$fw-track-border-width:       ($fw-thumb-height - $fw-track-height) !default;
+$fw-track-border-style:       $fw-border-style                      !default;
+$fw-track-border-color:       rgba(0,0,0,0)                         !default;
+$fw-track-border-radius:      $fw-border-radius                     !default;
 
 $contrast: 5% !default;
 
 @mixin track() {
 	box-sizing: content-box;
 	background-color: $fw-track-bg-color;
+	background-clip: content-box;
 	border: {
 		width: $fw-track-border-width;
 		style: $fw-track-border-style;
 		color: $fw-track-border-color;
 	}
 	border-radius: $fw-track-border-radius;
-	cursor: pointer;
+	//cursor: pointer;
 	height: $fw-track-height;
 	transition: background-color 0.2s ease-out;
 	width: $fw-track-width;
@@ -101,9 +102,11 @@ $contrast: 5% !default;
 	&[disabled] {
 		border-color: rgba(128, 128, 128, 0.5);
 		background-color: rgba(128, 128, 128, 0.5);
+		opacity: 0.4;
+		cursor: not-allowed;
 
 		&:hover {
-			background-color: $fw-input-bg-color;
+			background-color: rgba(128, 128, 128, 0.5);
 			color: GrayText;
 		}
 
@@ -118,8 +121,8 @@ $contrast: 5% !default;
 		}
 
 		&::-moz-range-track {
-			border-color: rgba(128, 128, 128, 0.5);
-			background-color: rgba(128, 128, 128, 0.5);
+			border-color: rgba(128, 128, 128, 0);
+			background-color: rgba(128, 128, 128, 0.2);
 		}
 
 		&::-moz-range-thumb {

@@ -60,19 +60,26 @@ label.has-error {
 	}
 }
 
-.has-error{
+.has-error {
 	border-color: $fw-msg-error-color;
 
+	&:hover {
+		border-color: $fw-msg-error-color;
+	}
+
+	&:focus {
+		border-color: $fw-msg-error-color;
+
+		@if $fw-custom-focus-ring {
+			box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-msg-error-color, $fw-focus-opacity);
+		}
+	}
 	// &:invalid:focus {
 	// 	border-color: $fw-msg-error-color;
 	// }
 
 	// &:valid {
 	// 	border-color: $fw-msg-success-color;
-
-	// 	&:focus {
-	// 		border-color: $fw-focus-border-color;
-	// 	}
 	// }
 
 	~ em {
@@ -102,7 +109,8 @@ label.has-error {
 // }
 
 
-:valid {
+:valid,
+:invalid {
 	transition: border-color 300ms 0s;
 }
 

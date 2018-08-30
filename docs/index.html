@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="../css/themes/go/go.css">
+		<link rel="stylesheet" href="../css/themes/occ/occ.css">
 		<style>
 
 			body {
@@ -276,6 +276,16 @@
 				<input name="check1" id="check12" value="1" type="checkbox" checked /> <label for="check12">Checked</label>
 				<input name="check1" id="check13" value="1" type="checkbox" disabled /> <label for="check13">Disabled</label>
 			</div>
+
+			<div style="width: 300px;">
+				<input name="checkbox2" id="checkbox21" value="1" type="checkbox" />
+				<label for="checkbox21" class="u-align-top">Newsletter im HTML-Format empfangen</label>
+			</div>
+			<div style="width: 300px;">
+				<input name="checkbox2" id="checkbox22" value="2" type="checkbox" checked />
+				<label for="checkbox22" class="u-align-top">Newsletter im reinen Text-Format empfangen</label>
+			</div>
+
 			<h3 class="label">Other inputs</h3>
 			<div>
 				<label for="color1">Color input</label>
@@ -358,11 +368,12 @@
 
 			<h2>Buttons with class '.btn'</h2>
 			<p><button type="submit" class="btn">button[type="submit"].btn</button></p>
-			<p><button type="button" class="btn btn--submit">button[type="button"].btn.btn--submit</button></p>
-			<p><button type="submit" class="btn btn--cta">button[type="submit"].btn.btn--cta</button></p>
-			<p><button type="button" class="btn btn--txt">button[type="button"].btn.btn--txt</button></p>
-			<p><button type="button" class="btn btn--inv">button[type="button"].btn.btn--inv</button></p>
-			<p><button type="submit" class="btn btn--cta" disabled>button[type="submit"][disabled].btn.btn--cta</button></p>
+			<p><button type="button" class="btn ripple ripple btn--submit">button[type="button"].btn.btn--submit</button></p>
+			<p><button type="button" class="btn ripple btn--cta">button[type="submit"].btn.btn--cta</button></p>
+			<p><button type="button" class="btn ripple btn--txt">button[type="button"].btn.btn--txt</button></p>
+			<p><button type="button" class="btn ripple btn--inv">button[type="button"].btn.btn--inv</button></p>
+			<p><button type="button" class="btn ripple btn--outlined">button[type="button"].btn.btn--outlined</button></p>
+			<p><button type="button" class="btn ripple btn--cta" disabled>button[type="submit"][disabled].btn.btn--cta</button></p>
 
 			<h2>Links with class '.btn'</h2>
 			<p><a href="#" class="btn">a.btn</a></p>
