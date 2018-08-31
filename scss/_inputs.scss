@@ -17,7 +17,6 @@ input:not([type]),
 [type="url"],
 [type="week"],
 [type="file"],
-[list],
 select,
 textarea {
 	background-color: $fw-input-bg-color;
@@ -76,8 +75,7 @@ input:not([type]),
 [type="tel"],
 [type="time"],
 [type="url"],
-[type="week"],
-[list] {
+[type="week"] {
 	height: $fw-input-height;
 	appearance: none;
 }
