@@ -33,9 +33,9 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 	white-space: nowrap            !important;
 }
 
-@mixin custom-inputs() {
-	[type="checkbox"],
-	[type="radio"] {
+@mixin custom-inputs($class: null) {
+	#{$class}[type="checkbox"],
+	#{$class}[type="radio"] {
 		@include vh();
 
 		&:focus:not(:disabled) {
@@ -168,7 +168,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 		}
 	}
 
-	[type="checkbox"] {
+	#{$class}[type="checkbox"] {
 
 		+ label {
 
@@ -219,7 +219,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 		}
 	}
 
-	[type="radio"] {
+	#{$class}[type="radio"] {
 
 		+ label {
 
@@ -266,8 +266,5 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 }
 
 @if (($fw-add-styled-inputs) and not ($fw-styled-inputs)) {
-	.custom {
-		@include custom-inputs();
-	}
+	@include custom-inputs($class:".custom");
 }
-

@@ -7,7 +7,7 @@ $fw-fieldset-bare:             true;
 $fw-centered:                  false;
 $fw-display:                   block;
 $fw-styled-inputs:             true;  // styled radio/checkbox/select/range
-$fw-add-styled-inputs:         true;
+$fw-add-styled-inputs:         false;
 
 // Font
 $fw-font-family:               inherit;
@@ -75,6 +75,11 @@ $fw-check-hover-bg-color:     #434343;
 $fw-check-hover-border-color: #434343;
 $fw-check-checked-border-color: #434343;
 $fw-check-checked-bg-color:     #434343;
+
+$fw-switch-rail-color:         #B8B8B8;
+$fw-switch-rail-checked-color: #B8B8B8;
+$fw-switch-knob-color:         #fff;
+$fw-switch-knob-checked-color: #434343;
 
 $fw-msg-color:                #B00020;
 $fw-msg-error-color:          $fw-msg-color;

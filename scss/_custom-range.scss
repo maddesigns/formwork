@@ -336,3 +336,44 @@ $contrast: 5% !default;
 // // #budget {
 // //  background-image:-webkit-linear-gradient(left, #ed4b37 0%, #ed4b37 27.5%, #204e7b 27.5%)
 // // }
+
+
+// ::-ms-tooltip {
+//     display: none;
+// }
+
+// ::-ms-ticks-before, ::-ms-ticks-after {
+//     color: #999;
+//     display: block;
+// }
+
+// ::-ms-ticks-before {
+//     background: linear-gradient(to top, #CCC, transparent 30%);
+// }
+
+// ::-ms-ticks-after {
+//     background: linear-gradient(to top, transparent 70%, #CCC);
+// }
+
+// ::-ms-fill-upper {
+//     background-color: rgb(1, 107, 157);
+//     background-image:
+//         linear-gradient(to bottom, transparent 1px, rgba(255,255,255,.25) 1px, transparent 70%);
+// }
+
+// ::-ms-fill-lower {
+//     background-color: rgb(1,132,195);
+// }
+
+// ::-ms-thumb {
+//     background-color: white;
+//     background-image:
+//         radial-gradient(circle, rgb(1, 107, 157) 20%, transparent 20%),
+//         linear-gradient(to top, #CCC, white);
+//     border-radius: 50%;
+//     border: 0;
+// }
+
+// ::-ms-track {
+//     color: rgba(255, 255, 255, .5);
+// }
