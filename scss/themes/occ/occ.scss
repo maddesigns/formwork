@@ -25,6 +25,7 @@ $fw-input-height:              40px;
 $fw-input-width:               100%;
 $fw-input-max-width:           600px;
 $fw-input-bg-color:            white;
+$fw-input-padding:             $fw-input-height/5;
 
 $fw-hover-border-color:        #3C4043;
 $fw-hover-border-width:        1px;
@@ -83,6 +84,19 @@ $fw-switch-knob-checked-color: #434343;
 
 $fw-msg-color:                #B00020;
 $fw-msg-error-color:          $fw-msg-color;
+
+$fw-readonly-font-color:         $fw-font-color;
+$fw-readonly-input-padding:      0;
+$fw-readonly-input-bg-color:     #fff;
+
+$fw-readonly-border-width:       $fw-border-width;
+$fw-readonly-border-color:       rgba(#fff, 0);
+$fw-readonly-border-radius:      $fw-border-radius;
+
+$fw-readonly-hover-bg-color:     #fff;
+$fw-readonly-hover-border-color: $fw-readonly-border-color;
+$fw-readonly-hover-border-width: $fw-hover-border-width;
+$fw-readonly-hover-opacity:      0;
 
 @import "../../formwork";
 

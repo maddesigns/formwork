@@ -45,14 +45,42 @@ form [disabled],
 }
 
 // opinionated
+$fw-readonly-font-color:         $fw-font-color           !default;
+$fw-readonly-input-padding:      $fw-input-padding        !default;
+$fw-readonly-input-bg-color:     rgba(128, 128, 128, 0.2) !default;
+$fw-readonly-font-width:         bolder                   !default;
+
+$fw-readonly-border-width:       $fw-border-width         !default;
+$fw-readonly-border-style:       $fw-border-style         !default;
+$fw-readonly-border-color:       rgba(128, 128, 128, 0.5) !default;
+$fw-readonly-border-radius:      $fw-border-radius        !default;
+
+$fw-readonly-hover-bg-color:     rgba(128, 128, 128, 0.2) !default;
+$fw-readonly-hover-border-color: rgba(128, 128, 128, 0.5) !default;
+$fw-readonly-hover-color:        $fw-readonly-font-color  !default;
+$fw-readonly-hover-border-width: $fw-hover-border-width   !default;
+$fw-readonly-hover-opacity:      0                        !default;
+
 [readonly]:not([type="range"]) {
-	border-color: rgba(128, 128, 128, 0.5);
-	background-color: rgba(128, 128, 128, 0.3);
+	background-color: $fw-readonly-input-bg-color;
+	border-radius: $fw-readonly-border-radius;
+	border: $fw-readonly-border-width $fw-readonly-border-style $fw-readonly-border-color;
+	color: $fw-readonly-font-color;
+	font-weight: $fw-readonly-font-width;
+	padding: $fw-readonly-input-padding;
+
+	overflow-x: auto;
+	text-overflow: ellipsis;
 
 	&:active,
 	&:focus,
 	&:hover {
-		border-color: rgba(128, 128, 128, 0.5);
+		background-color: $fw-readonly-hover-bg-color;
+		border: $fw-readonly-hover-border-width $fw-readonly-border-style $fw-readonly-hover-border-color;
+
+		@if $fw-custom-focus-ring {
+			box-shadow: 0 0 0 $fw-readonly-hover-border-width rgba($fw-readonly-hover-color, $fw-readonly-hover-opacity);
+		}
 	}
 }
 
