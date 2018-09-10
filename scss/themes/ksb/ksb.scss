@@ -76,11 +76,11 @@ $fw-msg-error-color: #DE0C21;
 
 label {
 	color: #000;
-	letter-spacing: 2px;
+	//letter-spacing: 1px;
 	line-height: 1;
 	padding-bottom: 0.25em;
 	padding-top: 0.25em;
-	text-transform: uppercase;
+	//text-transform: uppercase;
 }
 
 input[type]:not(:disabled),
@@ -121,3 +121,25 @@ a:not([disabled]) {
 	letter-spacing: 2px;
 }
 
+
+
+$listbox-arrow-size: 6px;
+
+.listbox__options-wrapper {
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	top: $fw-input-height + $listbox-arrow-size;
+	padding-top: $listbox-arrow-size;
+	filter: drop-shadow(0 2px 4px rgba(#2a2a2a,0.3));
+
+	&::before {
+		content: '';
+		border: $listbox-arrow-size solid transparent;
+		border-bottom-color: white;
+		position: absolute;
+		top: -$listbox-arrow-size;
+		left: 1em
+
+	}
+}

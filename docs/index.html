@@ -12,8 +12,8 @@
 				font-family: sans-serif;
 			}
 
-			form div,
-			form p {
+			form > div,
+			form > p {
 				margin: 1em;
 			}
 
@@ -410,6 +410,31 @@
 						<option value="value7">Value 7</option>
 					</optgroup>
 				</select>
+			</div>
+			<div>
+				<label>Multi-Select/Dropdowns</label>
+				<div class="listbox">
+					<div class="listbox__wrapper">
+						<button type="button" aria-label="open select menu" class="listbox__trigger" aria-haspopup="listbox">
+							MultiSelect Value
+							<svg class="icon listbox__icon" width="24" height="24" viewBox="0 0 24 24">
+								<path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+							</svg>
+						</button>
+
+						<div class="listbox__options-wrapper">
+							<ul class="listbox__options" role="listbox" tabindex="-1" hidden aria-activedescendant="listbox1-4" style="max-height: 10em; overflow-y: auto;">
+								<li role="option" id="listbox1-1"><label>Choice A</label></li>
+								<li role="option" id="listbox1-2"><label>Choice B</label></li>
+								<li role="option" id="listbox1-3"><label>Choice C</label></li>
+
+								<li role="option" id="listbox1-4"><input id="checkbox551" name="checkbox551" type="checkbox" checked="checked"> <label for="checkbox551">Choice A</label></li>
+								<li role="option" id="listbox1-5"><input id="checkbox552" name="checkbox552" type="checkbox"> <label for="checkbox552">Choice B</label></li>
+								<li role="option" id="listbox1-6"><input id="checkbox553" name="checkbox553" type="checkbox"> <label for="checkbox553">Choice C</label></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div>
 				<h3 class="label">Checkboxes</h3>
