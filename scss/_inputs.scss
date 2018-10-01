@@ -42,7 +42,7 @@ textarea {
 		border-color: $fw-hover-border-color;
 		color: $fw-hover-color;
 
-		@if $fw-custom-focus-ring {
+		@if ($fw-custom-focus-ring) {
 			box-shadow: 0 0 0 $fw-hover-border-width rgba($fw-hover-color, $fw-hover-opacity);
 		}
 	}
@@ -53,7 +53,7 @@ textarea {
 		color: $fw-focus-color;
 		caret-color: $fw-focus-color;
 
-		@if $fw-custom-focus-ring {
+		@if ($fw-custom-focus-ring) {
 			box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-focus-border-color, $fw-focus-opacity);
 			outline: none;
 		}
@@ -108,24 +108,6 @@ input:not([type]),
 	[type="number"]::-webkit-outer-spin-button,
 	[type="number"]::-webkit-inner-spin-button {
 		-webkit-appearance: none;
-		border: 1px solid transparent;
-		background-color: transparent;
-		opacity: 1;
-		margin-right: -10px;
-
-		background-image:
-		url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%0A%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23575757%22%20stroke-width%3D%222px%22%20points%3D%2213%2C10%207.5%2C4.3%202%2C10%20%22/%3E%0A%3C/svg%3E%0A),
-		url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%0A%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23575757%22%20stroke-width%3D%222px%22%20points%3D%222%2C4.3%207.5%2C10%2013%2C4.3%22/%3E%0A%3C/svg%3E%0A);
-
-		background-repeat: no-repeat;
-		background-position: 50% 25%, 50% 75%;
-		height: 3em;
-		width: 2em;
-	}
-
-	// Firefox, but doesn’t have aby effect
-	input[type="number"]::-moz-number-spin-up,
-	input[type="number"]::-moz-number-spin-down {
 		-moz-appearance: none;
 		appearance: none;
 		border: 1px solid transparent;
@@ -142,4 +124,25 @@ input:not([type]),
 		height: 3em;
 		width: 2em;
 	}
+
+	// Firefox, but doesn’t have any effect
+	input[type="number"]::-moz-number-spin-up,
+	input[type="number"]::-moz-number-spin-down {
+		-moz-appearance: textfield;
+		appearance: none;
+		border: 1px solid transparent;
+		background-color: transparent;
+		opacity: 1;
+		margin-right: -10px;
+
+		background-image:
+		url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%0A%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23575757%22%20stroke-width%3D%222px%22%20points%3D%2213%2C10%207.5%2C4.3%202%2C10%20%22/%3E%0A%3C/svg%3E%0A),
+		url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%3E%0A%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23575757%22%20stroke-width%3D%222px%22%20points%3D%222%2C4.3%207.5%2C10%2013%2C4.3%22/%3E%0A%3C/svg%3E%0A);
+
+		background-repeat: no-repeat;
+		background-position: 50% 25%, 50% 75%;
+		height: 3em;
+		width: 2em;
+	}
 }
+

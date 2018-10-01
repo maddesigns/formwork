@@ -152,7 +152,7 @@ button:-moz-focusring,
 [type="submit"]:-moz-focusring {
 	outline: none;
 
-	@if $fw-custom-focus-ring {
+	@if ($fw-custom-focus-ring) {
 		box-shadow: 0 0 0 2px rgba($fw-focus-color, 0.4);
 	}
 }

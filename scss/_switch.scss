@@ -1,5 +1,5 @@
 // switch
-$fw-switch-rail-width:          34px                   !default;
+$fw-switch-rail-width:          40px                   !default;
 $fw-switch-rail-height:         14px                   !default;
 $fw-switch-rail-color:          #ccc                   !default;
 $fw-switch-rail-checked-color:  $fw-switch-rail-color  !default;
@@ -10,7 +10,7 @@ $fw-switch-knob-color:          $fw-input-bg-color     !default;
 $fw-switch-knob-checked-color:  $fw-font-color         !default;
 
 
-[role="switch"] {
+input[role="switch"] {
 	+ label {
 
 		&:before {
@@ -20,10 +20,14 @@ $fw-switch-knob-checked-color:  $fw-font-color         !default;
 			background-color: $fw-switch-rail-color;
 			border-radius: 1em;
 			transition: background-color 0.28s cubic-bezier(.4, 0, .2, 1);
+			position: static;
+			margin-right: 0;
+			order: -2;
 		}
 
 		&:after {
 			border: none;
+			position: static;
 			width: $fw-switch-knob-width;
 			height: $fw-switch-knob-height;
 			background-color: $fw-switch-knob-color;
@@ -31,7 +35,9 @@ $fw-switch-knob-checked-color:  $fw-font-color         !default;
 			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 			transition: 0.3s cubic-bezier(.4, 0, .2, 1);
 			transition-property: transform, background-color;
-			transform: translateY(4px) translateX(4px);
+			transform: translateX(($fw-switch-rail-width) * -1 );
+			order: -1;
+			margin-right: -0.5em;
 		}
 	}
 
@@ -44,8 +50,29 @@ $fw-switch-knob-checked-color:  $fw-font-color         !default;
 
 			&:after {
 				background-color: $fw-switch-knob-checked-color;
-				transform: translateY(4px) translateX(30px);
+				transform: translateX(($fw-switch-knob-width) * -1);
 			}
 		}
 	}
+
+
+	// button style (outlined)
+	+ .btn--switch {
+		box-sizing: border-box;
+		background-color: $fw-btn-color;
+		border-radius: $fw-btn-radius;
+		border: $fw-btn-border;
+		border-color: $fw-btn-bg-color; // outline border color-main
+		height: $fw-btn-height;
+		padding-left: 1em;
+		padding-right: 1em;
+
+		&:hover,
+		&:focus {
+			background-color: $fw-btn-hover-color;
+			color: $fw-btn-hover-bg-color;
+		}
+	}
+
 }
+

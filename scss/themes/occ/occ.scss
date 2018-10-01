@@ -31,6 +31,7 @@ $fw-hover-border-color:        #3C4043;
 $fw-hover-border-width:        1px;
 $fw-hover-opacity:             1;
 
+$fw-custom-focus-ring:         true;
 $fw-focus-bg-color:            white;
 $fw-focus-border-color:        #5876AA;
 $fw-focus-color:               #000;
@@ -77,13 +78,13 @@ $fw-check-hover-border-color: #434343;
 $fw-check-checked-border-color: #434343;
 $fw-check-checked-bg-color:     #434343;
 
-$fw-switch-rail-color:         #B8B8B8;
-$fw-switch-rail-checked-color: #B8B8B8;
-$fw-switch-knob-color:         #fff;
-$fw-switch-knob-checked-color: #434343;
+$fw-switch-rail-color:           #B8B8B8;
+$fw-switch-rail-checked-color:   rgba(#5876AA,0.5);
+$fw-switch-knob-color:           #efefef;
+$fw-switch-knob-checked-color:   #5876AA;
 
-$fw-msg-color:                #B00020;
-$fw-msg-error-color:          $fw-msg-color;
+$fw-msg-color:                   #B00020;
+$fw-msg-error-color:             $fw-msg-color;
 
 $fw-readonly-font-color:         $fw-font-color;
 $fw-readonly-input-padding:      0;
@@ -117,7 +118,7 @@ $fw-readonly-hover-opacity:      0;
 	background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22%23' + str-slice("#{$fw-msg-color}", 2) + '%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M1%2021h22L12%202%201%2021zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z%22/%3E%0A%3C/svg%3E');
 
 	&:hover {
-		@if $fw-custom-focus-ring {
+		@if ($fw-custom-focus-ring) {
 			box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-msg-error-color, $fw-focus-opacity);
 		}
 	}
@@ -127,3 +128,4 @@ $fw-readonly-hover-opacity:      0;
 :invalid {
 	transition-property: border-color, box-shadow;
 }
+

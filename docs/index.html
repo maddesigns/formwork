@@ -17,10 +17,10 @@
 				margin: 1em;
 			}
 
-
 			.crange {
 				display: flex;
 				flex-wrap: wrap;
+				max-width: 600px;
 			}
 			.crange__label {
 				flex-grow: 1;
@@ -166,6 +166,81 @@
 				<label for="textnumber">Number textinput</label>
 				<input type="text" id="textnumber" name="textnumber" value="8" pattern="[0-9]*" />
 			</div>
+
+
+
+
+			<div>
+				<label for="styledtextnumber">Styled Number textinput (aka spinbutton)</label>
+				<span class="spinbutton">
+					<button type="button" class="spinbutton__decrement" type="button" tabindex="-1">−</button>
+					<input type="number" id="styledtextnumber" name="styledtextnumber" min="0" max="10" value="5" role="spinbutton" aria-valuemin="0" aria-valuemax="10" aria-label="Spinbutton">
+					<button type="button" class="spinbutton__increment" tabindex="-1">+</button>
+					<span class="spinbutton__status" role="alert"></span>
+				</span>
+				<script type="text/javascript">
+					/*
+					*   This content is licensed according to the W3C Software License at
+					*   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+					*
+					*   Simple spinbutton pattern example
+					*/
+
+					'use strict';
+
+					Array.prototype.slice.call(document.querySelectorAll('.spinbutton')).forEach(function (spinbutton) {
+
+
+
+					  spinbutton.addEventListener('click', function (event) {
+					    var target = event.target;
+					    var classList = target.classList;
+
+					    if (classList.contains('spinbutton__increment')) {
+					      incrementCount(target.previousElementSibling);
+					    }
+					    else if (classList.contains('spinbutton__decrement')) {
+					      decrementCount(target.nextElementSibling);
+					    }
+					  });
+					});
+
+					var incrementCount = function incrementCount (spinner) {
+					  var currentValue = +spinner.value || 0;
+					  var minValue = +spinner.getAttribute('aria-valuemin');
+					  var maxValue = +spinner.getAttribute('aria-valuemax');
+
+					  if (currentValue < maxValue) {
+					    currentValue++;
+					  }
+
+					  spinner.value = currentValue;
+					  updateValueNow(spinner);
+					};
+
+					var decrementCount = function decrementCount (spinner) {
+					  var currentValue = +spinner.value || 0;
+					  var minValue = +spinner.getAttribute('aria-valuemin');
+					  var maxValue = +spinner.getAttribute('aria-valuemax');
+
+					  if (currentValue > minValue) {
+					    currentValue--;
+					  }
+
+					  spinner.value = currentValue;
+					  updateValueNow(spinner);
+					};
+
+					var updateValueNow = function updateValueNow (spinner, value) {
+					  spinner.setAttribute('aria-valuenow', value || spinner.value);
+
+					};
+
+				</script>
+			</div>
+
+
+
 
 			<div>
 				<label for="date">Date input</label>
@@ -423,7 +498,7 @@
 						</button>
 
 						<div class="listbox__options-wrapper">
-							<ul class="listbox__options" role="listbox" tabindex="-1" hidden aria-activedescendant="listbox1-4" style="max-height: 10em; overflow-y: auto;">
+							<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
 								<li role="option" id="listbox1-1"><label>Choice A</label></li>
 								<li role="option" id="listbox1-2"><label>Choice B</label></li>
 								<li role="option" id="listbox1-3"><label>Choice C</label></li>
@@ -453,9 +528,68 @@
 
 			<div>
 				<h3>Switches</h3>
-				<input name="switch" id="switch1" value="1" type="checkbox" role="switch" /> <label for="switch1">Default</label>
-				<input name="switch" id="switch2" value="1" type="checkbox" role="switch" checked /> <label for="switch2">Checked</label>
+				<input name="switch" id="switch1" value="1" type="checkbox" role="switch" aria-checked="false" /> <label for="switch1">Default</label>
+				<input name="switch" id="switch2" value="1" type="checkbox" role="switch" aria-checked="true" checked /> <label for="switch2">Checked</label>
 				<input name="switch" id="switch3" value="1" type="checkbox" role="switch" disabled /> <label for="switch3">Disabled</label>
+
+
+<!-- 				<button role="switch" aria-checked="true" aria-label="Notify by SMS">
+					<span>on</span>
+					<span>off</span>
+				</button> -->
+				<br><br>
+
+				<input name="switch" id="switch4" value="1" type="checkbox" role="switch" aria-checked="true" checked />
+				<label for="switch4" class="btn--switch">Available</label>
+				<script>
+					// https://rawgit.com/w3c/aria-practices/switch/examples/switch/js/switch.js
+					// Run the load function after all resources are loaded.
+					window.onload = load;
+
+					const keys = {
+					  space: 32
+					};
+
+					function load() {
+					  // Create an array of all the switches on the page.
+					  // The query looks for elements with a role attribute that starts with "switch".
+					  let HTMLSwitches = [].slice.call(document.querySelectorAll('[role^=switch]'));
+
+					  // Add an event listener to all the switches.
+					  for (let HTMLSwitch of HTMLSwitches) {
+					    HTMLSwitch.addEventListener('click', activateSwitch);
+					    HTMLSwitch.addEventListener('keydown', HTMLSwitchKeyHandler);
+					  }
+					};
+
+					function HTMLSwitchKeyHandler (event) {
+					  let switchEl = this;
+					  let key = event.keyCode;
+
+					  // If space is pressed activate the switch.
+					  if (key === keys.space) {
+					    event.preventDefault();
+					    activateSwitch(event, this);
+					  }
+					};
+
+					function activateSwitch (event, eventTarget) {
+					  let switchEl = eventTarget;
+
+					  // If no element is provided set it 'this'.
+					  if (eventTarget === undefined) {
+					    switchEl = this;
+					  }
+
+					  // Get the current state for the switch.
+					  let currentState = switchEl.getAttribute('aria-checked');
+					  // Invert the state.
+					  let newState = (currentState === "false" ? "true" : "false");
+
+					  // Set the new state.
+					  switchEl.setAttribute('aria-checked', newState);
+					};
+				</script>
 			</div>
 
 			<div>
@@ -492,10 +626,9 @@
 				<label for="color3">Color input disabled</label>
 				<input type="color" id="color3" name="color3" value="#ff0000" disabled />
 			</div>
-			<div>
-				<label for="range1">Range input</label>
-				<input type="range" />
-			</div>
+
+			<h3>Range</h3>
+
 			<div>
 				<label for="range1">Range input</label>
 				<input type="range" id="range1" name="range1" min="10" max="100" step="10" value="40" />
@@ -509,7 +642,7 @@
 				<input type="range" id="range3" name="range3" min="10" max="100" step="10" value="10" disabled />
 			</div>
 			<div>
-				<h2>Range Input with datalist tickmarks and Labels</h2>
+				<p>Range Input with datalist tickmarks and Labels (if not styled):</p>
 				<input type="range" list="tickmarks">
 				<datalist id="tickmarks">
 					<option value="0" label="0%">
@@ -535,15 +668,13 @@
 				</span>
 			</div>
 
-			<fieldset oninput="budgetoutput.value='$'+parseInt(budget.value)+'K'">
-				<div class="custom-range crange">
-					<label class="crange__label" for="budget" id="finances">Budget</label>
-					<output class="crange__output" id="budgetoutput" title="We charge $120/hour, but prefer bigger projects with fixed pricing.">$65K</output>
-					<span class="crange__input-wrapper" data-minval="5" data-maxval="100">
-						<input class="crange__input" min="5" max="100" step="5" value="30" id="budget" name="budget" type="range">
-					</span>
-				</div>
-			</fieldset>
+			<div class="custom-range crange" oninput="budgetoutput.value='$'+parseInt(budget.value)+'K'">
+				<label class="crange__label" for="budget" id="finances">Budget</label>
+				<output class="crange__output" id="budgetoutput" title="We charge $120/hour, but prefer bigger projects with fixed pricing.">$65K</output>
+				<span class="crange__input-wrapper" data-minval="5" data-maxval="100">
+					<input class="crange__input" min="5" max="100" step="5" value="30" id="budget" name="budget" type="range">
+				</span>
+			</div>
 
 			<div class="error-container">
 				<p>there are errors</p>

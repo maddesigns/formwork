@@ -129,8 +129,7 @@ $listbox-arrow-size: 6px;
 	width: 100%;
 	position: absolute;
 	z-index: 2;
-	top: $fw-input-height + $listbox-arrow-size;
-	padding-top: $listbox-arrow-size;
+	top: $fw-input-height + $listbox-arrow-size*2;
 	filter: drop-shadow(0 2px 4px rgba(#2a2a2a,0.3));
 
 	&::before {
@@ -138,8 +137,16 @@ $listbox-arrow-size: 6px;
 		border: $listbox-arrow-size solid transparent;
 		border-bottom-color: white;
 		position: absolute;
-		top: -$listbox-arrow-size;
-		left: 1em
+		top: -$listbox-arrow-size*2;
+		left: 1em;
+		opacity: 0;
+	}
+}
 
+.active {
+	+ .listbox__options-wrapper {
+		&::before {
+			opacity: 1;
+		}
 	}
 }

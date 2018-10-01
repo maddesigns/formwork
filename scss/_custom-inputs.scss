@@ -46,7 +46,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 				&::before {
 					border-color: $fw-check-focus-border-color;
 
-					@if $fw-custom-focus-ring {
+					@if ($fw-custom-focus-ring) {
 						box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-check-focus-border-color, $fw-focus-opacity);
 						outline: none;
 					}
@@ -65,12 +65,34 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 			}
 		}
 
+		&:indeterminate {
+
+			+ label {
+
+				&::before {
+					background-color: $fw-check-checked-border-color;
+					border-color: $fw-check-checked-border-color;
+				}
+
+				&::after {
+					border-color: $fw-check-tick-color;
+					height: 0;
+					transform:
+						translateY(#{$fw-input-padding + $fw-check-border-width * 4.5})
+						translateX(#{$fw-input-padding + $fw-check-border-width * 2.5})
+						rotate(0deg)
+						scale(1);
+				}
+			}
+		}
+
 		&:active {
 
 			+ label {
 
 				&::before {
-					transition-duration: 0;
+					transition-duration: 0s;
+					//animation: ripples 500ms ease-in !important;
 				}
 			}
 		}
@@ -267,4 +289,13 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 
 @if (($fw-add-styled-inputs) and not ($fw-styled-inputs)) {
 	@include custom-inputs($class:".custom");
+}
+
+@keyframes ripples {
+	0% {
+		box-shadow: 0 0 0 0 rgba($fw-check-bullet-color, 0.4);
+	}
+	80% {
+		box-shadow: 0 0 0 1em rgba($fw-check-bullet-color, 0);
+	}
 }

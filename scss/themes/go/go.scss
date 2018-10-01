@@ -58,4 +58,10 @@ $fw-check-tick-width:         2px;
 $fw-check-tick-color:         #7fb71e;
 $fw-check-bullet-color:       #7fb71e;
 
+$fw-msg-color:                #dedede;
+$fw-msg-error-color:          #D0021B;
+$fw-msg-hint-color:           #2ea5c5;
+$fw-msg-success-color:        #7fb71e;
+$fw-msg-warning-color:        yellow;
+
 @import "../../formwork";

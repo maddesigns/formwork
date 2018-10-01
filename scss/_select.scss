@@ -106,13 +106,24 @@ select {
 		position: absolute;
 		z-index: 2;
 
-
 		&:hover {
 			border-color: $fw-hover-border-color;
 			color: $fw-hover-color;
 
-			@if $fw-custom-focus-ring {
+			@if ($fw-custom-focus-ring) {
 				box-shadow: 0 0 0 $fw-hover-border-width rgba($fw-hover-color, $fw-hover-opacity);
+			}
+		}
+
+		&:focus-within {
+			background-color: $fw-focus-bg-color;
+			border-color: $fw-focus-border-color;
+			color: $fw-focus-color;
+			caret-color: $fw-focus-color;
+
+			@if ($fw-custom-focus-ring) {
+				box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-focus-border-color, $fw-focus-opacity);
+				outline: none;
 			}
 		}
 	}
@@ -129,11 +140,14 @@ select {
 		justify-content: space-between;
 		align-items: center;
 
+		&:focus {
+			outline: 0;
+		}
+
 		&.active {
 
-			+ .listbox__options {
+			+ .listbox__options-wrapper .listbox__options {
 				max-height: 10em;
-				margin-top: $fw-input-padding;
 				overflow-y: scroll;
 			}
 			.listbox__label {

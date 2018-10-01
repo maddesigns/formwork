@@ -1,0 +1,73 @@
+// spinbutton
+// https://w3c.github.io/aria-practices/#spinbutton
+
+$fw-spinbutton-bg-color:       $fw-btn-submit-bg-color       !default;
+$fw-spinbutton-color:          $fw-btn-submit-color          !default;
+$fw-spinbutton-hover-bg-color: $fw-btn-submit-hover-bg-color !default;
+$fw-spinbutton-hover-color:    $fw-btn-submit-hover-color    !default;
+
+.spinbutton {
+	display: flex;
+	max-width: $fw-input-max-width;
+	width: $fw-input-width;
+
+	[role="spinbutton"] {
+		-moz-appearance: textfield;
+		border-radius: 0;
+
+		&:hover {
+			@if ($fw-custom-focus-ring) {
+				box-shadow: inset 0 0 0 $fw-hover-border-width rgba($fw-hover-color, $fw-hover-opacity);
+			}
+		}
+
+		&:focus {
+			background-color: $fw-focus-bg-color;
+			border-color: $fw-focus-border-color;
+			color: $fw-focus-color;
+			caret-color: $fw-focus-color;
+
+			@if ($fw-custom-focus-ring) {
+				box-shadow: inset 0 0 0 $fw-focus-border-width rgba($fw-focus-border-color, $fw-focus-opacity);
+				outline: none;
+			}
+		}
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			background: none;
+		}
+	}
+
+	&__decrement,
+	&__increment {
+		@include button-base();
+		flex-basis: $fw-btn-height;
+		font-weight: bolder;
+		background-color: $fw-spinbutton-bg-color;
+		color: $fw-spinbutton-color;
+		border-radius: 0;
+		padding: 0;
+
+		&:focus {
+			box-shadow: none;
+		}
+
+		&:hover {
+			background-color: $fw-spinbutton-hover-bg-color;
+			color: $fw-spinbutton-hover-color;
+		}
+
+		&:active:not(:disabled) {
+			transform: none;
+		}
+
+		&:first-of-type {
+			border-radius: $fw-border-radius 0 0 $fw-border-radius;
+		}
+
+		&:last-of-type {
+			border-radius: 0 $fw-border-radius $fw-border-radius 0;
+		}
+	}
+}

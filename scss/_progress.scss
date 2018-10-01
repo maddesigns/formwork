@@ -1,0 +1,34 @@
+/* Progress ------------------ */
+
+$fw-progress: true !default;
+
+progress {
+  appearance: none;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+
+  display: block;
+  color: black;
+  background-color: red;
+
+  width: 100%;
+  height: 2px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: red;
+}
+
+progress::-moz-progress-bar {
+  background-color: black;
+}
+
+
+progress::-webkit-progress-value {
+  background-color: black;
+}
+
+@if ($fw-styled-inputs) {
+
+}
