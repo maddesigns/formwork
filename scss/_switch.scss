@@ -1,6 +1,7 @@
 // switch
 $fw-switch-rail-width:          40px                   !default;
 $fw-switch-rail-height:         14px                   !default;
+$fw-switch-rail-border:         none                   !default;
 $fw-switch-rail-color:          #ccc                   !default;
 $fw-switch-rail-checked-color:  $fw-switch-rail-color  !default;
 
@@ -9,12 +10,11 @@ $fw-switch-knob-height:         20px                   !default;
 $fw-switch-knob-color:          $fw-input-bg-color     !default;
 $fw-switch-knob-checked-color:  $fw-font-color         !default;
 
-
 input[role="switch"] {
 	+ label {
 
 		&:before {
-			border: none;
+			border: $fw-switch-rail-border;
 			width: $fw-switch-rail-width;
 			height: $fw-switch-rail-height;
 			background-color: $fw-switch-rail-color;
@@ -39,6 +39,8 @@ input[role="switch"] {
 			order: -1;
 			margin-right: -0.5em;
 		}
+
+
 	}
 
 	&:checked {
@@ -55,6 +57,27 @@ input[role="switch"] {
 		}
 	}
 
+	&:focus {
+
+		+ label {
+			color: $fw-check-focus-color;
+
+			&::before {
+				//border-color: red; //$fw-check-focus-border-color;
+
+				@if ($fw-custom-focus-ring) {
+					box-shadow: none;
+					outline: none;
+				}
+			}
+
+			&::after {
+				box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-check-focus-border-color, $fw-focus-opacity)
+				//,
+				//0 2px 2px $fw-focus-border-width rgba(0, 0, 0, 0.14), 0 3px 1px (-2px + $fw-focus-border-width) rgba(0, 0, 0, 0.2), 0 1px 5px $fw-focus-border-width rgba(0, 0, 0, 0.12);
+			}
+		}
+	}
 
 	// button style (outlined)
 	+ .btn--switch {
@@ -76,3 +99,66 @@ input[role="switch"] {
 
 }
 
+input[role="switch"].ios-style {
+
+	$fw-switch-rail-width:          35px;
+	$fw-switch-rail-height:         20px;
+	$fw-switch-rail-border-width:   1px;
+	$fw-switch-rail-border-color:   #ccc;
+	$fw-switch-rail-color:          #fff;
+
+	$fw-switch-rail-checked-color:  $fw-msg-success-color;
+
+	$fw-switch-knob-width:          $fw-switch-rail-height;
+	$fw-switch-knob-height:         $fw-switch-rail-height;
+	$fw-switch-knob-color:          $fw-input-bg-color;
+	$fw-switch-knob-checked-color:  #fff;
+
+
+	+ label {
+
+		&:before {
+			background-color: $fw-switch-rail-color;
+			border: none;//$fw-switch-rail-border;
+			width: $fw-switch-rail-width;
+			height: $fw-switch-rail-height;
+			border-radius: 1em;
+			transition: box-shadow 0.3s cubic-bezier(.4, 0, .2, 1), background-color 0s linear 0s;
+			position: static;
+			margin-right: 0;
+			order: -2;
+			box-shadow: inset 0 0 0 $fw-switch-rail-checked-color, 0 0 0 $fw-switch-rail-border-width $fw-switch-rail-border-color; //$fw-switch-rail-checked-color;
+		}
+
+		&:after {
+			border: none;
+			position: static;
+			width: $fw-switch-knob-width;
+			height: $fw-switch-knob-height;
+			background-color: $fw-switch-knob-color;
+			border-radius: 50%;
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+			transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+			transition-property: transform, background-color;
+			transform: translateX($fw-switch-rail-width * -1 );
+			order: -1;
+		}
+
+
+	}
+
+	&:checked {
+		+ label {
+			&:before {
+				background-color: $fw-switch-rail-checked-color;
+				box-shadow: inset 0 0 0 $fw-switch-rail-height/2 $fw-switch-rail-checked-color, 0 0 0 $fw-switch-rail-border-width*2 $fw-switch-rail-checked-color;
+				transition: box-shadow 0.3s cubic-bezier(.4, 0, .2, 1), background-color 0s linear 0.2s;
+			}
+
+			&:after {
+				background-color: $fw-switch-knob-checked-color;
+				transform: translateX($fw-switch-knob-width * -1);
+			}
+		}
+	}
+}

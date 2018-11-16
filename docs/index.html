@@ -5,11 +5,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="../css/themes/occ/occ.css">
+		<link rel="stylesheet" href="../css/themes/go/go.css">
 		<style>
-
+			html {
+				overflow-x: hidden;
+			}
 			body {
 				font-family: sans-serif;
+				overflow-x: hidden;
 			}
 
 			form > div,
@@ -539,15 +542,22 @@
 				<input name="switch" id="switch2" value="1" type="checkbox" role="switch" aria-checked="true" checked /> <label for="switch2">Checked</label>
 				<input name="switch" id="switch3" value="1" type="checkbox" role="switch" disabled /> <label for="switch3">Disabled</label>
 
+				<h3>Switches iOS Style (<code>&.ios-style</code>)</h3>
+				<input class="ios-style" name="switch" id="switch1ios" value="1" type="checkbox" role="switch" aria-checked="false" /> <label for="switch1ios">Default</label>
+				<input class="ios-style" name="switch" id="switch2ios" value="1" type="checkbox" role="switch" aria-checked="true" checked /> <label for="switch2ios">Checked</label>
+				<input class="ios-style" name="switch" id="switch3ios" value="1" type="checkbox" role="switch" disabled /> <label for="switch3ios">Disabled</label>
+
+
 
 <!-- 				<button role="switch" aria-checked="true" aria-label="Notify by SMS">
 					<span>on</span>
 					<span>off</span>
 				</button> -->
 				<br><br>
-
+<!--
 				<input name="switch" id="switch4" value="1" type="checkbox" role="switch" aria-checked="true" checked />
-				<label for="switch4" class="btn--switch">Available</label>
+				<label for="switch4" class="btn--switch">Available</label> -->
+
 				<script>
 					// https://rawgit.com/w3c/aria-practices/switch/examples/switch/js/switch.js
 					// Run the load function after all resources are loaded.
