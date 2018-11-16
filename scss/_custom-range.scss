@@ -7,7 +7,7 @@
 // MIT License
 
 $fw-thumb-color:              $fw-border-color                      !default;
-$fw-thumb-height:             14px                                  !default;
+$fw-thumb-height:             16px                                  !default;
 $fw-thumb-width:              $fw-thumb-height                      !default;
 $fw-thumb-border-width:       $fw-border-width                      !default;
 $fw-thumb-border-style:       $fw-border-style                      !default;
@@ -15,7 +15,7 @@ $fw-thumb-border-color:       $fw-border-color                      !default;
 $fw-thumb-border-radius:      50%                                   !default;
 
 $fw-track-bg-color:           $fw-border-color                      !default;
-$fw-track-height:             3px                                   !default;
+$fw-track-height:             4px                                   !default;
 $fw-track-width:              100%                                  !default;
 $fw-track-border-width:       ($fw-thumb-height - $fw-track-height) !default;
 $fw-track-border-style:       $fw-border-style                      !default;
@@ -49,8 +49,12 @@ $contrast: 5% !default;
 	cursor: ew-resize; //cursor: pointer;
 	height: $fw-thumb-height;
 	width: $fw-thumb-width;
-
 	box-shadow: inset 0 0 0 2px white, 0 0 0 2px white;
+
+	@media (pointer: coarse) {
+		min-height: 24px;
+		min-width: 24px;
+	}
 
 	&:hover {
 		border-color: black;

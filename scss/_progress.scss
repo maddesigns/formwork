@@ -1,32 +1,34 @@
 /* Progress ------------------ */
 
-$fw-progress: true !default;
+$fw-progress:              true !default;
+$fw-progress-bar-color:    $fw-font-color !default;
+$fw-progress-track-color:  $fw-input-bg-color !default;
+$fw-progress-track-height: 2px !default;
 
 progress {
   appearance: none;
   padding: 0;
   border: none;
   border-radius: 0;
-
   display: block;
-  color: black;
-  background-color: red;
+  color: $fw-progress-bar-color;
+  background-color: $fw-progress-track-color;
 
   width: 100%;
-  height: 2px;
+  height: $fw-progress-track-height;
 }
 
 progress::-webkit-progress-bar {
-    background-color: red;
+    background-color: $fw-progress-track-color;
 }
 
 progress::-moz-progress-bar {
-  background-color: black;
+  background-color: $fw-progress-bar-color;
 }
 
 
 progress::-webkit-progress-value {
-  background-color: black;
+  background-color: $fw-progress-bar-color;
 }
 
 @if ($fw-styled-inputs) {

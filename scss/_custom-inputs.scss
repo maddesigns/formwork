@@ -4,7 +4,7 @@ $fw-check-height:               14px                   !default;
 $fw-check-width:                $fw-check-height       !default;
 $fw-check-scale:                4px                    !default; // optimized for even numbers
 $fw-check-input-bg-color:       $fw-input-bg-color     !default;
-$fw-check-input-color:          $fw-font-color         !default;
+$fw-check-input-color:          inherit                !default;
 $fw-check-border-width:         $fw-border-width       !default;
 $fw-check-border-radius:        0                      !default;
 $fw-check-border-color:         $fw-border-color       !default;
@@ -38,7 +38,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 	#{$class}[type="radio"] {
 		@include vh();
 
-		&:focus:not(:disabled) {
+		&:focus {
 
 			+ label {
 				color: $fw-check-focus-color;
@@ -108,9 +108,13 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 			user-select: none;
 			transition: color 100ms ease-out;
 
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+			-webkit-touch-callout: none;
+
 			// outline: 1px solid red;
 			// background-color: pink;
 			// background-clip: content-box;
+
 
 			&::before {
 				background-color: $fw-check-input-bg-color;
@@ -128,6 +132,8 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 				//text-align: center;
 				display: inline-block;
 				vertical-align: middle;
+
+				will-change: background-color, transform;
 			}
 
 			&::after {
@@ -143,6 +149,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 				transform: scale(0);
 				transform-origin: 50%;
 				transition: transform 200ms ease-out;
+				will-change: background-color, transform;
 			}
 
 			//.check-wrapper & {

@@ -22,7 +22,7 @@ form [disabled],
 	background-image: initial;
 	border: 1px solid GrayText;
 	color: GrayText;
-	opacity: 0.5;
+	opacity: 0.3;
 	user-select: none;
 	box-shadow: none;
 
@@ -69,7 +69,7 @@ $fw-readonly-hover-opacity:      0                        !default;
 	color: $fw-readonly-font-color;
 	font-weight: $fw-readonly-font-width;
 	padding: $fw-readonly-input-padding;
-
+	cursor: default;
 	overflow-x: auto;
 	text-overflow: ellipsis;
 
