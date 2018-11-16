@@ -87,17 +87,21 @@ $fw-msg-color:                   #B00020;
 $fw-msg-error-color:             $fw-msg-color;
 
 $fw-readonly-font-color:         $fw-font-color;
-$fw-readonly-input-padding:      0;
-$fw-readonly-input-bg-color:     #fff;
+$fw-readonly-font-width:         normal;
+$fw-readonly-input-padding:      $fw-input-padding;
+$fw-readonly-input-bg-color:     rgba(#000, 0.02);
 
 $fw-readonly-border-width:       $fw-border-width;
-$fw-readonly-border-color:       rgba(#fff, 0);
+$fw-readonly-border-color:       rgba(#000, 0.1);
 $fw-readonly-border-radius:      $fw-border-radius;
 
-$fw-readonly-hover-bg-color:     #fff;
+$fw-readonly-hover-bg-color:     rgba(#000, 0.02);
 $fw-readonly-hover-border-color: $fw-readonly-border-color;
 $fw-readonly-hover-border-width: $fw-hover-border-width;
 $fw-readonly-hover-opacity:      0;
+
+$fw-progress-bar-color:          #000;
+$fw-progress-track-color:        #B8B8B8;
 
 @import "../../formwork";
 

@@ -50,13 +50,20 @@ $fw-btn-cta-hover-color:       white;
 // custom input
 $fw-check-height:             18px;
 $fw-check-scale:              4px;
-$fw-check-input-color:        $fw-font-color;
-$fw-check-hover-color:        $fw-border-color;
+
+$fw-check-hover-color:        $fw-font-color;
 $fw-check-focus-color:        $fw-font-color;
 $fw-check-border-width:       1px;
 $fw-check-tick-width:         2px;
 $fw-check-tick-color:         #7fb71e;
 $fw-check-bullet-color:       #7fb71e;
+
+$fw-switch-knob-checked-color:#7fb71e;
+
+$fw-switch-rail-color:           #B8B8B8;
+$fw-switch-rail-checked-color:   rgba(#7fb71e,0.4);
+$fw-switch-knob-color:           #efefef;
+$fw-switch-knob-checked-color:   #7fb71e;
 
 $fw-msg-color:                #dedede;
 $fw-msg-error-color:          #D0021B;
