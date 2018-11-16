@@ -1,0 +1,23 @@
+
+/* Color Input */
+[type="color"] {
+	padding: 0;
+}
+/* Chrome styles */
+[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0; /* Remove browser's padding around color picker */
+}
+[type="color"]::-webkit-color-swatch {
+	border: none; /* Remove browser's border around color in color picker */
+	border-radius: $fw-border-radius; /* Shadow DOM pseudos doesn’t inherit */
+}
+
+/* Firefox styles */
+[type="color"]::-moz-color-swatch {
+	border: none; /* Remove browser's border around color in color picker */
+	border-radius: $fw-border-radius; /* Shadow DOM pseudos doesn’t inherit */
+}
+[type="color"]::-moz-focus-inner {
+	border: none; /* Remove browser's padding around color in color picker */
+	padding: 0; /* Remove browser's padding around color in color picker */
+}

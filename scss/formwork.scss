@@ -6,14 +6,19 @@
 @import "fieldset";
 @import "placeholder";
 @import "inputs";
+@import "number";
+@import "color";
 @import "custom-inputs";
 @import "custom-range";
 @import "filetype";
 @import "progress";
 @import "buttons";
 @import "select";
+
+// a11y enhanced modules
 @import "switch";
 @import "spinbutton";
+@import "listbox";
 
 @import "disabled";
 @import "errors";
