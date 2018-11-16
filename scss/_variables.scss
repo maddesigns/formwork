@@ -42,3 +42,10 @@ $fw-focus-border-color: $fw-border-color   !default;
 $fw-focus-color:        $fw-font-color     !default;
 $fw-focus-border-width: 2px                !default;
 $fw-focus-opacity:      0.4                !default;
+
+// error colors
+$fw-msg-color:          $fw-font-color     !default;
+$fw-msg-error-color:    red                !default;
+$fw-msg-hint-color:     blue               !default;
+$fw-msg-success-color:  green              !default;
+$fw-msg-warning-color:  yellow             !default;
