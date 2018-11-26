@@ -84,7 +84,7 @@ $fw-switch-knob-color:           #efefef;
 $fw-switch-knob-checked-color:   #5876AA;
 
 $fw-msg-color:                   #B00020;
-$fw-msg-error-color:             $fw-msg-color;
+$fw-msg-alert-color:             $fw-msg-color;
 
 $fw-readonly-font-color:         $fw-font-color;
 $fw-readonly-font-width:         normal;
@@ -123,7 +123,7 @@ $fw-progress-track-color:        #B8B8B8;
 
 	&:hover {
 		@if ($fw-custom-focus-ring) {
-			box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-msg-error-color, $fw-focus-opacity);
+			box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-msg-alert-color, $fw-focus-opacity);
 		}
 	}
 }

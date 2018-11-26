@@ -1,0 +1,68 @@
+/* Meter ------------------ */
+
+$fw-meter-height: $fw-input-height / 2 !default;
+$fw-meter-radius: $fw-border-radius !default;
+$fw-meter-background: #efefef !default;
+$fw-meter-fill-good: $fw-msg-success-color !default;
+$fw-meter-fill-medium: $fw-msg-warning-color !default;
+$fw-meter-fill-bad: $fw-msg-alert-color !default;
+
+
+meter {
+	//border: $fw-border-width $fw-border-style $fw-border-color;
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+	border-radius: $fw-meter-radius;
+	display: block;
+	height: $fw-meter-height;
+	max-width: $fw-input-max-width;
+	width: $fw-input-width;
+	overflow: hidden;
+
+	// For Firefox
+	background: $fw-meter-background;
+
+	// Chrome/Safari/Edge
+	&::-webkit-meter-bar {
+		background: $fw-meter-background;
+		box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+	}
+
+	&::-webkit-meter-inner-element {
+
+	}
+
+
+	&::-webkit-meter-optimum-value {
+		background: $fw-meter-fill-good;
+		box-shadow: inherit;
+	}
+
+	&::-webkit-meter-suboptimum-value {
+		background: $fw-meter-fill-medium;
+		box-shadow: inherit;
+	}
+
+	&::-webkit-meter-even-less-good-value {
+		background: $fw-meter-fill-bad;
+		box-shadow: inherit;
+	}
+
+	&::-moz-meter-bar {
+		//background: pink;
+	}
+
+	&:-moz-meter-optimum::-moz-meter-bar {
+		background: $fw-meter-fill-good;
+		box-shadow: inherit;
+	}
+
+	&:-moz-meter-sub-optimum::-moz-meter-bar {
+		background: $fw-meter-fill-medium;
+		box-shadow: inherit;
+	}
+
+	&:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+		background: $fw-meter-fill-bad;
+		box-shadow: inherit;
+	}
+}
