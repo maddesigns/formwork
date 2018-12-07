@@ -1,0 +1,137 @@
+// Theming for Go
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:             true;
+
+// Layout
+$fw-centered:                  false;
+$fw-display:                   block;
+$fw-styled-inputs:             true;  // styled radio/checkbox/select/range
+$fw-add-styled-inputs:         true;
+
+// Font
+$fw-font-family:               inherit;
+$fw-font-size:                 16px;
+$fw-font-color:                #000;
+
+// Borders
+$fw-border-width:              1px;
+$fw-border-style:              solid;
+$fw-border-color:              #cccaac;
+$fw-border-radius:             0;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:              40px;
+$fw-input-width:               100%;
+$fw-input-max-width:           600px;
+$fw-input-bg-color:            #fff;
+//$fw-hover-border-color:        #000;
+
+$fw-focus-bg-color:            white;
+$fw-focus-border-color:        #000;
+$fw-focus-color:               #666;
+
+// buttons
+$fw-btn-class:                 '.btn';
+$fw-btn-color:                 white;
+$fw-btn-bg-color:              #282828;
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        #A2CD04;
+// buttons submit
+$fw-btn-submit-bg-color:       #282828;
+$fw-btn-submit-color:          white;
+$fw-btn-submit-hover-bg-color: #A2CD04;
+$fw-btn-submit-hover-color:    white;
+// buttons CTA
+$fw-btn-cta-bg-color:          #00adcc;
+$fw-btn-cta-color:             white;
+$fw-btn-cta-hover-bg-color:    #008299;
+$fw-btn-cta-hover-color:       white;
+
+// custom input
+$fw-check-height:             18px;
+$fw-check-scale:              3px;
+$fw-check-padding:            20px;
+$fw-check-font-size:          20px;
+$fw-check-hover-color:        #000; //$fw-font-color;
+$fw-check-focus-color:        #000; //$fw-font-color;
+$fw-check-border-color:       #000;
+$fw-check-border-width:       2px;
+$fw-check-border-radius:      2px;
+
+$fw-check-tick-width:         2px;
+$fw-check-tick-color:         #5A5A5A;
+$fw-check-tick-bg-color:      #fff;
+
+
+$fw-check-hover-border-color: #5A5A5A;
+$fw-check-focus-border-color: #000;
+
+$fw-check-hover-bg-color:       #5A5A5A;
+$fw-check-hover-border-color:   white;
+
+$fw-check-checked-bullet-color: #fff;
+$fw-check-checked-border-color: #fff;
+$fw-check-checked-bg-color:     #5A5A5A;
+
+$fw-switch-knob-checked-color:#A2CD04;
+$fw-switch-rail-color:        #B8B8B8;
+$fw-switch-rail-checked-color:rgba(#A2CD04,0.4);
+$fw-switch-knob-color:        #efefef;
+$fw-switch-knob-checked-color:#A2CD04;
+
+$fw-msg-color:                #dedede;
+$fw-msg-alert-color:          #FF5233;
+$fw-msg-hint-color:           #00adcc;
+$fw-msg-success-color:        #A2CD04;
+$fw-msg-warning-color:        yellow;
+
+//@import "../../formwork";
+@import "../../variables";
+@import "../../form_reset";
+//
+//@import "../../fieldset";
+//@import "../../placeholder";
+@import "../../inputs";
+// @import "../../number";
+// @import "../../color";
+@import "../../custom-inputs";
+@import "../../custom-range";
+//@import "../../filetype";
+@import "../../progress";
+//@import "../../meter";
+@import "select";
+@import "../../buttons";
+
+
+// a11y enhanced modules
+@import "listbox";
+
+@import "disabled";
+
+
+[type="checkbox"],
+[type="radio"] {
+
+	+ label {
+		display: flex;
+		background-color: #fff;
+		border-bottom: 1px solid #E4E3D5;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			+ label {
+				background-color: #5A5A5A;
+				color: #fff;
+			}
+		}
+	}
+
+
+	&:checked + label {
+		background-color: #5A5A5A;
+		color: #fff;
+	}
+
+}
