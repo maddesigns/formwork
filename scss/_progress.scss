@@ -1,36 +1,48 @@
 /* Progress ------------------ */
 
-$fw-progress:              true !default;
 $fw-progress-bar-color:    $fw-font-color !default;
 $fw-progress-track-color:  $fw-input-bg-color !default;
 $fw-progress-track-height: 2px !default;
 
-progress {
-  appearance: none;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  display: block;
-  color: $fw-progress-bar-color;
-  background-color: $fw-progress-track-color;
+@mixin styled-progress($class: null) {
 
-  width: 100%;
-  height: $fw-progress-track-height;
+	progress {
+		appearance: none;
+		padding: 0;
+		border: none;
+		border-radius: $fw-border-radius;
+		display: $fw-display;
+		color: $fw-progress-bar-color;
+		background-color: $fw-progress-track-color;
+		max-width: $fw-input-max-width;
+		width: $fw-input-width;
+		height: $fw-progress-track-height;
+	}
+
+	progress::-webkit-progress-bar {
+		background-color: $fw-progress-track-color;
+	}
+
+	progress::-moz-progress-bar {
+		background-color: $fw-progress-bar-color;
+	}
+
+	progress::-webkit-progress-value {
+		background-color: $fw-progress-bar-color;
+	}
+
+	progress::-ms-fill {
+		background-color: $fw-progress-bar-color;
+		border: none;
+	}
+
 }
 
-progress::-webkit-progress-bar {
-    background-color: $fw-progress-track-color;
-}
-
-progress::-moz-progress-bar {
-  background-color: $fw-progress-bar-color;
-}
-
-
-progress::-webkit-progress-value {
-  background-color: $fw-progress-bar-color;
-}
-
+// if custom checkboxes
 @if ($fw-styled-inputs) {
+	@include styled-progress();
+}
 
+@if (($fw-add-styled-inputs) and not ($fw-styled-inputs)) {
+	@include styled-progress($class:".custom");
 }

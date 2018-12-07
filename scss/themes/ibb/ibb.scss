@@ -7,7 +7,7 @@ $fw-fieldset-bare:             true;
 $fw-centered:                  false;
 $fw-display:                   block;
 $fw-styled-inputs:             true;  // styled radio/checkbox/select/range
-$fw-add-styled-inputs:         true;
+$fw-add-styled-inputs:         false;
 
 // Font
 $fw-font-family:               inherit;
@@ -79,6 +79,12 @@ $fw-switch-rail-color:        #B8B8B8;
 $fw-switch-rail-checked-color:rgba(#A2CD04,0.4);
 $fw-switch-knob-color:        #efefef;
 $fw-switch-knob-checked-color:#A2CD04;
+
+
+$fw-progress-bar-color:    #A2CD04;
+$fw-progress-track-color:  transparent;
+$fw-progress-track-height: 10px;
+
 
 $fw-msg-color:                #dedede;
 $fw-msg-alert-color:          #FF5233;
