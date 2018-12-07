@@ -1,22 +1,41 @@
 // custom inputs
+
+//does not work with colors containing alpha
+@function encodecolor($string) {
+	@if type-of($string) == 'color' {
+		$hex: str-slice(ie-hex-str($string), 4);
+		$string: unquote("#{$hex}");
+	}
+	$string: '%23' + $string;
+	@return $string;
+}
+
 // custom checkbox/radios
 $fw-check-height:               14px                   !default;
 $fw-check-width:                $fw-check-height       !default;
-$fw-check-scale:                4px                    !default; // optimized for even numbers
+$fw-check-scale:                2px                    !default; // optimized for even numbers
+$fw-check-padding:              $fw-input-padding      !default;
+$fw-check-font-size:            $fw-font-size          !default;
 $fw-check-input-bg-color:       $fw-input-bg-color     !default;
 $fw-check-input-color:          inherit                !default;
 $fw-check-border-width:         $fw-border-width       !default;
 $fw-check-border-radius:        0                      !default;
 $fw-check-border-color:         $fw-border-color       !default;
+
 $fw-check-hover-color:          $fw-hover-color        !default;
 $fw-check-hover-bg-color:       $fw-hover-bg-color     !default;
 $fw-check-hover-border-color:   $fw-hover-border-color !default;
+
 $fw-check-focus-color:          $fw-focus-color        !default;
 $fw-check-focus-bg-color:       $fw-focus-bg-color     !default;
 $fw-check-focus-border-color:   $fw-focus-border-color !default;
-$fw-check-tick-width:           3px                    !default;
+
+$fw-check-tick-width:           2px                    !default;
+$fw-check-tick-bg-color:        $fw-input-bg-color     !default;
 $fw-check-tick-color:           $fw-font-color         !default;
-$fw-check-bullet-color:         $fw-font-color         !default;
+$fw-check-tick-uri:             'url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22'+ $fw-check-width +'%22%20height%3D%22'+ $fw-check-height +'%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpolyline%20fill%3D%22none%22%20vector-effect%3D%22non-scaling-stroke%22%20stroke%3D%22'+ encodecolor($fw-check-tick-color) +'%22'+ if($fw-check-border-radius != 0, '%20stroke-linecap%3D%22round%22', '') +'%20stroke-width%3D%22'+ str-slice($fw-check-tick-width + unquote("") , 0 , 1) +'%22%20points%3D%223%207.5%206.3%2010.8%2012.9%204.8%22/%3E%0A%3C/svg%3E)' !default;
+
+$fw-check-checked-bullet-color: $fw-font-color         !default;
 $fw-check-checked-border-color: $fw-border-color       !default;
 $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 
@@ -54,37 +73,29 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 			}
 		}
 
-		&:hover:not(:disabled) {
+		// &:hover:not(:disabled) {
 
-			+ label {
-				color: $fw-check-hover-color;
+		// 	+ label {
+		// 		color: $fw-check-hover-color;
 
-				&::before {
-					border-color: $fw-check-hover-border-color;
-				}
-			}
-		}
+		// 		&::before {
+		// 			border-color: $fw-check-hover-border-color;
+		// 			color: $fw-check-hover-color;
+		// 			box-shadow: inset 0 0 0 $fw-check-width $fw-check-hover-bg-color;
+		// 		}
+		// 	}
+		// }
 
-		&:indeterminate {
+		// &:indeterminate {
 
-			+ label {
+		// 	+ label {
 
-				&::before {
-					background-color: $fw-check-checked-border-color;
-					border-color: $fw-check-checked-border-color;
-				}
-
-				&::after {
-					border-color: $fw-check-tick-color;
-					height: 0;
-					transform:
-						translateY(#{$fw-input-padding + $fw-check-border-width * 4.5})
-						translateX(#{$fw-input-padding + $fw-check-border-width * 2.5})
-						rotate(0deg)
-						scale(1);
-				}
-			}
-		}
+		// 		&::before {
+		// 			background-color: $fw-check-checked-border-color;
+		// 			border-color: $fw-check-checked-border-color;
+		// 		}
+		// 	}
+		// }
 
 		&:active {
 
@@ -97,73 +108,36 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 			}
 		}
 
+
 		+ label {
+			display: inline-flex;
+			align-items: center;
 			color: $fw-check-input-color;
-			position: relative;
-			padding: $fw-input-padding;
-			//line-height: $fw-check-width + $fw-check-border-width + $fw-check-scale/2;
-			//padding-left: $fw-check-width * 1.5;
-			//min-height: $fw-check-height;
-			//vertical-align: middle;
+			font-size: $fw-check-font-size;
+			padding: $fw-check-padding;
+			-webkit-user-select: none;
+			-moz-user-select: none;
 			user-select: none;
-			transition: color 100ms ease-out;
+			transition: all 100ms ease-out;
 
 			-webkit-tap-highlight-color:rgba(0,0,0,0);
 			-webkit-touch-callout: none;
 
-			// outline: 1px solid red;
-			// background-color: pink;
-			// background-clip: content-box;
-
-
-			&::before {
-				background-color: $fw-check-input-bg-color;
-				border: $fw-check-border-width solid $fw-check-border-color;
+			&:before {
 				box-sizing: content-box;
 				content: '';
-				color: $fw-check-border-color;
+				flex-shrink: 0;
+
 				margin-right: $fw-check-width * 0.5;
-				//margin-top: -($fw-check-height/2 + $fw-check-border-width);
-				position: relative;
-				top: -$fw-check-border-width;
-				// left: 0;
 				width: $fw-check-width - ($fw-check-border-width * 2);
 				height: $fw-check-height - ($fw-check-border-width * 2);
-				//text-align: center;
-				display: inline-block;
-				vertical-align: middle;
-
-				will-change: background-color, transform;
+				// @media (hover: hover) {
+				// 	transition: all 300ms ease-out;
+				// }
 			}
 
-			&::after {
-				box-sizing: content-box;
-				content: '';
-				background-color: $fw-check-bullet-color;
-				position: absolute;
-				top: $fw-input-padding + $fw-check-scale/2;
-				left: $fw-input-padding + $fw-check-border-width + $fw-check-scale/2;
-				width: $fw-check-width - $fw-check-scale - ($fw-check-border-width * 2);
-				height: $fw-check-height - $fw-check-scale - ($fw-check-border-width * 2);
-				//margin-top: -(($fw-check-height - $fw-check-scale)/2);
-				transform: scale(0);
-				transform-origin: 50%;
-				transition: transform 200ms ease-out;
-				will-change: background-color, transform;
-			}
-
-			//.check-wrapper & {
-				display: inline-flex;
-				align-items: center;
-
-				&::after,
-				&::before {
-					flex-shrink: 0;
-				}
-			//}
 
 			&.u-align-top {
-				vertical-align: top;
 				align-items: flex-start;
 			}
 		}
@@ -172,19 +146,17 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 
 			+ label {
 				opacity: 0.5;
+				pointer-events: none;
 
 				&::before {
 					animation: none;
 					box-shadow: none;
 					border-color: rgba(128, 128, 128, 0.5);
 				}
-			}
 
-			&:active,
-			&:focus,
-			&:hover {
-
-				+ label {
+				&:active,
+				&:focus,
+				&:hover {
 
 					&::before {
 						box-shadow: none;
@@ -197,52 +169,45 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 		}
 	}
 
+
 	#{$class}[type="checkbox"] {
 
-		+ label {
 
-			&::before,
-			&::after {
+		+ label {
+			&::before {
+				background-color: $fw-check-input-bg-color;
+				border: $fw-check-border-width solid $fw-check-border-color;
 				border-radius: $fw-check-border-radius;
+				background-color: $fw-check-input-bg-color;
+				background-image: unquote($fw-check-tick-uri);
+				background-repeat: no-repeat;
+				background-position: 50%;
+				background-size: 0 0;
 			}
 
-			&::after {
-				background-color: transparent;
-				border-style: solid;
-				border-color: $fw-check-tick-color;
-				border-width: 0 0 $fw-check-tick-width $fw-check-tick-width;
-				border-radius: 0;
-				border-image: none;
+			// hover
+			@media (hover: hover) {
+				//&:focus,
+				&:hover {
 
-				width: $fw-check-width/2;
-				height: $fw-check-width/5;
-				// left: $fw-input-padding + $fw-check-border-width + $fw-check-width/5;
-				top: 0;
-				left: 0;
-				transform-origin: 0% 50%;
-				transform:
-					translateY(#{$fw-input-padding + $fw-check-border-width + ($fw-check-width/2) - (($fw-check-width/5)/2)})
-					translateX(#{$fw-input-padding + $fw-check-border-width + ($fw-check-width/2) - (($fw-check-width/2)/2)})
-					rotate(-45deg)
-					scale(0);
-				transition: none;
+					&::before {
+						background-color: $fw-check-hover-bg-color;
+						border-color: $fw-check-hover-border-color;
+						color: $fw-check-hover-color;
+						//box-shadow: inset 0 0 0 $fw-check-width $fw-check-hover-bg-color;
+					}
+				}
 			}
 		}
 
 		&:checked {
+
 			+ label {
+
 				&::before {
+					background-color: $fw-check-tick-bg-color;
+					background-size: 100% 100%;
 					border-color: $fw-check-checked-border-color;
-					background-color: $fw-check-checked-bg-color;
-				}
-				&::after {
-					content: ''; //\2713';
-					transform:
-						translateY(#{$fw-input-padding + $fw-check-border-width + ($fw-check-width/2) - (($fw-check-width/5)/2)})
-						translateX(#{$fw-input-padding + $fw-check-border-width + ($fw-check-width/2) - (($fw-check-width/2)/2)})
-						rotate(-45deg)
-						scale(1);
-					transition: transform 200ms ease-in;
 				}
 			}
 		}
@@ -252,18 +217,44 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 
 		+ label {
 
-			&::before,
-			&::after {
+			&::before {
+				background-color: $fw-check-input-bg-color;
+				border: $fw-check-border-width solid $fw-check-border-color;
 				border-radius: 50%;
+				box-shadow: inset 0 0 0 $fw-check-width $fw-check-input-bg-color;
+				@media (hover: hover) {
+					transition: all 300ms ease-out;
+				}
+			}
+
+			@media (hover: hover) {
+				// hover
+			//	&:focus,
+				&:hover {
+
+					&::before {
+						border-color: $fw-check-hover-border-color;
+						color: $fw-check-hover-color;
+						box-shadow: inset 0 0 0 $fw-check-width $fw-check-hover-bg-color;
+					}
+				}
 			}
 		}
 
 		&:checked {
 
-			&:active,
-			&:focus {
+			+ label {
 
-				+ label {
+				&::before {
+					animation: none;
+					background-color: $fw-check-checked-bullet-color;
+					border-color: $fw-check-checked-border-color;
+					box-shadow: inset 0 0 0 $fw-check-scale $fw-check-checked-bg-color;
+					transition: box-shadow 200ms ease-out;
+				}
+
+				&:active,
+				&:focus {
 
 					&::before {
 						animation: none;
@@ -271,19 +262,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 						transition: none;
 					}
 				}
-			}
 
-			+ label {
-
-				&::before {
-					animation: none;
-					background-color: $fw-check-input-bg-color;
-					border-color: $fw-check-checked-border-color;
-				}
-
-				&::after {
-					transform: scale(1);
-				}
 			}
 		}
 	}
@@ -296,13 +275,4 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 
 @if (($fw-add-styled-inputs) and not ($fw-styled-inputs)) {
 	@include custom-inputs($class:".custom");
-}
-
-@keyframes ripples {
-	0% {
-		box-shadow: 0 0 0 0 rgba($fw-check-bullet-color, 0.4);
-	}
-	80% {
-		box-shadow: 0 0 0 1em rgba($fw-check-bullet-color, 0);
-	}
 }

@@ -5,13 +5,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="../css/themes/go/go.css">
+		<link rel="stylesheet" href="../css/themes/ibb/ibb.css">
 		<style>
 			html {
 				overflow-x: hidden;
 			}
 			body {
 				font-family: sans-serif;
+				font-size: 16px;
 				overflow-x: hidden;
 			}
 
@@ -693,6 +694,29 @@
 				</span>
 			</div>
 
+			<h3>Meter</h3>
+
+			<div>
+				<label for="fuel">Fuel level:</label>
+
+				<meter id="fuel" value="10" name="fuel" min="0" max="100" low="33" high="66" optimum="80">
+					at 10/100
+				</meter>
+				<br>
+				<meter value="50" name="fuel" min="0" max="100" low="33" high="66" optimum="80">
+					at 50/100
+				</meter>
+				<br>
+				<meter value="90" name="fuel" min="0" max="100" low="33" high="66" optimum="80">
+					at 90/100
+				</meter>
+			</div>
+
+			<h3>Progress</h3>
+			<div>
+				<progress value="70" max="100">70 %</progress>
+			</div>
+
 			<div class="error-container">
 				<p>there are errors</p>
 			</div>
@@ -730,12 +754,12 @@
 
 			<h2>Buttons with class '.btn'</h2>
 			<p><button type="submit" class="btn">button[type="submit"].btn</button></p>
-			<p><button type="button" class="btn ripple ripple btn--submit">button[type="button"].btn.btn--submit</button></p>
-			<p><button type="button" class="btn ripple btn--cta">button[type="submit"].btn.btn--cta</button></p>
-			<p><button type="button" class="btn ripple btn--txt">button[type="button"].btn.btn--txt</button></p>
-			<p><button type="button" class="btn ripple btn--inv">button[type="button"].btn.btn--inv</button></p>
-			<p><button type="button" class="btn ripple btn--outlined">button[type="button"].btn.btn--outlined</button></p>
-			<p><button type="button" class="btn ripple btn--cta" disabled>button[type="submit"][disabled].btn.btn--cta</button></p>
+			<p><button type="button" class="btn btn--submit">button[type="button"].btn.btn--submit</button></p>
+			<p><button type="button" class="btn btn--cta">button[type="submit"].btn.btn--cta</button></p>
+			<p><button type="button" class="btn btn--txt">button[type="button"].btn.btn--txt</button></p>
+			<p><button type="button" class="btn btn--inv">button[type="button"].btn.btn--inv</button></p>
+			<p><button type="button" class="btn btn--outlined">button[type="button"].btn.btn--outlined</button></p>
+			<p><button type="button" class="btn btn--cta" disabled>button[type="submit"][disabled].btn.btn--cta</button></p>
 
 			<h2>Links with class '.btn'</h2>
 			<p><a href="#" class="btn">a.btn</a></p>
@@ -745,13 +769,6 @@
 			<p><a href="#" class="btn btn--txt">a.btn.btn--txt</a></p>
 			<p><a href="#" class="btn btn--inv">a.btn.btn--inv</a></p>
 
-			<hr>
-
-			<h3>Meter</h3>
-			<p>He got a <meter low="50" high="80" max="100" value="84">B</meter> on the exam.</p>
-
-			<h3>Progress</h3>
-			<progress value="70" max="100">70 %</progress>
 		</form>
 	</body>
 </html>

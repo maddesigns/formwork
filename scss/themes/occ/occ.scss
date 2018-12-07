@@ -60,8 +60,8 @@ $fw-btn-cta-hover-color:       #fff;
 $fw-btn-txt-decoration:        none;
 
 // custom input
-$fw-check-height:             24px;
-$fw-check-scale:              6px;
+$fw-check-height:             20px;
+$fw-check-scale:              3px;
 $fw-check-input-color:        #757575;
 $fw-check-hover-color:        #434343;
 $fw-check-focus-color:        #434343;
@@ -72,11 +72,13 @@ $fw-check-border-color:       #757575;
 $fw-check-tick-width:         2px;
 $fw-check-tick-color:         #fff;
 
-$fw-check-bullet-color:       #434343;
-$fw-check-hover-bg-color:     #434343;
-$fw-check-hover-border-color: #434343;
+$fw-check-checked-bullet-color: #434343;
+$fw-check-hover-border-color:   #434343;
 $fw-check-checked-border-color: #434343;
-$fw-check-checked-bg-color:     #434343;
+$fw-check-checked-bg-color:     #fff;
+
+$fw-check-tick-color:         #5A5A5A;
+$fw-check-tick-bg-color:      #fff;
 
 $fw-switch-rail-color:           #B8B8B8;
 $fw-switch-rail-checked-color:   rgba(#5876AA,0.5);
@@ -104,11 +106,6 @@ $fw-progress-bar-color:          #000;
 $fw-progress-track-color:        #B8B8B8;
 
 @import "../../formwork";
-
-
-[type="checkbox"] + label::after {
-	transform-origin: -20% 50%;
-}
 
 .btn {
 	text-transform: uppercase;

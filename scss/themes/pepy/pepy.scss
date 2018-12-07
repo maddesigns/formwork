@@ -34,15 +34,16 @@ $fw-focus-color:        $fw-font-color;
 
 $fw-check-height:             30px;
 $fw-check-width:              $fw-check-height;
-$fw-check-scale:              12px; // optimized for even numbers
+$fw-check-scale:              5px; // optimized for even numbers
 $fw-check-input-bg-color:     $fw-input-bg-color;
-$fw-check-border-width:       0px;
+$fw-check-border-width:       1px;
 $fw-check-border-color:       $fw-border-color;
 $fw-check-border-radius:      50%;
 $fw-check-focus-color:        $fw-focus-color;
 $fw-check-focus-bg-color:     $fw-focus-bg-color;
 $fw-check-focus-border-color: $fw-focus-border-color;
 $fw-check-tick-width:         3px;
+$fw-check-tick-color:         #fff;
 
 // Buttons & Input Submits
 $fw-btn-class:                 ".btn";
@@ -78,27 +79,25 @@ input:not([type]), input[type], [list], textarea {
 }
 
 [type="checkbox"] + label::before {
+	border: none;
 	box-shadow: 1px 1px 2px rgba(black, 0.1), inset 0 0 0 1px $fw-border-color;
 	animation: none;
+	transition: none;
 }
 
 [type="checkbox"]:checked + label::before {
-	background-image: linear-gradient(315deg, #39F3BB, #90F9C4);
+	background-image: unquote($fw-check-tick-uri), linear-gradient(315deg, #39F3BB, #90F9C4);
 	box-shadow: 1px 1px 2px rgba(black, 0.1);
+	background-size: 90% 90%, 100% 100%;
 }
-[type="checkbox"] + label::after {
-	transform-origin: 25% 50%;
-	transition: none;
-}
-[type="checkbox"]:checked + label::after{
-	border-color: #FFF;
-	transition: none;
-}
+
 [type="radio"] + label::before {
-	box-shadow: 1px 1px 2px rgba(black, 0.1), inset 0 0 0 1px $fw-border-color;
+	box-shadow: 1px 1px 2px rgba(black, 0.1);
+	transition: none;
 }
-[type="radio"]:checked + label::after {
-	background-image: linear-gradient(315deg, #39F3BB, #90F9C4);
+
+[type="radio"]:checked + label::before {
+	background-image:linear-gradient(315deg, #39F3BB, #90F9C4);
 }
 
 button, html [type="button"], [role="button"], [type="reset"], [type="submit"], [type="image"], .btn {

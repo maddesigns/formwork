@@ -14,10 +14,12 @@ input[role="switch"] {
 	+ label {
 
 		&:before {
+			content: '';
 			border: $fw-switch-rail-border;
 			width: $fw-switch-rail-width;
 			height: $fw-switch-rail-height;
 			background-color: $fw-switch-rail-color;
+			box-shadow: none;
 			border-radius: 1em;
 			transition: background-color 0.28s cubic-bezier(.4, 0, .2, 1);
 			position: static;
@@ -26,6 +28,7 @@ input[role="switch"] {
 		}
 
 		&:after {
+			content: '';
 			border: none;
 			position: static;
 			width: $fw-switch-knob-width;
@@ -40,6 +43,11 @@ input[role="switch"] {
 			margin-right: -0.5em;
 		}
 
+	&:hover {
+		&::before {
+			background-color: $fw-switch-rail-color;
+		}
+	}
 
 	}
 
@@ -48,6 +56,7 @@ input[role="switch"] {
 			&:before {
 				background-color: $fw-switch-rail-checked-color;
 				border: none;
+				background-image: none;
 			}
 
 			&:after {
@@ -118,6 +127,7 @@ input[role="switch"].ios-style {
 	+ label {
 
 		&:before {
+			content: '';
 			background-color: $fw-switch-rail-color;
 			border: none;//$fw-switch-rail-border;
 			width: $fw-switch-rail-width;
@@ -131,6 +141,7 @@ input[role="switch"].ios-style {
 		}
 
 		&:after {
+			content: '';
 			border: none;
 			position: static;
 			width: $fw-switch-knob-width;
@@ -151,7 +162,7 @@ input[role="switch"].ios-style {
 		+ label {
 			&:before {
 				background-color: $fw-switch-rail-checked-color;
-				box-shadow: inset 0 0 0 $fw-switch-rail-height/2 $fw-switch-rail-checked-color, 0 0 0 $fw-switch-rail-border-width*2 $fw-switch-rail-checked-color;
+				box-shadow: inset 0 0 0 $fw-switch-rail-height/2 $fw-switch-rail-checked-color, 0 0 0 $fw-switch-rail-border-width $fw-switch-rail-checked-color;
 				transition: box-shadow 0.3s cubic-bezier(.4, 0, .2, 1), background-color 0s linear 0.2s;
 			}
 
