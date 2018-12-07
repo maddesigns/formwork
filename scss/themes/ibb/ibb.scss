@@ -94,7 +94,7 @@ $fw-msg-warning-color:        yellow;
 
 //@import "../../formwork";
 @import "../../variables";
-@import "../../form_reset";
+//@import "../../form_reset";
 //
 //@import "../../fieldset";
 //@import "../../placeholder";
@@ -102,18 +102,18 @@ $fw-msg-warning-color:        yellow;
 // @import "../../number";
 // @import "../../color";
 @import "../../custom-inputs";
-@import "../../custom-range";
+//@import "../../custom-range";
 //@import "../../filetype";
 @import "../../progress";
 //@import "../../meter";
-@import "select";
+@import "../../select";
 @import "../../buttons";
 
 
 // a11y enhanced modules
-@import "listbox";
+@import "../../listbox";
 
-@import "disabled";
+@import "../../disabled";
 
 
 [type="checkbox"],
@@ -125,11 +125,22 @@ $fw-msg-warning-color:        yellow;
 		border-bottom: 1px solid #E4E3D5;
 	}
 
-	@media (hover: hover) {
+	//@media (hover: hover) {
 		&:hover {
 			+ label {
 				background-color: #5A5A5A;
 				color: #fff;
+			}
+		}
+	//}
+
+
+	@media (pointer: coarse) {
+		&:hover {
+			+ label {
+				transition: none;
+				background-color: #fff;
+				color: #5A5A5A;
 			}
 		}
 	}

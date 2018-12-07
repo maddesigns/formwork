@@ -186,14 +186,26 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 			}
 
 			// hover
-			@media (hover: hover) {
-				//&:focus,
+			//@media (hover: hover) {
+				&:focus,
 				&:hover {
 
 					&::before {
 						background-color: $fw-check-hover-bg-color;
 						border-color: $fw-check-hover-border-color;
 						color: $fw-check-hover-color;
+						//box-shadow: inset 0 0 0 $fw-check-width $fw-check-hover-bg-color;
+					}
+				}
+			//}
+
+			@media (pointer: coarse) {
+				&:hover {
+
+					&::before {
+						background-color: $fw-check-input-bg-color;
+						border-color: $fw-check-border-color;
+						//color: $fw-check-input-color;
 						//box-shadow: inset 0 0 0 $fw-check-width $fw-check-hover-bg-color;
 					}
 				}
@@ -222,14 +234,18 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 				border: $fw-check-border-width solid $fw-check-border-color;
 				border-radius: 50%;
 				box-shadow: inset 0 0 0 $fw-check-width $fw-check-input-bg-color;
-				@media (hover: hover) {
+				//@media (hover: hover) {
 					transition: all 300ms ease-out;
+				//}
+
+				@media (pointer: coarse) {
+					transition: none;
 				}
 			}
 
-			@media (hover: hover) {
+			//@media (hover: hover) {
 				// hover
-			//	&:focus,
+				&:focus,
 				&:hover {
 
 					&::before {
@@ -238,7 +254,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 						box-shadow: inset 0 0 0 $fw-check-width $fw-check-hover-bg-color;
 					}
 				}
-			}
+			//}
 		}
 
 		&:checked {
