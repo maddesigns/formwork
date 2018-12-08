@@ -28,7 +28,7 @@ $fw-input-bg-color:            white;
 
 $fw-focus-bg-color:            white;
 $fw-focus-border-color:        #000;
-$fw-focus-color:               #666;
+$fw-focus-color:               #000;
 
 // buttons
 $fw-btn-class:                 '.btn';
@@ -72,5 +72,9 @@ $fw-msg-alert-color:          #D0021B;
 $fw-msg-hint-color:           #2ea5c5;
 $fw-msg-success-color:        #7fb71e;
 $fw-msg-warning-color:        yellow;
+
+$fw-progress-bar-color:       #7fb71e;
+$fw-progress-track-color:     #dedede;
+$fw-progress-track-height:    4px;
 
 @import "../../formwork";

@@ -98,7 +98,7 @@ $fw-msg-warning-color:        yellow;
 //
 //@import "../../fieldset";
 //@import "../../placeholder";
-@import "../../inputs";
+// @import "../../inputs";
 // @import "../../number";
 // @import "../../color";
 @import "../../custom-inputs";
@@ -106,14 +106,14 @@ $fw-msg-warning-color:        yellow;
 //@import "../../filetype";
 @import "../../progress";
 //@import "../../meter";
-@import "../../select";
-@import "../../buttons";
+// @import "../../select";
+// @import "../../buttons";
 
 
 // a11y enhanced modules
-@import "../../listbox";
+// @import "../../listbox";
 
-@import "../../disabled";
+// @import "../../disabled";
 
 
 [type="checkbox"],
