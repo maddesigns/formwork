@@ -9,6 +9,7 @@ $fw-btn-radius:                $fw-border-radius     !default;
 $fw-btn-border:                1px solid transparent !default;
 $fw-btn-padding:               $fw-input-padding     !default;
 $fw-btn-transition:            "all 200ms ease-in"   !default;
+$fw-btn-font-size:             $fw-font-size         !default;
 
 // button colors
 $fw-btn-color:                 white                 !default;
@@ -44,12 +45,12 @@ $fw-btn-txt-decoration:        underline             !default;
 	cursor: pointer;
 	font-family: $fw-font-family;
 
-	@if ($fw-font-size < 16px) {
+	@if ($fw-btn-font-size < 16px) {
 		font-size: 16px;
-		@warn "The font-size ($fw-font-size) should be minimum 16px to avoid iOS zooming. You set font-size to #{$fw-font-size}";
+		@warn "The font-size ($fw-btn-font-size) should be minimum 16px to avoid iOS zooming. You set font-size to #{$fw-btn-font-size}";
 	}
 	@else {
-		font-size: $fw-font-size;
+		font-size: $fw-btn-font-size;
 	}
 
 	display: inline-flex;
@@ -69,6 +70,7 @@ $fw-btn-txt-decoration:        underline             !default;
 	vertical-align: middle;
 	white-space: normal;
 	width: $fw-btn-width;
+	touch-action: manipulation;
 
 	&:hover {
 		background-color: $fw-btn-hover-bg-color;

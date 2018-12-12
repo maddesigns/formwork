@@ -29,6 +29,7 @@
 		position: absolute;
 		z-index: 2;
 
+
 		&:hover {
 			border-color: $fw-hover-border-color;
 			color: $fw-hover-color;
@@ -76,7 +77,7 @@
 				color: rgba(0, 0, 0, 1);
 			}
 			.listbox__icon {
-				transform: rotate(0);
+				transform: rotate(180deg);
 			}
 		}
 	}
@@ -84,9 +85,17 @@
 }
 
 .listbox__icon {
-	transform: rotate(180deg);
+	transform: rotate(360deg);
 	color: $fw-font-color;
 	transition: transform 0.2s ease-in;
+
+	width: $fw-select-arrow-width;
+	height: $fw-select-arrow-height;
+	display: inline-block;
+
+	background-image: #{$fw-select-arrow};
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .listbox__options {

@@ -21,7 +21,7 @@ $fw-border-color:              #cccaac;
 $fw-border-radius:             0;
 
 // Inputs, Textareas, Select, Option
-$fw-input-height:              40px;
+$fw-input-height:              50px;
 $fw-input-width:               100%;
 $fw-input-max-width:           600px;
 $fw-input-bg-color:            #fff;
@@ -33,6 +33,7 @@ $fw-focus-color:               #666;
 
 // buttons
 $fw-btn-class:                 '.btn';
+$fw-btn-font-size:             18px;
 $fw-btn-color:                 white;
 $fw-btn-bg-color:              #282828;
 $fw-btn-hover-color:           white;
@@ -52,9 +53,9 @@ $fw-btn-cta-hover-color:       white;
 $fw-check-height:             18px;
 $fw-check-scale:              3px;
 $fw-check-padding:            20px;
-$fw-check-font-size:          20px;
-$fw-check-hover-color:        #000; //$fw-font-color;
-$fw-check-focus-color:        #000; //$fw-font-color;
+$fw-check-font-size:          16px;
+$fw-check-hover-color:        #000;
+$fw-check-focus-color:        #000;
 $fw-check-border-color:       #000;
 $fw-check-border-width:       2px;
 $fw-check-border-radius:      2px;
@@ -62,7 +63,6 @@ $fw-check-border-radius:      2px;
 $fw-check-tick-width:         2px;
 $fw-check-tick-color:         #5A5A5A;
 $fw-check-tick-bg-color:      #fff;
-
 
 $fw-check-hover-border-color: #5A5A5A;
 $fw-check-focus-border-color: #000;
@@ -80,11 +80,9 @@ $fw-switch-rail-checked-color:rgba(#A2CD04,0.4);
 $fw-switch-knob-color:        #efefef;
 $fw-switch-knob-checked-color:#A2CD04;
 
-
 $fw-progress-bar-color:    #A2CD04;
 $fw-progress-track-color:  transparent;
 $fw-progress-track-height: 10px;
-
 
 $fw-msg-color:                #dedede;
 $fw-msg-alert-color:          #FF5233;
@@ -107,7 +105,7 @@ $fw-msg-warning-color:        yellow;
 @import "../../progress";
 //@import "../../meter";
 // @import "../../select";
-// @import "../../buttons";
+@import "../../buttons";
 
 
 // a11y enhanced modules
@@ -118,6 +116,25 @@ $fw-msg-warning-color:        yellow;
 
 [type="checkbox"],
 [type="radio"] {
+
+	+ label {
+
+		@media screen and (min-width: 768px) {
+			font-size: $fw-check-font-size * 1.2;
+		}
+
+		&:before {
+			margin-right: 12px;
+			width: 12px;
+			height: 12px;
+
+			@media screen and (min-width: 768px) {
+				margin-right: 14px;
+				width: 14px;
+				height: 14px;
+			}
+		}
+	}
 
 	+ label {
 		display: flex;

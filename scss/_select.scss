@@ -1,10 +1,47 @@
 /* Select ------------------ */
 
-$fw-select-arrow:          '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%234D4D4D%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E' !default;
+// $fw-select-arrow:          '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%234D4D4D%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E' !default;
 $fw-select-arrow-disabled: '%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%228%22%20viewBox%3D%220%200%2016%208%22%3E%3Cpolygon%20fill%3D%22%23cccccc%22%20points%3D%228%2C0%2016%2C0%2012%2C4%208%2C8%204%2C4%200%2C0%20%22/%3E%3C/svg%3E' !default;
+
+$fw-select-arrow-width:     24px !default;
+$fw-select-arrow-height:    24px !default;
+$fw-select-arrow-fill:      none !default;
+$fw-select-arrow-color:     $fw-border-color !default;
+$fw-select-arrow-bg-color:  $fw-input-bg-color !default;
+$fw-select-arrow-thickness: 2px !default;
+$fw-select-arrow-radius:    $fw-border-radius !default;
 
 //fontawesome chevron down
 //'%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2028%2028%22%3E%20%3Cpath%20d%3D%22M26.297%2012.625l-11.594%2011.578c-0.391%200.391-1.016%200.391-1.406%200l-11.594-11.578c-0.391-0.391-0.391-1.031%200-1.422l2.594-2.578c0.391-0.391%201.016-0.391%201.406%200l8.297%208.297%208.297-8.297c0.391-0.391%201.016-0.391%201.406%200l2.594%202.578c0.391%200.391%200.391%201.031%200%201.422z%22%3E%3C/path%3E%20%3C/svg%3E);
+
+$fw-select-arrow:
+'url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22'
++ strip-units($fw-input-height) +
+'%22%20height%3D%22'
++ strip-units($fw-input-height) +
+'%22%20viewBox%3D%220%200%20'
++ strip-units($fw-input-height) +'%20'+ strip-units($fw-input-height) +
+'%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22'
++ encodecolor($fw-select-arrow-bg-color) +
+'%22/%3E%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20x%3D%22'
++ strip-units(($fw-input-height - $fw-select-arrow-width) / 2) +
+'%22%20y%3D%22'
++ strip-units(($fw-input-height - $fw-select-arrow-height) / 2) +
+'%22%20width%3D%22'
++ strip-units($fw-select-arrow-width) +
+'%22%20height%3D%22'
++ strip-units($fw-select-arrow-height) +
+'%22%20viewBox%3D%22'+ 0 +'%20'+ 0 +'%20'+ 30 +'%20'+ 30 +'%22%3E%3Cpolyline%20fill%3D%22'
++ if($fw-select-arrow-fill == unquote('none'), 'none', encodecolor($fw-select-arrow-fill)) +
+'%22%20vector-effect%3D%22non-scaling-stroke%22%20stroke%3D%22'
++ encodecolor($fw-select-arrow-color) +
+'%22'
++ if($fw-select-arrow-radius != 0, '%20stroke-linecap%3D%22round%22', '') +
+'%20stroke-width%3D%22'
++ if($fw-select-arrow-fill != unquote('none'), '0', str-slice($fw-select-arrow-thickness + unquote("") , 0 , 1)) +
+'%22%20points%3D%225%2010%2015%2020%2025%2010%22/%3E%3C/svg%3E%3C/svg%3E)';
+
+
 
 select {
 	background-color: $fw-input-bg-color;
@@ -19,13 +56,14 @@ select {
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
-		background-image: url(data:image/svg+xml,#{$fw-select-arrow});
+		background-image: #{$fw-select-arrow};
 		background-repeat: no-repeat;
-		background-position: right 10px center;
+		background-position: right center;
+		//background-size: ($fw-select-arrow-width + 2 * $fw-input-padding) ($fw-select-arrow-height + 2 * $fw-input-padding);
 		border: $fw-border-width $fw-border-style $fw-border-color;
 		border-radius: $fw-border-radius;
 		padding: $fw-input-padding;
-		padding-right: 1.5em;
+		padding-right: ($fw-input-height + $fw-input-padding);
 
 		// &:focus,
 		// &:hover {
