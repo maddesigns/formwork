@@ -10,6 +10,8 @@ $fw-btn-border:                1px solid transparent !default;
 $fw-btn-padding:               $fw-input-padding     !default;
 $fw-btn-transition:            "all 200ms ease-in"   !default;
 $fw-btn-font-size:             $fw-font-size         !default;
+$fw-btn-ripple:                false                 !default;
+$fw-btn-display:               'inline-flex'         !default;
 
 // button colors
 $fw-btn-color:                 white                 !default;
@@ -18,23 +20,38 @@ $fw-btn-hover-color:           white                 !default;
 $fw-btn-hover-bg-color:        #666666               !default;
 $fw-btn-focus-color:           white                 !default;
 $fw-btn-focus-bg-color:        #666666               !default;
+
 // buttons submit
 $fw-btn-submit-bg-color:       #222222               !default;
 $fw-btn-submit-color:          white                 !default;
 $fw-btn-submit-hover-bg-color: black                 !default;
 $fw-btn-submit-hover-color:    white                 !default;
+
 // buttons CTA
 $fw-btn-cta-bg-color:          #da503b               !default;
 $fw-btn-cta-color:             white                 !default;
 $fw-btn-cta-hover-bg-color:    black                 !default;
 $fw-btn-cta-hover-color:       white                 !default;
-// buttons inverted
-$fw-btn-inv-bg-color:          #ccc                  !default;
-$fw-btn-inv-color:             black                 !default;
-$fw-btn-inv-hover-bg-color:    white                 !default;
-$fw-btn-inv-hover-color:       black                 !default;
-// buttons text style
+
+// buttons text style (styled as links)
+$fw-btn-txt-bg-color:          transparent           !default;
+$fw-btn-txt-color:             $fw-font-color        !default;
+$fw-btn-txt-hover-bg-color:    transparent           !default;
+$fw-btn-txt-hover-color:       $fw-font-color        !default;
 $fw-btn-txt-decoration:        underline             !default;
+$fw-btn-txt-hover-decoration:  underline             !default;
+
+// buttons inverted
+$fw-btn-inv-bg-color:          $fw-btn-submit-color          !default;
+$fw-btn-inv-color:             $fw-btn-submit-bg-color       !default;
+$fw-btn-inv-hover-bg-color:    $fw-btn-submit-hover-color    !default;
+$fw-btn-inv-hover-color:       $fw-btn-submit-hover-bg-color !default;
+
+// buttons outlined
+$fw-btn-out-bg-color:          white                 !default;
+$fw-btn-out-color:             black                 !default;
+$fw-btn-out-hover-bg-color:    #eeeeee               !default;
+$fw-btn-out-hover-color:       black                 !default;
 
 @mixin button-base() {
 	background-color: $fw-btn-bg-color;
@@ -53,13 +70,13 @@ $fw-btn-txt-decoration:        underline             !default;
 		font-size: $fw-btn-font-size;
 	}
 
-	display: inline-flex;
+	display: unquote($fw-btn-display);
 	//flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	flex: 1 0 180px;
 
-	height: $fw-btn-height;
+	min-height: $fw-btn-height;
 	max-width: $fw-btn-max-width;
 	min-width: 0;
 	padding: $fw-btn-padding;
@@ -228,22 +245,28 @@ $fw-btn-txt-decoration:        underline             !default;
 
 // Button Text
 #{$fw-btn-class}--txt {
-	background-color: $fw-btn-color;
-	color: $fw-btn-bg-color;
+	background-image: none;
+	background-color: $fw-btn-txt-bg-color;
+	color: $fw-btn-txt-color;
 	font-weight: inherit;
+	box-shadow: none;
 	text-decoration: $fw-btn-txt-decoration;
 
 	&:focus,
 	&:hover:not(:disabled) {
-		background-color: $fw-btn-hover-color;
-		color: $fw-btn-hover-bg-color;
+		background-image: none;
+		background-color: $fw-btn-txt-hover-bg-color;
+		color: $fw-btn-txt-hover-color;
 		border-color: transparent;
 		box-shadow: none;
+		text-decoration: $fw-btn-txt-hover-decoration;
 	}
 
-	&.ripple {
-		&:before {
-			background-image: radial-gradient(circle, rgba(#274D88, 0.1) 1%, rgba(#274D88, 0.25) 1%);
+	@if ($fw-btn-ripple) {
+		&.ripple {
+			&:before {
+				background-image: radial-gradient(circle, rgba(#274D88, 0.1) 1%, rgba(#274D88, 0.25) 1%);
+			}
 		}
 	}
 }
@@ -261,56 +284,61 @@ $fw-btn-txt-decoration:        underline             !default;
 }
 // Button "inverted colors"
 #{$fw-btn-class}--outlined {
-	background-color: $fw-btn-color;
-	color: $fw-btn-bg-color;
-	border-color: $fw-btn-bg-color;
+	background-color: $fw-btn-out-bg-color;
+	color: $fw-btn-out-color;
+	border-color: currentColor;
 
 	&:hover,
 	&:focus {
-		background-color: $fw-btn-hover-color;
-		color: $fw-btn-hover-bg-color;
+		background-color: $fw-btn-out-hover-bg-color;
+		color: $fw-btn-out-hover-color;
 	}
 
-	&.ripple {
-		&:before {
-			background-image: radial-gradient(circle, rgba(#274D88, 0.1) 1%, rgba(#274D88, 0.25) 1%);
+	@if ($fw-btn-ripple) {
+		&.ripple {
+			&:before {
+				background-image: radial-gradient(circle, rgba(#274D88, 0.1) 1%, rgba(#274D88, 0.25) 1%);
+			}
 		}
 	}
 }
 
-.ripple {
-	position: relative;
+@if ($fw-btn-ripple) {
 
-	&:before {
-		content: "";
-		background-position: center;
-		background-size: 15000%;
-		background-image: radial-gradient(circle, rgba(#fff, 0.1) 1%, rgba(#fff, 0.25) 1%);
-		border-radius: inherit;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		opacity: 0;
-		transition: opacity 0.3s ease-in, background-size 0.6s ease-out;
-	}
-
-	&:hover {
-		&:before {
-			opacity: 1;
-		}
-	}
-
-	&:active {
-		&:before {
-			background-size: 100%;
-			transition: background-size 0s;
-		}
-	}
-
-	> * {
+	.ripple {
 		position: relative;
-		z-index: 2;
+
+		&:before {
+			content: "";
+			background-position: center;
+			background-size: 15000%;
+			background-image: radial-gradient(circle, rgba(#fff, 0.1) 1%, rgba(#fff, 0.25) 1%);
+			border-radius: inherit;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			opacity: 0;
+			transition: opacity 0.3s ease-in, background-size 0.6s ease-out;
+		}
+
+		&:hover {
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&:active {
+			&:before {
+				background-size: 100%;
+				transition: background-size 0s;
+			}
+		}
+
+		> * {
+			position: relative;
+			z-index: 2;
+		}
 	}
 }

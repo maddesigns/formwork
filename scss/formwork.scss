@@ -2,6 +2,7 @@
 // Config -----------------------------
 @import "variables";
 @import "form_reset";
+@import "errors";
 //
 @import "fieldset";
 @import "placeholder";
@@ -22,8 +23,6 @@
 @import "listbox";
 
 @import "disabled";
-@import "errors";
-
 // form:focus-within {
 // 	background-color: pink;//$fw-focus-bg-color;
 // }

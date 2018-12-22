@@ -21,33 +21,56 @@ $fw-border-color:              #cccaac;
 $fw-border-radius:             0;
 
 // Inputs, Textareas, Select, Option
-$fw-input-height:              50px;
+$fw-input-height:              40px;
 $fw-input-width:               100%;
+$fw-input-padding:             6px 12px;
 $fw-input-max-width:           600px;
 $fw-input-bg-color:            #fff;
-//$fw-hover-border-color:        #000;
+$fw-hover-border-color:        #b9b68c;
 
 $fw-focus-bg-color:            white;
+$fw-focus-border-width:        0;
 $fw-focus-border-color:        #000;
-$fw-focus-color:               #666;
+$fw-focus-color:               #000;
 
 // buttons
+$fw-btn-class:                 '.pm-btn';
 $fw-btn-class:                 '.btn';
+$fw-btn-height:                50px;
+$fw-btn-padding:               5px 25px;
+$fw-btn-width:                 auto;
 $fw-btn-font-size:             18px;
-$fw-btn-color:                 white;
-$fw-btn-bg-color:              #282828;
-$fw-btn-hover-color:           white;
-$fw-btn-hover-bg-color:        #A2CD04;
+$fw-btn-transition:            'background-color 200ms ease-in-out';
+$fw-btn-bg-color:              #5a5a5a;
+$fw-btn-color:                 #fff;
+$fw-btn-hover-bg-color:        darken($fw-btn-bg-color,10%);
+$fw-btn-hover-color:           #fff;
+
 // buttons submit
-$fw-btn-submit-bg-color:       #282828;
-$fw-btn-submit-color:          white;
-$fw-btn-submit-hover-bg-color: #A2CD04;
-$fw-btn-submit-hover-color:    white;
+$fw-btn-submit-bg-color:       #eeeee6;
+$fw-btn-submit-color:          #000;
+$fw-btn-submit-hover-bg-color: darken($fw-btn-submit-bg-color,10%);;
+$fw-btn-submit-hover-color:    #000;
+
 // buttons CTA
 $fw-btn-cta-bg-color:          #00adcc;
-$fw-btn-cta-color:             white;
-$fw-btn-cta-hover-bg-color:    #008299;
-$fw-btn-cta-hover-color:       white;
+$fw-btn-cta-color:             #fff;
+$fw-btn-cta-hover-bg-color:    darken($fw-btn-cta-bg-color,10%); //#008299;
+$fw-btn-cta-hover-color:       #fff;
+
+// buttons inverted
+$fw-btn-inv-bg-color:          #000;
+$fw-btn-inv-color:             #fff;
+$fw-btn-inv-hover-bg-color:    #282828;
+$fw-btn-inv-hover-color:       #fff;
+
+// buttons text style (styled as links)
+$fw-btn-txt-bg-color:          transparent;
+$fw-btn-txt-color:             #0096b9;
+$fw-btn-txt-hover-bg-color:    transparent;
+$fw-btn-txt-hover-color:       #0096b9;
+$fw-btn-txt-decoration:        none;
+$fw-btn-txt-hover-decoration:  underline;
 
 // custom input
 $fw-check-height:             18px;
@@ -84,19 +107,29 @@ $fw-progress-bar-color:    #A2CD04;
 $fw-progress-track-color:  transparent;
 $fw-progress-track-height: 10px;
 
-$fw-msg-color:                #dedede;
+$fw-msg-color:                #E3E2D5;
 $fw-msg-alert-color:          #FF5233;
 $fw-msg-hint-color:           #00adcc;
-$fw-msg-success-color:        #A2CD04;
-$fw-msg-warning-color:        yellow;
+$fw-msg-success-color:        #00B428;
+$fw-msg-warning-color:        #FF7C00;
+
+$fw-select-arrow-width:     20px;
+$fw-select-arrow-height:    20px;
+$fw-select-arrow-fill:      none;
+$fw-select-arrow-color:     #000;
+$fw-select-arrow-bg-color:  #eeeee6;
+$fw-select-arrow-thickness: 1px;
+$fw-select-arrow-radius:    1px;
+
 
 //@import "../../formwork";
 @import "../../variables";
-//@import "../../form_reset";
+@import "../../form_reset";
+@import "../../errors";
 //
 //@import "../../fieldset";
-//@import "../../placeholder";
-// @import "../../inputs";
+@import "../../placeholder";
+@import "../../inputs";
 // @import "../../number";
 // @import "../../color";
 @import "../../custom-inputs";
@@ -104,14 +137,14 @@ $fw-msg-warning-color:        yellow;
 //@import "../../filetype";
 @import "../../progress";
 //@import "../../meter";
-// @import "../../select";
+@import "../../select";
 @import "../../buttons";
 
 
 // a11y enhanced modules
 // @import "../../listbox";
 
-// @import "../../disabled";
+//@import "../../disabled";
 
 
 [type="checkbox"],
