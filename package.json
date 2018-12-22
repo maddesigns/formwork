@@ -1,6 +1,6 @@
 {
   "name": "formwork",
-  "version": "0.15.0",
+  "version": "0.15.2",
   "description": "A Form Framework",
   "main": "index.js",
   "scripts": {
@@ -37,12 +37,12 @@
   ],
   "homepage": "https://github.com/maddesigns/formwork/issues#readme",
   "dependencies": {
-    "autoprefixer": "^9.4.2",
+    "autoprefixer": "^9.4.3",
     "browser-sync": "^2.26.3",
     "bs-html-injector": "^3.0.3",
     "cssnano": "^4.1.7",
-    "node-sass": "^4.10.0",
-    "postcss-cli": "^6.0.1",
+    "node-sass": "^4.11.0",
+    "postcss-cli": "^6.1.0",
     "watch": "^1.0.2"
   }
 }
