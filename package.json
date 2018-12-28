@@ -1,6 +1,6 @@
 {
   "name": "formwork",
-  "version": "0.15.2",
+  "version": "0.16.0",
   "description": "A Form Framework",
   "main": "index.js",
   "scripts": {
@@ -28,11 +28,8 @@
     "url": "https://github.com/maddesigns/formwork/issues"
   },
   "browserslist": [
-    "last 2 versions",
-    "Android >= 4.4",
-    "iOS > 9",
     "Firefox ESR",
-    "> 2%"
+    "> 0.2%"
   ],
   "homepage": "https://github.com/maddesigns/formwork/issues#readme",
   "dependencies": {
