@@ -9,6 +9,7 @@ orbs:
 
 jobs:
   run_tests:
+    parallelism: 2
     steps:
       - attach_workspace:
           at: .
@@ -23,7 +24,6 @@ jobs:
 
     steps:
       - checkout
-
       - run:
           name: install dependencies
           command: |
@@ -36,12 +36,3 @@ jobs:
           command: |
             npm run build
             percy snapshot docs
-
-workflows:
-  test:
-    jobs:
-      - run_tests:
-          parallelism: 3
-      - percy/finalize_all:
-          requires:
-            - run_tests
