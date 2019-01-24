@@ -2,8 +2,18 @@
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
-version: 2
+version: 2.1
+
+orbs:
+  percy: percy/agent@volatile
+
 jobs:
+  run_tests:
+    steps:
+      - attach_workspace:
+          at: .
+      - run: echo "your tests run here"
+
   build:
     docker:
       # specify the version you desire here
@@ -26,3 +36,12 @@ jobs:
           command: |
             npm run build
             percy snapshot docs
+
+workflows:
+  test:
+    jobs:
+      - run_tests:
+          parallelism: 3
+      - percy/finalize_all:
+          requires:
+            - run_tests
