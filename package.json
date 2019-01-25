@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "node-sass --source-map-embed --include-path scss --output-style expanded ./scss/ -o ./css",
-    "postcss": "postcss css/**/*.css -rm -c postcss.config.js",
+    "sass": "node-sass --source-map-embed --include-path scss --output-style expanded ./scss/ -o ./docs/css",
+    "postcss": "postcss ./docs/css/**/*.css -rm -c postcss.config.js",
     "server": "node bs-simple.js",
-    "bs": "browser-sync start --s './' --f './' 'css' --no-notify --no-ui --no-ghost-mode --logLevel info",
+    "bs": "browser-sync start --s './' --f './' 'docs/css' --no-notify --no-ui --no-ghost-mode --logLevel info",
     "start": "npm run watch | npm run server",
     "build": "npm run sass",
     "postbuild": "npm run postcss",
@@ -33,12 +33,12 @@
   ],
   "homepage": "https://github.com/maddesigns/formwork/issues#readme",
   "devDependencies": {
-    "autoprefixer": "^9.4.3",
+    "autoprefixer": "^9.4.6",
     "browser-sync": "^2.26.3",
     "bs-html-injector": "^3.0.3",
     "node-sass": "^4.11.0",
     "postcss-clean": "^1.1.0",
-    "postcss-cli": "^6.1.0",
+    "postcss-cli": "^6.1.1",
     "watch": "^1.0.2"
   }
 }
