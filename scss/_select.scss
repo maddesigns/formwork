@@ -96,6 +96,15 @@ select {
 		color: transparent;
 		text-shadow: 0 0 0 #000;
 	}
+
+
+	[dir="rtl"] &,
+	:root:lang(ar) &,
+	:root:lang(iw) & {
+		background-position: left center;
+		padding-right: $fw-input-padding;
+		padding-left: ($fw-input-height + $fw-input-padding);
+	}
 }
 
 

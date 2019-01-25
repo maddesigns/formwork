@@ -61,15 +61,7 @@ $fw-btn-out-hover-color:       black                 !default;
 	color: $fw-btn-color;
 	cursor: pointer;
 	font-family: $fw-font-family;
-
-	@if ($fw-btn-font-size < 16px) {
-		font-size: 16px;
-		@warn "The font-size ($fw-btn-font-size) should be minimum 16px to avoid iOS zooming. You set font-size to #{$fw-btn-font-size}";
-	}
-	@else {
-		font-size: $fw-btn-font-size;
-	}
-
+	font-size: $fw-btn-font-size;
 	display: unquote($fw-btn-display);
 	//flex-direction: column;
 	justify-content: center;
