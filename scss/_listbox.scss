@@ -26,9 +26,7 @@
 
 		max-width: $fw-input-max-width;
 		width: $fw-input-width;
-		position: absolute;
-		z-index: 2;
-
+		//position: relative;
 
 		&:hover {
 			border-color: $fw-hover-border-color;
@@ -63,28 +61,34 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		width: max-content;
-		max-width: 200px;
+		// width: max-content;
+		// max-width: 200px;
 
 		&:focus {
 			outline: 0;
 		}
+	}
 
-		&.js-active {
+	.js-active {
 
-			+ .listbox__options-wrapper .listbox__options {
+		> .listbox__options-wrapper {
+			.listbox__options {
 				max-height: 10em;
 				overflow-y: scroll;
 			}
-			.listbox__label {
-				color: rgba(0, 0, 0, 1);
-			}
-			.listbox__icon {
-				transform: rotate(180deg);
-			}
+		}
+		.listbox__label {
+			color: rgba(0, 0, 0, 1);
+		}
+		.listbox__icon {
+			transform: rotate(180deg);
 		}
 	}
+}
 
+.listbox__options-wrapper {
+	position: relative;
+	z-index: 2;
 }
 
 .listbox__icon {

@@ -79,7 +79,16 @@
 
 			<h3>Floating Labels</h3>
 			<fieldset class="floating-label">
-
+				<fieldset class="radio-button-group">
+					<div>
+						<input id="gender1" type="radio" name="gender" aria-describedby="gender1-message" class="input input--radio-button " value="0">
+						<label for="gender1">Mrs.</label>
+					</div>
+					<div>
+						<input id="gender2" type="radio" name="gender" aria-describedby="gender2-message" class="input input--radio-button " value="1">
+						<label for="gender2">Mr.</label>
+					</div>
+				</fieldset>
 				<div>
 					<input id="prefilled" name="prefilled" value="prefilled" placeholder="Input prefilled value" />
 					<label for="prefilled">Input prefilled value</label>
@@ -91,7 +100,8 @@
 					<span class="clear-input" title="clear field">×</span>
 				</div>
 				<div>
-<!-- 					<span id="required_hint" class="input-message input-message--hint">Required <sup title="required">*</sup></span>
+<!-- 					<span id="required_hint" class="input-message input-message--hint">Required <sup title="required">*</sup>
+</span>
  -->				<input type="text" id="required" name="required" aria-describedby="required_hint" placeholder="Required textfield " required />
 					<label for="required">Required textfield </label>
 					<span class="clear-input" title="clear field">×</span>
@@ -107,25 +117,28 @@
 					<label for="placeholder">Textfield</label>
 					<span class="clear-input" title="clear field">×</span>
 				</div>
+				<div>
+					<label>Multi-Select/Dropdowns</label>
+					<div class="listbox">
+						<div class="listbox__wrapper">
+							<button type="button" aria-label="open select menu" class="listbox__trigger" aria-haspopup="listbox">
+								MultiSelect Value
 
-				<script>
-					var clearer = document.querySelectorAll(".clear-input");
-					var inputs = document.querySelectorAll("input");
+								<span class="icon listbox__icon">
 
-					function clear() {
-					    this.parentNode.firstElementChild.value = "";
-					}
+								</span>
+							</button>
 
-					function esc(evt) {
-					    evt = evt || window.event;
-					    if (evt.key === 'Escape') {
-					        evt.target.value = "";
-					    }
-					};
-
-					inputs.forEach(function (inputev) {return inputev.addEventListener("keydown", esc);});
-					clearer.forEach(function (btn) {return btn.addEventListener("click", clear);});
-				</script>
+							<div class="listbox__options-wrapper">
+								<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
+									<li role="option" id="listbox1-1">Choice A</li>
+									<li role="option" id="listbox1-2">Choice B</li>
+									<li role="option" id="listbox1-3">Choice C</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</fieldset>
 			<hr>
 
@@ -172,7 +185,8 @@
 				<input type="text" id="autofocus" name="autofocus" aaaaaautofocus />
 			</div>
 			<div>
-				<label for="required">Required textfield <sup title="required">*</sup></label>
+				<label for="required">Required textfield <sup title="required">*</sup>
+				</label>
 				<input type="text" id="required" name="required" aria-describedby="required_hint" required />
 				<span id="required_hint" class="input-message input-message--hint">Hint</span>
 			</div>
@@ -554,6 +568,25 @@
 				</select>
 			</div>
 			<div>
+				<label>Dropdowns</label>
+				<div class="listbox">
+					<div class="listbox__wrapper">
+						<button type="button" aria-label="open select menu" class="listbox__trigger" aria-haspopup="listbox">
+							Dropdown Value
+							<span class="icon listbox__icon"> </span>
+						</button>
+
+						<div class="listbox__options-wrapper">
+							<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
+								<li role="option" id="listbox1-1"><label>Choice A</label></li>
+								<li role="option" id="listbox1-2"><label>Choice B</label></li>
+								<li role="option" id="listbox1-3"><label>Choice C</label></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
 				<label>Multi-Select/Dropdowns</label>
 				<div class="listbox">
 					<div class="listbox__wrapper">
@@ -569,19 +602,12 @@
 
 						<div class="listbox__options-wrapper">
 							<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
-								<li role="option" id="listbox1-1">Choice A</li>
-								<li role="option" id="listbox1-2">Choice B</li>
-								<li role="option" id="listbox1-3">Choice C</li>
+								<li role="option" id="listbox1-4"><input id="checkbox551" name="checkbox551" type="checkbox" checked="checked"> <label for="checkbox551">Choice A</label></li>
+								<li role="option" id="listbox1-5"><input id="checkbox552" name="checkbox552" type="checkbox"> <label for="checkbox552">Choice B</label></li>
+								<li role="option" id="listbox1-6"><input id="checkbox553" name="checkbox553" type="checkbox"> <label for="checkbox553">Choice C</label></li>
 							</ul>
 						</div>
 					</div>
-
-					<script>
-						var button = document.querySelector('.listbox__trigger');
-						button.addEventListener('click', function() {
-							this.classList.toggle('js-active');
-						});
-					</script>
 				</div>
 			</div>
 			<div>
@@ -832,5 +858,22 @@
 			<p><a href="#" class="btn btn--inv">a.btn.btn--inv</a></p>
 
 		</form>
+
+
+		<script>
+			const listboxTriggers = document.querySelectorAll(".listbox__trigger");
+
+			function toggleActive() {
+				this.parentNode.classList.toggle('js-active');
+			}
+
+			listboxTriggers.forEach(btn => btn.addEventListener("click", toggleActive));
+		</script>
+		<!-- <script>
+			var button = document.querySelector('.listbox__trigger');
+			button.addEventListener('click', function() {
+				this.parentNode.classList.toggle('js-active');
+			});
+		</script> -->
 	</body>
 </html>
