@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="no-js" lang="de">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Index</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
+ -->		<link rel="stylesheet" href="./css/themes/dmg/dmg.css">
+		<style>
+			html {
+				overflow-x: hidden;
+			}
+			body {
+				background-color: #0f1318;
+				color:  white;
+				font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Open Sans",
+      "Droid Sans", "Helvetica Neue", sans-serif;
+				font-size: 16px;
+				letter-spacing: 0.1px;
+				font-weight: 400;
+				overflow-x: hidden;
+			}
+
+			form > div,
+			form > p {
+				margin: 1em;
+			}
+
+			.crange {
+				display: flex;
+				flex-wrap: wrap;
+				max-width: 600px;
+			}
+			.crange__label {
+				flex-grow: 1;
+			}
+
+			.crange__output {
+
+			}
+
+			.crange__input.crange__input {
+				width: 100%;
+				max-width: none;
+			}
+
+			.crange__input-wrapper {
+				display: block;
+				margin-bottom: 1em;
+				position: relative;
+				width: 100%;
+			}
+			.crange__input-wrapper::before {
+				content: attr(data-minval);
+				position: absolute;
+				top: 100%;
+				left: 0;
+			}
+
+			.crange__input-wrapper::after {
+				content: attr(data-maxval);
+				position: absolute;
+				top: 100%;
+				right: 0;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<h1>Formwork</h1>
+		<p>A Form Framework</p>
+		<hr>
+
+
+		<form action="#" method="post">
+
+			<h3>Floating Labels</h3>
+			<fieldset class="floating-label">
+
+				<div>
+					<input id="prefilled" name="prefilled" value="prefilled" placeholder="Input prefilled value" />
+					<label for="prefilled">Input prefilled value</label>
+					<span class="clear-input" title="clear field">×</span>
+				</div>
+				<div>
+					<input type="text" id="autofocus" name="autofocus" placeholder="Input with autofocus" />
+					<label for="autofocus">Input with autofocus</label>
+					<span class="clear-input" title="clear field">×</span>
+				</div>
+				<div>
+<!-- 					<span id="required_hint" class="input-message input-message--hint">Required <sup title="required">*</sup></span>
+ -->				<input type="text" id="required" name="required" aria-describedby="required_hint" placeholder="Required textfield " required />
+					<label for="required">Required textfield </label>
+					<span class="clear-input" title="clear field">×</span>
+				</div>
+				<div>
+					<input type="text" id="error" name="error" aria-describedby="input_error" placeholder="Textfield Error" class="has-error" />
+					<label for="error">Textfield Error</label>
+					<span class="clear-input" title="clear field">×</span>
+					<em id="input_error" class="input-message input-message--error">Error message for mandatory inputfield</em>
+				</div>
+				<div>
+					<input type="text" id="placeholder" name="placeholder" placeholder="Textfield" />
+					<label for="placeholder">Textfield</label>
+					<span class="clear-input" title="clear field">×</span>
+				</div>
+
+				<script>
+					var clearer = document.querySelectorAll(".clear-input");
+					var inputs = document.querySelectorAll("input");
+
+					function clear() {
+					    this.parentNode.firstElementChild.value = "";
+					}
+
+					function esc(evt) {
+					    evt = evt || window.event;
+					    if (evt.key === 'Escape') {
+					        evt.target.value = "";
+					    }
+					};
+
+					inputs.forEach(function (inputev) {return inputev.addEventListener("keydown", esc);});
+					clearer.forEach(function (btn) {return btn.addEventListener("click", clear);});
+				</script>
+			</fieldset>
+			<hr>
+
+			<h3>Fieldsets</h3>
+			<fieldset>
+				<legend>Fieldset with legend</legend>
+				<div>
+					<label>Default text</label>
+					<input type="text" />
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<p>Fieldset without legend</p>
+				<div>
+					<label>Default text</label>
+					<input type="text" />
+				</div>
+			</fieldset>
+
+			<fieldset disabled>
+				<legend>Disabled fieldset</legend>
+				<div>
+					<label>Default text</label>
+					<input type="text" />
+				</div>
+			</fieldset>
+
+			<h2>Text fields</h2>
+			<div>
+				<label for="hidden">Hidden</label>
+				<input type="hidden" id="hidden" name="hidden" value="hidden" />
+			</div>
+			<div>
+				<label for="notype">Input with no type</label>
+				<input id="notype" name="notype" />
+			</div>
+			<div>
+				<label for="prefilled">Input prefilled value</label>
+				<input id="prefilled" name="prefilled" value="prefilled" />
+			</div>
+			<div>
+				<label for="autofocus">Input with autofocus</label>
+				<input type="text" id="autofocus" name="autofocus" aaaaaautofocus />
+			</div>
+			<div>
+				<label for="required">Required textfield <sup title="required">*</sup></label>
+				<input type="text" id="required" name="required" aria-describedby="required_hint" required />
+				<span id="required_hint" class="input-message input-message--hint">Hint</span>
+			</div>
+			<div>
+				<label for="error">Textfield Error</label>
+				<span class="input-message">Some additional info text </span>
+				<input type="text" id="error" name="error" aria-describedby="input_error" placeholder="Error" class="has-error" />
+				<em id="input_error" class="input-message input-message--error">Error</em>
+			</div>
+			<div>
+				<label for="placeholder">Textfield with placeholder</label>
+				<input type="text" id="placeholder" name="placeholder" placeholder="John Doe" />
+			</div>
+			<div>
+				<label for="txt_readonly">Textfield readonly</label>
+				<input type="text" id="txt_readonly" name="txt_readonly" value="Read only textfield" readonly />
+			</div>
+			<div>
+				<label for="txt_disabled">Textfield disabled</label>
+				<input type="text" id="txt_disabled" name="txt_disabled" value="Disabled textfield" disabled />
+			</div>
+			<div>
+				<label for="email">Email input</label>
+				<input type="email" id="email" name="email" aria-describedby="email_hint" class="has-error" />
+				<em id="email_hint" class="input-message input-message--error">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+						<path fill="currentColor" d="M8.5 6.5H10v4H8.5v-4zm0 5H10v2H8.5v-2zm-5.9 3.3H16L9.3 3 2.6 14.8zm16 1.5H0L9.3 0l9.3 16.3z"/>
+					</svg>
+					Error
+				</em>
+			</div>
+			<div>
+				<label for="search">Search input</label>
+				<input type="search" id="search" name="search" />
+			</div>
+			<div>
+				<label for="tel">Tel input</label>
+				<input type="tel" id="tel" name="tel" />
+			</div>
+			<div>
+				<label for="url">URL input</label>
+				<input type="url" id="url" name="url" placeholder="http://" />
+			</div>
+			<div>
+				<label for="speech">Speech recognition input</label>
+				<input type="text" id="speech" name="speech" x-webkit-speech />
+			</div>
+			<div>
+				<label for="passwd">Password</label>
+				<input type="password" id="passwd" name="passwd" value="password" />
+			</div>
+			<div>
+				<label for="number">Number input</label>
+				<input type="number" id="number" name="number" min="0" max="10" value="5" />
+			</div>
+
+			<div>
+				<label for="textnumber">Number textinput</label>
+				<input type="text" id="textnumber" name="textnumber" value="8" pattern="[0-9]*" />
+			</div>
+
+
+
+
+			<div>
+				<label for="styledtextnumber">Styled Number textinput (aka spinbutton)</label>
+				<span class="spinbutton">
+					<button type="button" class="spinbutton__decrement" type="button" tabindex="-1">−</button>
+					<input type="number" id="styledtextnumber" name="styledtextnumber" min="0" max="10" value="5" role="spinbutton" aria-valuemin="0" aria-valuemax="10" aria-label="Spinbutton">
+					<button type="button" class="spinbutton__increment" tabindex="-1">+</button>
+					<span class="spinbutton__status" role="alert"></span>
+				</span>
+				<script type="text/javascript">
+					/*
+					*   This content is licensed according to the W3C Software License at
+					*   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+					*
+					*   Simple spinbutton pattern example
+					*/
+
+					'use strict';
+
+					Array.prototype.slice.call(document.querySelectorAll('.spinbutton')).forEach(function (spinbutton) {
+
+
+
+					  spinbutton.addEventListener('click', function (event) {
+					    var target = event.target;
+					    var classList = target.classList;
+
+					    if (classList.contains('spinbutton__increment')) {
+					      incrementCount(target.previousElementSibling);
+					    }
+					    else if (classList.contains('spinbutton__decrement')) {
+					      decrementCount(target.nextElementSibling);
+					    }
+					  });
+					});
+
+					var incrementCount = function incrementCount (spinner) {
+					  var currentValue = +spinner.value || 0;
+					  var minValue = +spinner.getAttribute('aria-valuemin');
+					  var maxValue = +spinner.getAttribute('aria-valuemax');
+
+					  if (currentValue < maxValue) {
+					    currentValue++;
+					  }
+
+					  spinner.value = currentValue;
+					  updateValueNow(spinner);
+					};
+
+					var decrementCount = function decrementCount (spinner) {
+					  var currentValue = +spinner.value || 0;
+					  var minValue = +spinner.getAttribute('aria-valuemin');
+					  var maxValue = +spinner.getAttribute('aria-valuemax');
+
+					  if (currentValue > minValue) {
+					    currentValue--;
+					  }
+
+					  spinner.value = currentValue;
+					  updateValueNow(spinner);
+					};
+
+					var updateValueNow = function updateValueNow (spinner, value) {
+					  spinner.setAttribute('aria-valuenow', value || spinner.value);
+
+					};
+
+				</script>
+			</div>
+
+
+
+
+			<div>
+				<label for="date">Date input</label>
+				<input type="date" id="date" name="date" value="1987-07-29" />
+			</div>
+			<div>
+				<label for="Month">Month input</label>
+				<input type="Month" id="Month" name="Month" />
+			</div>
+			<div>
+				<label for="week">week input</label>
+				<input type="week" id="week" name="week" />
+			</div>
+			<div>
+				<label for="time">Time input</label>
+				<input type="time" id="time" name="time" placeholder="HH:MM" pattern="(2[0-3]|[01]?\d):[0-5]\d" />
+			</div>
+			<div>
+				<label for="datetime">datetime input</label>
+				<input type="datetime" id="datetime" name="datetime" />
+			</div>
+			<div>
+				<label for="datetime-local">datetime-local input</label>
+				<input type="datetime-local" id="datetime-local" name="datetime-local" />
+			</div>
+			<div>
+				<label for="textarea">Textarea</label>
+				<textarea id="textarea" name="textarea" cols="30" rows="4"></textarea>
+			</div>
+			<div>
+				<label for="datalist">Datalist</label>
+				<input type="text" list="browsers" id="datalist" name="datalist" />
+				<datalist id="browsers">
+					<option value="Chrome">Chrome</option>
+					<option value="Firefox">Firefox</option>
+					<option value="Internet Explorer">Internet Explorer</option>
+					<option value="Opera">Opera</option>
+					<option value="Safari">Safari</option>
+				</datalist>
+			</div>
+			<h2>Other input fields</h2>
+			<div>
+				<label for="file">File</label>
+				<input type="file" id="file" name="file" multiple />
+			</div>
+			<div>
+				<label for="file2">File disabled</label>
+				<input type="file" id="file2" name="file2" disabled />
+			</div>
+<!-- 			<div class="custom-file">
+				<label for="file3">custom-file</label>
+				<input type="file" id="file3" name="file3" multiple />
+			</div> -->
+			<div>
+				<label for="select">Select</label>
+				<select id="select" name="select">
+					<optgroup label="Optgroup&hellip;">
+						<option></option>
+						<option value="value1">Value 1</option>
+						<option value="value2" selected>Value 2 (selected)</option>
+						<option value="value3" disabled>Value 3 (disabled)</option>
+						<option value="value4">Value 4</option>
+					</optgroup>
+				</select>
+			</div>
+			<div>
+				<label for="select1">Select150</label>
+				<select id="select1" name="select1">
+					<option value="value1">value1</option>
+					<option value="value2">value2</option>
+					<option value="value3">value3</option>
+					<option value="value4">value4</option>
+					<option value="value5">value5</option>
+					<option value="value6">value6</option>
+					<option value="value7">value7</option>
+					<option value="value8">value8</option>
+					<option value="value9">value9</option>
+					<option value="value10">value10</option>
+					<option value="value11">value11</option>
+					<option value="value12">value12</option>
+					<option value="value13">value13</option>
+					<option value="value14">value14</option>
+					<option value="value15">value15</option>
+					<option value="value16">value16</option>
+					<option value="value17">value17</option>
+					<option value="value18">value18</option>
+					<option value="value19">value19</option>
+					<option value="value20">value20</option>
+					<option value="value21">value21</option>
+					<option value="value22">value22</option>
+					<option value="value23">value23</option>
+					<option value="value24">value24</option>
+					<option value="value25">value25</option>
+					<option value="value26">value26</option>
+					<option value="value27">value27</option>
+					<option value="value28">value28</option>
+					<option value="value29">value29</option>
+					<option value="value30">value30</option>
+					<option value="value31">value31</option>
+					<option value="value32">value32</option>
+					<option value="value33">value33</option>
+					<option value="value34">value34</option>
+					<option value="value35">value35</option>
+					<option value="value36">value36</option>
+					<option value="value37">value37</option>
+					<option value="value38">value38</option>
+					<option value="value39">value39</option>
+					<option value="value40">value40</option>
+					<option value="value41">value41</option>
+					<option value="value42">value42</option>
+					<option value="value43">value43</option>
+					<option value="value44">value44</option>
+					<option value="value45">value45</option>
+					<option value="value46">value46</option>
+					<option value="value47">value47</option>
+					<option value="value48">value48</option>
+					<option value="value49">value49</option>
+					<option value="value50">value50</option>
+					<option value="value51">value51</option>
+					<option value="value52">value52</option>
+					<option value="value53">value53</option>
+					<option value="value54">value54</option>
+					<option value="value55">value55</option>
+					<option value="value56">value56</option>
+					<option value="value57">value57</option>
+					<option value="value58">value58</option>
+					<option value="value59">value59</option>
+					<option value="value60">value60</option>
+					<option value="value61">value61</option>
+					<option value="value62">value62</option>
+					<option value="value63">value63</option>
+					<option value="value64">value64</option>
+					<option value="value65">value65</option>
+					<option value="value66">value66</option>
+					<option value="value67">value67</option>
+					<option value="value68">value68</option>
+					<option value="value69">value69</option>
+					<option value="value70">value70</option>
+					<option value="value71">value71</option>
+					<option value="value72">value72</option>
+					<option value="value73">value73</option>
+					<option value="value74">value74</option>
+					<option value="value75">value75</option>
+					<option value="value76">value76</option>
+					<option value="value77">value77</option>
+					<option value="value78">value78</option>
+					<option value="value79">value79</option>
+					<option value="value80">value80</option>
+					<option value="value81">value81</option>
+					<option value="value82">value82</option>
+					<option value="value83">value83</option>
+					<option value="value84">value84</option>
+					<option value="value85">value85</option>
+					<option value="value86">value86</option>
+					<option value="value87">value87</option>
+					<option value="value88">value88</option>
+					<option value="value89">value89</option>
+					<option value="value90">value90</option>
+					<option value="value91">value91</option>
+					<option value="value92">value92</option>
+					<option value="value93">value93</option>
+					<option value="value94">value94</option>
+					<option value="value95">value95</option>
+					<option value="value96">value96</option>
+					<option value="value97">value97</option>
+					<option value="value98">value98</option>
+					<option value="value99">value99</option>
+					<option value="value100">value100</option>
+					<option value="value101">value101</option>
+					<option value="value102">value102</option>
+					<option value="value103">value103</option>
+					<option value="value104">value104</option>
+					<option value="value105">value105</option>
+					<option value="value106">value106</option>
+					<option value="value107">value107</option>
+					<option value="value108">value108</option>
+					<option value="value109">value109</option>
+					<option value="value110">value110</option>
+					<option value="value111">value111</option>
+					<option value="value112">value112</option>
+					<option value="value113">value113</option>
+					<option value="value114">value114</option>
+					<option value="value115">value115</option>
+					<option value="value116">value116</option>
+					<option value="value117">value117</option>
+					<option value="value118">value118</option>
+					<option value="value119">value119</option>
+					<option value="value120">value120</option>
+					<option value="value121">value121</option>
+					<option value="value122">value122</option>
+					<option value="value123">value123</option>
+					<option value="value124">value124</option>
+					<option value="value125">value125</option>
+					<option value="value126">value126</option>
+					<option value="value127">value127</option>
+					<option value="value128">value128</option>
+					<option value="value129">value129</option>
+					<option value="value130">value130</option>
+					<option value="value131">value131</option>
+					<option value="value132">value132</option>
+					<option value="value133">value133</option>
+					<option value="value134">value134</option>
+					<option value="value135">value135</option>
+					<option value="value136">value136</option>
+					<option value="value137">value137</option>
+					<option value="value138">value138</option>
+					<option value="value139">value139</option>
+					<option value="value140">value140</option>
+					<option value="value141">value141</option>
+					<option value="value142">value142</option>
+					<option value="value143">value143</option>
+					<option value="value144">value144</option>
+					<option value="value145">value145</option>
+					<option value="value146">value146</option>
+					<option value="value147">value147</option>
+					<option value="value148">value148</option>
+					<option value="value149">value149</option>
+					<option value="value150">value150</option>
+				</select>
+			</div>
+			<div>
+				<label for="select2">Disabled Select</label>
+				<select id="select2" name="select2" disabled>
+					<optgroup label="Optgroup&hellip;">
+						<option value="value1">Value 1</option>
+						<option value="value2" selected>Value 2 (selected)</option>
+						<option value="value3" disabled>Value 3 (disabled)</option>
+						<option value="value4">Value 4</option>
+					</optgroup>
+				</select>
+			</div>
+			<div>
+				<label for="select3">Select multiple with defined size</label>
+				<select id="select3" name="select3" size="5" multiple>
+					<optgroup label="Optgroup&hellip;">
+						<option value="value1">Value 1</option>
+						<option value="value2" selected>Value 2 (selected)</option>
+						<option value="value3" disabled>Value 3 (disabled)</option>
+						<option value="value4">Value 4</option>
+						<option value="value5">Value 5</option>
+						<option value="value6">Value 6</option>
+						<option value="value7">Value 7</option>
+					</optgroup>
+				</select>
+			</div>
+			<div>
+				<label>Multi-Select/Dropdowns</label>
+				<div class="listbox">
+					<div class="listbox__wrapper">
+						<button type="button" aria-label="open select menu" class="listbox__trigger" aria-haspopup="listbox">
+							MultiSelect Value
+							<!-- <svg class="icon listbox__icon" width="24" height="24" viewBox="0 0 24 24">
+								<path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+							</svg> -->
+							<span class="icon listbox__icon">
+
+							</span>
+						</button>
+
+						<div class="listbox__options-wrapper">
+							<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
+								<li role="option" id="listbox1-1">Choice A</li>
+								<li role="option" id="listbox1-2">Choice B</li>
+								<li role="option" id="listbox1-3">Choice C</li>
+							</ul>
+						</div>
+					</div>
+
+					<script>
+						var button = document.querySelector('.listbox__trigger');
+						button.addEventListener('click', function() {
+							this.classList.toggle('js-active');
+						});
+					</script>
+				</div>
+			</div>
+			<div>
+				<h3 class="label">Checkboxes</h3>
+
+				<input name="check" id="check1" value="1" type="checkbox" /> <label for="check1">Default</label>
+				<input name="check" id="check2" value="1" type="checkbox" checked /> <label for="check2">Checked</label>
+				<input name="check" id="check3" value="1" type="checkbox" disabled /> <label for="check3">Disabled</label>
+			</div>
+			<div>
+				<h3 class="label">Radio buttons</h3>
+
+				<input name="radio" id="radio1" value="1" type="radio" /> <label for="radio1">Default</label>
+				<input name="radio" id="radio2" value="2" type="radio" checked /> <label for="radio2">Checked</label>
+				<input name="radio" id="radio3" value="3" type="radio" disabled /> <label for="radio3">Disabled</label>
+			</div>
+
+			<div>
+				<h3>Switches</h3>
+				<input name="switch" id="switch1" value="1" type="checkbox" role="switch" aria-checked="false" /> <label for="switch1">Default</label>
+				<input name="switch" id="switch2" value="1" type="checkbox" role="switch" aria-checked="true" checked /> <label for="switch2">Checked</label>
+				<input name="switch" id="switch3" value="1" type="checkbox" role="switch" disabled /> <label for="switch3">Disabled</label>
+
+				<h3>Switches iOS Style (<code>&.ios-style</code>)</h3>
+				<input class="ios-style" name="switch" id="switch1ios" value="1" type="checkbox" role="switch" aria-checked="false" /> <label for="switch1ios">Default</label>
+				<input class="ios-style" name="switch" id="switch2ios" value="1" type="checkbox" role="switch" aria-checked="true" checked /> <label for="switch2ios">Checked</label>
+				<input class="ios-style" name="switch" id="switch3ios" value="1" type="checkbox" role="switch" disabled /> <label for="switch3ios">Disabled</label>
+
+
+
+<!-- 				<button role="switch" aria-checked="true" aria-label="Notify by SMS">
+					<span>on</span>
+					<span>off</span>
+				</button> -->
+				<br><br>
+<!--
+				<input name="switch" id="switch4" value="1" type="checkbox" role="switch" aria-checked="true" checked />
+				<label for="switch4" class="btn--switch">Available</label> -->
+
+				<script>
+					// https://rawgit.com/w3c/aria-practices/switch/examples/switch/js/switch.js
+					// Run the load function after all resources are loaded.
+					window.onload = load;
+
+					const keys = {
+					  space: 32
+					};
+
+					function load() {
+					  // Create an array of all the switches on the page.
+					  // The query looks for elements with a role attribute that starts with "switch".
+					  let HTMLSwitches = [].slice.call(document.querySelectorAll('[role^=switch]'));
+
+					  // Add an event listener to all the switches.
+					  for (let HTMLSwitch of HTMLSwitches) {
+					    HTMLSwitch.addEventListener('click', activateSwitch);
+					    HTMLSwitch.addEventListener('keydown', HTMLSwitchKeyHandler);
+					  }
+					};
+
+					function HTMLSwitchKeyHandler (event) {
+					  let switchEl = this;
+					  let key = event.keyCode;
+
+					  // If space is pressed activate the switch.
+					  if (key === keys.space) {
+					    event.preventDefault();
+					    activateSwitch(event, this);
+					  }
+					};
+
+					function activateSwitch (event, eventTarget) {
+					  let switchEl = eventTarget;
+
+					  // If no element is provided set it 'this'.
+					  if (eventTarget === undefined) {
+					    switchEl = this;
+					  }
+
+					  // Get the current state for the switch.
+					  let currentState = switchEl.getAttribute('aria-checked');
+					  // Invert the state.
+					  let newState = (currentState === "false" ? "true" : "false");
+
+					  // Set the new state.
+					  switchEl.setAttribute('aria-checked', newState);
+					};
+				</script>
+			</div>
+
+			<div>
+				<h3 class="label">Custom Radio buttons / Checkboxes</h3>
+
+				<input class="custom" name="radio1" id="radio11" value="1" type="radio" /> <label for="radio11">Default</label>
+				<input class="custom" name="radio1" id="radio12" value="2" type="radio" checked /> <label for="radio12">Checked</label>
+				<input class="custom" name="radio1" id="radio13" value="3" type="radio" disabled /> <label for="radio13">Disabled</label>
+				<br>
+				<input class="custom" name="check1" id="check11" value="1" type="checkbox" /> <label for="check11">Default</label>
+				<input class="custom" name="check1" id="check12" value="1" type="checkbox" checked /> <label for="check12">Checked</label>
+				<input class="custom" name="check1" id="check13" value="1" type="checkbox" disabled /> <label for="check13">Disabled</label>
+			</div>
+
+			<div style="width: 300px;">
+				<input class="custom" name="checkbox2" id="checkbox21" value="1" type="checkbox" />
+				<label for="checkbox21" class="u-align-top">Newsletter im HTML-Format empfangen</label>
+			</div>
+			<div style="width: 300px;">
+				<input class="custom" name="checkbox2" id="checkbox22" value="2" type="checkbox" checked />
+				<label for="checkbox22" class="u-align-top">Newsletter im reinen Text-Format empfangen</label>
+			</div>
+
+			<h3 class="label">Other inputs</h3>
+			<div>
+				<label for="color1">Color input</label>
+				<input type="color" id="color1" name="color1" value="" pattern="^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" />
+			</div>
+			<div>
+				<label for="color2">Color input readonly</label>
+				<input type="color" id="color2" name="color2" value="#ff0000" readonly />
+			</div>
+			<div>
+				<label for="color3">Color input disabled</label>
+				<input type="color" id="color3" name="color3" value="#ff0000" disabled />
+			</div>
+
+			<h3>Range</h3>
+
+			<div>
+				<label for="range1">Range input</label>
+				<input type="range" id="range1" name="range1" min="10" max="100" step="10" value="40" />
+			</div>
+			<div>
+				<label for="range2">Range input readonly</label>
+				<input type="range" id="range2" name="range2" min="10" max="100" step="10" value="10" readonly />
+			</div>
+			<div>
+				<label for="range3">Range input disabled</label>
+				<input type="range" id="range3" name="range3" min="10" max="100" step="10" value="10" disabled />
+			</div>
+			<div>
+				<p>Range Input with datalist tickmarks and Labels (if not styled):</p>
+				<input type="range" list="tickmarks">
+				<datalist id="tickmarks">
+					<option value="0" label="0%">
+					<option value="10">
+					<option value="20">
+					<option value="30">
+					<option value="40">
+					<option value="50" label="50%">
+					<option value="60">
+					<option value="70">
+					<option value="80">
+					<option value="90">
+					<option value="100" label="100%">
+				</datalist>
+			</div>
+
+			<h3>Custom Range</h3>
+
+			<div class="custom-range">
+				<label class="custom-range__label" for="custom_range" id="finances">Custom Range</label>
+				<span class="custom-range__input-wrapper">
+					<input class="custom-range__input" min="0" max="100" value="50" id="custom_range" name="custom_range" type="range">
+				</span>
+			</div>
+
+			<div class="custom-range crange" oninput="budgetoutput.value='$'+parseInt(budget.value)+'K'">
+				<label class="crange__label" for="budget" id="finances">Budget</label>
+				<output class="crange__output" id="budgetoutput" title="We charge $120/hour, but prefer bigger projects with fixed pricing.">$65K</output>
+				<span class="crange__input-wrapper" data-minval="5" data-maxval="100">
+					<input class="crange__input" min="5" max="100" step="5" value="30" id="budget" name="budget" type="range">
+				</span>
+			</div>
+
+			<h3>Meter</h3>
+
+			<div>
+				<label for="fuel">Fuel level:</label>
+
+				<meter id="fuel" value="10" name="fuel" min="0" max="100" low="33" high="66" optimum="80">
+					at 10/100
+				</meter>
+				<br>
+				<meter value="50" name="fuel" min="0" max="100" low="33" high="66" optimum="80">
+					at 50/100
+				</meter>
+				<br>
+				<meter value="90" name="fuel" min="0" max="100" low="33" high="66" optimum="80">
+					at 90/100
+				</meter>
+			</div>
+
+			<h3>Progress</h3>
+			<div>
+				<progress value="70" max="100">70 %</progress>
+			</div>
+
+			<div class="error-container">
+				<p>there are errors</p>
+			</div>
+
+			<div>
+				<input type="submit" value="Input type submit" />
+			</div>
+		</form>
+
+<!-- 		<h3>Output</h3>
+		<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+			<div>
+				<label for="b">0</label>
+				<input type="range" name="b" id="b" value="50" />
+				<label for="a">100 +</label>
+				<input type="number" name="a" id="a" value="10" />
+				<span>=</span>
+				<output name="result">60</output>
+			</div>
+		</form> -->
+
+		<h2>Submits</h2>
+		<form action="#" method="post">
+			<p><input type="reset" value="Input type reset" /></p>
+			<p><input type="button" value="Input type button" /></p>
+			<p><input type="submit" value="Input type submit" /></p>
+			<p><input type="button" value="Input type button disabled" disabled /></p>
+
+			<hr>
+
+			<p><button type="reset">Button type reset</button></p>
+			<p><button type="button">Button type button</button></p>
+			<p><button type="submit">Button type submit</button></p>
+			<p><button type="submit" disabled>Button type submit disabled</button></p>
+
+			<h2>Buttons with class '.btn'</h2>
+			<p><button type="submit" class="btn">button[type="submit"].btn</button></p>
+			<p><button type="button" class="btn btn--submit">button[type="button"].btn.btn--submit</button></p>
+			<p><button type="button" class="btn btn--cta">button[type="submit"].btn.btn--cta</button></p>
+			<p><button type="button" class="btn btn--txt">button[type="button"].btn.btn--txt</button></p>
+			<p><button type="button" class="btn btn--inv">button[type="button"].btn.btn--inv</button></p>
+			<p><button type="button" class="btn btn--outlined">button[type="button"].btn.btn--outlined</button></p>
+			<p><button type="button" class="btn btn--cta" disabled>button[type="submit"][disabled].btn.btn--cta</button></p>
+
+			<h2>Links with class '.btn'</h2>
+			<p><a href="#" class="btn">a.btn</a></p>
+			<p><a href="#" class="btn" disabled>a.btn disabled</a></p>
+			<p><a href="#" class="btn btn--submit">a.btn.btn--submit</a></p>
+			<p><a href="#" class="btn btn--cta">a.btn.btn--cta</a></p>
+			<p><a href="#" class="btn btn--txt">a.btn.btn--txt</a></p>
+			<p><a href="#" class="btn btn--inv">a.btn.btn--inv</a></p>
+
+		</form>
+	</body>
+</html>

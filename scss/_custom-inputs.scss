@@ -63,18 +63,18 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 			}
 		}
 
-		// &:hover:not(:disabled) {
+		&:hover:not(:disabled) {
 
-		// 	+ label {
-		// 		color: $fw-check-hover-color;
+			+ label {
+				color: $fw-check-hover-color;
 
-		// 		&::before {
-		// 			border-color: $fw-check-hover-border-color;
-		// 			color: $fw-check-hover-color;
-		// 			box-shadow: inset 0 0 0 $fw-check-width $fw-check-hover-bg-color;
-		// 		}
-		// 	}
-		// }
+				// &::before {
+				// 	border-color: $fw-check-hover-border-color;
+				// 	color: $fw-check-hover-color;
+				// 	box-shadow: inset 0 0 0 $fw-check-width $fw-check-hover-bg-color;
+				// }
+			}
+		}
 
 		// &:indeterminate {
 
@@ -102,7 +102,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 		+ label {
 			display: inline-flex;
 			align-items: center;
-			color: $fw-check-input-color;
+			//color: $fw-check-input-color;
 			font-size: $fw-check-font-size;
 			padding: $fw-check-padding;
 			-webkit-user-select: none;
@@ -164,6 +164,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 
 
 		+ label {
+
 			&::before {
 				background-color: $fw-check-input-bg-color;
 				border: $fw-check-border-width solid $fw-check-border-color;

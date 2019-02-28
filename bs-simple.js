@@ -8,7 +8,7 @@ bs.init({
 		{
 			module: "bs-html-injector",
 			options: {
-				files: ["docs/index.html"]
+				files: ["docs/*.html"]
 			}
 		}
 	],

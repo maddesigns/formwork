@@ -7,9 +7,10 @@ $fw-spinbutton-hover-bg-color: $fw-btn-submit-hover-bg-color !default;
 $fw-spinbutton-hover-color:    $fw-btn-submit-hover-color    !default;
 
 .spinbutton {
-	display: flex;
+	display: inline-flex;
 	max-width: $fw-input-max-width;
 	width: $fw-input-width;
+	height: $fw-input-height;
 
 	[role="spinbutton"] {
 		-moz-appearance: textfield;
@@ -48,6 +49,7 @@ $fw-spinbutton-hover-color:    $fw-btn-submit-hover-color    !default;
 		color: $fw-spinbutton-color;
 		border-radius: 0;
 		padding: 0;
+		min-height: inherit;
 
 		&:focus {
 			box-shadow: none;

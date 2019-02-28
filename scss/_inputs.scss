@@ -25,8 +25,9 @@ textarea {
 	color: $fw-font-color;
 	display: $fw-display;
 	font-family: $fw-font-family;
+	font-weight: $fw-font-weight;
 
-	@if ($fw-font-size < 16px) {
+	@if ($fw-font-size < 16px and $fw-force-font-size == false) {
 		font-size: 16px;
 		@warn "The font-size ($fw-font-size) should be minimum 16px to avoid iOS zooming. You set font-size to #{$fw-font-size}";
 	}

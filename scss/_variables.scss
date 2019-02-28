@@ -29,7 +29,9 @@ $fw-add-styled-inputs:  false              !default;
 // Font
 $fw-font-family:        inherit            !default;
 $fw-font-size:          16px               !default;
+$fw-force-font-size:    false              !default;
 $fw-font-color:         #333333            !default;
+$fw-font-weight:        inherit            !default;
 
 // Borders
 $fw-border-width:       1px                !default;
