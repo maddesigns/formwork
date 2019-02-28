@@ -49,7 +49,7 @@ $contrast: 5% !default;
 	cursor: ew-resize; //cursor: pointer;
 	height: $fw-thumb-height;
 	width: $fw-thumb-width;
-	//box-shadow: inset 0 0 0 2px white, 0 0 0 2px white;
+	box-shadow: inset 0 0 0 2px white, 0 0 0 2px white;
 
 	@media (pointer: coarse) {
 		min-height: 24px;

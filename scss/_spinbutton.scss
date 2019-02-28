@@ -7,7 +7,7 @@ $fw-spinbutton-hover-bg-color: $fw-btn-submit-hover-bg-color !default;
 $fw-spinbutton-hover-color:    $fw-btn-submit-hover-color    !default;
 
 .spinbutton {
-	display: inline-flex;
+	display: flex;
 	max-width: $fw-input-max-width;
 	width: $fw-input-width;
 	height: $fw-input-height;
