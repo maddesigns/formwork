@@ -3,9 +3,12 @@ module.exports = {
 	map: false,
 	plugins: {
 		'autoprefixer': { grid: true },
-		//'cssnano': { }
 		'postcss-clean': {
-			level: 2,
+			level: {
+				2: {
+					mergeAdjacentRules: false
+				}
+			},
 			//format: 'beautify'
 		}
 	}
