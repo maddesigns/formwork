@@ -28,6 +28,7 @@ $fw-check-tick-uri:             'url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http
 $fw-check-checked-bullet-color: $fw-font-color         !default;
 $fw-check-checked-border-color: $fw-border-color       !default;
 $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
+$fw-check-checked-color:        inherit                !default;
 
 // visually hide elements the accessible way
 @mixin vh {
@@ -206,6 +207,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 		&:checked {
 
 			+ label {
+				color: $fw-check-checked-color;
 
 				&::before {
 					background-color: $fw-check-tick-bg-color;
@@ -251,6 +253,7 @@ $fw-check-checked-bg-color:     $fw-input-bg-color     !default;
 		&:checked {
 
 			+ label {
+				color: $fw-check-checked-color;
 
 				&::before {
 					animation: none;

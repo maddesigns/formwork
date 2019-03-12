@@ -66,6 +66,9 @@ select {
 		padding: $fw-input-padding;
 		padding-right: ($fw-input-height + $fw-input-padding);
 
+		&:focus {
+			color: $fw-focus-color;
+		}
 		// &:focus,
 		// &:hover {
 		// 	border-color: black;
@@ -95,7 +98,7 @@ select {
 	// Fix Firefox dotted focusring
 	&:-moz-focusring {
 		color: transparent;
-		text-shadow: 0 0 0 #000;
+		text-shadow: 0 0 0 $fw-focus-color;
 	}
 
 

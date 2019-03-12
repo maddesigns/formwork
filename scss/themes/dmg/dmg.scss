@@ -18,7 +18,7 @@ $fw-fieldset-bare:             true;
 $fw-centered:                  false;
 $fw-display:                   block;
 $fw-styled-inputs:             true;  // styled radio/checkbox/select/range
-$fw-add-styled-inputs:         true;
+$fw-add-styled-inputs:         false;
 
 // Font
 $fw-font-family:               "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -26,21 +26,21 @@ $fw-font-family:               "Open Sans", system-ui, -apple-system, BlinkMacSy
       "Droid Sans", "Helvetica Neue", sans-serif;
 $fw-font-size:                 14px;
 $fw-force-font-size:           true;
-$fw-font-color:                #576270;
+$fw-font-color:                #fff;
 $fw-font-weight:               600;
 
 // Borders
 $fw-border-width:              1px;
 $fw-border-style:              solid;
 $fw-border-color:              #192330;
-$fw-border-radius:             0;
+$fw-border-radius:             2px;
 
 // Inputs, Textareas, Select, Option
-$fw-input-height:              31px;
-$fw-input-width:               auto;
+$fw-input-height:              32px;
+$fw-input-width:               100%;
 $fw-input-max-width:           600px;
 $fw-input-bg-color:            transparent;
-$fw-input-padding:             0;
+//$fw-input-padding:             0;
 
 $fw-hover-color:               #fff;
 
@@ -60,7 +60,7 @@ $fw-select-arrow-radius:       0;
 // buttons
 $fw-btn-class:                 '.btn';
 $fw-btn-padding:               5px 15px;
-$fw-btn-font-size:             11px;
+$fw-btn-font-size:             14px;
 $fw-btn-width:                 auto;
 $fw-btn-height:                40px;
 $fw-btn-color:                 white;
@@ -79,23 +79,24 @@ $fw-btn-cta-hover-bg-color:    black;
 $fw-btn-cta-hover-color:       white;
 
 // custom input
-$fw-check-height:             15px;
-$fw-check-scale:              3px;
-$fw-check-input-color:        #192330;
-$fw-check-hover-color:        #fff;
-$fw-check-hover-bg-color:     #192330;
+$fw-check-height:               18px;
+$fw-check-scale:                3px;
+$fw-check-input-color:          red;
+$fw-check-hover-color:          #fff;
+$fw-check-hover-bg-color:       #192330;
 $fw-check-hover-border-color:   #4398b1;
-$fw-check-focus-color:        #192330;
+$fw-check-focus-color:          #fff;
 
-$fw-check-border-width:       1px;
-$fw-check-border-radius:      2px;
-$fw-check-border-color:       #576270;
-$fw-check-tick-width:         2px;
-$fw-check-tick-color:         #fff;
+$fw-check-border-width:         1px;
+$fw-check-border-radius:        2px;
+$fw-check-border-color:         #576270;
+$fw-check-tick-width:           2px;
+$fw-check-tick-color:           #fff;
 
 $fw-check-checked-bullet-color: #4398b1;
 $fw-check-checked-border-color: #4398b1;
 $fw-check-checked-bg-color:     #192330;
+$fw-check-checked-color:        #fff;
 
 $fw-check-tick-color:         #4398b1;
 $fw-check-tick-bg-color:      #192330;
@@ -139,32 +140,6 @@ label {
 	font-size: $fw-font-size;
 }
 
-.listbox__wrapper,
-.listbox__options {
-	border-radius: 0;
-	border: none;
-}
-
-.listbox__options [role="option"] {
-	padding: 1em;
-	color: white;
-
-	&:hover {
-		background-color: #4398b1;
-
-	}
-}
-
-.listbox__trigger {
-	height: auto;
-	padding: 1em;
-
-	&.js-active {
-		background-color: #4398b1;
-		color: white;
-	}
-}
-
 
 h3 {
 	color: white;
@@ -194,8 +169,9 @@ h3 {
 		border-width: 0 0 1px 0;
 		max-width: 100%;
 		padding-right: 1.5rem;
+		padding-left: 0;
 		text-overflow: ellipsis;
-
+		border-radius: 0;
 		//border-bottom: 1px solid;
 
 		// &[placeholder] {
@@ -219,6 +195,7 @@ h3 {
 	}
 
 
+	.listbox + label,
 	input:focus + label,
 	input:not(:placeholder-shown) + label {
 		color: #4398b1;
@@ -266,32 +243,104 @@ h3 {
 		opacity: 0;
 		transform: translateY(2.9em) scale(1);
 	}
+
+
+	.clear-input {
+		cursor: pointer;
+		font-family: inherit;
+		display: inline-flex;
+		align-self: flex-end;
+		background-color: transparent;
+		color: inherit;
+		border: none;
+		position: absolute;
+		z-index: 1;
+		opacity: 0;
+		padding: 0.5em 0;
+		width: 1.5em;
+		transform: translateX(25%);
+		justify-content: center;
+		transition: opacity 300ms ease-in;
+		touch-action: manipulation;
+		visibility: hidden;
+	}
+
+	.clear-input:hover,
+	input:not(:placeholder-shown):hover ~ .clear-input,
+	input:not(:placeholder-shown):focus ~ .clear-input {
+		opacity: 1;
+		visibility: visible;
+	}
+
+
+	.radio-button-group {
+		margin: 2rem;
+
+		input + label {
+			color: #576270;
+			transform-origin: 0 0;
+			transform: none;
+			font-size: 14px;
+			font-weight: 600;
+		}
+
+		input:checked + label {
+			color: white;
+		}
+
+		div {
+			display: inline-flex;
+			margin-right: 1em;
+		}
+	}
+
+	.listbox {
+		max-width: none;
+	}
+	.listbox__wrapper,
+	.listbox__options {
+		border-radius: 0;
+		border: none;
+		max-width: none;
+	}
+
+	.listbox__options [role="option"] {
+		padding: 1em;
+		color: white;
+
+		&:hover {
+			background-color: #4398b1;
+
+		}
+	}
+
+	.listbox__trigger {
+		height: auto;
+
+		padding-left: 0;
+		padding-right: 0;
+		transition: border-bottom-color 200ms ease-in;
+		border-bottom: 1px solid #192330;
+
+		&:focus {
+			border-bottom-color: #4398b1;
+			box-shadow: none;
+		}
+
+		&.js-active {
+			background-color: #4398b1;
+			color: white;
+		}
+	}
+
 }
 
-
-.clear-input {
-	cursor: pointer;
-	font-family: inherit;
-	display: inline-flex;
-	align-self: flex-end;
-	background-color: transparent;
-	color: inherit;
-	border: none;
-	position: absolute;
-	z-index: 1;
-	opacity: 0;
-	padding: 0.5em 0;
-	width: 1.5em;
-	transform: translateX(25%);
-	justify-content: center;
-	transition: opacity 300ms ease-in;
-	touch-action: manipulation;
-	visibility: hidden;
+.listbox__options-wrapper {
+	background-color: #0f1318;
 }
 
-.clear-input:hover,
-input:not(:placeholder-shown):hover ~ .clear-input,
-input:not(:placeholder-shown):focus ~ .clear-input {
-	opacity: 1;
-	visibility: visible;
+select {
+	* {
+		color: black;
+	}
 }
