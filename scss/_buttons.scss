@@ -61,6 +61,7 @@ $fw-btn-out-hover-color:       black                 !default;
 	color: $fw-btn-color;
 	cursor: pointer;
 	font-family: $fw-font-family;
+	font-weight: inherit;
 	font-size: $fw-btn-font-size;
 	display: unquote($fw-btn-display);
 	//flex-direction: column;

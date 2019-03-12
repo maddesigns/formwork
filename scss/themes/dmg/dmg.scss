@@ -1,0 +1,346 @@
+// Theming for DMG
+/* Color palette */
+$dark: #0e1621;
+$dark-blue: #121c29;
+$midnight-blue: #192330;
+$dark-grey: #202a36;
+$mid-grey: #303843;
+$light-grey: #757b83;
+$blue: #4398b1;
+$green: #65bf93;
+$yellow: #ffdb29;
+$white: #ffffff;
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:             true;
+
+// Layout
+$fw-centered:                  false;
+$fw-display:                   block;
+$fw-styled-inputs:             true;  // styled radio/checkbox/select/range
+$fw-add-styled-inputs:         false;
+
+// Font
+$fw-font-family:               "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Open Sans",
+      "Droid Sans", "Helvetica Neue", sans-serif;
+$fw-font-size:                 14px;
+$fw-force-font-size:           true;
+$fw-font-color:                #fff;
+$fw-font-weight:               600;
+
+// Borders
+$fw-border-width:              1px;
+$fw-border-style:              solid;
+$fw-border-color:              #192330;
+$fw-border-radius:             2px;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:              32px;
+$fw-input-width:               100%;
+$fw-input-max-width:           600px;
+$fw-input-bg-color:            transparent;
+//$fw-input-padding:             0;
+
+$fw-hover-color:               #fff;
+
+$fw-focus-bg-color:            transparent;
+$fw-focus-border-color:        #4398b1;
+$fw-focus-border-width:        0;
+$fw-focus-color:               #fff;
+
+$fw-select-arrow-width:        8px;
+$fw-select-arrow-height:       6px;
+$fw-select-arrow-fill:         none;
+$fw-select-arrow-color:        #757b83;
+$fw-select-arrow-bg-color:     none;
+$fw-select-arrow-thickness:    1px;
+$fw-select-arrow-radius:       0;
+
+// buttons
+$fw-btn-class:                 '.btn';
+$fw-btn-padding:               5px 15px;
+$fw-btn-font-size:             14px;
+$fw-btn-width:                 auto;
+$fw-btn-height:                40px;
+$fw-btn-color:                 white;
+$fw-btn-bg-color:              #192330;
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        #4398b1;
+// buttons submit
+$fw-btn-submit-bg-color:       #4398b1;
+$fw-btn-submit-color:          white;
+$fw-btn-submit-hover-bg-color: #2ea5c5;
+$fw-btn-submit-hover-color:    white;
+// buttons CTA
+$fw-btn-cta-bg-color:          #2ea5c5;
+$fw-btn-cta-color:             white;
+$fw-btn-cta-hover-bg-color:    black;
+$fw-btn-cta-hover-color:       white;
+
+// custom input
+$fw-check-height:               18px;
+$fw-check-scale:                3px;
+$fw-check-input-color:          red;
+$fw-check-hover-color:          #fff;
+$fw-check-hover-bg-color:       #192330;
+$fw-check-hover-border-color:   #4398b1;
+$fw-check-focus-color:          #fff;
+
+$fw-check-border-width:         1px;
+$fw-check-border-radius:        2px;
+$fw-check-border-color:         #576270;
+$fw-check-tick-width:           2px;
+$fw-check-tick-color:           #fff;
+
+$fw-check-checked-bullet-color: #4398b1;
+$fw-check-checked-border-color: #4398b1;
+$fw-check-checked-bg-color:     #192330;
+$fw-check-checked-color:        #fff;
+
+$fw-check-tick-color:         #4398b1;
+$fw-check-tick-bg-color:      #192330;
+$fw-switch-knob-checked-color:  #4398b1;
+
+$fw-switch-rail-color:           #B8B8B8;
+$fw-switch-rail-checked-color:   rgba(#4398b1,0.4);
+$fw-switch-knob-color:           #efefef;
+$fw-switch-knob-checked-color:   #4398b1;
+
+$fw-msg-color:                #dedede;
+$fw-msg-alert-color:          #D0021B;
+$fw-msg-hint-color:           #2ea5c5;
+$fw-msg-success-color:        #4398b1;
+$fw-msg-warning-color:        yellow;
+
+$fw-progress-bar-color:       #4398b1;
+$fw-progress-track-color:     #dedede;
+$fw-progress-track-height:    4px;
+
+
+$fw-thumb-color:              #4398b1;
+$fw-thumb-height:             11px;
+$fw-thumb-width:              $fw-thumb-height;
+$fw-thumb-border-width:       0;
+
+$fw-track-bg-color:           #757b83;
+$fw-track-height:             1px;
+$fw-track-width:              100%;
+$fw-track-border-width:       ($fw-thumb-height - $fw-track-height);
+$fw-track-border-style:       $fw-border-style;
+$fw-track-border-color:       rgba(0,0,0,0);
+$fw-track-border-radius:      0;
+
+
+@import "../../formwork";
+
+label {
+	color: $fw-font-color;
+	font-weight: $fw-font-weight;
+	font-size: $fw-font-size;
+}
+
+
+h3 {
+	color: white;
+}
+
+
+.floating-label {
+
+	> div {
+		display: flex;
+		flex-direction: column-reverse;
+		margin: 2rem;
+		position: relative;
+
+		// > * {
+		// 	display: block;
+		// }
+	}
+
+	input::placeholder {
+		color: #444;
+		opacity: 0;
+	}
+
+	input {
+		color: white;
+		border-width: 0 0 1px 0;
+		max-width: 100%;
+		padding-right: 1.5rem;
+		padding-left: 0;
+		text-overflow: ellipsis;
+		border-radius: 0;
+		//border-bottom: 1px solid;
+
+		// &[placeholder] {
+		// 	color: #576270;
+		// }
+	}
+
+	label {
+		color: #576270;
+		transform-origin: 0 0;
+		transform: translateY(1.65em) scale(1);
+		transition: transform 200ms, opacity 200ms;
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	/* works in IE11 */
+	input:not(:-ms-input-placeholder) + label {
+		color: #4398b1;
+		transform: translateY(0) scale(0.73333333);
+	}
+
+
+	.listbox + label,
+	input:focus + label,
+	input:not(:placeholder-shown) + label {
+		color: #4398b1;
+		transform: translateY(0) scale(0.73333333);
+	}
+
+	/* fallvack for MS EDGE */
+	/* https://github.com/twbs/bootstrap/blob/master/site/docs/4.3/examples/floating-labels/floating-labels.css */
+	@supports (-ms-ime-align: auto) {
+		input + label {
+			transform: translateY(0) scale(0.73333333);
+		}
+	}
+
+
+	/* user preferes reduced motion - show label always on top on of input */
+	// @media (prefers-reduced-motion: reduce) {
+	// 	input + label {
+	// 		color: #4398b1;
+	// 		transform: translateY(0) scale(0.73333333);
+	// 	}
+	// }
+
+	// invalid Firefox
+	input:-moz-ui-invalid {
+		box-shadow: none;
+		border-bottom-color: $fw-msg-alert-color;
+	}
+
+	.has-error {
+		border-bottom-color: $fw-msg-alert-color;
+	}
+	.has-error ~ .input-message--error {
+		font-size: 11px;
+		order: 1;
+	}
+
+	.has-error + label {
+		order: 2;
+		transform: translateY(2.9em) scale(1);
+	}
+
+	.has-error:focus + label,
+	.has-error:not(:placeholder-shown) + label {
+		opacity: 0;
+		transform: translateY(2.9em) scale(1);
+	}
+
+
+	.clear-input {
+		cursor: pointer;
+		font-family: inherit;
+		display: inline-flex;
+		align-self: flex-end;
+		background-color: transparent;
+		color: inherit;
+		border: none;
+		position: absolute;
+		z-index: 1;
+		opacity: 0;
+		padding: 0.5em 0;
+		width: 1.5em;
+		transform: translateX(25%);
+		justify-content: center;
+		transition: opacity 300ms ease-in;
+		touch-action: manipulation;
+		visibility: hidden;
+	}
+
+	.clear-input:hover,
+	input:not(:placeholder-shown):hover ~ .clear-input,
+	input:not(:placeholder-shown):focus ~ .clear-input {
+		opacity: 1;
+		visibility: visible;
+	}
+
+
+	.radio-button-group {
+		margin: 2rem;
+
+		input + label {
+			color: #576270;
+			transform-origin: 0 0;
+			transform: none;
+			font-size: 14px;
+			font-weight: 600;
+		}
+
+		input:checked + label {
+			color: white;
+		}
+
+		div {
+			display: inline-flex;
+			margin-right: 1em;
+		}
+	}
+
+	.listbox {
+		max-width: none;
+	}
+	.listbox__wrapper,
+	.listbox__options {
+		border-radius: 0;
+		border: none;
+		max-width: none;
+	}
+
+	.listbox__options [role="option"] {
+		padding: 1em;
+		color: white;
+
+		&:hover {
+			background-color: #4398b1;
+
+		}
+	}
+
+	.listbox__trigger {
+		height: auto;
+
+		padding-left: 0;
+		padding-right: 0;
+		transition: border-bottom-color 200ms ease-in;
+		border-bottom: 1px solid #192330;
+
+		&:focus {
+			border-bottom-color: #4398b1;
+			box-shadow: none;
+		}
+
+		&.js-active {
+			background-color: #4398b1;
+			color: white;
+		}
+	}
+
+}
+
+.listbox__options-wrapper {
+	background-color: #0f1318;
+}
+
+select {
+	* {
+		color: black;
+	}
+}

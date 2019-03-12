@@ -14,9 +14,9 @@
 		border: $fw-border-width $fw-border-style $fw-border-color;
 		color: $fw-font-color;
 		font-family: $fw-font-family;
-		box-shadow: 0 12px 12px rgba(#fff, 0.7);
+		///box-shadow: 0 12px 12px rgba(#fff, 0.7);
 
-		@if ($fw-font-size < 16px) {
+		@if ($fw-font-size < 16px and $fw-force-font-size == false) {
 			font-size: 16px;
 			@warn "The font-size ($fw-font-size) should be minimum 16px to avoid iOS zooming. You set font-size to #{$fw-font-size}";
 		}
@@ -26,16 +26,14 @@
 
 		max-width: $fw-input-max-width;
 		width: $fw-input-width;
-		position: absolute;
-		z-index: 2;
-
+		//position: relative;
 
 		&:hover {
 			border-color: $fw-hover-border-color;
 			color: $fw-hover-color;
 
 			@if ($fw-custom-focus-ring) {
-				box-shadow: 0 0 0 $fw-hover-border-width rgba($fw-hover-color, $fw-hover-opacity), 0 12px 12px rgba(#fff, 0.7);
+				box-shadow: 0 0 0 $fw-hover-border-width rgba($fw-hover-color, $fw-hover-opacity);//, 0 12px 12px rgba(#fff, 0.7);
 			}
 		}
 
@@ -46,7 +44,7 @@
 			caret-color: $fw-focus-color;
 
 			@if ($fw-custom-focus-ring) {
-				box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-focus-border-color, $fw-focus-opacity), 0 12px 12px rgba(#fff, 0.7);
+				//box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-focus-border-color, $fw-focus-opacity);//, 0 12px 12px rgba(#fff, 0.7);
 				outline: none;
 			}
 		}
@@ -55,33 +53,42 @@
 	&__trigger {
 		background-color: transparent;
 		border: none;
+		font-weight: inherit;
 		height: $fw-input-height;
 		width: 100%;
 		padding: $fw-input-padding;
-
+		color: $fw-font-color;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		// width: max-content;
+		// max-width: 200px;
 
 		&:focus {
 			outline: 0;
 		}
+	}
 
-		&.js-active {
+	.js-active {
 
-			+ .listbox__options-wrapper .listbox__options {
+		> .listbox__options-wrapper {
+			.listbox__options {
 				max-height: 10em;
 				overflow-y: scroll;
 			}
-			.listbox__label {
-				color: rgba(0, 0, 0, 1);
-			}
-			.listbox__icon {
-				transform: rotate(180deg);
-			}
+		}
+		.listbox__label {
+			color: rgba(0, 0, 0, 1);
+		}
+		.listbox__icon {
+			transform: rotate(180deg);
 		}
 	}
+}
 
+.listbox__options-wrapper {
+	position: relative;
+	z-index: 2;
 }
 
 .listbox__icon {

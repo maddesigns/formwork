@@ -29,7 +29,7 @@
   },
   "browserslist": [
     "Firefox ESR",
-    "> 0.2%"
+    "> 1%"
   ],
   "homepage": "https://github.com/maddesigns/formwork/issues#readme",
   "devDependencies": {

@@ -5,14 +5,21 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="./css/themes/ksb/ksb.css">
+<!-- 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
+ -->		<link rel="stylesheet" href="./css/themes/dmg/dmg.css">
 		<style>
 			html {
 				overflow-x: hidden;
 			}
 			body {
-				font-family: sans-serif;
+				background-color: #0f1318;
+				color:  white;
+				font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Open Sans",
+      "Droid Sans", "Helvetica Neue", sans-serif;
 				font-size: 16px;
+				letter-spacing: 0.1px;
+				font-weight: 400;
 				overflow-x: hidden;
 			}
 
@@ -70,6 +77,89 @@
 
 		<form action="#" method="post">
 
+			<h3>Floating Labels</h3>
+			<fieldset class="floating-label">
+				<fieldset class="radio-button-group">
+					<div>
+						<input id="gender1" type="radio" name="gender" aria-describedby="gender1-message" class="input input--radio-button " value="0">
+						<label for="gender1">Mrs.</label>
+					</div>
+					<div>
+						<input id="gender2" type="radio" name="gender" aria-describedby="gender2-message" class="input input--radio-button " value="1">
+						<label for="gender2">Mr.</label>
+					</div>
+				</fieldset>
+				<div>
+					<input id="prefilled" name="prefilled" value="prefilled" placeholder="Input prefilled value" />
+					<label for="prefilled">Input prefilled value</label>
+					<span class="clear-input" title="clear field">×</span>
+				</div>
+				<div>
+					<input type="text" id="autofocus" name="autofocus" placeholder="Input with autofocus" />
+					<label for="autofocus">Input with autofocus</label>
+					<span class="clear-input" title="clear field">×</span>
+				</div>
+				<div>
+<!-- 					<span id="required_hint" class="input-message input-message--hint">Required <sup title="required">*</sup>
+</span>
+ -->				<input type="text" id="required" name="required" aria-describedby="required_hint" placeholder="Required textfield " required />
+					<label for="required">Required textfield </label>
+					<span class="clear-input" title="clear field">×</span>
+				</div>
+				<div>
+					<input type="text" id="error" name="error" aria-describedby="input_error" placeholder="Textfield Error" class="has-error" />
+					<label for="error">Textfield Error</label>
+					<span class="clear-input" title="clear field">×</span>
+					<em id="input_error" class="input-message input-message--error">Error message for mandatory inputfield</em>
+				</div>
+				<div>
+					<input type="text" id="placeholder" name="placeholder" placeholder="Textfield" />
+					<label for="placeholder">Textfield</label>
+					<span class="clear-input" title="clear field">×</span>
+				</div>
+				<div>
+					<div class="listbox">
+						<div class="listbox__wrapper">
+							<button type="button" aria-label="open select menu" class="listbox__trigger" aria-haspopup="listbox">
+								MultiSelect Value
+								<span class="icon listbox__icon">
+								</span>
+							</button>
+
+							<div class="listbox__options-wrapper">
+								<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
+									<li role="option" id="listbox1-1">Choice A</li>
+									<li role="option" id="listbox1-2">Choice B</li>
+									<li role="option" id="listbox1-3">Choice C</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<label>Multi-Select/Dropdowns</label>
+				</div>
+				<div>
+					<div class="listbox">
+						<div class="listbox__wrapper js-active">
+							<button type="button" aria-label="open select menu" class="listbox__trigger" aria-haspopup="listbox">
+								MultiSelect Value
+								<span class="icon listbox__icon">
+								</span>
+							</button>
+
+							<div class="listbox__options-wrapper">
+								<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
+									<li role="option" id="listbox1-1">Choice A</li>
+									<li role="option" id="listbox1-2">Choice B</li>
+									<li role="option" id="listbox1-3">Choice C</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<label>Multi-Select/Dropdowns</label>
+				</div>
+			</fieldset>
+			<hr>
+
 			<h3>Fieldsets</h3>
 			<fieldset>
 				<legend>Fieldset with legend</legend>
@@ -105,11 +195,16 @@
 				<input id="notype" name="notype" />
 			</div>
 			<div>
+				<label for="prefilled">Input prefilled value</label>
+				<input id="prefilled" name="prefilled" value="prefilled" />
+			</div>
+			<div>
 				<label for="autofocus">Input with autofocus</label>
 				<input type="text" id="autofocus" name="autofocus" aaaaaautofocus />
 			</div>
 			<div>
-				<label for="required">Required textfield <sup title="required">*</sup></label>
+				<label for="required">Required textfield <sup title="required">*</sup>
+				</label>
 				<input type="text" id="required" name="required" aria-describedby="required_hint" required />
 				<span id="required_hint" class="input-message input-message--hint">Hint</span>
 			</div>
