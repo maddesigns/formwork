@@ -169,8 +169,8 @@ input:not([type]), input[type], [list], textarea {
 	background-image: linear-gradient(to right, #40b5f4, #2FC7EB, #1ed4e6);
 	color: white;
 	text-transform: uppercase;
-	padding-left: $fw-input-padding*2;
-	padding-right: $fw-input-padding*2;
+	padding-left: get-side($fw-input-padding*2, left);
+	padding-right: get-side($fw-input-padding*2, right);
 	letter-spacing: 0.04em;
 }
 

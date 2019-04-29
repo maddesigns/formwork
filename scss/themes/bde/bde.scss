@@ -18,10 +18,10 @@ $fw-font-color:                #000;
 $fw-border-width:              1px;
 $fw-border-style:              solid;
 $fw-border-color:              #7fb71e;
-$fw-border-radius:             0;
+$fw-border-radius:             8px;
 
 // Inputs, Textareas, Select, Option
-$fw-input-height:              40px;
+$fw-input-height:              48px;
 $fw-input-width:               100%;
 $fw-input-max-width:           600px;
 $fw-input-bg-color:            white;
@@ -29,24 +29,29 @@ $fw-input-bg-color:            white;
 $fw-focus-bg-color:            white;
 $fw-focus-border-color:        #000;
 $fw-focus-color:               #000;
+//$fw-custom-focus-ring: false;
 
 // buttons
 $fw-btn-class:                 '.btn';
-$fw-btn-padding:               5px 15px;
+$fw-btn-padding:               12px 16px 8px;
+$fw-btn-transition:            'all 400ms ease-in-out';
+$fw-btn-display:               'inline-flex';
+$fw-btn-border:                2px solid transparent;
 $fw-btn-width:                 auto;
+$fw-btn-ripple:                true;
 $fw-btn-color:                 white;
-$fw-btn-bg-color:              rgb(102, 102, 102); // #666
+$fw-btn-bg-color:              rgb(73, 80, 87); //#495057;
 $fw-btn-hover-color:           white;
-$fw-btn-hover-bg-color:        rgb(46, 165, 197); // #2ea5c5;
+$fw-btn-hover-bg-color:        rgb(33, 37, 41); // #212529;
 // buttons submit
-$fw-btn-submit-bg-color:       rgb(127, 183, 30); //#7fb71e;
+$fw-btn-submit-bg-color:       rgb(221, 0, 0); //#d00;
 $fw-btn-submit-color:          white;
-$fw-btn-submit-hover-bg-color: rgb(46, 165, 197); // #2ea5c5;
+$fw-btn-submit-hover-bg-color: rgb(175, 0, 0); // #AF0000;
 $fw-btn-submit-hover-color:    white;
 // buttons CTA
-$fw-btn-cta-bg-color:          rgb(46, 165, 197); // #2ea5c5;
+$fw-btn-cta-bg-color:          rgb(0, 195, 115);//#00C373;
 $fw-btn-cta-color:             white;
-$fw-btn-cta-hover-bg-color:    rgb(0, 0, 0); // #000
+$fw-btn-cta-hover-bg-color:    rgb(0, 155, 90); //#009B5A;
 $fw-btn-cta-hover-color:       white;
 
 // custom input
@@ -80,3 +85,10 @@ $fw-progress-track-color:     #dedede;
 $fw-progress-track-height:    4px;
 
 @import "../../formwork";
+
+.btn {
+	font-weight: bolder;
+	line-height: 1;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}

@@ -28,8 +28,8 @@
 	overflow: hidden;
 	white-space: normal;
 	height: inherit;
-	padding-left: $fw-input-padding;
-	padding-right: $fw-input-padding;
+	padding-left: get-side($fw-input-padding, left);
+	padding-right: get-side($fw-input-padding, right);
 }
 
 [type="file"]:focus::-webkit-file-upload-button {

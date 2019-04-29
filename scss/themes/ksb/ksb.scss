@@ -124,12 +124,15 @@ a:not([disabled]) {
 
 
 $listbox-arrow-size: 6px;
-
+.listbox__wrapper {
+	height: calc(#{$fw-input-height} - 2 * #{$fw-border-width});
+}
 .listbox__options-wrapper {
 	width: 100%;
-	position: absolute;
+	//position: absolute;
 	z-index: 2;
-	top: $fw-input-height + $listbox-arrow-size*2;
+	//top: $fw-input-height + $listbox-arrow-size*2;
+	top: $listbox-arrow-size*2;
 	filter: drop-shadow(0 2px 4px rgba(#2a2a2a,0.3));
 
 	&::before {

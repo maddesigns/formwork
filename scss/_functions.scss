@@ -1,0 +1,63 @@
+// encode color for SVG
+// does not work with colors containing alpha
+@function encodecolor($string) {
+	@if type-of($string) == 'color' {
+		$hex: str-slice(ie-hex-str($string), 4);
+		$string: unquote("#{$hex}");
+	}
+	$string: '%23' + $string;
+	@return $string;
+}
+
+// convert to RGB string
+@function color2RGB ($color) {
+	@if $color == transparent {
+		@warn '⚠️ transparent color!!!';
+	}
+	@return red($color), green($color), blue($color);
+}
+
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}
+
+
+/// Determine a top/right/bottom/right value on a padding, margin, etc. property, no matter how many values were passed in. Use this function if you need to know the specific side of a value, but don't know if the value is using a shorthand format.
+/// https://github.com/zurb/foundation-sites/blob/master/scss/util/_value.scss
+///
+/// @param {List|Number} $val - Value to analyze. Should be a shorthand sizing property, e.g. "1em 2em 1em"
+/// @param {Keyword} $side - Side to return. Should be `top`, `right`, `bottom`, or `left`.
+///
+/// @returns {Number} A single value based on `$val` and `$side`.
+
+@function get-side($val, $side) {
+	$length: length($val);
+
+	@if $length == 1 {
+		@return $val;
+	}
+	@if $length == 2 {
+		@return map-get((
+			top: nth($val, 1),
+			bottom: nth($val, 1),
+			left: nth($val, 2),
+			right: nth($val, 2),
+		), $side);
+	}
+	@if $length == 3 {
+		@return map-get((
+			top: nth($val, 1),
+			left: nth($val, 2),
+			right: nth($val, 2),
+			bottom: nth($val, 3),
+		), $side);
+	}
+	@if $length == 4 {
+		@return map-get((
+			top: nth($val, 1),
+			right: nth($val, 2),
+			bottom: nth($val, 3),
+			left: nth($val, 4),
+		), $side);
+	}
+}

@@ -6,7 +6,6 @@
 	font-family: $fw-font-family;
 	height: $fw-input-height;
 	max-width: $fw-input-max-width;
-	position: relative;
 
 	&__wrapper {
 		background-color: $fw-input-bg-color;
@@ -14,7 +13,7 @@
 		border: $fw-border-width $fw-border-style $fw-border-color;
 		color: $fw-font-color;
 		font-family: $fw-font-family;
-		///box-shadow: 0 12px 12px rgba(#fff, 0.7);
+		max-width: $fw-input-max-width;
 
 		@if ($fw-font-size < 16px and $fw-force-font-size == false) {
 			font-size: 16px;
@@ -24,13 +23,11 @@
 			font-size: $fw-font-size;
 		}
 
-		max-width: $fw-input-max-width;
-		width: $fw-input-width;
-		//position: relative;
 
 		&:hover {
+			background-color: $fw-input-bg-color;
 			border-color: $fw-hover-border-color;
-			color: $fw-hover-color;
+			color: $fw-font-color;
 
 			@if ($fw-custom-focus-ring) {
 				box-shadow: 0 0 0 $fw-hover-border-width rgba($fw-hover-color, $fw-hover-opacity);//, 0 12px 12px rgba(#fff, 0.7);
@@ -44,20 +41,21 @@
 			caret-color: $fw-focus-color;
 
 			@if ($fw-custom-focus-ring) {
-				//box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-focus-border-color, $fw-focus-opacity);//, 0 12px 12px rgba(#fff, 0.7);
+				box-shadow: 0 0 0 $fw-focus-border-width rgba($fw-focus-border-color, $fw-focus-opacity);//, 0 12px 12px rgba(#fff, 0.7);
 				outline: none;
 			}
 		}
 	}
 
 	&__trigger {
-		background-color: transparent;
+		background-color: $fw-input-bg-color;
+		border-radius: inherit;
+		color: $fw-font-color;
 		border: none;
 		font-weight: inherit;
-		height: $fw-input-height;
+		height: calc(#{$fw-input-height} - 2 * #{$fw-border-width});
 		width: 100%;
 		padding: $fw-input-padding;
-		color: $fw-font-color;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -65,13 +63,20 @@
 		// max-width: 200px;
 
 		&:focus {
+			background-color: $fw-input-bg-color;
+			color: $fw-font-color;
 			outline: 0;
+			position: relative;
+			z-index: 3;
+		}
+		&:hover {
+			background-color: $fw-input-bg-color;
+			color: $fw-font-color;
 		}
 	}
 
 	.js-active {
-
-		> .listbox__options-wrapper {
+		.listbox__options-wrapper {
 			.listbox__options {
 				max-height: 10em;
 				overflow-y: scroll;

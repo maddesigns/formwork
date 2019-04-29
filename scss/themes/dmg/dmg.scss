@@ -68,14 +68,14 @@ $fw-btn-bg-color:              #192330;
 $fw-btn-hover-color:           white;
 $fw-btn-hover-bg-color:        #4398b1;
 // buttons submit
-$fw-btn-submit-bg-color:       #4398b1;
+$fw-btn-submit-bg-color:       rgb(67, 152, 177);
 $fw-btn-submit-color:          white;
-$fw-btn-submit-hover-bg-color: #2ea5c5;
+$fw-btn-submit-hover-bg-color: rgb(46, 165, 197);
 $fw-btn-submit-hover-color:    white;
 // buttons CTA
-$fw-btn-cta-bg-color:          #2ea5c5;
+$fw-btn-cta-bg-color:          rgb(46, 165, 197);
 $fw-btn-cta-color:             white;
-$fw-btn-cta-hover-bg-color:    black;
+$fw-btn-cta-hover-bg-color:    rgb(25, 35, 48);
 $fw-btn-cta-hover-color:       white;
 
 // custom input
@@ -98,8 +98,8 @@ $fw-check-checked-border-color: #4398b1;
 $fw-check-checked-bg-color:     #192330;
 $fw-check-checked-color:        #fff;
 
-$fw-check-tick-color:         #4398b1;
-$fw-check-tick-bg-color:      #192330;
+$fw-check-tick-color:           #4398b1;
+$fw-check-tick-bg-color:        #192330;
 $fw-switch-knob-checked-color:  #4398b1;
 
 $fw-switch-rail-color:           #B8B8B8;
@@ -235,7 +235,7 @@ h3 {
 
 	.has-error + label {
 		order: 2;
-		transform: translateY(2.9em) scale(1);
+		transform: translateY(3.2em) scale(1);
 	}
 
 	.has-error:focus + label,
@@ -296,6 +296,10 @@ h3 {
 
 	.listbox {
 		max-width: none;
+
+		&.has-error + label {
+			visibility: hidden;
+		}
 	}
 	.listbox__wrapper,
 	.listbox__options {

@@ -1,19 +1,5 @@
 // inspired by https://github.com/ireade/formhack/blob/master/formhack.scss
-//
 
-//does not work with colors containing alpha
-@function encodecolor($string) {
-	@if type-of($string) == 'color' {
-		$hex: str-slice(ie-hex-str($string), 4);
-		$string: unquote("#{$hex}");
-	}
-	$string: '%23' + $string;
-	@return $string;
-}
-
-@function strip-units($number) {
-	@return $number / ($number * 0 + 1);
-}
 // Config -----------------------------
 
 
@@ -53,7 +39,7 @@ $fw-hover-border-width: 1px                !default;
 $fw-hover-opacity:      0                  !default;
 
 $fw-custom-focus-ring:  true               !default;
-$fw-focus-bg-color:     #555555            !default;
+$fw-focus-bg-color:     #fff            !default;
 $fw-focus-border-color: $fw-border-color   !default;
 $fw-focus-color:        $fw-font-color     !default;
 $fw-focus-border-width: 2px                !default;
