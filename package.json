@@ -33,7 +33,7 @@
   ],
   "homepage": "https://github.com/maddesigns/formwork/issues#readme",
   "devDependencies": {
-    "autoprefixer": "^9.5.0",
+    "autoprefixer": "^9.5.1",
     "browser-sync": "^2.26.5",
     "bs-html-injector": "^3.0.3",
     "node-sass": "^4.12.0",
