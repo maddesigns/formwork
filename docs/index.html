@@ -477,11 +477,26 @@
 				</select>
 			</div>
 			<div>
+				<label for="select3333">Select multiple</label>
+				<div class="select-wrapper">
+					<select id="select3333" name="select3333" multiple>
+						<option value="value1">Value 1</option>
+						<option value="value2" selected>Value 2 (preselected)</option>
+						<option value="value3" disabled>Value 3 (disabled)</option>
+						<option value="value4">Value 4</option>
+						<option value="value5">Value 5</option>
+						<option value="value6">Value 6</option>
+						<option value="value7">Value 7</option>
+					</select>
+				</div>
+			</div>
+
+			<div>
 				<label for="select3">Select multiple with defined size</label>
-				<select id="select3" name="select3" size="5" multiple>
+				<select id="select3" name="select3" size="7" multiple>
 					<optgroup label="Optgroup&hellip;">
 						<option value="value1">Value 1</option>
-						<option value="value2" selected>Value 2 (selected)</option>
+						<option value="value2" selected>Value 2 (pre	selected)</option>
 						<option value="value3" disabled>Value 3 (disabled)</option>
 						<option value="value4">Value 4</option>
 						<option value="value5">Value 5</option>
@@ -761,7 +776,7 @@
 			<p><button type="button" class="btn btn--cta">button[type="submit"].btn.btn--cta</button></p>
 			<p><button type="button" class="btn btn--txt">button[type="button"].btn.btn--txt</button></p>
 			<p><button type="button" class="btn btn--inv">button[type="button"].btn.btn--inv</button></p>
-			<p><button type="button" class="btn btn--outlined">button[type="button"].btn.btn--outlined</button></p>
+			<p><button type="button" class="btn btn--submit btn--inv btn--outlined">button[type="button"].btn.btn--cta.btn--outlined</button></p>
 			<p><button type="button" class="btn btn--cta" disabled>button[type="submit"][disabled].btn.btn--cta</button></p>
 
 			<h2>Links with class '.btn'</h2>

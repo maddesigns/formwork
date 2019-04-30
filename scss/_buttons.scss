@@ -15,22 +15,22 @@ $fw-btn-display:               'inline-flex'         !default;
 
 // button colors
 $fw-btn-color:                 white                 !default;
-$fw-btn-bg-color:              #888888               !default;
+$fw-btn-bg-color:              rgb(136, 136, 136)    !default; // #888888
 $fw-btn-hover-color:           white                 !default;
-$fw-btn-hover-bg-color:        #666666               !default;
+$fw-btn-hover-bg-color:        rgb(102, 102, 102)    !default; // #666666
 $fw-btn-focus-color:           white                 !default;
-$fw-btn-focus-bg-color:        #666666               !default;
+$fw-btn-focus-bg-color:        rgb(102, 102, 102)    !default; // #666666
 
 // buttons submit
-$fw-btn-submit-bg-color:       #222222               !default;
+$fw-btn-submit-bg-color:       rgb(34, 34, 34)       !default; // #222222
 $fw-btn-submit-color:          white                 !default;
-$fw-btn-submit-hover-bg-color: black                 !default;
+$fw-btn-submit-hover-bg-color: rgb(0, 0, 0)          !default; // #000000
 $fw-btn-submit-hover-color:    white                 !default;
 
 // buttons CTA
-$fw-btn-cta-bg-color:          #da503b               !default;
+$fw-btn-cta-bg-color:          rgb(218, 80, 59)      !default; // #da503b
 $fw-btn-cta-color:             white                 !default;
-$fw-btn-cta-hover-bg-color:    black                 !default;
+$fw-btn-cta-hover-bg-color:    rgb(0, 0, 0)          !default; // #000000
 $fw-btn-cta-hover-color:       white                 !default;
 
 // buttons text style (styled as links)
@@ -41,24 +41,22 @@ $fw-btn-txt-hover-color:       $fw-font-color        !default;
 $fw-btn-txt-decoration:        underline             !default;
 $fw-btn-txt-hover-decoration:  underline             !default;
 
-// buttons inverted
-$fw-btn-inv-bg-color:          $fw-btn-submit-color          !default;
-$fw-btn-inv-color:             $fw-btn-submit-bg-color       !default;
-$fw-btn-inv-hover-bg-color:    $fw-btn-submit-hover-color    !default;
-$fw-btn-inv-hover-color:       $fw-btn-submit-hover-bg-color !default;
-
-// buttons outlined
-$fw-btn-out-bg-color:          white                 !default;
-$fw-btn-out-color:             black                 !default;
-$fw-btn-out-hover-bg-color:    #eeeeee               !default;
-$fw-btn-out-hover-color:       black                 !default;
-
 @mixin button-base() {
-	background-color: $fw-btn-bg-color;
+
+	--btn-bg-color: #{color2RGB($fw-btn-bg-color)};
+	--btn-color: #{color2RGB($fw-btn-color)};
+	--btn-transparency: 1;
+
+	@if $fw-btn-bg-color == transparent {
+		--btn-transparency: 0;
+	}
+
+	background-color: rgba(var(--btn-bg-color), var(--btn-transparency));
+	color: rgba(var(--btn-color),1);
+
 	border: $fw-btn-border;
 	border-radius: $fw-btn-radius;
 	box-sizing: border-box;
-	color: $fw-btn-color;
 	cursor: pointer;
 	font-family: $fw-font-family;
 	font-weight: inherit;
@@ -73,7 +71,6 @@ $fw-btn-out-hover-color:       black                 !default;
 	max-width: $fw-btn-max-width;
 	min-width: 0;
 	padding: $fw-btn-padding;
-
 	text-align: center;
 	text-decoration: none;
 	transition: unquote($fw-btn-transition);
@@ -83,8 +80,8 @@ $fw-btn-out-hover-color:       black                 !default;
 	touch-action: manipulation;
 
 	&:hover {
-		background-color: $fw-btn-hover-bg-color;
-		color: $fw-btn-hover-color;
+		--btn-bg-color: #{color2RGB($fw-btn-hover-bg-color)};
+		--btn-color: #{color2RGB($fw-btn-hover-color)};
 	}
 
 	&:focus {
@@ -201,46 +198,51 @@ $fw-btn-out-hover-color:       black                 !default;
 // Button "submit"
 @if ($fw-btn-class) {
 	#{$fw-btn-class}--submit {
-		background-color: $fw-btn-submit-bg-color;
-		color: $fw-btn-submit-color;
+		--btn-color: #{color2RGB($fw-btn-submit-color)};
+		--btn-bg-color: #{color2RGB($fw-btn-submit-bg-color)};
 
 		&:hover,
 		&:focus {
-			background-color: $fw-btn-submit-hover-bg-color;
-			color: $fw-btn-submit-hover-color;
+			--btn-bg-color: #{color2RGB($fw-btn-submit-hover-bg-color)};
+			--btn-color: #{color2RGB($fw-btn-submit-hover-color)};
 		}
 	}
 } @else {
 	[type="submit"],
 	#{$fw-btn-class}--submit {
-		background-color: $fw-btn-submit-bg-color;
-		color: $fw-btn-submit-color;
+		--btn-color: #{color2RGB($fw-btn-submit-color)};
+		--btn-bg-color: #{color2RGB($fw-btn-submit-bg-color)};
 
 		&:hover,
 		&:focus {
-			background-color: $fw-btn-submit-hover-bg-color;
-			color: $fw-btn-submit-hover-color;
+			--btn-bg-color: #{color2RGB($fw-btn-submit-hover-bg-color)};
+			--btn-color: #{color2RGB($fw-btn-submit-hover-color)};
 		}
 	}
 }
 
+
 // Button "CTA"
 #{$fw-btn-class}--cta {
-	background-color: $fw-btn-cta-bg-color;
-	color: $fw-btn-cta-color;
+	--btn-color: #{color2RGB($fw-btn-cta-color)};
+	--btn-bg-color: #{color2RGB($fw-btn-cta-bg-color)};
 
 	&:hover,
 	&:focus {
-		background-color: $fw-btn-cta-hover-bg-color;
-		color: $fw-btn-cta-hover-color;
+		--btn-bg-color: #{color2RGB($fw-btn-cta-hover-bg-color)};
+		--btn-color: #{color2RGB($fw-btn-cta-hover-color)};
 	}
 }
 
 // Button Text
 #{$fw-btn-class}--txt {
+	@if $fw-btn-txt-bg-color == transparent {
+		--btn-transparency: 0;
+	}
+	--btn-color: #{color2RGB($fw-btn-txt-color)};
+	--btn-bg-color: #{color2RGB($fw-btn-txt-bg-color)};
+
 	background-image: none;
-	background-color: $fw-btn-txt-bg-color;
-	color: $fw-btn-txt-color;
 	font-weight: inherit;
 	box-shadow: none;
 	text-decoration: $fw-btn-txt-decoration;
@@ -258,7 +260,7 @@ $fw-btn-out-hover-color:       black                 !default;
 	@if ($fw-btn-ripple) {
 		&.ripple {
 			&:before {
-				background-image: radial-gradient(circle, rgba(#274D88, 0.1) 1%, rgba(#274D88, 0.25) 1%);
+				background-image: radial-gradient(circle, rgba(var(--btn-bg-color), 0.1) 1%, rgba(var(--btn-bg-color), 0.25) 1%);
 			}
 		}
 	}
@@ -266,33 +268,33 @@ $fw-btn-out-hover-color:       black                 !default;
 
 // Button "inverted colors"
 #{$fw-btn-class}--inv {
-	background-color: $fw-btn-inv-bg-color;
-	color: $fw-btn-inv-color;
+	--btn-bg-transparency: 0;
+	background-color: rgba(var(--btn-bg-color), var(--btn-bg-transparency));
+	color: rgba(var(--btn-bg-color), var(--btn-transparency));
 
 	&:hover,
 	&:focus {
-		background-color: $fw-btn-inv-hover-bg-color;
-		color: $fw-btn-inv-hover-color;
-	}
-}
-// Button "inverted colors"
-#{$fw-btn-class}--outlined {
-	background-color: $fw-btn-out-bg-color;
-	color: $fw-btn-out-color;
-	border-color: currentColor;
-
-	&:hover,
-	&:focus {
-		background-color: $fw-btn-out-hover-bg-color;
-		color: $fw-btn-out-hover-color;
+		background-color: rgba(var(--btn-bg-color), 0.1);
+		color: rgba(var(--btn-bg-color),1);
+		border-color: rgba(var(--btn-bg-color), 0.1);
 	}
 
 	@if ($fw-btn-ripple) {
 		&.ripple {
 			&:before {
-				background-image: radial-gradient(circle, rgba(#274D88, 0.1) 1%, rgba(#274D88, 0.25) 1%);
+				background-image: radial-gradient(circle, rgba(var(--btn-bg-color), 0.1) 1%, rgba(var(--btn-bg-color), 0.25) 1%);
 			}
 		}
+	}
+}
+
+// Button with outline and inverted colors
+#{$fw-btn-class}--outlined {
+	border-color: currentColor;
+
+	&:hover,
+	&:focus {
+		border-color: currentColor;
 	}
 }
 
@@ -300,13 +302,14 @@ $fw-btn-out-hover-color:       black                 !default;
 
 	.ripple {
 		position: relative;
+		overflow: hidden;
 
 		&:before {
 			content: "";
 			background-position: center;
 			background-size: 15000%;
 			background-image: radial-gradient(circle, rgba(#fff, 0.1) 1%, rgba(#fff, 0.25) 1%);
-			border-radius: inherit;
+			//border-radius: inherit; //problems with transparency
 			position: absolute;
 			left: 0;
 			right: 0;

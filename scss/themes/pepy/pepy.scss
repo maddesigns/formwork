@@ -50,7 +50,7 @@ $fw-btn-class:                 ".btn";
 $fw-btn-height:                $fw-input-height;
 $fw-btn-width:                 $fw-input-width;
 $fw-btn-max-width:             $fw-input-max-width;
-$fw-btn-radius:                $fw-border-radius;
+$fw-btn-radius:                99em;
 $fw-btn-border:                none;
 $fw-btn-transition:            'background-color 200ms ease-in-out';
 
@@ -115,7 +115,6 @@ input:not([type]), input[type], [list], textarea {
 	letter-spacing: 0.04em;
 	width: auto;
 	height: auto;
-
 }
 
 .btn--submit {
@@ -169,8 +168,8 @@ input:not([type]), input[type], [list], textarea {
 	background-image: linear-gradient(to right, #40b5f4, #2FC7EB, #1ed4e6);
 	color: white;
 	text-transform: uppercase;
-	padding-left: $fw-input-padding*2;
-	padding-right: $fw-input-padding*2;
+	padding-left: get-side($fw-input-padding*2, left);
+	padding-right: get-side($fw-input-padding*2, right);
 	letter-spacing: 0.04em;
 }
 

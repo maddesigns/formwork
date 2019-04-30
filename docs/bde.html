@@ -5,14 +5,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="./css/themes/ksb/ksb.css">
+		<link rel="stylesheet" href="./css/themes/bde/bde.css">
 		<style>
 			html {
 				overflow-x: hidden;
 			}
 			body {
 				font-family: sans-serif;
-				font-size: 16px;
+				font-size: 17px;
 				overflow-x: hidden;
 			}
 
@@ -491,25 +491,6 @@
 				</select>
 			</div>
 			<div>
-				<label>Dropdowns</label>
-				<div class="listbox">
-					<div class="listbox__wrapper">
-						<button type="button" aria-label="open select menu" class="listbox__trigger" aria-haspopup="listbox">
-							Dropdown Value
-							<span class="icon listbox__icon"> </span>
-						</button>
-
-						<div class="listbox__options-wrapper">
-							<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
-								<li role="option" id="listbox1-1"><label>Choice A</label></li>
-								<li role="option" id="listbox1-2"><label>Choice B</label></li>
-								<li role="option" id="listbox1-3"><label>Choice C</label></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div>
 				<label>Multi-Select/Dropdowns</label>
 				<div class="listbox">
 					<div class="listbox__wrapper">
@@ -525,12 +506,23 @@
 
 						<div class="listbox__options-wrapper">
 							<ul class="listbox__options" role="listbox" tabindex="-1" aria-activedescendant="listbox1-4">
+								<!-- <li role="option" id="listbox1-1"><label>Choice A</label></li>
+								<li role="option" id="listbox1-2"><label>Choice B</label></li>
+								<li role="option" id="listbox1-3"><label>Choice C</label></li>
+								 -->
 								<li role="option" id="listbox1-4"><input id="checkbox551" name="checkbox551" type="checkbox" checked="checked"> <label for="checkbox551">Choice A</label></li>
 								<li role="option" id="listbox1-5"><input id="checkbox552" name="checkbox552" type="checkbox"> <label for="checkbox552">Choice B</label></li>
 								<li role="option" id="listbox1-6"><input id="checkbox553" name="checkbox553" type="checkbox"> <label for="checkbox553">Choice C</label></li>
 							</ul>
 						</div>
 					</div>
+
+					<script>
+						var button = document.querySelector('.listbox__trigger');
+						button.addEventListener('click', function() {
+							this.parentNode.classList.toggle('js-active');
+						});
+					</script>
 				</div>
 			</div>
 			<div>
@@ -781,22 +773,5 @@
 			<p><a href="#" class="btn btn--inv">a.btn.btn--inv</a></p>
 
 		</form>
-
-
-		<script>
-			const listboxTriggers = document.querySelectorAll(".listbox__trigger");
-
-			function toggleActive() {
-				this.parentNode.classList.toggle('js-active');
-			}
-
-			listboxTriggers.forEach(btn => btn.addEventListener("click", toggleActive));
-		</script>
-		<!-- <script>
-			var button = document.querySelector('.listbox__trigger');
-			button.addEventListener('click', function() {
-				this.parentNode.classList.toggle('js-active');
-			});
-		</script> -->
 	</body>
 </html>

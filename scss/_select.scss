@@ -64,7 +64,7 @@ select {
 		border: $fw-border-width $fw-border-style $fw-border-color;
 		border-radius: $fw-border-radius;
 		padding: $fw-input-padding;
-		padding-right: ($fw-input-height + $fw-input-padding);
+		padding-right: ($fw-input-height + get-side($fw-input-padding, right));
 
 		&:focus {
 			color: $fw-focus-color;
@@ -81,7 +81,7 @@ select {
 
 		&[size] {
 			background-color: $fw-input-bg-color;
-			padding-right: $fw-input-padding;
+			padding-right: get-side($fw-input-padding, right);
 		}
 
 		&[multiple] {
@@ -106,8 +106,8 @@ select {
 	:root:lang(ar) &,
 	:root:lang(iw) & {
 		background-position: left center;
-		padding-right: $fw-input-padding;
-		padding-left: ($fw-input-height + $fw-input-padding);
+		padding-right: get-side($fw-input-padding, right);
+		padding-left: ($fw-input-height + get-side($fw-input-padding, left));
 	}
 }
 
