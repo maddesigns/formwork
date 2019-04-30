@@ -268,7 +268,8 @@ $fw-btn-txt-hover-decoration:  underline             !default;
 
 // Button "inverted colors"
 #{$fw-btn-class}--inv {
-	background-color: rgba(var(--btn-bg-color),0);
+	--btn-bg-transparency: 0;
+	background-color: rgba(var(--btn-bg-color), var(--btn-bg-transparency));
 	color: rgba(var(--btn-bg-color), var(--btn-transparency));
 
 	&:hover,

@@ -1,15 +1,18 @@
 // Theming for DMG
 /* Color palette */
-$dark: #0e1621;
-$dark-blue: #121c29;
-$midnight-blue: #192330;
-$dark-grey: #202a36;
-$mid-grey: #303843;
-$light-grey: #757b83;
-$blue: #4398b1;
-$green: #65bf93;
-$yellow: #ffdb29;
-$white: #ffffff;
+
+$color-almost-black:          rgb(10, 17, 26); // #0a111a
+$color-blue-dark:             rgb(18, 28, 41); // #121c29
+$color-blue-midnight:         rgb(25, 35, 48); // #192330
+$color-gray-dark:             rgb(32, 42, 54); // #202a36
+$color-gray-medium:           rgb(40, 52, 68); // #283444
+$color-gray-light:            rgb(145, 160, 179); // #91a0b3
+$color-white:                 rgb(255, 255, 255); // #ffffff
+$color-blue-medium:           rgb(67, 152, 177); // #4398b1
+$color-blue-light:            rgb(134, 198, 216); // #86c6d8
+$color-blue-bright:           rgb(0, 80, 162); // #0050a2
+$color-blue-cool:             rgb(77, 175, 204); // #4dafcc
+$color-orange:                rgb(222, 73, 53); // #de4935
 
 // Fieldset & Legend Styling
 $fw-fieldset-bare:             true;
@@ -26,13 +29,13 @@ $fw-font-family:               "Open Sans", system-ui, -apple-system, BlinkMacSy
       "Droid Sans", "Helvetica Neue", sans-serif;
 $fw-font-size:                 14px;
 $fw-force-font-size:           true;
-$fw-font-color:                #fff;
+$fw-font-color:                $color-white;
 $fw-font-weight:               600;
 
 // Borders
 $fw-border-width:              1px;
 $fw-border-style:              solid;
-$fw-border-color:              #192330;
+$fw-border-color:              $color-blue-midnight;
 $fw-border-radius:             2px;
 
 // Inputs, Textareas, Select, Option
@@ -42,13 +45,13 @@ $fw-input-max-width:           600px;
 $fw-input-bg-color:            transparent;
 //$fw-input-padding:             0;
 
-$fw-hover-color:               #fff;
+$fw-hover-color:               $color-white;
 
 $fw-focus-bg-color:            transparent;
-$fw-focus-border-color:        #4398b1;
+$fw-focus-border-color:        $color-blue-medium;
 $fw-focus-border-width:        0;
-$fw-focus-color:               #fff;
-
+$fw-focus-color:               $color-white;
+$fw-focus-opacity:             0.4;
 $fw-select-arrow-width:        8px;
 $fw-select-arrow-height:       6px;
 $fw-select-arrow-fill:         none;
@@ -59,66 +62,68 @@ $fw-select-arrow-radius:       0;
 
 // buttons
 $fw-btn-class:                 '.btn';
-$fw-btn-padding:               5px 15px;
-$fw-btn-font-size:             14px;
+$fw-btn-padding:               5px 10px;
+$fw-btn-font-size:             11px;
 $fw-btn-width:                 auto;
 $fw-btn-height:                40px;
-$fw-btn-color:                 white;
-$fw-btn-bg-color:              #192330;
-$fw-btn-hover-color:           white;
-$fw-btn-hover-bg-color:        #4398b1;
+$fw-btn-radius:                0;
+$fw-btn-transition:            'background-color 100ms ease-in';
+$fw-btn-color:                 $color-white;
+$fw-btn-bg-color:              $color-almost-black;
+$fw-btn-hover-color:           $color-white;
+$fw-btn-hover-bg-color:        $color-blue-medium;
 // buttons submit
-$fw-btn-submit-bg-color:       rgb(67, 152, 177);
-$fw-btn-submit-color:          white;
+$fw-btn-submit-bg-color:       $color-blue-medium;
+$fw-btn-submit-color:          $color-white;
 $fw-btn-submit-hover-bg-color: rgb(46, 165, 197);
-$fw-btn-submit-hover-color:    white;
+$fw-btn-submit-hover-color:    $color-white;
 // buttons CTA
 $fw-btn-cta-bg-color:          rgb(46, 165, 197);
-$fw-btn-cta-color:             white;
+$fw-btn-cta-color:             $color-white;
 $fw-btn-cta-hover-bg-color:    rgb(25, 35, 48);
-$fw-btn-cta-hover-color:       white;
+$fw-btn-cta-hover-color:       $color-white;
 
 // custom input
 $fw-check-height:               18px;
 $fw-check-scale:                3px;
 $fw-check-input-color:          red;
-$fw-check-hover-color:          #fff;
-$fw-check-hover-bg-color:       #192330;
-$fw-check-hover-border-color:   #4398b1;
-$fw-check-focus-color:          #fff;
-
+$fw-check-hover-color:          $color-white;
+$fw-check-hover-bg-color:       $color-blue-medium;
+$fw-check-hover-border-color:   $color-blue-medium;
+$fw-check-focus-color:          $color-white;
+$fw-check-focus-border-color:   $color-white;
 $fw-check-border-width:         1px;
 $fw-check-border-radius:        2px;
 $fw-check-border-color:         #576270;
 $fw-check-tick-width:           2px;
-$fw-check-tick-color:           #fff;
+$fw-check-tick-color:           $color-white;
 
-$fw-check-checked-bullet-color: #4398b1;
-$fw-check-checked-border-color: #4398b1;
-$fw-check-checked-bg-color:     #192330;
-$fw-check-checked-color:        #fff;
+$fw-check-checked-bullet-color: $color-blue-medium;
+$fw-check-checked-border-color: $color-blue-medium;
+$fw-check-checked-bg-color:     $color-blue-midnight;
+$fw-check-checked-color:        $color-white;
 
-$fw-check-tick-color:           #4398b1;
-$fw-check-tick-bg-color:        #192330;
-$fw-switch-knob-checked-color:  #4398b1;
+$fw-check-tick-color:           $color-blue-medium;
+$fw-check-tick-bg-color:        $color-blue-midnight;
+$fw-switch-knob-checked-color:  $color-blue-medium;
 
 $fw-switch-rail-color:           #B8B8B8;
-$fw-switch-rail-checked-color:   rgba(#4398b1,0.4);
+$fw-switch-rail-checked-color:   rgba(67, 152, 177,0.4);
 $fw-switch-knob-color:           #efefef;
-$fw-switch-knob-checked-color:   #4398b1;
+$fw-switch-knob-checked-color:   $color-blue-medium;
 
 $fw-msg-color:                #dedede;
 $fw-msg-alert-color:          #D0021B;
 $fw-msg-hint-color:           #2ea5c5;
-$fw-msg-success-color:        #4398b1;
+$fw-msg-success-color:        $color-blue-medium;
 $fw-msg-warning-color:        yellow;
 
-$fw-progress-bar-color:       #4398b1;
+$fw-progress-bar-color:       $color-blue-medium;
 $fw-progress-track-color:     #dedede;
 $fw-progress-track-height:    4px;
 
 
-$fw-thumb-color:              #4398b1;
+$fw-thumb-color:              $color-blue-medium;
 $fw-thumb-height:             11px;
 $fw-thumb-width:              $fw-thumb-height;
 $fw-thumb-border-width:       0;
@@ -140,6 +145,11 @@ label {
 	font-size: $fw-font-size;
 }
 
+.btn--inv {
+	--btn-bg-color: #{color2RGB($color-blue-medium)};
+	--btn-color: #{color2RGB($color-white)};
+	--btn-bg-transparency: 0.1;
+}
 
 h3 {
 	color: white;
@@ -190,7 +200,7 @@ h3 {
 
 	/* works in IE11 */
 	input:not(:-ms-input-placeholder) + label {
-		color: #4398b1;
+		color: $color-blue-medium;
 		transform: translateY(0) scale(0.73333333);
 	}
 
@@ -198,7 +208,7 @@ h3 {
 	.listbox + label,
 	input:focus + label,
 	input:not(:placeholder-shown) + label {
-		color: #4398b1;
+		color: $color-blue-medium;
 		transform: translateY(0) scale(0.73333333);
 	}
 
@@ -214,7 +224,7 @@ h3 {
 	/* user preferes reduced motion - show label always on top on of input */
 	// @media (prefers-reduced-motion: reduce) {
 	// 	input + label {
-	// 		color: #4398b1;
+	// 		color: $color-blue-medium;
 	// 		transform: translateY(0) scale(0.73333333);
 	// 	}
 	// }
@@ -313,7 +323,7 @@ h3 {
 		color: white;
 
 		&:hover {
-			background-color: #4398b1;
+			background-color: $color-blue-medium;
 
 		}
 	}
@@ -324,15 +334,15 @@ h3 {
 		padding-left: 0;
 		padding-right: 0;
 		transition: border-bottom-color 200ms ease-in;
-		border-bottom: 1px solid #192330;
+		border-bottom: 1px solid $color-blue-midnight;
 
 		&:focus {
-			border-bottom-color: #4398b1;
+			border-bottom-color: $color-blue-medium;
 			box-shadow: none;
 		}
 
 		&.js-active {
-			background-color: #4398b1;
+			background-color: $color-blue-medium;
 			color: white;
 		}
 	}
