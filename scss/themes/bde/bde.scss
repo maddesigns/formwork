@@ -11,25 +11,27 @@ $fw-add-styled-inputs:         true;
 
 // Font
 $fw-font-family:               inherit;
-$fw-font-size:                 16px;
-$fw-font-color:                #000;
+$fw-font-size:                 17px;
+$fw-font-color:                #212529;
 
 // Borders
-$fw-border-width:              1px;
+$fw-border-width:              2px;
 $fw-border-style:              solid;
-$fw-border-color:              #7fb71e;
+$fw-border-color:              #CED4DA;
 $fw-border-radius:             8px;
 
 // Inputs, Textareas, Select, Option
 $fw-input-height:              48px;
 $fw-input-width:               100%;
 $fw-input-max-width:           600px;
-$fw-input-bg-color:            white;
+$fw-input-bg-color:            #fff;
+$fw-input-padding:             16px;
 
-$fw-focus-bg-color:            white;
-$fw-focus-border-color:        #000;
-$fw-focus-color:               #000;
-//$fw-custom-focus-ring: false;
+$fw-hover-border-color:        #495057;
+
+$fw-focus-border-color:        rgb(0, 195, 115);
+$fw-focus-color:               #212529;
+$fw-custom-focus-ring:         false;
 
 // buttons
 $fw-btn-class:                 '.btn';
@@ -42,53 +44,155 @@ $fw-btn-ripple:                true;
 $fw-btn-color:                 white;
 $fw-btn-bg-color:              rgb(73, 80, 87); //#495057;
 $fw-btn-hover-color:           white;
-$fw-btn-hover-bg-color:        rgb(33, 37, 41); // #212529;
+$fw-btn-hover-bg-color:        darken($fw-btn-bg-color, 15); // #212529;
 // buttons submit
 $fw-btn-submit-bg-color:       rgb(221, 0, 0); //#d00;
 $fw-btn-submit-color:          white;
-$fw-btn-submit-hover-bg-color: rgb(175, 0, 0); // #AF0000;
+$fw-btn-submit-hover-bg-color: darken($fw-btn-submit-bg-color, 15); // #AF0000;
 $fw-btn-submit-hover-color:    white;
 // buttons CTA
 $fw-btn-cta-bg-color:          rgb(0, 195, 115);//#00C373;
 $fw-btn-cta-color:             white;
-$fw-btn-cta-hover-bg-color:    rgb(0, 155, 90); //#009B5A;
+$fw-btn-cta-hover-bg-color:    darken($fw-btn-cta-bg-color, 15); //#009B5A;
 $fw-btn-cta-hover-color:       white;
 
 // custom input
-$fw-check-height:             18px;
-$fw-check-scale:              4px;
+$fw-check-height:              24px;
+$fw-check-scale:               3px;
 
-$fw-check-hover-color:        $fw-font-color;
-$fw-check-hover-bg-color:     #fff;
+$fw-check-hover-color:         $fw-font-color;
+$fw-check-hover-bg-color:      #fff;
 
-$fw-check-focus-color:        $fw-font-color;
-$fw-check-border-width:       1px;
-$fw-check-tick-width:         2px;
-$fw-check-tick-color:           #7fb71e;;
-$fw-check-checked-bullet-color: #7fb71e;
+$fw-check-focus-color:         $fw-font-color;
+$fw-check-border-width:        2px;
+$fw-check-border-color:        #495057;
+$fw-check-border-radius:       2px;
+$fw-check-tick-width:          2px;
+$fw-check-tick-color:          rgb(0, 195, 115);;
+$fw-check-checked-bullet-color:rgb(0, 195, 115);
 
-$fw-switch-knob-checked-color:  #7fb71e;
+$fw-switch-knob-checked-color: rgb(0, 195, 115);
 
-$fw-switch-rail-color:           #B8B8B8;
-$fw-switch-rail-checked-color:   rgba(#7fb71e,0.4);
-$fw-switch-knob-color:           #efefef;
-$fw-switch-knob-checked-color:   #7fb71e;
+$fw-switch-rail-color:         #B8B8B8;
+$fw-switch-rail-checked-color: rgba(rgb(0, 195, 115),0.4);
+$fw-switch-knob-color:         #efefef;
+$fw-switch-knob-checked-color: rgb(0, 195, 115);
 
 $fw-msg-color:                #dedede;
-$fw-msg-alert-color:          #D0021B;
+$fw-msg-alert-color:          rgb(221, 0, 0);
 $fw-msg-hint-color:           #2ea5c5;
-$fw-msg-success-color:        #7fb71e;
+$fw-msg-success-color:        rgb(0, 195, 115);
 $fw-msg-warning-color:        yellow;
 
-$fw-progress-bar-color:       #7fb71e;
+$fw-progress-bar-color:       rgb(0, 195, 115);
 $fw-progress-track-color:     #dedede;
 $fw-progress-track-height:    4px;
 
 @import "../../formwork";
+
+label {
+	color: #495057;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
 
 .btn {
 	font-weight: bolder;
 	line-height: 1;
 	letter-spacing: 0.03em;
 	text-transform: uppercase;
+}
+
+
+.floating-label {
+
+	> div {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-start;
+	}
+
+	input::placeholder {
+		opacity: 0;
+	}
+
+	label {
+		color: #576270;
+		transform-origin: 0 0;
+		transform: translateY(2em) translateX(0.4em) scale(1);
+		transition-property: transform, opacity, color;
+		transition-duration: 200ms;
+		padding: 0 0.5em;
+		background-color: $fw-input-bg-color;
+		cursor: text;
+	}
+
+	/* works in IE11 */
+	input:not(:-ms-input-placeholder) + label {
+		//color: $fw-focus-border-color;
+		transform: translateY(0.75em) translateX(0.7em) scale(0.7588);
+	}
+
+
+	.listbox + label,
+	input:focus + label,
+	input:not(:placeholder-shown) + label {
+		//color: $fw-focus-border-color;
+		transform: translateY(0.75em) translateX(0.7em) scale(0.7588);
+		cursor: default;
+	}
+
+	/* fallvack for MS EDGE */
+	/* https://github.com/twbs/bootstrap/blob/master/site/docs/4.3/examples/floating-labels/floating-labels.css */
+	@supports (-ms-ime-align: auto) {
+		input + label {
+			transform: translateY(0.75em) translateX(0.7em) scale(0.7588);
+		}
+	}
+
+	/* user preferes reduced motion - show label always on top on of input */
+	// @media (prefers-reduced-motion: reduce) {
+	// 	input + label {
+	// 		color: red;
+	// 		transform: translateY(0.75em) translateX(0.7em) scale(0.7588);
+	// 	}
+	// }
+
+	input:focus + label {
+		color: $fw-focus-border-color;
+	}
+
+
+	// invalid Firefox
+	input:-moz-ui-invalid {
+		box-shadow: none;
+		border-color: $fw-msg-alert-color;
+
+		+ label {
+			color: $fw-msg-alert-color;
+		}
+	}
+
+	.has-error {
+		border-color: $fw-msg-alert-color;
+	}
+	.has-error ~ .input-message--error {
+		background-color: $fw-input-bg-color;
+		font-size: 12px;
+		order: 1;
+		padding: 0.5em;
+		transform: translateY(1.2em) translateX(1em) scale(1);
+		text-transform: uppercase;
+	}
+
+	.has-error + label {
+		order: 2;
+		transform: translateY(3.6em) translateX(0.6em) scale(1);
+	}
+
+	.has-error:focus + label,
+	.has-error:not(:placeholder-shown) + label {
+		opacity: 0;
+		transform: translateY(3.6em) translateX(0.6em) scale(1);
+	}
 }

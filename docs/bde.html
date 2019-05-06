@@ -7,13 +7,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="./css/themes/bde/bde.css">
 		<style>
-			html {
-				overflow-x: hidden;
-			}
+
 			body {
 				font-family: sans-serif;
 				font-size: 17px;
-				overflow-x: hidden;
 			}
 
 			form > div,
@@ -67,8 +64,40 @@
 		<p>A Form Framework</p>
 		<hr>
 
-
 		<form action="#" method="post">
+			<h3>Floating Labels</h3>
+			<fieldset class="floating-label">
+				<fieldset class="radio-button-group">
+					<div>
+						<input id="floatinggender1" type="radio" name="gender" class="input input--radio-button " value="0">
+						<label for="floatinggender1">Mrs.</label>
+					</div>
+					<div>
+						<input id="floatinggender2" type="radio" name="gender" class="input input--radio-button " value="1">
+						<label for="floatinggender2">Mr.</label>
+					</div>
+				</fieldset>
+				<div>
+					<input id="floatingprefilled" name="prefilled" value="prefilled" placeholder="Input prefilled value" />
+					<label for="floatingprefilled">Input prefilled value</label>
+				</div>
+				<div>
+					<input type="text" id="floatingautofocus" name="autofocus" placeholder="Input with autofocus" />
+					<label for="floatingautofocus">Input with autofocus</label>
+				</div>
+				<div>
+<!-- 					<span id="floatingrequired_hint" class="input-message input-message--hint">Required <sup title="required">*</sup>
+</span>
+ -->				<input type="text" id="floatingrequired" name="required" placeholder="Required textfield " required />
+					<label for="floatingrequired">Required textfield </label>
+				</div>
+
+				<div>
+					<input type="text" id="floatingerror" name="error" aria-describedby="floatinginput_error" placeholder="Error" class="has-error" />
+					<label for="floatingerror">Textfield Error</label>
+					<em id="floatinginput_error" class="input-message input-message--error">Error</em>
+				</div>
+			</fieldset>
 
 			<h3>Fieldsets</h3>
 			<fieldset>
