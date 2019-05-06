@@ -260,7 +260,7 @@ $fw-btn-txt-hover-decoration:  underline             !default;
 	@if ($fw-btn-ripple) {
 		&.ripple {
 			&:before {
-				background-image: radial-gradient(circle, rgba(var(--btn-bg-color), 0.1) 1%, rgba(var(--btn-bg-color), 0.25) 1%);
+				background-image: radial-gradient(circle, rgba(var(--btn-bg-color), 0.15) 1%, rgba(var(--btn-bg-color), 0.25) 1%);
 			}
 		}
 	}
@@ -274,15 +274,15 @@ $fw-btn-txt-hover-decoration:  underline             !default;
 
 	&:hover,
 	&:focus {
-		background-color: rgba(var(--btn-bg-color), 0.1);
+		background-color: rgba(var(--btn-bg-color), 0.15);
 		color: rgba(var(--btn-bg-color),1);
-		border-color: rgba(var(--btn-bg-color), 0.1);
+		border-color: rgba(var(--btn-bg-color), 0.15);
 	}
 
 	@if ($fw-btn-ripple) {
 		&.ripple {
 			&:before {
-				background-image: radial-gradient(circle, rgba(var(--btn-bg-color), 0.1) 1%, rgba(var(--btn-bg-color), 0.25) 1%);
+				background-image: radial-gradient(circle, rgba(var(--btn-bg-color), 0.15) 1%, rgba(var(--btn-bg-color), 0.25) 1%);
 			}
 		}
 	}
@@ -308,7 +308,7 @@ $fw-btn-txt-hover-decoration:  underline             !default;
 			content: "";
 			background-position: center;
 			background-size: 15000%;
-			background-image: radial-gradient(circle, rgba(#fff, 0.1) 1%, rgba(#fff, 0.25) 1%);
+			background-image: radial-gradient(circle, rgba(#fff, 0.15) 1%, rgba(#fff, 0.25) 1%);
 			//border-radius: inherit; //problems with transparency
 			position: absolute;
 			left: 0;
@@ -316,6 +316,7 @@ $fw-btn-txt-hover-decoration:  underline             !default;
 			top: 0;
 			bottom: 0;
 			opacity: 0;
+			z-index: -1;
 			transition: opacity 0.3s ease-in, background-size 0.6s ease-out;
 		}
 
