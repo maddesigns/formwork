@@ -5,23 +5,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Index</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
- -->		<link rel="stylesheet" href="./css/themes/dmg/dmg.css">
+<!-- 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet"> -->
+		<link rel="stylesheet" href="./css/themes/dmg/dmg.css">
+		<link rel="stylesheet" href="./css/themes/dmg/additional-styles.css">
+
 		<style>
-			html {
-				overflow-x: hidden;
-			}
-			body {
-				background-color: #0f1318;
-				color:  white;
-				font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Open Sans",
-      "Droid Sans", "Helvetica Neue", sans-serif;
-				font-size: 16px;
-				letter-spacing: 0.1px;
-				font-weight: 400;
-				overflow-x: hidden;
-			}
 
 			form > div,
 			form > p {
@@ -81,7 +69,7 @@
 			<fieldset class="floating-label">
 				<fieldset class="radio-button-group">
 					<div>
-						<input id="gender1" type="radio" name="gender" aria-describedby="gender1-message" class="input input--radio-button " value="0">
+						<input id="gender1" type="radio" name="gender" aria-describedby="gender1-message" class="input input--radio-button " value="0" checked>
 						<label for="gender1">Mrs.</label>
 					</div>
 					<div>
@@ -89,6 +77,10 @@
 						<label for="gender2">Mr.</label>
 					</div>
 				</fieldset>
+
+				<div class="input-wrap input--reversed"><input class="input input--text input--error" id="1name" name="patient.name" type="text" required="" placeholder="[object Object]" aria-describedby="1name-message" aria-required="true" autocomplete="off" value=""><label class="" for="1name">First Name</label><span id="1name-message" class="input-message input-message--error">This info is mandatory</span></div>
+				<div class="combobox input--reversed" role="combobox" aria-haspopup="listbox" aria-owns="cb1-combobox" aria-expanded="false"><input class="input " id="autocomplete-1-surname" name="patient.surname" type="text" required="" placeholder="[object Object]" aria-describedby="autocomplete-1-surname-message" aria-required="true" aria-autocomplete="list" aria-controls="cb1-combobox" aria-activedescendant="selected_option" autocomplete="off" value=""><label class="" for="autocomplete-1-surname">Last Name</label><span class="clear-input"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-close" aria-labelledby="svgicon-38_title" role="img" width="16" height="16" viewBox="0 0 16 16" stroke="#fff" fill="none" focusable="false"><title id="svgicon-38_title">icon-close</title><line x1="2" x2="14" y1="14" y2="2"></line><line x1="14" x2="2" y1="14" y2="2"></line></svg></span><div class="listbox__options-wrapper"><ul class="listbox__options" id="cb1-combobox" role="listbox" aria-label="States" tabindex="0" hidden=""></ul></div></div>
+
 				<div>
 					<input id="prefilled" name="prefilled" value="prefilled" placeholder="Input prefilled value" />
 					<label for="prefilled">Input prefilled value</label>

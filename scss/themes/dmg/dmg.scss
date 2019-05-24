@@ -21,80 +21,84 @@ $fw-fieldset-bare:             true;
 $fw-centered:                  false;
 $fw-display:                   block;
 $fw-styled-inputs:             true;  // styled radio/checkbox/select/range
-$fw-add-styled-inputs:         false;
+$fw-add-styled-inputs:          false;
 
 // Font
-$fw-font-family:               "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+$fw-font-family:
+      "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
       "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Open Sans",
       "Droid Sans", "Helvetica Neue", sans-serif;
-$fw-font-size:                 14px;
-$fw-force-font-size:           true;
-$fw-font-color:                $color-white;
-$fw-font-weight:               600;
+$fw-font-size:                  14px;
+$fw-force-font-size:            true;
+$fw-font-color:                 $color-gray-light;
+$fw-font-weight:                600;
 
 // Borders
-$fw-border-width:              1px;
-$fw-border-style:              solid;
-$fw-border-color:              $color-blue-midnight;
-$fw-border-radius:             2px;
+$fw-border-width:               1px;
+$fw-border-style:               solid;
+$fw-border-color:               $color-blue-midnight;
+$fw-border-radius:              2px;
 
 // Inputs, Textareas, Select, Option
-$fw-input-height:              32px;
-$fw-input-width:               100%;
-$fw-input-max-width:           600px;
-$fw-input-bg-color:            transparent;
-//$fw-input-padding:             0;
+$fw-input-height:               32px;
+$fw-input-width:                100%;
+$fw-input-max-width:            600px;
+$fw-input-bg-color:             transparent;
+$fw-hover-color:                $color-white;
 
-$fw-hover-color:               $color-white;
+//$fw-custom-focus-ring:          false;
+$fw-focus-bg-color:             transparent;
+$fw-focus-border-color:         $color-white;
+$fw-focus-border-width:         0;
+$fw-focus-color:                $color-white;
+$fw-focus-opacity:              1;
 
-$fw-focus-bg-color:            transparent;
-$fw-focus-border-color:        $color-blue-medium;
-$fw-focus-border-width:        0;
-$fw-focus-color:               $color-white;
-$fw-focus-opacity:             0.4;
-$fw-select-arrow-width:        8px;
-$fw-select-arrow-height:       6px;
-$fw-select-arrow-fill:         none;
-$fw-select-arrow-color:        #757b83;
-$fw-select-arrow-bg-color:     none;
-$fw-select-arrow-thickness:    1px;
-$fw-select-arrow-radius:       0;
+$fw-select-arrow-width:         16px;
+$fw-select-arrow-height:        16px;
+$fw-select-arrow-fill:          none;
+$fw-select-arrow-color:         $fw-font-color;
+$fw-select-arrow-bg-color:      none;
+$fw-select-arrow-thickness:     1px;
+$fw-select-arrow-radius:        0;
 
 // buttons
-$fw-btn-class:                 '.btn';
-$fw-btn-padding:               5px 10px;
-$fw-btn-font-size:             11px;
-$fw-btn-width:                 auto;
-$fw-btn-height:                40px;
-$fw-btn-radius:                0;
-$fw-btn-transition:            'background-color 100ms ease-in';
-$fw-btn-color:                 $color-white;
-$fw-btn-bg-color:              $color-almost-black;
-$fw-btn-hover-color:           $color-white;
-$fw-btn-hover-bg-color:        $color-blue-medium;
+$fw-btn-class:                  '.btn';
+$fw-btn-padding:                5px 10px;
+$fw-btn-font-size:              11px;
+$fw-btn-width:                  auto;
+$fw-btn-height:                 40px;
+$fw-btn-radius:                 0;
+$fw-btn-transition:             'background-color 100ms ease-in';
+$fw-btn-color:                  $color-white;
+$fw-btn-bg-color:               $color-almost-black;
+$fw-btn-hover-color:            $color-white;
+$fw-btn-hover-bg-color:         $color-blue-medium;
+$fw-btn-focus-color:            $color-white;
+$fw-btn-focus-bg-color:         $color-blue-medium;
+
 // buttons submit
-$fw-btn-submit-bg-color:       $color-blue-medium;
-$fw-btn-submit-color:          $color-white;
-$fw-btn-submit-hover-bg-color: rgb(46, 165, 197);
-$fw-btn-submit-hover-color:    $color-white;
+$fw-btn-submit-bg-color:        $color-blue-medium;
+$fw-btn-submit-color:           $color-white;
+$fw-btn-submit-hover-bg-color:  $color-blue-medium;
+$fw-btn-submit-hover-color:     $color-white;
 // buttons CTA
-$fw-btn-cta-bg-color:          rgb(46, 165, 197);
-$fw-btn-cta-color:             $color-white;
-$fw-btn-cta-hover-bg-color:    rgb(25, 35, 48);
-$fw-btn-cta-hover-color:       $color-white;
+$fw-btn-cta-bg-color:           rgb(46, 165, 197);
+$fw-btn-cta-color:              $color-white;
+$fw-btn-cta-hover-bg-color:     $color-gray-dark;
+$fw-btn-cta-hover-color:        $color-white;
 
 // custom input
-$fw-check-height:               18px;
+$fw-check-height:               14px;
 $fw-check-scale:                3px;
-$fw-check-input-color:          red;
+$fw-check-input-bg-color:       $color-blue-midnight;
 $fw-check-hover-color:          $color-white;
-$fw-check-hover-bg-color:       $color-blue-medium;
+$fw-check-hover-bg-color:       transparent;
 $fw-check-hover-border-color:   $color-blue-medium;
 $fw-check-focus-color:          $color-white;
 $fw-check-focus-border-color:   $color-white;
 $fw-check-border-width:         1px;
 $fw-check-border-radius:        2px;
-$fw-check-border-color:         #576270;
+$fw-check-border-color:         $color-gray-light;
 $fw-check-tick-width:           2px;
 $fw-check-tick-color:           $color-white;
 
@@ -105,36 +109,34 @@ $fw-check-checked-color:        $color-white;
 
 $fw-check-tick-color:           $color-blue-medium;
 $fw-check-tick-bg-color:        $color-blue-midnight;
+
+$fw-switch-knob-checked-color:  $color-blue-medium;
+$fw-switch-rail-color:          #B8B8B8;
+$fw-switch-rail-checked-color:  rgba(67, 152, 177,0.4);
+$fw-switch-knob-color:          #efefef;
 $fw-switch-knob-checked-color:  $color-blue-medium;
 
-$fw-switch-rail-color:           #B8B8B8;
-$fw-switch-rail-checked-color:   rgba(67, 152, 177,0.4);
-$fw-switch-knob-color:           #efefef;
-$fw-switch-knob-checked-color:   $color-blue-medium;
+$fw-msg-color:                  $color-gray-light;
+$fw-msg-alert-color:            $color-orange;
+$fw-msg-hint-color:             $color-blue-cool;
+$fw-msg-success-color:          $color-blue-medium;
 
-$fw-msg-color:                #dedede;
-$fw-msg-alert-color:          #D0021B;
-$fw-msg-hint-color:           #2ea5c5;
-$fw-msg-success-color:        $color-blue-medium;
-$fw-msg-warning-color:        yellow;
+$fw-progress-bar-color:         $color-blue-cool;
+$fw-progress-track-color:       $color-gray-light;
+$fw-progress-track-height:      1px;
 
-$fw-progress-bar-color:       $color-blue-medium;
-$fw-progress-track-color:     #dedede;
-$fw-progress-track-height:    4px;
+$fw-thumb-color:                $color-blue-medium;
+$fw-thumb-height:               11px;
+$fw-thumb-width:                $fw-thumb-height;
+$fw-thumb-border-width:         0;
 
-
-$fw-thumb-color:              $color-blue-medium;
-$fw-thumb-height:             11px;
-$fw-thumb-width:              $fw-thumb-height;
-$fw-thumb-border-width:       0;
-
-$fw-track-bg-color:           #757b83;
-$fw-track-height:             1px;
-$fw-track-width:              100%;
-$fw-track-border-width:       ($fw-thumb-height - $fw-track-height);
-$fw-track-border-style:       $fw-border-style;
-$fw-track-border-color:       rgba(0,0,0,0);
-$fw-track-border-radius:      0;
+$fw-track-bg-color:             #757b83;
+$fw-track-height:               1px;
+$fw-track-width:                100%;
+$fw-track-border-width:         ($fw-thumb-height - $fw-track-height);
+$fw-track-border-style:         $fw-border-style;
+$fw-track-border-color:         rgba(0,0,0,0);
+$fw-track-border-radius:        0;
 
 
 @import "../../formwork";
@@ -151,210 +153,3 @@ label {
 	--btn-bg-transparency: 0.1;
 }
 
-h3 {
-	color: white;
-}
-
-
-.floating-label {
-
-	> div {
-		display: flex;
-		flex-direction: column-reverse;
-		margin: 2rem;
-		position: relative;
-
-		// > * {
-		// 	display: block;
-		// }
-	}
-
-	input::placeholder {
-		color: #444;
-		opacity: 0;
-	}
-
-	input {
-		color: white;
-		border-width: 0 0 1px 0;
-		max-width: 100%;
-		padding-right: 1.5rem;
-		padding-left: 0;
-		text-overflow: ellipsis;
-		border-radius: 0;
-		//border-bottom: 1px solid;
-
-		// &[placeholder] {
-		// 	color: #576270;
-		// }
-	}
-
-	label {
-		color: #576270;
-		transform-origin: 0 0;
-		transform: translateY(1.65em) scale(1);
-		transition: transform 200ms, opacity 200ms;
-		font-size: 14px;
-		font-weight: 600;
-	}
-
-	/* works in IE11 */
-	input:not(:-ms-input-placeholder) + label {
-		color: $color-blue-medium;
-		transform: translateY(0) scale(0.73333333);
-	}
-
-
-	.listbox + label,
-	input:focus + label,
-	input:not(:placeholder-shown) + label {
-		color: $color-blue-medium;
-		transform: translateY(0) scale(0.73333333);
-	}
-
-	/* fallvack for MS EDGE */
-	/* https://github.com/twbs/bootstrap/blob/master/site/docs/4.3/examples/floating-labels/floating-labels.css */
-	@supports (-ms-ime-align: auto) {
-		input + label {
-			transform: translateY(0) scale(0.73333333);
-		}
-	}
-
-
-	/* user preferes reduced motion - show label always on top on of input */
-	// @media (prefers-reduced-motion: reduce) {
-	// 	input + label {
-	// 		color: $color-blue-medium;
-	// 		transform: translateY(0) scale(0.73333333);
-	// 	}
-	// }
-
-	// invalid Firefox
-	input:-moz-ui-invalid {
-		box-shadow: none;
-		border-bottom-color: $fw-msg-alert-color;
-	}
-
-	.has-error {
-		border-bottom-color: $fw-msg-alert-color;
-	}
-	.has-error ~ .input-message--error {
-		font-size: 11px;
-		order: 1;
-	}
-
-	.has-error + label {
-		order: 2;
-		transform: translateY(3.2em) scale(1);
-	}
-
-	.has-error:focus + label,
-	.has-error:not(:placeholder-shown) + label {
-		opacity: 0;
-		transform: translateY(2.9em) scale(1);
-	}
-
-
-	.clear-input {
-		cursor: pointer;
-		font-family: inherit;
-		display: inline-flex;
-		align-self: flex-end;
-		background-color: transparent;
-		color: inherit;
-		border: none;
-		position: absolute;
-		z-index: 1;
-		opacity: 0;
-		padding: 0.5em 0;
-		width: 1.5em;
-		transform: translateX(25%);
-		justify-content: center;
-		transition: opacity 300ms ease-in;
-		touch-action: manipulation;
-		visibility: hidden;
-	}
-
-	.clear-input:hover,
-	input:not(:placeholder-shown):hover ~ .clear-input,
-	input:not(:placeholder-shown):focus ~ .clear-input {
-		opacity: 1;
-		visibility: visible;
-	}
-
-
-	.radio-button-group {
-		margin: 2rem;
-
-		input + label {
-			color: #576270;
-			transform-origin: 0 0;
-			transform: none;
-			font-size: 14px;
-			font-weight: 600;
-		}
-
-		input:checked + label {
-			color: white;
-		}
-
-		div {
-			display: inline-flex;
-			margin-right: 1em;
-		}
-	}
-
-	.listbox {
-		max-width: none;
-
-		&.has-error + label {
-			visibility: hidden;
-		}
-	}
-	.listbox__wrapper,
-	.listbox__options {
-		border-radius: 0;
-		border: none;
-		max-width: none;
-	}
-
-	.listbox__options [role="option"] {
-		padding: 1em;
-		color: white;
-
-		&:hover {
-			background-color: $color-blue-medium;
-
-		}
-	}
-
-	.listbox__trigger {
-		height: auto;
-
-		padding-left: 0;
-		padding-right: 0;
-		transition: border-bottom-color 200ms ease-in;
-		border-bottom: 1px solid $color-blue-midnight;
-
-		&:focus {
-			border-bottom-color: $color-blue-medium;
-			box-shadow: none;
-		}
-
-		&.js-active {
-			background-color: $color-blue-medium;
-			color: white;
-		}
-	}
-
-}
-
-.listbox__options-wrapper {
-	background-color: #0f1318;
-}
-
-select {
-	* {
-		color: black;
-	}
-}

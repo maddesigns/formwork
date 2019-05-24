@@ -1,0 +1,242 @@
+
+$color-almost-black:          rgb(10, 17, 26); // #0a111a
+$color-blue-dark:             rgb(18, 28, 41); // #121c29
+$color-blue-midnight:         rgb(25, 35, 48); // #192330
+$color-gray-dark:             rgb(32, 42, 54); // #202a36
+$color-gray-medium:           rgb(40, 52, 68); // #283444
+$color-gray-light:            rgb(145, 160, 179); // #91a0b3
+$color-white:                 rgb(255, 255, 255); // #ffffff
+$color-blue-medium:           rgb(67, 152, 177); // #4398b1
+$color-blue-light:            rgb(134, 198, 216); // #86c6d8
+$color-blue-bright:           rgb(0, 80, 162); // #0050a2
+$color-blue-cool:             rgb(77, 175, 204); // #4dafcc
+$color-orange:                rgb(222, 73, 53); // #de4935
+
+$fw-msg-color:                $color-gray-light;
+$fw-msg-alert-color:          $color-orange;
+$fw-msg-hint-color:           $color-blue-cool;
+$fw-msg-success-color:        $color-blue-medium;
+
+html {
+	overflow-x: hidden;
+}
+
+body {
+	background-color: $color-almost-black;
+	color: $color-white;
+	font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Open Sans",
+"Droid Sans", "Helvetica Neue", sans-serif;
+	font-size: 16px;
+	letter-spacing: 0.1px;
+	font-weight: 400;
+	overflow-x: hidden;
+}
+
+h3 {
+	color: white;
+}
+
+
+.floating-label {
+
+	> div {
+		display: flex;
+		flex-direction: column-reverse;
+		margin: 2rem;
+		position: relative;
+
+		// > * {
+		// 	display: block;
+		// }
+	}
+
+	input::placeholder {
+		color: #444;
+		opacity: 0;
+	}
+
+	input {
+		color: white;
+		border-width: 0 0 1px 0;
+		max-width: 100%;
+		padding-right: 1.5rem;
+		padding-left: 0;
+		text-overflow: ellipsis;
+		border-radius: 0;
+		//border-bottom: 1px solid;
+
+		// &[placeholder] {
+		// 	color: #576270;
+		// }
+	}
+
+	label {
+		color: #576270;
+		transform-origin: 0 0;
+		transform: translateY(1.65em) scale(1);
+		transition: transform 200ms, opacity 200ms;
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	/* works in IE11 */
+	input:not(:-ms-input-placeholder) + label {
+		color: $color-blue-medium;
+		transform: translateY(0) scale(0.73333333);
+	}
+
+
+	.listbox + label,
+	input:focus + label,
+	input:not(:placeholder-shown) + label {
+		color: $color-blue-medium;
+		transform: translateY(0) scale(0.73333333);
+	}
+
+	/* fallvack for MS EDGE */
+	/* https://github.com/twbs/bootstrap/blob/master/site/docs/4.3/examples/floating-labels/floating-labels.css */
+	@supports (-ms-ime-align: auto) {
+		input + label {
+			transform: translateY(0) scale(0.73333333);
+		}
+	}
+
+
+	/* user preferes reduced motion - show label always on top on of input */
+	// @media (prefers-reduced-motion: reduce) {
+	// 	input + label {
+	// 		color: $color-blue-medium;
+	// 		transform: translateY(0) scale(0.73333333);
+	// 	}
+	// }
+
+	// invalid Firefox
+	input:-moz-ui-invalid {
+		box-shadow: none;
+		border-bottom-color: $fw-msg-alert-color;
+	}
+
+	.has-error {
+		border-bottom-color: $fw-msg-alert-color;
+	}
+	.has-error ~ .input-message--error {
+		font-size: 11px;
+		order: 1;
+	}
+
+	.has-error + label {
+		order: 2;
+		transform: translateY(3.2em) scale(1);
+	}
+
+	.has-error:focus + label,
+	.has-error:not(:placeholder-shown) + label {
+		opacity: 0;
+		transform: translateY(2.9em) scale(1);
+	}
+
+
+	.clear-input {
+		cursor: pointer;
+		font-family: inherit;
+		display: inline-flex;
+		align-self: flex-end;
+		background-color: transparent;
+		color: inherit;
+		border: none;
+		position: absolute;
+		z-index: 1;
+		opacity: 0;
+		padding: 0.5em 0;
+		width: 1.5em;
+		transform: translateX(25%);
+		justify-content: center;
+		transition: opacity 300ms ease-in;
+		touch-action: manipulation;
+		visibility: hidden;
+	}
+
+	.clear-input:hover,
+	input:not(:placeholder-shown):hover ~ .clear-input,
+	input:not(:placeholder-shown):focus ~ .clear-input {
+		opacity: 1;
+		visibility: visible;
+	}
+
+
+	.radio-button-group {
+		margin: 2rem;
+
+		input + label {
+			color: #576270;
+			transform-origin: 0 0;
+			transform: none;
+			font-size: 14px;
+			font-weight: 600;
+		}
+
+		input:checked + label {
+			color: white;
+		}
+
+		div {
+			display: inline-flex;
+			margin-right: 1em;
+		}
+	}
+
+	.listbox {
+		max-width: none;
+
+		&.has-error + label {
+			visibility: hidden;
+		}
+	}
+	.listbox__wrapper,
+	.listbox__options {
+		border-radius: 0;
+		border: none;
+		max-width: none;
+	}
+
+	.listbox__options [role="option"] {
+		padding: 1em;
+		color: white;
+
+		&:hover {
+			background-color: $color-blue-medium;
+
+		}
+	}
+
+	.listbox__trigger {
+		height: auto;
+
+		padding-left: 0;
+		padding-right: 0;
+		transition: border-bottom-color 200ms ease-in;
+		border-bottom: 1px solid $color-blue-midnight;
+
+		&:focus {
+			border-bottom-color: $color-blue-medium;
+			box-shadow: none;
+		}
+
+		&.js-active {
+			background-color: $color-blue-medium;
+			color: white;
+		}
+	}
+
+}
+
+.listbox__options-wrapper {
+	background-color: #0f1318;
+}
+
+select {
+	* {
+		color: black;
+	}
+}
