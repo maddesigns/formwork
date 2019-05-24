@@ -106,8 +106,6 @@ $fw-check-checked-color:        inherit                !default;
 			//color: $fw-check-input-color;
 			font-size: $fw-check-font-size;
 			padding: $fw-check-padding;
-			-webkit-user-select: none;
-			-moz-user-select: none;
 			user-select: none;
 			transition: all 100ms ease-out;
 
@@ -115,18 +113,17 @@ $fw-check-checked-color:        inherit                !default;
 			-webkit-touch-callout: none;
 
 			&:before {
-				box-sizing: content-box;
 				content: '';
 				flex-shrink: 0;
 
 				margin-right: $fw-check-width * 0.5;
-				width: $fw-check-width - ($fw-check-border-width * 2);
-				height: $fw-check-height - ($fw-check-border-width * 2);
+				width: $fw-check-width;
+				height: $fw-check-height;
+
 				// @media (hover: hover) {
 				// 	transition: all 300ms ease-out;
 				// }
 			}
-
 
 			&.u-align-top {
 				align-items: flex-start;
@@ -170,7 +167,6 @@ $fw-check-checked-color:        inherit                !default;
 				background-color: $fw-check-input-bg-color;
 				border: $fw-check-border-width solid $fw-check-border-color;
 				border-radius: $fw-check-border-radius;
-				background-color: $fw-check-input-bg-color;
 				background-image: unquote($fw-check-tick-uri);
 				background-repeat: no-repeat;
 				background-position: 50%;
