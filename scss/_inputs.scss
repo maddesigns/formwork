@@ -34,7 +34,7 @@ textarea {
 	@else {
 		font-size: $fw-font-size;
 	}
-
+	min-width: 0; // for flexbox env
 	max-width: $fw-input-max-width;
 	padding: $fw-input-padding;
 	width: $fw-input-width;

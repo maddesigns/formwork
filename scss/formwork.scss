@@ -3,7 +3,6 @@
 @import "variables";
 @import "functions";
 @import "form_reset";
-@import "errors";
 //
 @import "fieldset";
 @import "placeholder";
@@ -23,6 +22,7 @@
 @import "spinbutton";
 @import "listbox";
 
+@import "errors";
 @import "disabled";
 // form:focus-within {
 // 	background-color: pink;//$fw-focus-bg-color;
