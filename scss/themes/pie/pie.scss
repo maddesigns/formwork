@@ -1,0 +1,83 @@
+// Theming for Go
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:             true;
+
+// Layout
+$fw-centered:                  false;
+$fw-display:                   block;
+$fw-styled-inputs:             true;  // styled radio/checkbox/select/range
+$fw-add-styled-inputs:         true;
+
+// Font
+$fw-font-family:               inherit;
+$fw-font-size:                 16px;
+$fw-font-color:                #333;
+
+// Borders
+$fw-border-width:              1px;
+$fw-border-style:              solid;
+$fw-border-color:              #1c6a77;
+$fw-border-radius:             4px;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:              38px;
+$fw-input-width:               100%;
+$fw-input-max-width:           600px;
+$fw-input-bg-color:            white;
+$fw-input-padding:             8px 16px;
+
+$fw-focus-bg-color:            white;
+$fw-focus-border-color:        #1c6a77;
+$fw-focus-color:               #000;
+
+// buttons
+$fw-btn-class:                 '.btn';
+$fw-btn-padding:               8px 16px;
+$fw-btn-width:                 auto;
+$fw-btn-color:                 white;
+$fw-btn-bg-color:              rgb(136, 136, 136)    !default; // #888888
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        rgb(28, 106, 119); // #1c6a77;
+// buttons submit
+$fw-btn-submit-bg-color:       rgb(208, 213, 27); //#d0d51b;
+$fw-btn-submit-color:          #333;
+$fw-btn-submit-hover-bg-color: rgb(163, 168, 21); // #a3a815;
+$fw-btn-submit-hover-color:    #333;
+// buttons CTA
+$fw-btn-cta-bg-color:          rgb(28, 106, 119); // #1c6a77;
+$fw-btn-cta-color:             white;
+$fw-btn-cta-hover-bg-color:    rgb(18, 69, 78); // #12454e
+$fw-btn-cta-hover-color:       white;
+
+// custom input
+$fw-check-height:             18px;
+$fw-check-scale:              4px;
+
+$fw-check-hover-color:        $fw-font-color;
+$fw-check-hover-bg-color:     #fff;
+
+$fw-check-focus-color:        $fw-font-color;
+$fw-check-border-width:       1px;
+$fw-check-tick-width:         2px;
+$fw-check-tick-color:           #1c6a77;
+$fw-check-checked-bullet-color: #1c6a77;
+
+$fw-switch-knob-checked-color:  #1c6a77;
+
+$fw-switch-rail-color:           #B8B8B8;
+$fw-switch-rail-checked-color:   rgba(#1c6a77,0.4);
+$fw-switch-knob-color:           #efefef;
+$fw-switch-knob-checked-color:   #1c6a77;
+
+$fw-msg-color:                #9EA0A5;
+$fw-msg-alert-color:          #a40f0f;
+$fw-msg-hint-color:           #1665D8;
+$fw-msg-success-color:        #1c6a77;
+$fw-msg-warning-color:        #d0d51b;
+
+$fw-progress-bar-color:       #1c6a77;
+$fw-progress-track-color:     #9EA0A5;
+$fw-progress-track-height:    4px;
+
+@import "../../formwork";

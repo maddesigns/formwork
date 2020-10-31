@@ -43,7 +43,6 @@ $fw-select-arrow:
 '%22%20points%3D%225%2010%2015%2020%2025%2010%22/%3E%3C/svg%3E%3C/svg%3E)';
 
 
-
 select {
 	background-color: $fw-input-bg-color;
 	height: $fw-input-height;
@@ -69,6 +68,7 @@ select {
 		&:focus {
 			color: $fw-focus-color;
 		}
+
 		// &:focus,
 		// &:hover {
 		// 	border-color: black;
@@ -94,13 +94,11 @@ select {
 		}
 	}
 
-
 	// Fix Firefox dotted focusring
 	&:-moz-focusring {
 		color: transparent;
 		text-shadow: 0 0 0 $fw-focus-color;
 	}
-
 
 	[dir="rtl"] &,
 	:root:lang(ar) &,
@@ -124,4 +122,8 @@ select {
 			color: grey;
 		}
 	}
+}
+
+.select--inline {
+	width: auto;
 }
