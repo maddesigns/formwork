@@ -1,18 +1,17 @@
 version: 2.1
 orbs:
-	agent: percy/agent@0.1.3
+  agent: percy/agent@0.1.3
 jobs:
-	build:
-
-	steps:
-	  - checkout
-	  - run:
-		  name: install dependencies
-		  command: |
-			npm install
-	  # run tests!
-	  - run:
-		  name: run tests
-		  command: |
-			npm run build
-			npx percy snapshot docs
+  build:
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+          npm install
+      # run tests!
+      - run:
+          name: run tests
+          command: |
+          npm run build
+          npx percy snapshot docs
