@@ -1,0 +1,83 @@
+// Theming for Go
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:             true;
+
+// Layout
+$fw-centered:                  false;
+$fw-display:                   block;
+$fw-styled-inputs:             true;  // styled radio/checkbox/select/range
+$fw-add-styled-inputs:         true;
+
+// Font
+$fw-font-family:               inherit;
+$fw-font-size:                 16px;
+$fw-font-color:                #3E3F42;
+
+// Borders
+$fw-border-width:              1px;
+$fw-border-style:              solid;
+$fw-border-color:              #E2E5ED;
+$fw-border-radius:             4px;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:              38px;
+$fw-input-width:               100%;
+$fw-input-max-width:           600px;
+$fw-input-bg-color:            white;
+$fw-input-padding:             8px 16px;
+
+$fw-focus-bg-color:            white;
+$fw-focus-border-color:        #1665D8;
+$fw-focus-color:               #000;
+
+// buttons
+$fw-btn-class:                 '.btn';
+$fw-btn-padding:               8px 16px;
+$fw-btn-width:                 auto;
+$fw-btn-color:                 white;
+$fw-btn-bg-color:              rgb(102, 102, 102); // #666
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        rgb(46, 165, 197); // #2ea5c5;
+// buttons submit
+$fw-btn-submit-bg-color:       rgb(52, 170, 68); // #34AA44;
+$fw-btn-submit-color:          white;
+$fw-btn-submit-hover-bg-color: rgb(39, 163, 55); // #27A337;
+$fw-btn-submit-hover-color:    white;
+// buttons CTA
+$fw-btn-cta-bg-color:          rgb(22, 101, 216); // #1665D8;
+$fw-btn-cta-color:             white;
+$fw-btn-cta-hover-bg-color:    rgb(0, 0, 0); // #000
+$fw-btn-cta-hover-color:       white;
+
+// custom input
+$fw-check-height:             18px;
+$fw-check-scale:              4px;
+
+$fw-check-hover-color:        $fw-font-color;
+$fw-check-hover-bg-color:     #fff;
+
+$fw-check-focus-color:        $fw-font-color;
+$fw-check-border-width:       1px;
+$fw-check-tick-width:         2px;
+$fw-check-tick-color:           #34AA44;;
+$fw-check-checked-bullet-color: #34AA44;
+
+$fw-switch-knob-checked-color:  #34AA44;
+
+$fw-switch-rail-color:           #B8B8B8;
+$fw-switch-rail-checked-color:   rgba(#34AA44,0.4);
+$fw-switch-knob-color:           #efefef;
+$fw-switch-knob-checked-color:   #34AA44;
+
+$fw-msg-color:                #9EA0A5;
+$fw-msg-alert-color:          #E6492D;
+$fw-msg-hint-color:           #1665D8;
+$fw-msg-success-color:        #34AA44;
+$fw-msg-warning-color:        #FACF55;
+
+$fw-progress-bar-color:       #34AA44;
+$fw-progress-track-color:     #9EA0A5;
+$fw-progress-track-height:    4px;
+
+@import "../../formwork";

@@ -1,0 +1,88 @@
+// Theming for Go
+// customers colors
+$color-brand1:      hsl(3.3,60.2%,41.4%) !default;
+
+// default colors
+$color-white:       hsl(  0,   0%, 100%) !default;
+$color-black:       hsl(  0,   0%,   0%) !default;
+
+$color-darkergrey:  hsl(  0,   0%,13.7%) !default;
+$color-darkgrey:    hsl(  0,   0%,  20%) !default;
+$color-grey:        hsl(  0,   0%,  42%) !default;
+$color-lightgrey:   hsl(  0,   0%,78.4%) !default;
+$color-lightergrey: hsl(  0,   0%,  97%) !default;
+
+// Fieldset & Legend Styling
+$fw-fieldset-bare:             true;
+
+// Layout
+$fw-centered:                  false;
+$fw-display:                   block;
+$fw-styled-inputs:             true;  // styled radio/checkbox/select/range
+$fw-add-styled-inputs:         true;
+
+// Font
+$fw-font-family:               inherit;
+$fw-font-size:                 16px;
+$fw-font-color:                $color-darkergrey;
+
+// Borders
+$fw-border-width:              1px;
+$fw-border-style:              solid;
+$fw-border-color:              #FAFAFA;
+$fw-input-bg-color:            #FAFAFA;
+$fw-border-radius:             0;
+
+// Inputs, Textareas, Select, Option
+$fw-input-height:              48px;
+$fw-input-width:               100%;
+$fw-input-max-width:           none;
+$fw-input-bg-color:            #FAFAFA;
+
+$fw-focus-bg-color:            #FAFAFA;
+$fw-focus-border-color:        $color-darkergrey;
+$fw-focus-color:               black;
+$fw-focus-border-width:        2px;
+$fw-focus-opacity:             0.2;
+
+$fw-msg-alert-color: $color-brand1;
+
+// buttons
+$fw-btn-class:                 '.btn';
+$fw-btn-width:                 'auto';
+$fw-btn-color:                 #232323;
+$fw-btn-bg-color:              white;
+$fw-btn-border:                1px solid #232323;
+$fw-btn-hover-color:           white;
+$fw-btn-hover-bg-color:        $color-brand1;
+$fw-btn-focus-color:           white;
+$fw-btn-focus-bg-color:        $color-brand1;
+
+// buttons submit
+$fw-btn-submit-bg-color:       $color-darkergrey;
+$fw-btn-submit-color:          white;
+$fw-btn-submit-hover-bg-color: black;
+$fw-btn-submit-hover-color:    white;
+
+// buttons CTA
+$fw-btn-cta-bg-color:          $color-brand1;
+$fw-btn-cta-color:             white;
+$fw-btn-cta-hover-bg-color:    $color-darkergrey;
+$fw-btn-cta-hover-color:       white;
+
+// select
+$fw-select-arrow-color:        #828282;
+$fw-select-arrow-width:        16px;
+$fw-select-arrow-height:       16px;
+$fw-select-arrow-thickness:    1px;
+
+@import "../../formwork";
+
+.btn {
+	text-transform: uppercase;
+
+	&:focus,
+	&:hover {
+		border-color: rgb(var(--btn-bg-color));
+	}
+}

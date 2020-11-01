@@ -111,12 +111,12 @@ label.has-error {
 // }
 
 
-:valid,
-:invalid {
+input:valid,
+input:invalid {
 	transition: border-color 300ms 0s;
 }
 
-:invalid:not(:required) {
+input:invalid:not(:required) {
 	border-color: $fw-msg-alert-color;
 	transition: border-color 300ms 0s;
 	outline: none;
