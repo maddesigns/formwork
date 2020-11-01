@@ -8,10 +8,10 @@ jobs:
       - run:
           name: install dependencies
           command: |
-          npm install
+            npm install
       # run tests!
       - run:
           name: run tests
           command: |
-          npm run build
-          npx percy snapshot docs
+            npm run build
+            npx percy snapshot docs
