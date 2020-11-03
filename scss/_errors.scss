@@ -26,6 +26,15 @@ form:invalid {
 		display: inline-block;
 		vertical-align: text-top;
 	}
+
+	* {
+		color: inherit;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
 }
 
 .#{$fw-msg-class}--hint {
@@ -75,9 +84,9 @@ label.has-error {
 	// 	border-color: $fw-msg-success-color;
 	// }
 
-	~ em {
-		color: $fw-msg-alert-color;
-	}
+	// ~ em {
+	// 	color: $fw-msg-alert-color;
+	// }
 }
 
 // .error-message {
@@ -102,12 +111,12 @@ label.has-error {
 // }
 
 
-:valid,
-:invalid {
+input:valid,
+input:invalid {
 	transition: border-color 300ms 0s;
 }
 
-:invalid:not(:required) {
+input:invalid:not(:required) {
 	border-color: $fw-msg-alert-color;
 	transition: border-color 300ms 0s;
 	outline: none;

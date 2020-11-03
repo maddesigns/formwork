@@ -43,7 +43,6 @@ $fw-select-arrow:
 '%22%20points%3D%225%2010%2015%2020%2025%2010%22/%3E%3C/svg%3E%3C/svg%3E)';
 
 
-
 select {
 	background-color: $fw-input-bg-color;
 	height: $fw-input-height;
@@ -69,6 +68,7 @@ select {
 		&:focus {
 			color: $fw-focus-color;
 		}
+
 		// &:focus,
 		// &:hover {
 		// 	border-color: black;
@@ -101,7 +101,6 @@ select {
 			background-image: url(data:image/svg+xml,#{$fw-select-arrow-disabled});
 		}
 	}
-
 
 	// Fix Firefox dotted focusring
 	&:-moz-focusring {
@@ -190,4 +189,8 @@ select option:hover {
 			color: grey;
 		}
 	}
+}
+
+.select--inline {
+	width: auto;
 }
