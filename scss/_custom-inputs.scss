@@ -23,7 +23,7 @@ $fw-check-focus-border-color:   $fw-focus-border-color !default;
 $fw-check-tick-width:           2px                    !default;
 $fw-check-tick-bg-color:        $fw-input-bg-color     !default;
 $fw-check-tick-color:           $fw-font-color         !default;
-$fw-check-tick-uri:             'url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22'+ $fw-check-width +'%22%20height%3D%22'+ $fw-check-height +'%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpolyline%20fill%3D%22none%22%20vector-effect%3D%22non-scaling-stroke%22%20stroke%3D%22'+ encodecolor($fw-check-tick-color) +'%22'+ if($fw-check-border-radius != 0, '%20stroke-linecap%3D%22round%22', '') +'%20stroke-width%3D%22'+ str-slice($fw-check-tick-width + unquote("") , 0 , 1) +'%22%20points%3D%223%207.5%206.3%2010.8%2012.9%204.8%22/%3E%0A%3C/svg%3E)' !default;
+$fw-check-tick-uri:             'url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22'+ $fw-check-width +'%22%20height%3D%22'+ $fw-check-height +'%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpolyline%20fill%3D%22none%22%20vector-effect%3D%22non-scaling-stroke%22%20stroke%3D%22'+ encodecolor($fw-check-tick-color) +'%22'+ if($fw-check-border-radius != 0, '%20stroke-linecap%3D%22round%22', '') +'%20stroke-width%3D%22'+ str-slice($fw-check-tick-width + unquote("") , 0 , 1) +'%22%20points%3D%223%207.5%206.3%2010.8%2012.9%204.8%22/%3E%0A%3C/svg%3E")' !default;
 
 $fw-check-checked-bullet-color: $fw-font-color         !default;
 $fw-check-checked-border-color: $fw-check-border-color !default;
@@ -103,11 +103,10 @@ $fw-check-checked-color:        inherit                !default;
 		+ label {
 			display: inline-flex;
 			align-items: center;
-			//color: $fw-check-input-color;
+			color: $fw-check-input-color;
 			font-size: $fw-check-font-size;
 			padding: $fw-check-padding;
 			user-select: none;
-			transition: all 100ms ease-out;
 
 			-webkit-tap-highlight-color:rgba(0,0,0,0);
 			-webkit-touch-callout: none;
@@ -123,6 +122,7 @@ $fw-check-checked-color:        inherit                !default;
 				// @media (hover: hover) {
 				// 	transition: all 300ms ease-out;
 				// }
+				transition: all 100ms ease-out;
 			}
 
 			&.u-align-top {
@@ -130,7 +130,7 @@ $fw-check-checked-color:        inherit                !default;
 			}
 		}
 
-		&[disabled] {
+		&:disabled {
 
 			+ label {
 				opacity: 0.5;
