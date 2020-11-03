@@ -94,6 +94,10 @@ select {
 		}
 	}
 
+	& > option {
+		height: inherit;
+	}
+
 	// Fix Firefox dotted focusring
 	&:-moz-focusring {
 		color: transparent;
