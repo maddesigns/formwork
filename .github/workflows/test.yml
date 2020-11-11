@@ -28,5 +28,3 @@ jobs:
         build-directory: "docs/"
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-    - name: Merge me!
-      uses: ridedott/merge-me-action@v1.2.62
