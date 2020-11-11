@@ -110,3 +110,13 @@ $fw-progress-track-height:    4px;
 		box-shadow: inset 0 2px 0 rgba(white, 0.1), 0 1px 1px rgba(#131F15, 0.1), 0 0 0 $fw-focus-border-width rgba($fw-check-focus-border-color, $fw-focus-opacity);
 	}
 }
+
+label {
+	color: #776; // #9EA0A5;
+	display: inline-block;
+	font-size: 0.85em;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	margin-bottom: 0.25em;
+	text-transform: uppercase;
+}

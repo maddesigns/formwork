@@ -18,7 +18,7 @@
 
 			form > div,
 			form > p {
-				margin: 1em;
+				margin: 2em;
 			}
 
 			.crange {
@@ -301,7 +301,6 @@
 				<label for="select">Select</label>
 				<select id="select" name="select">
 					<optgroup label="Optgroup&hellip;">
-						<option></option>
 						<option value="value1">Value 1</option>
 						<option value="value2" selected>Value 2 (selected)</option>
 						<option value="value3" disabled>Value 3 (disabled)</option>
@@ -312,6 +311,7 @@
 			<div>
 				<label for="select1">Select150</label>
 				<select id="select1" name="select1">
+					<option selected disabled hidden value="">Please select… (Placeholder)</option>
 					<option value="value1">value1</option>
 					<option value="value2">value2</option>
 					<option value="value3">value3</option>
