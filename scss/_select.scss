@@ -53,8 +53,6 @@ select {
 
 	@if ($fw-styled-inputs) {
 		// custom-select ▾
-		-webkit-appearance: none;
-		-moz-appearance: none;
 		appearance: none;
 		background-image: #{$fw-select-arrow};
 		background-repeat: no-repeat;
@@ -111,6 +109,8 @@ select {
 		padding-right: get-side($fw-input-padding, right);
 		padding-left: ($fw-input-height + get-side($fw-input-padding, left));
 	}
+
+
 }
 
 

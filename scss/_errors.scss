@@ -17,8 +17,8 @@ form:invalid {
 .#{$fw-msg-class} {
 	color: $fw-msg-color;
 	display: block;
-	padding-top: $fw-input-padding/2;
-	padding-bottom: $fw-input-padding/2;
+	padding-top: (get-side($fw-input-padding, top) / 2);
+	padding-bottom: (get-side($fw-input-padding, bottom) / 2);
 	font-style: normal;
 
 	> svg {

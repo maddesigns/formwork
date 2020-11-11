@@ -1,0 +1,9 @@
+name: CI
+on: [pull_request]
+
+jobs:
+  build:
+
+    steps:
+    - name: Merge me!
+      uses: ridedott/merge-me-action@v1.2.62
