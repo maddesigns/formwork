@@ -1,9 +1,10 @@
-name: CI
+name: Merge
 on: [pull_request]
 
 jobs:
   build:
 
+    runs-on: ubuntu-latest
     steps:
     - name: Merge me!
       uses: ridedott/merge-me-action@v1.2.62
