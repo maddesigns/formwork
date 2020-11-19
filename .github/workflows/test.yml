@@ -5,6 +5,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     strategy:
       matrix:
         node-version: [12.x]
@@ -22,7 +24,7 @@ jobs:
         DEFAULT_BRANCH: master
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Percy Test
-      if: github.actor != 'dependabot[bot]'
+      if: github.actor != 'dependabot-preview'
       uses: percy/snapshot-action@v0.1.0
       with:
         build-directory: "docs/"
