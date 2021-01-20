@@ -34,7 +34,7 @@
   "homepage": "https://github.com/maddesigns/formwork/issues#readme",
   "devDependencies": {
     "@percy/agent": "^0.28.5",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.2.3",
     "browser-sync": "^2.26.13",
     "bs-html-injector": "^3.0.3",
     "chromatic": "^5.4.0",
