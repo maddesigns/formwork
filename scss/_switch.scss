@@ -1,4 +1,5 @@
 // switch
+
 $fw-switch-rail-width:          40px                   !default;
 $fw-switch-rail-height:         14px                   !default;
 $fw-switch-rail-border:         none                   !default;
@@ -19,6 +20,7 @@ input[role="switch"] {
 			width: $fw-switch-rail-width;
 			height: $fw-switch-rail-height;
 			background-color: $fw-switch-rail-color;
+			background-image: none;
 			box-shadow: none;
 			border-radius: 1em;
 			transition: background-color 0.28s cubic-bezier(.4, 0, .2, 1);
@@ -41,14 +43,15 @@ input[role="switch"] {
 			transform: translateX(($fw-switch-rail-width) * -1 );
 			order: -1;
 			margin-right: -0.5em;
+			opacity: 1;
+			z-index: 1;
 		}
-
-	&:hover {
-		&::before {
-			background-color: $fw-switch-rail-color;
+	
+		&:hover {
+			&::before {
+				background-color: $fw-switch-rail-color;
+			}
 		}
-	}
-
 	}
 
 	&:checked {
@@ -62,6 +65,7 @@ input[role="switch"] {
 			&:after {
 				background-color: $fw-switch-knob-checked-color;
 				transform: translateX(($fw-switch-knob-width) * -1);
+				animation: none;
 			}
 		}
 	}
@@ -169,6 +173,7 @@ input[role="switch"].ios-style {
 			&:after {
 				background-color: $fw-switch-knob-checked-color;
 				transform: translateX($fw-switch-knob-width * -1);
+				animation: none;
 			}
 		}
 	}
